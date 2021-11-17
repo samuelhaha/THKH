@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Staff Report</title>
+    <style>
+        /* Style the tab */
+        #tab {
+        overflow: hidden;
+        border: 1px solid #ccc;
+        background-color: #f1f1f1;
+        }
+
+        /* Style the buttons that are used to open the tab content */
+        #tab button {
+        background-color: inherit;
+        float: left;
+        border: none;
+        outline: none;
+        cursor: pointer;
+        padding: 14px 16px;
+        transition: 0.3s;
+        }
+
+        /* Change background color of buttons on hover */
+        #tab button:hover {
+        background-color: #ddd;
+        }
+
+        /* Create an active/current tablink class */
+        #tab button.active {
+        background-color: #ccc;
+        }
+
+        /* Style the tab content */
+        #tabContent {
+        display: none;
+        padding: 6px 12px;
+        border: 1px solid #ccc;
+        border-top: none;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div id="logo">Logo</div>
+        <nav>
+            <ul>
+                <li>Create</li>
+                <li>View Reports</li>
+                <li>Save</li>
+                <li>Update</li>
+            </ul>
+        </nav>
+    </header>
+    <section>
+        <div id="tab">
+            <button>A B</button>
+            <button>C</button>
+            <button>D E</button>
+            <button>F</button>
+            <button>G H</button>
+            <button>I J</button>
+            <button>K L M</button>
+        </div>
+        
+        <form action="#">
+            <div id="ab" class="tabContent">
+                <div id="a">
+                    <h3>A: Date & Time of Occurrence</h3>
+                    <div>Date Picker</div>
+                </div>
+                <div id="b" class="tabContent">
+                    <h3>B: Diagnosis - Related to Event</h3>
+                    <div>Text Box</div>
+                </div>
+            </div>
+            <div id="c" class="tabContent">
+                <h3>C: Particulars of Person Involved</h3>
+                <div>
+                    <div>
+                        <h4>Affected Person</h4>
+                        <input type="radio" name="affectedPerson" id="Patient" value="Patient">Patient
+                        <input type="radio" name="affectedPerson" id="VisitorCaregiver" value="VisitorCaregiver">Visitor/Caregiver
+                        <input type="radio" name="affectedPerson" id="Staff" value="Staff">Staff
+                        <div>Witness</div>
+                    </div>
+                    <div>
+                        Patient / Affected Person's Particulars: <input type="text" name="Particulars" id="Particulars">
+                        Name: <input type="text" name="Name" id="Name">
+                        NRIC/FIN/Passport No: <input type="text" name="NRIC" id="NRIC">
+                        Postal Address: <input type="text" name="Postal" id="Postal">
+                        Sex: <input type="radio" name="sex" id="Male" value="Male">Male
+                        <input type="radio" name="sex" id="Female" value="Female">Female
+                        Ward: <input type="text" name="Ward" id="Ward">
+                        Bed: <input type="text" name="Bed" id="Bed">
+                    </div>
+                </div>
+            </div>
+            <div id="de" class="tabContent">
+                <div>
+                    <h3>D: Location of Occurrence</h3>
+                    <div>
+                        <h4>Location</h4>
+                        <input type="radio" name="Location1" id="inWard" value="inWard">In the Ward
+                        <input type="radio" name="Location1" id="outWard" value="outWard">Outside the Ward
+                        <input type="radio" name="Location2" id="Pharmacy" value="Pharmacy">Pharmacy
+                        <input type="radio" name="Location2" id="outHospital" value="outHospital">Outside the Hospital
+                    </div>
+                    <div>
+                        <h4>Site</h4>
+                        <div>Doctor <div>date Picker</div></div>
+                        <div>Supervisor <div>date Picker</div></div>
+                        <div>Police <div>date Picker</div></div>
+                        <div>
+                            Relative 
+                            <div>date Picker</div>
+                            <div>Name:<input type="text" name="relativeName" id="relativeName"></div>
+                            <div>Relationship:<input type="text" name="relativeRS" id="relativeRS"></div>
+                        </div>
+                        <div>Doctor's Name:<input type="text" name="Doctor" id="Doctor"></div>
+                        
+                    </div>
+                </div>
+            </div>
+            <div id="f" class="tabContent">
+                f
+            </div>
+            <div id="gh" class="tabContent">
+                gh
+            </div>
+            <div id="ij" class="tabContent">
+                ij
+            </div>
+            <div id="klm" class="tabContent">
+                klm
+            </div>
+            <div>
+                <button>Save</button>
+                <button>Submit</button>
+                <button>Cancel</button>
+            </div>
+        </form>
+    </section>
+    <script>
+        show = function showTab(tab) {
+        var i;
+
+        for (i = 0; i < domTabs.length; i += 1) {
+            if (tabs[i] === tab) {
+                domTabs[i].style.display = "block";
+            } else {
+                domTabs[i].style.display = "none";
+            }
+        }
+        };
+    </script>
+</body>
+</html>
