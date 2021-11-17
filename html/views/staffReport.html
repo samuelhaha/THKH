@@ -41,9 +41,41 @@
         border: 1px solid #ccc;
         border-top: none;
         }
+
+
+        table {
+            font-family: arial, sans-serif;
+            border-collapse: collapse;
+            width: 100%;
+        }
+
+        td, th {
+            border: 1px solid #dddddd;
+            text-align: left;
+            padding: 8px;
+        }
+
+        tr:nth-child(even) {
+            background-color: #dddddd;
+        }
+
+        #Injury {
+            text-align: center;
+        }
+
+        #Category {
+            text-align: center;
+        }
+
+
+        
+
+      
     </style>
 </head>
 <body>
+
+
     <header>
         <div id="logo">Logo</div>
         <nav>
@@ -126,7 +158,139 @@
                 </div>
             </div>
             <div id="f" class="tabContent">
-                f
+                <table>
+                    <td colspan="3">F: Type of Occurrence</td>
+                    <tr>
+                      <th id="Category">Fall Related</th>
+                      <th id="Category">Medication Related</th>
+                      <th id="Category">Other Incidents</th>
+                    </tr>
+                    <tr>
+                        <td> 
+                            <input type="radio" id="html" name="fav_language" value="HTML">
+                            <label for="html">Fall (Non-Injury)</label>
+                            <input type="radio" id="css" name="fav_language" value="CSS">
+                            <label for="css">Near Fall</label><br>
+                        </td>
+                        <th rowspan="6">Types of Error<br>
+                            <input type="radio" id="css" name="fav_language" value="CSS">
+                            <label for="css">Wrong Patient</label><br>
+                            <input type="radio" id="css" name="fav_language" value="CSS">
+                            <label for="css">Wrong Drug</label><br>
+                            <input type="radio" id="css" name="fav_language" value="CSS">
+                            <label for="css">Wrong Strength/Dose</label><br>
+                            <input type="radio" id="css" name="fav_language" value="CSS">
+                            <label for="css">Wrong Time</label><br>
+                            <input type="radio" id="css" name="fav_language" value="CSS">
+                            <label for="css">Wrong Route</label><br>
+                            <input type="radio" id="css" name="fav_language" value="CSS">
+                            <label for="fname">Others(Specify):
+                            <input type="text" id="fname" name="fname"><br><br>
+                            </label><br><br><br><br>
+
+                            <label for="fname">Drug Involved:
+                            <input type="text" id="fname" name="fname">
+                            <br><br>
+
+                            Error reached patient:   
+                            <input type="radio" id="css" name="fav_language" value="CSS">
+                            <label for="css">Yes</label>
+                            <input type="radio" id="css" name="fav_language" value="CSS">
+                            <label for="css">No</label><br>
+                        </th>
+                        <th rowspan="6">Types of Error<br>
+                            <input type="radio" id="html" name="fav_language" value="CSS">
+                            <label for="html">Injury unrelated to fall</label><br>
+                            <input type="radio" id="css" name="fav_language" value="CSS">
+                            <label for="css">Treatment Related</label><br>
+                            <input type="radio" id="css" name="fav_language" value="CSS">
+                            <label for="css">Diagnostic related</label><br>
+                            <input type="radio" id="css" name="fav_language" value="CSS">
+                            <label for="css">Abuse</label><br>
+                            <input type="radio" id="css" name="fav_language" value="CSS">
+                            <label for="css">Assaults</label><br>
+                            <input type="radio" id="css" name="fav_language" value="CSS">
+                            <label for="css">Needle-stick Injury</label><br>
+                            <input type="radio" id="css" name="fav_language" value="CSS">
+                            <label for="css">Other Incident</label><br><br><br><br><br><br>
+
+                            <label for="fname">Details(Specify):</label>
+                            <input type="text" id="fname" name="fname"><br><br>
+
+                           
+                        </th>
+                    </tr>
+                    <tr>
+                        <td>
+                            <input type="radio" id="html" name="fav_language" value="HTML">
+                            <label for="html">Fall (Injury)</label>
+                            <input type="radio" id="css" name="fav_language" value="CSS">
+                            <label for="css">Near Fall (Injury)</label><br>
+                        </td>
+                       
+                    </tr>
+                    <tr>
+                        <td id="Injury">Injury</td>
+                     
+                    </tr> 
+                    <tr>
+                        <td>
+                            <input type="radio" id="html" name="fav_language" value="HTML">
+                            <label for="html">Fracture</label>
+                            <input type="radio" id="css" name="fav_language" value="CSS">
+                            <label for="css">Laceration</label><br>
+                            <input type="radio" id="html" name="fav_language" value="HTML">
+                            <label for="html">Abrasion</label>
+                            <input type="radio" id="css" name="fav_language" value="CSS">
+                            <label for="css">Hematoma</label><br>
+                            <input type="radio" class="right" name="fav_language" value="HTML">
+                            <label for="html">Head Injury</label>
+                            <input type="radio" class="right" name="fav_language" value="CSS">
+                            <label for="css">Others:</label><br>
+                            <input type="radio" class="right" name="fav_language" value="HTML">
+                            <label for="html">Bruise/Swelling</label>
+                        </td>
+                      
+                    </tr>
+                    <tr>
+                        <td>Fall Risk Assessment:<br>
+                            <input type="radio" id="html" name="fav_language" value="HTML">
+                            <label for="html">Fracture</label>
+                            <input type="radio" id="css" name="fav_language" value="CSS">
+                            <label for="css">Laceration</label>
+                            <input type="radio" id="html" name="fav_language" value="HTML">
+                            <label for="html">Abrasion</label>
+
+                            History of Falls:
+                            <input type="radio" id="html" name="fav_language" value="HTML">
+                            <label for="html">Yes</label>
+                            <input type="radio" id="html" name="fav_language" value="HTML">
+                            <label for="html">No</label>
+
+                          
+                        </td>
+                     
+
+                        
+                     
+                    </tr>
+                    <tr>
+                        <td>Assisted/Unassisted fall:<br>
+                            <input type="radio" id="html" name="fav_language" value="HTML">
+                            <label for="html">Assisted</label>
+                            <input type="radio" id="css" name="fav_language" value="CSS">
+                            <label for="css">Unassisted</label>
+
+                           
+                            <label for="fname"> AMT:</label>
+                            <input type="text" id="fname" name="fname">/10<br><br>
+
+                        </td>
+                    
+                    </tr>
+                  </table>
+            </div>
+
             </div>
             <div id="gh" class="tabContent">
                 gh
