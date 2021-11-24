@@ -1,0 +1,192 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Staff Report</title>
+    <style>
+         /* Style the tab */
+         table {
+        font-family: arial, sans-serif;
+        border-collapse: collapse;
+        width: 100%;
+        }
+
+        td, th {
+        border: 1px solid #dddddd;
+        text-align: left;
+        padding: 8px;
+        }
+
+        tr:nth-child(even) {
+        background-color: #dddddd;
+        }
+        
+        /* Style the tab */
+        #tab {
+        overflow: hidden;
+        border: 1px solid #ccc;
+        background-color: #f1f1f1;
+        }
+
+        /* Style the buttons that are used to open the tab content */
+        #tab button {
+        background-color: inherit;
+        float: left;
+        border: none;
+        outline: none;
+        cursor: pointer;
+        padding: 14px 16px;
+        transition: 0.3s;
+        }
+
+        /* Change background color of buttons on hover */
+        #tab button:hover {
+        background-color: #ddd;
+        }
+
+        /* Create an active/current tablink class */
+        #tab button.active {
+        background-color: #ccc;
+        }
+
+        /* Style the tab content */
+        #tabContent {
+        display: none;
+        padding: 6px 12px;
+        border: 1px solid #ccc;
+        border-top: none;
+        }
+
+          /* Style the top navigation bar */
+          .navbar {
+        overflow: hidden;
+        background-color: #333;
+        }
+
+        /* Style the navigation bar links */
+        .navbar a {
+        float: left;
+        display: block;
+        color: white;
+        text-align: center;
+        padding: 14px 20px;
+        text-decoration: none;
+        }
+
+        /* Right-aligned link */
+        .navbar a.right {
+        float: right;
+        }
+
+        /* Change color on hover */
+        .navbar a:hover {
+        background-color: #ddd;
+        color: black;
+        }
+        /* Footer */
+        .footer {
+        padding: 20px;
+        text-align: center;
+        background: #ddd;
+        }
+    </style>
+</head>
+<body>
+   
+    
+    <div class="navbar">
+        <header>
+            <div id="logo">Logo</div>
+            <a href="#" class="right">Save</a>
+            <a href="#" class="right">View Reports</a>
+            <a href="#" class="right">Update</a>
+            <a href="#" class="right">Create</a>
+        </header> 
+    </div>
+
+    <div id="tab">
+        <button>A B</button>
+        <button>C</button>
+        <button>D E</button>
+        <button>F</button>
+        <button>G H</button>
+        <button>I J</button>
+        <button>K L M</button>
+    </div>
+
+    <div id="ab" class="tabContent">
+        <div id="a">
+            <table>
+                <td colspan="3"><h3>C: Particulars of Person Involved</h3></td>
+               
+                <tr>
+                    <td> 
+                        <h4>Affected Person</h4>
+                        <input type="checkbox" value="P">
+                        <label for="html">Patient</label>
+                        <input type="checkbox" value="P">
+                        <label for="html">Visitor / Caregiver</label>
+                        <input type="checkbox" value="P">
+                        <label for="html">Staff</label>
+                    </td>
+                    <th rowspan="6"><br>
+                      
+                        <label for="css">Patient / Affected Person's Particulars</label>
+                 
+                        <input type="text" id="fname" name="fname"><br><br>
+
+                        <label for="css">Name:</label>
+                 
+                        <input type="text" id="fname" name="fname"><br><br>
+
+                        <label for="css">NRIC/FIN/Passport No:</label>
+                 
+                        <input type="text" id="fname" name="fname"><br><br>
+
+                        <label for="css">Postal Address:</label>
+                 
+                        <input type="text" id="fname" name="fname"><br><br>
+                        
+                        Sex:
+                        <input type="radio" id="css" name="fav_language" value="CSS">
+                        <label for="css">M</label>
+                        <input type="radio" id="css" name="fav_language" value="CSS">
+                        <label for="css">F</label><br><br>
+
+                        <label for="contact">Contact Number:</label>
+                        <input type="text" id="contact" name="contact"><br><br>
+
+                        <label for="css">Ward</label>
+                 
+                        <input type="text" id="fname" name="fname">
+
+                        <label for="css">Bed</label>
+                 
+                        <input type="text" id="fname" name="fname">
+                     
+                    </th>
+            
+                       
+                </tr>
+
+                <tr>
+                    <td>
+                        Witness:
+                    </td>
+                
+                </tr>
+                
+            </table>
+            <div>
+                <button>Submit</button>
+                <button>Cancel</button>
+            </div>
+        </div>   
+    </div>
+    <div class="footer">
+        <h2>Footer</h2>
+    </div>
+</body>
+</html>
