@@ -1,0 +1,301 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>NagDE</title>
+<meta http-equiv="cache-control" content="no-cache" />
+<style>
+
+.page-header {
+  background-color: #eeeeee;
+  color: white;
+  border: 1px solid black;
+  margin: 3px 1px;
+  padding: 20px; 
+  
+}
+.page-header img {
+  float: left;
+  width: 50px;
+  height: 50px;
+  margin:0px 0px
+  
+}
+
+.page-header h1 {
+font-size: 15px;
+  position: relative;
+  color : black;
+  text-align: center;
+  
+}
+<!--style for header button-->
+
+.button {
+ border: none;
+ text-align: center;
+ text-decoration: none;
+ display: inline-block;
+ font-size: 36px;
+ margin: 2px 10px;
+ cursor: pointer;
+ position: relative;
+}
+
+.btn1 {
+ color: blue;
+ margin-right:1px;
+ outline: none;
+ float: left;
+ border-radius: 6px;
+}
+
+.btn {
+ position: relative;
+ display: block;
+ text-align: right;
+ float: right;
+}
+
+ul {
+  list-style-type: none;
+  display:block;
+  margin:auto;
+  width : 19.6%;
+  padding: 0;
+  overflow: hidden;
+}
+
+li {
+  float: left;
+}
+
+li a {
+  display: block;
+  color: Black;
+  text-align: center;
+  padding: 2px 3px;
+  text-decoration: none;
+}
+
+li a:hover:not(.active) {
+  background-color: LightGray;
+
+}
+
+.active {
+  background-color: #04AA6D;
+}
+
+
+.box-wrapper {
+ height: 400px;
+ width: 100%;
+ display: flex;
+ flex-direction: column;
+ border: 1px solid black;
+ background-color: #eeeeee;
+}
+ 
+ #box1 {
+  padding: 8px;
+  height: 20px;
+  margin-top: 1px;
+  margin-bottom: 1px;
+  border: solid 1px blue;
+ }
+  
+ #box2 {
+  width : 100%;
+  height: 20px;
+  padding: 8px;
+  border: solid 1px blue;
+  margin-top: 1px;
+  margin-bottom: 1px;
+ }
+  
+ #box3 {
+  height: 150px;
+  padding: 8px;
+  border: solid 1px blue;
+  margin-top: 1px;
+  margin-bottom: 1px;
+ }
+  
+ #box4 {
+  height: 20px;
+  padding: 8px;
+  border: solid 1px blue;
+  margin-top: 1px;
+  margin-bottom: 1px;
+ 
+}
+
+ul-2 {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+  overflow: hidden;
+  background-color: #eeeeee;
+}
+
+.column {
+  float: left;
+  padding: 8px;
+  height: 120px; 
+ 
+ 
+}
+
+.left {
+  width: 18%;
+}
+
+}
+.middle {
+  width: 42%;
+}
+
+.right {
+  width: 38%
+}
+
+.checkboxes {
+  text-align:left;
+}
+.checkboxes input{
+  margin: 0 5px 0 30px;
+}
+
+input[type=text], select, textarea {
+  border: 1px solid #ccc
+  box-sizing: border-box;
+  margin-top: 3px;
+  margin-bottom:3px;
+  resize: vertical;
+}
+</style>
+</head>
+
+<body>
+
+<div class="page-header"  >
+
+<img src="world.png">
+<h1><span>Banner/Header
+ <div class="btn">
+     <button class="btn1">Help</button>
+	 <button class="btn1">Logout</button>
+	</div> 
+  </span>
+  </h1>
+<!-- header nav -->
+<ul >
+  <li style="border: solid 1px blue"><a href="#news">Create</a></li>
+  <li style="border: solid 1px blue"><a href="#news">View Reports</a></li>
+  <li style="border: solid 1px blue"><a href="#contact">Save</a></li>
+  <li style="border: solid 1px blue"><a href="#contact">Update</a></li>
+ 
+</ul>
+
+
+<!--end header-->
+</div> 
+<!--start box-->
+<div class="box-wrapper">
+<ul-2 style="letter-spacing: 10px">
+  <li style="border: solid 1px blue"><a href="#news">A B</a></li>
+  <li style="border: solid 1px blue"><a href="#news">C</a></li>
+  <li style="border: solid 1px blue"><a href="#contact">D E</a></li>
+  <li style="border: solid 1px blue"><a href="#contact">F</a></li>
+  <li style="border: solid 1px blue"><a href="#contact">G H</a></li>
+  <li style="border: solid 1px blue"><a href="#contact">I J</a></li>
+  <li style="border: solid 1px blue"><a href="#contact">K L M</a></li>
+</ul-2>
+
+        <div id="box1">
+		<label for ="D" style="font-size:14px;font-weight: bold"> D: LOCATION OF OCCURENCE </label>
+		<label class="checkboxes">
+				<input type="checkbox"  id="1"  name="loc" value="1" onclick="getSelectItemThat(this.id,4)" /> In the ward
+				<input type="checkbox"  id="2"  name="loc" value="2" onclick="getSelectItemThat(this.id,4)" /> Outside the ward
+				<input type="checkbox"  id="3"  name="loc" value="3" onclick="getSelectItemThat(this.id,4)" /> Pharmacy
+				<input type="checkbox"  id="4"  name="loc" value="4" onclick="getSelectItemThat(this.id,4)" /> Outside the hospital				
+		</label>
+        </div>
+ 
+      <div id="box2">
+		<label for ="site" style="font-size:14px;font-weight: bold">Site:  </label>	
+		<label class="checkboxes">
+				<input type="checkbox" id="11"  name="site" value="Bedside" onclick="getSelectItemThat(this.id,16)" />Bedside
+				<input type="checkbox" id="12" name="site" value="Cubicle" onclick="getSelectItemThat(this.id,16)" />Cubicle
+				<input type="checkbox" id="13" name="site" value="Corridor" onclick="getSelectItemThat(this.id,16)" />Corridor
+				<input type="checkbox" id="14" name="site" value="Toilet" onclick="getSelectItemThat(this.id,16)" />Toilet
+				<input type="checkbox" id="15" name="site" value="Therapy" onclick="getSelectItemThat(this.id,16)" />Therapy Gym 	
+				<input type="checkbox" id="16" name="site" value="Others" onclick="getSelectItemThat(this.id,16)" />Others, specify:
+				<input type="text"  id="17" size="50" name="others" >				
+		</label>
+		
+        </div>
+		<div id="box3">
+		<div class="row">
+		<div class="column left" style="border: solid 1px blue;background-color:#eeeeee;">
+		<p style="font-weight: bold">E: TIME OF NOTIFICATION</p>
+		</div>
+		<div class="column middle" style="border: solid 1px blue;background-color:#eeeeee;">
+			<label for="Time" style="font-weight: bold">Doctor:</label>
+			<input type="time" id="dtime" name="dtime">
+			<label for="Time" style="font-weight: bold">Supervisor:</label>
+			<input type="time" id="stime" name="stime">
+			<label for="Time" style="font-weight: bold">Police:</label>
+			<input type="time" id="ptime" name="ptime">
+			<br><br><br>
+			<label for="dname">Doctor's Name:</label>
+				<input type="text" id="dname" size="50" name="fname" ><br>
+		</div>
+	
+		<div class="column right" style="border: solid 1px blue;background-color:#eeeeee">
+			<label for="Time" style="font-weight: bold">Relative:</label>
+			<input type="time" id="rtime" name="rtime">
+			<br><br><br>
+			<label for="rname">Relative's Name:</label>
+			<input type="text" id="rname"  size="45" name="fname" ><br>
+			<label for="rship">Relationship:</label>
+			<input type="text" id="rship"  size="45" name="rship" >		
+		</div>
+		</div>
+        </div>
+  
+        <div id="box4">
+		<button type="button" style="margin-right : 50px;float: right">Cancel</button></span>
+	    <button type="button" style="margin-right : 10px;float: right">Submit</button></span>             
+        </div>
+         
+</div>
+
+<footer>
+<h1 style="background-color:#eeeeee;">
+Footer</h1>
+</footer>
+<!--jave script-->
+<script>
+function getSelectItemThat(id,ct) {
+
+if (ct <5)
+	{
+    for (var i = 1;i <= ct; i++)
+    {
+      document.getElementById(i).checked = false;
+    }	
+	}
+else
+{
+for (var i = 11;i <= ct; i++)
+    {
+      document.getElementById(i).checked = false;
+    }
+}
+	
+     document.getElementById(id).checked = true;
+}
+</script>
+</body>
+</html>
