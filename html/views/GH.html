@@ -115,37 +115,76 @@
         <button>K L M</button>
     </div>
 
-<div id="gh" class="tabContent">
-    <table>
-        <td colspan="3"><h3>G: Description on Occurrence</h3> </td>
-        <td><h3>H: Supervisor</h3></td>
-        <tr>
-            <td>
-                <div>
-                    <textarea id="diagnosis" name="diagnosis" rows="9" cols="100">
-                         
-                    </textarea>
-                </div>
-                <br><br>
-                <label for="fname">Name in Full</label>
-                <input type="text" id="fname" name="fname"><br><br>
-                <label for="fname">Designation</label>
-                <input type="text" id="fname" name="fname"><br><br>
-                <label for="fname">Date and Time</label>
-                <input type="text" id="fname" name="fname"><br><br>
-            </td>
-        </tr>
-        
-       
-    
-     
-    </table>
-    <div>
+    <div id="gh" class="tabContent">
+        <table rowspan="3" colspan="3">
+            <tr>
+                <th><h3>G: Description on Occurrence</h3></th>
+                <th><h3>H: Supervisor</h3></th>
+            </tr>
+            
+            <tr style="vertical-align:top">
+                <th rowspan="2"><br>
+
+                    <div>
+                        <textarea id="diagnosis" name="diagnosis" rows="9" cols="100">
+                             
+                        </textarea>
+                    </div>
+                    <tr>
+                        <td>
+                            <br><br>
+                            <label for="fname">Contributing / Mitigating Factors:</label>
+                            <input type="text" id="fname" name="fname"><br><br>
+                            <label for="fname">Recommendations:</label>
+                            <input type="text" id="fname" name="fname"><br><br>
+                            <label for="fname">Name in Full</label>
+                            <input type="text" id="fname" name="fname"><br><br>
+
+                            <form action="/action_page.php">
+                                <label for="date">Date:</label>
+                                <input type="date" id="date" name="date">
+                              
+                                <label for="Time" style="font-weight: bold;">Time</label>
+                                <input type="time" id="time" name="time">
+                            </form>
+
+
+
+                        </td>
+                    </tr>
+
+                    <tr>
+                        <td>
+                            
+                            <br><br>
+                            <label for="fname">Name in Full</label>
+                            <input type="text" id="fname" name="fname"><br><br>
+                            <label for="fname">Designation</label>
+                            <input type="text" id="fname" name="fname"><br><br>
+                            <label for="fname">Date and Time</label>
+                            <input type="text" id="fname" name="fname"><br><br>
+
+                            
+                            
+                        </td>
+                    </tr>
+
+                
+                </th>
+            </tr>
+ 
+         
+        </table>
+      
+
         <button>Save</button>
         <button>Submit</button>
         <button>Cancel</button>
     </div>
 </div>
+
+
+
 <div class="footer">
     <h2>Footer</h2>
 </div>
