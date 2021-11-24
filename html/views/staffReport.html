@@ -67,26 +67,57 @@
             text-align: center;
         }
 
+        /* Style the top navigation bar */
+        .navbar {
+        overflow: hidden;
+        background-color: #333;
+        }
 
-        
+        /* Style the navigation bar links */
+        .navbar a {
+        float: left;
+        display: block;
+        color: white;
+        text-align: center;
+        padding: 14px 20px;
+        text-decoration: none;
+        }
 
-      
+        /* Right-aligned link */
+        .navbar a.right {
+        float: right;
+        }
+
+        /* Change color on hover */
+        .navbar a:hover {
+        background-color: #ddd;
+        color: black;
+        }
+
+        /* Footer */
+        .footer {
+        padding: 20px;
+        text-align: center;
+        background: #ddd;
+        }
+
     </style>
 </head>
 <body>
+    
+    <div class="navbar">
+        <header>
+            <div id="logo">Logo</div>
+            <a href="#" class="right">Save</a>
+            <a href="#" class="right">View Reports</a>
+            <a href="#" class="right">Update</a>
+            <a href="#" class="right">Create</a>
+        </header>
+      
+    </div>
 
 
-    <header>
-        <div id="logo">Logo</div>
-        <nav>
-            <ul>
-                <li>Create</li>
-                <li>View Reports</li>
-                <li>Save</li>
-                <li>Update</li>
-            </ul>
-        </nav>
-    </header>
+  
     <section>
         <div id="tab">
             <button>A B</button>
@@ -101,65 +132,157 @@
         <form action="#">
             <div id="ab" class="tabContent">
                 <div id="a">
-                    <h3>A: Date & Time of Occurrence</h3>
-                    <div>Date Picker</div>
-                </div>
-                <div id="b" class="tabContent">
-                    <h3>B: Diagnosis - Related to Event</h3>
-                    <div>Text Box</div>
-                </div>
+                    <table>
+                        <td colspan="2"><h3>A: Date & Time of Occurrence</h3>
+               
+                            <form action="/action_page.php">
+                            <label for="birthday">Date:</label>
+                            <input type="date" id="birthday" name="birthday">
+                            <input type="submit">
+                            </form>
+                        </td>
+                        <td>
+                            <div id="b" class="tabContent">
+                                <h3>B: Diagnosis - Related to Event</h3>
+                                <div>
+                                    <textarea id="w3review" name="w3review" rows="2" cols="50">
+                                         
+                                    </textarea>
+                                </div>
+                            </div>
+                        </td>
+                    </table>
+                    <div>
+                        <button>Submit</button>
+                        <button>Cancel</button>
+                    </div>
+                </div>   
             </div>
+            
             <div id="c" class="tabContent">
-                <h3>C: Particulars of Person Involved</h3>
-                <div>
+                <table>
+                    <td colspan="3"><h3>C: Particulars of Person Involved</h3></td>
+                   
+                    <tr>
+                        <td> 
+                            <h4>Affected Person</h4>
+                            <input type="radio" id="html" name="fav_language" value="HTML">
+                            <label for="html">Patient</label>
+                            <input type="radio" id="css" name="fav_language" value="CSS">
+                            <label for="css">Visitor/Caregiver</label>
+                            <input type="radio" id="css" name="fav_language" value="CSS">
+                            <label for="css">Staff</label><br>
+                        </td>
+                        <th rowspan="6"><br>
+                          
+                            <label for="css">Patient / Affected Person's Particulars</label>
+                     
+                            <input type="text" id="fname" name="fname"><br><br>
+
+                            <label for="css">Name:</label>
+                     
+                            <input type="text" id="fname" name="fname"><br><br>
+
+                            <label for="css">NRIC/FIN/Passport No:</label>
+                     
+                            <input type="text" id="fname" name="fname"><br><br>
+
+                            <label for="css">Postal Address:</label>
+                     
+                            <input type="text" id="fname" name="fname"><br><br>
+                            
+                            Sex:
+                            <input type="radio" id="css" name="fav_language" value="CSS">
+                            <label for="css">M</label>
+                            <input type="radio" id="css" name="fav_language" value="CSS">
+                            <label for="css">F</label><br><br>
+
+                            <label for="css">Ward</label>
+                     
+                            <input type="text" id="fname" name="fname">
+
+                            <label for="css">Bed</label>
+                     
+                            <input type="text" id="fname" name="fname">
+                         
+                        </th>
+                
+                           
+                    </tr>
+
+                    <tr>
+                        <td>
+                            Witness:
+                        </td>
+                    
+                    </tr>
+                    
+                </table>
+                
                     <div>
-                        <h4>Affected Person</h4>
-                        <input type="radio" name="affectedPerson" id="Patient" value="Patient">Patient
-                        <input type="radio" name="affectedPerson" id="VisitorCaregiver" value="VisitorCaregiver">Visitor/Caregiver
-                        <input type="radio" name="affectedPerson" id="Staff" value="Staff">Staff
-                        <div>Witness</div>
+                        <button>Submit</button>
+                        <button>Cancel</button>
                     </div>
-                    <div>
-                        Patient / Affected Person's Particulars: <input type="text" name="Particulars" id="Particulars">
-                        Name: <input type="text" name="Name" id="Name">
-                        NRIC/FIN/Passport No: <input type="text" name="NRIC" id="NRIC">
-                        Postal Address: <input type="text" name="Postal" id="Postal">
-                        Sex: <input type="radio" name="sex" id="Male" value="Male">Male
-                        <input type="radio" name="sex" id="Female" value="Female">Female
-                        Ward: <input type="text" name="Ward" id="Ward">
-                        Bed: <input type="text" name="Bed" id="Bed">
-                    </div>
-                </div>
-            </div>
+               
+                   
             <div id="de" class="tabContent">
                 <div>
-                    <h3>D: Location of Occurrence</h3>
-                    <div>
-                        <h4>Location</h4>
-                        <input type="radio" name="Location1" id="inWard" value="inWard">In the Ward
-                        <input type="radio" name="Location1" id="outWard" value="outWard">Outside the Ward
-                        <input type="radio" name="Location2" id="Pharmacy" value="Pharmacy">Pharmacy
-                        <input type="radio" name="Location2" id="outHospital" value="outHospital">Outside the Hospital
-                    </div>
-                    <div>
-                        <h4>Site</h4>
-                        <div>Doctor <div>date Picker</div></div>
-                        <div>Supervisor <div>date Picker</div></div>
-                        <div>Police <div>date Picker</div></div>
-                        <div>
-                            Relative 
-                            <div>date Picker</div>
-                            <div>Name:<input type="text" name="relativeName" id="relativeName"></div>
-                            <div>Relationship:<input type="text" name="relativeRS" id="relativeRS"></div>
-                        </div>
-                        <div>Doctor's Name:<input type="text" name="Doctor" id="Doctor"></div>
+                    <table>
+                        <td colspan="2"><h3>D: Location of Occurrence</h3></td>
+                        <td colspan="4"><h3>E: Time of Notification</h3></td>
+                        <tr>
+                            <th id="Category">Location</th>
+                            <th id="Category">Site</th>
+                            <th>Doctor</th>
+                            <th>Supervisor</th>
+                            <th>Police</th>
+                            <th>Relative</th>
+                        </tr>
+                        <tr>
+                          <td>
+                            <div>
+                                <input type="radio" name="Location1" id="inWard" value="inWard">In the Ward<br>
+                                <input type="radio" name="Location1" id="outWard" value="outWard">Outside the Ward<br>
+                                <input type="radio" name="Location2" id="Pharmacy" value="Pharmacy">Pharmacy<br>
+                                <input type="radio" name="Location2" id="outHospital" value="outHospital">Outside the Hospital<br>
+                            
+                            </div>
+                          </td>
+                          <td>
+                                <input type="radio" id="css" name="fav_language" value="CSS">
+                                <label for="css">Beside</label><br>
+                                <input type="radio" id="css" name="fav_language" value="CSS">
+                                <label for="css">Cubicle</label><br>
+                                <input type="radio" id="css" name="fav_language" value="CSS">
+                                <label for="css">Corridor</label><br>
+                                <input type="radio" id="css" name="fav_language" value="CSS">
+                                <label for="css">Toilet</label><br>
+                                <input type="radio" id="css" name="fav_language" value="CSS">
+                                <label for="css">Therapy Gym</label><br>
+                                <input type="radio" id="css" name="fav_language" value="CSS">
+                                <label for="fname">Others(Specify):
+                                <input type="text" id="fname" name="fname">
+                                </label>
+                          </td>
+                          
                         
-                    </div>
+                        <tr>
+                          <td>Laughing Bacchus Winecellars</td>
+                          <td>Yoshi Tannamuri</td>
+                          <td>Canada</td>
+                        </tr>
+                        <tr>
+                          <td>Magazzini Alimentari Riuniti</td>
+                          <td>Giovanni Rovelli</td>
+                          <td>Italy</td>
+                        </tr>
+                      </table>                      
+            
                 </div>
             </div>
             <div id="f" class="tabContent">
                 <table>
-                    <td colspan="3">F: Type of Occurrence</td>
+                    <td colspan="3"><h3>F: Type of Occurrence</h3></td>
                     <tr>
                       <th id="Category">Fall Related</th>
                       <th id="Category">Medication Related</th>
@@ -289,60 +412,136 @@
                     
                     </tr>
                   </table>
+                  <div>
+                    <button>Save</button>
+                    <button>Submit</button>
+                    <button>Cancel</button>
+                </div>
             </div>
 
             </div>
+
             <div id="gh" class="tabContent">
-                <h3>G: Description on Occurrence</h3>
-                <h3>H: Supervisor</h3>
+                <table>
+                    <td colspan="3"><h3>G: Description on Occurrence</h3> </td>
+                    <td><h3>H: Supervisor</h3></td>
+                    
+                   
+                
+                 
+                </table>
+                <div>
+                    <button>Save</button>
+                    <button>Submit</button>
+                    <button>Cancel</button>
+                </div>
             </div>
+
             <div id="ij" class="tabContent">
-                <h3>I: Doctor's Medical Report/ Follow-Up Report</h3>
+                <table>
+                    <tr>
+                        <th><h3>J: Pharmacy's Comments (For Medication Related Hor</h3></th>
+                        <th><h3>I: Doctor's Medical Report/ Follow-Up Report</h3></th>
+                    </tr>
+                    
+                    <tr>
+                        <th rowspan="2"><br>
+                  
 
-                <h3>J: Pharmacy's Comments (For Medication Related Hor</h3>
+                            <br>
+                            <label for="fname">Name or Stamp, Signature and MCR No:</label>
+                            <input type="text" id="fname" name="fname"><br><br>
+       
+                        </th>
+                    </tr>
+                    <tr>
+                        <td colspan="4">
+                            Direct Result of Error to Patient:<br>
+                            <input type="radio" id="css" name="fav_language" value="CSS">
+                            <label for="css">No Patient Harm Caused</label><br>
+                            <input type="radio" id="css" name="fav_language" value="CSS">
+                            <label for="css">Patient Monitoring or Observation Required</label><br>
+                            <input type="radio" id="css" name="fav_language" value="CSS">
+                            <label for="css">Medical Intenvention(s) required</label><br>
+                            <input type="radio" id="css" name="fav_language" value="CSS">
+                            <label for="css">Patient was transferred out</label><br>
+                            <input type="radio" id="css" name="fav_language" value="CSS">
+                            <label for="css">Near Death event/Death</label><br>
+                            Error Phase:
+                            <input type="radio" id="css" name="fav_language" value="CSS">
+                            <label for="css">Prescribing</label>
+                            <input type="radio" id="css" name="fav_language" value="CSS">
+                            <label for="css">Dispensing</label>
+                            <input type="radio" id="css" name="fav_language" value="CSS">
+                            <label for="css">Administering</label><br>
+                            Error Index:
+                            <input type="radio" id="css" name="fav_language" value="CSS">
+                            <label for="css">A</label>
+                            <input type="radio" id="css" name="fav_language" value="CSS">
+                            <label for="css">B</label>
+                            <input type="radio" id="css" name="fav_language" value="CSS">
+                            <label for="css">C</label>
+                            <input type="radio" id="css" name="fav_language" value="CSS">
+                            <label for="css">D</label>
+                            <input type="radio" id="css" name="fav_language" value="CSS">
+                            <label for="css">Others:</label><br>
+                        </td>
+                        
+                        
+                    </tr>
+                    
+                    
+                    
+                   
+                
+                 
+                </table>
+              
 
-                Direct Result of Error to Patient:<br>
-                <input type="radio" id="css" name="fav_language" value="CSS">
-                <label for="css">No Patient Harm Caused</label><br>
-                <input type="radio" id="css" name="fav_language" value="CSS">
-                <label for="css">Patient Monitoring or Observation Required</label><br>
-                <input type="radio" id="css" name="fav_language" value="CSS">
-                <label for="css">Medical Intenvention(s) required</label><br>
-                <input type="radio" id="css" name="fav_language" value="CSS">
-                <label for="css">Patient was transferred out</label><br>
-                <input type="radio" id="css" name="fav_language" value="CSS">
-                <label for="css">Near Death event/Death</label><br>
-                Error Phase:
-                <input type="radio" id="css" name="fav_language" value="CSS">
-                <label for="css">Prescribing</label>
-                <input type="radio" id="css" name="fav_language" value="CSS">
-                <label for="css">Dispensing</label>
-                <input type="radio" id="css" name="fav_language" value="CSS">
-                <label for="css">Administering</label><br>
-                Error Index:
-                <input type="radio" id="css" name="fav_language" value="CSS">
-                <label for="css">A</label>
-                <input type="radio" id="css" name="fav_language" value="CSS">
-                <label for="css">B</label>
-                <input type="radio" id="css" name="fav_language" value="CSS">
-                <label for="css">C</label>
-                <input type="radio" id="css" name="fav_language" value="CSS">
-                <label for="css">D</label>
-                <input type="radio" id="css" name="fav_language" value="CSS">
-                <label for="css">Others:</label><br>
+     
+
 
             </div>
             <div id="klm" class="tabContent">
-                <h3>Head of Department Comments</h3>
-                <h3>Healthcare Performance Office Comments</h3>
-                Fall Injury Outcome<br>
-                <input type="radio" id="css" name="fav_language" value="CSS">
-                <label for="css">Minor</label>
-                <input type="radio" id="css" name="fav_language" value="CSS">
-                <label for="css">Moderate</label>
-                <input type="radio" id="css" name="fav_language" value="CSS">
-                <label for="css">Major</label>
-                <h3>Director,Medical Service Comments</h3>
+                <table>
+                    <tr> 
+                        <th><h3>K: Head of Department Comments</h3></th>
+                        <th><h3>M: Director, Medical Service Comments</h3></th>
+                    </tr>
+                    <tr>
+                        <th rowspan="2"><br>
+                            <br>
+                            <label for="fname">Name or Stamp, Signature and MCR No:</label>
+                            <input type="text" id="fname" name="fname"><br><br>
+       
+                        </th>
+                    </tr>
+                    <tr>
+                        <td>
+                            <input type="radio" id="css" name="fav_language" value="CSS">
+                            <label for="css">Serious Reportable Event</label>
+                            <input type="radio" id="css" name="fav_language" value="CSS">
+                            <label for="css">Root Cause Analysis Required</label>
+                            <input type="radio" id="css" name="fav_language" value="CSS">
+                            <label for="css">Case-closed</label>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <th><h3>L: Healthcare Performance Office Comments</h3></th>
+                            Fall Injury outcome:
+                            <input type="radio" id="css" name="fav_language" value="CSS">
+                            <label for="css">Minor</label>
+                            <input type="radio" id="css" name="fav_language" value="CSS">
+                            <label for="css">Moderate</label>
+                            <input type="radio" id="css" name="fav_language" value="CSS">
+                            <label for="css">Major</label>
+                        </td>
+                    </tr>
+                   
+               
+                   
+                </table>
             </div>
             <div>
                 <button>Save</button>
@@ -364,5 +563,8 @@
         }
         };
     </script>
+    <div class="footer">
+        <h2>Footer</h2>
+    </div>
 </body>
 </html>
