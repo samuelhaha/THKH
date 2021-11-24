@@ -136,16 +136,18 @@
                         <td colspan="2"><h3>A: Date & Time of Occurrence</h3>
                
                             <form action="/action_page.php">
-                            <label for="birthday">Date:</label>
-                            <input type="date" id="birthday" name="birthday">
-                            <input type="submit">
+                                <label for="birthday">Date:</label>
+                                <input type="date" id="birthday" name="birthday">
+                              
+                                <label for="Time" style="font-weight: bold;">Time</label>
+                                <input type="time" id="time" name="time">
                             </form>
                         </td>
                         <td>
                             <div id="b" class="tabContent">
                                 <h3>B: Diagnosis - Related to Event</h3>
                                 <div>
-                                    <textarea id="w3review" name="w3review" rows="2" cols="50">
+                                    <textarea id="w3review" name="w3review" rows="9" cols="100">
                                          
                                     </textarea>
                                 </div>
@@ -166,12 +168,12 @@
                     <tr>
                         <td> 
                             <h4>Affected Person</h4>
-                            <input type="radio" id="html" name="fav_language" value="HTML">
+                            <input type="checkbox" value="P">
                             <label for="html">Patient</label>
-                            <input type="radio" id="css" name="fav_language" value="CSS">
-                            <label for="css">Visitor/Caregiver</label>
-                            <input type="radio" id="css" name="fav_language" value="CSS">
-                            <label for="css">Staff</label><br>
+                            <input type="checkbox" value="P">
+                            <label for="html">Visitor / Caregiver</label>
+                            <input type="checkbox" value="P">
+                            <label for="html">Staff</label>
                         </td>
                         <th rowspan="6"><br>
                           
@@ -196,6 +198,9 @@
                             <label for="css">M</label>
                             <input type="radio" id="css" name="fav_language" value="CSS">
                             <label for="css">F</label><br><br>
+
+                            <label for="contact">Contact Number:</label>
+                            <input type="text" id="contact" name="contact"><br><br>
 
                             <label for="css">Ward</label>
                      
