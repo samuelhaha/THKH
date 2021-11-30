@@ -141,16 +141,35 @@
                 <th><h3>K: Head of Department Comments</h3></th>
                 <th><h3>M: Director, Medical Service Comments</h3></th>
             </tr>
+
             <tr>
                 <th rowspan="2"><br>
                     <br>
+                    <div>
+                        Comments:
+                        <textarea id="diagnosis" name="diagnosis" rows="9" cols="80">
+                             
+                        </textarea>
+                    </div>
+                    <br><br><br>
                     <label for="fname">Name or Stamp, Signature and MCR No:</label>
                     <input type="text" id="fname" name="fname"><br><br>
 
+                    
                 </th>
+                
+                
             </tr>
+
             <tr>
                 <td>
+                    <div>
+                        Comments:
+                        <textarea id="diagnosis" name="diagnosis" rows="9" cols="80">
+                             
+                        </textarea>
+                    </div>
+                    <br><br>
                     <input type="radio" id="css" name="fav_language" value="CSS">
                     <label for="css">Serious Reportable Event</label>
                     <input type="radio" id="css" name="fav_language" value="CSS">
@@ -161,24 +180,30 @@
             </tr>
             <tr>
                 <td>
-                    <th><h3>L: Healthcare Performance Office Comments</h3></th>
-                    Fall Injury outcome:
-                    <input type="radio" id="css" name="fav_language" value="CSS">
-                    <label for="css">Minor</label>
-                    <input type="radio" id="css" name="fav_language" value="CSS">
-                    <label for="css">Moderate</label>
-                    <input type="radio" id="css" name="fav_language" value="CSS">
-                    <label for="css">Major</label>
+                    <th>
+                        <h3>L: Healthcare Performance Office Comments</h3>
+                        <div>
+                            Comments:
+                            <textarea id="diagnosis" name="diagnosis" rows="9" cols="80">
+                                 
+                            </textarea>
+                        </div>
+                        <br>
+                        Fall Injury outcome:
+                        <input type="radio" id="Minor" name="Minor" value="Minor">
+                        <label for="Minor">Minor</label>
+                        <input type="radio" id="Moderate" name="Moderate" value="Moderate">
+                        <label for="Moderate">Moderate</label>
+                        <input type="radio" id="Moderate" name="Major" value="Major">
+                        <label for="Major">Major</label>
+                    </th>
+                
                 </td>
             </tr>
-           
-       
-           
+         
         </table>
     </div>
     <div>
-
-        <button>Save</button>
         <button>Submit</button>
         <button>Cancel</button>
     </div>
