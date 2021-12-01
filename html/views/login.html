@@ -173,6 +173,22 @@ Body {
             background-color: lightblue;
         } 
 
+        table {
+  font-family: arial, sans-serif;
+  border-collapse: collapse;
+  width: 100%;
+}
+
+td, th {
+  border: 1px solid #dddddd;
+  text-align: left;
+  padding: 8px;
+}
+
+tr:nth-child(even) {
+  background-color: #dddddd;
+}
+
 
 </style>
 </head>
@@ -210,36 +226,48 @@ Body {
   <a href="#" class="right">Help</a>
 </div>
 
-<div class="row">
-  <div class="side">
-    <h1> Student Login Form </h1>  
-    <form>  
-        <div class="container">   
-            <label>Username : </label>   
-            <input type="text" placeholder="Enter Username" name="username" required>  
-            <label>Password : </label>   
-            <input type="password" placeholder="Enter Password" name="password" required>  
-            <button type="submit">Login</button>   
-            <input type="checkbox" checked="checked"> Remember me   
-            <button type="button" class="cancelbtn"> Cancel</button><br>   
-            Forgot <a href="#"> password? </a>   
-        </div>   
-    </form>  
-  </div>
-  <div class="main">
-    <h2>Date: 5 Aug 2021</h2>
-    <h5>Type:</h5>
-    <div class="fakeimg" style="height:200px;">Image</div>
-    <p>Title description</p>
-    <p>Sunt in culpa qui officia deserunt mollit anim id est laborum consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco.</p>
-    <br>
-    <h2>Date: 6 Aug 2021</h2>
-    <h5>Type:</h5>
-    <div class="fakeimg" style="height:200px;">Image</div>
-    <p>Title description</p>
-    <p>Sunt in culpa qui officia deserunt mollit anim id est laborum consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco.</p>
-  </div>
-</div>
+<h2>Information</h2>
+
+<table>
+  <tr>
+    <th>Date</th>
+    <th>Type</th>
+    <th>Details</th>
+  </tr>
+  <tr>
+    <td>5 May 2021</td>
+    <td>Type</td>
+    <td>Details</td>
+  </tr>
+  <tr>
+    <td>5 May 2021</td>
+    <td>Type</td>
+    <td>Details</td>
+  </tr>
+  <tr>
+    <td>5 May 2021</td>
+    <td>Type</td>
+    <td>Details</td>
+  </tr>
+  <tr>
+    <td>5 May 2021</td>
+    <td>Type</td>
+    <td>Details</td>
+  </tr>
+  <tr>
+    <td>5 May 2021</td>
+    <td>Type</td>
+    <td>Details</td>
+  </tr>
+  <tr>
+    <td>5 May 2021</td>
+    <td>Type</td>
+    <td>Details</td>
+  </tr>
+</table>
+
+ 
+
 
 <div class="footer">
   <h2>Footer</h2>
