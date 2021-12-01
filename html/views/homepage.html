@@ -82,6 +82,23 @@ font-size: 15px;
  padding: 20px;
 }
 
+/* Column container */
+.row {  
+  display: -ms-flexbox; /* IE10 */
+  display: flex;
+  -ms-flex-wrap: wrap; /* IE10 */
+  flex-wrap: wrap;
+}
+
+/* Create two unequal columns that sits next to each other */
+/* Sidebar/left column */
+.side {
+  -ms-flex: 30%; /* IE10 */
+  flex: 30%;
+  background-color: #f1f1f1;
+  padding: 20px;
+}
+
 </style>
 </head>
 <body>
@@ -114,17 +131,27 @@ font-size: 15px;
 	</div> <!--page header end-->
   
   
- <!--nav comment--> 
+ <!-- nav comment 
  <ul class="nav">
   <li>Navigation Bar</li>
  
-</ul>
+</ul> -->
+
+
+<div class="navbar">
+  <a href="#">Create</a>
+  <a href="AB.html">
+    View Reports
+  </a>
+  <a href="#" class="right">Logout</a> 
+  <a href="#" class="right">Help</a>
+</div>
 
 <!--nav-->
 <table width="100%" border="0">
 <tr valign="top">
 <td bgcolor="#eeeeee" width="10%">
-<form action="" method="">
+<!-- <form action="" method="">
 	<br>
     <label for="uname"><b>Username</b></label>
     <input type="text" placeholder="Enter Username" name="uname" required>
@@ -136,7 +163,24 @@ font-size: 15px;
 	<br>
     <button type="submit" style="border-radius: 6px">Login</button>
 
-</form>
+</form> -->
+
+<div class="row">
+  <div class="side">
+    <h1>Login Form </h1>  
+    <form>  
+        <div class="container">   
+            <label>Username : </label>   
+            <input type="text" placeholder="Enter Username" name="username" required>  
+            <label>Password : </label>   
+            <input type="password" placeholder="Enter Password" name="password" required>  
+            <button type="submit">Login</button>   
+            <input type="checkbox" checked="checked"> Remember me   
+            <button type="button" class="cancelbtn"> Cancel</button><br>   
+            Forgot <a href="#"> password? </a>   
+        </div>   
+    </form>  
+  </div>
 
 </td>
 <td bgcolor="#eeeeee" height="300" width="60%">
