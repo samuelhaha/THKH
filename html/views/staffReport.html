@@ -5,6 +5,9 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Staff Report</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
     <style>
         /* Style the tab */
         #tab {
@@ -116,10 +119,34 @@
       
     </div>
 
-
+    
+      
+      <!-- <div class="tab-content">
+        <div id="home" class="tab-pane fade in active">
+          <h3>HOME</h3>
+          <p>Some content.</p>
+        </div>
+        <div id="menu1" class="tab-pane fade">
+          <h3>Menu 1</h3>
+          <p>Some content in menu 1.</p>
+        </div>
+        <div id="menu2" class="tab-pane fade">
+          <h3>Menu 2</h3>
+          <p>Some content in menu 2.</p>
+        </div>
+      </div> -->
   
     <section>
-        <div id="tab">
+        <ul class="nav nav-tabs">
+            <li class="active"><a data-toggle="tab" href="#ab">A B</a></li>
+            <li><a data-toggle="tab" href="#c">C</a></li>
+            <li><a data-toggle="tab" href="#de">D E</a></li>
+            <li><a data-toggle="tab" href="#f">F</a></li>
+            <li><a data-toggle="tab" href="#g">G</a></li>
+            <li><a data-toggle="tab" href="#h">H</a></li>
+            <li><a data-toggle="tab" href="#h">I</a></li>
+        </ul>
+        <!-- <div id="tab">
             <button>A B</button>
             <button>C</button>
             <button>D E</button>
@@ -128,87 +155,83 @@
             <button>I J</button>
             <button>K L M</button>
         </div>
-        
-        <form action="#">
-            <div id="ab" class="tabContent">
+         -->
+        <div class="tab-content">
+            <div id="ab" class="tab-pane fade in active">
                 <div id="a">
                     <table>
                         <td colspan="2"><h3>A: Date & Time of Occurrence</h3>
-               
-                            <form action="/action_page.php">
-                                <label for="birthday">Date:</label>
-                                <input type="date" id="birthday" name="birthday">
-                              
-                                <label for="Time" style="font-weight: bold;">Time</label>
-                                <input type="time" id="time" name="time">
-                            </form>
+                            <label for="birthday">Date:</label>
+                            2021-05-25
+                            
+                            <label for="Time" style="font-weight: bold;">Time</label>
+                            07:35:41
+                            
                         </td>
                         <td>
-                            <div id="b" class="tabContent">
+                            <div id="b">
                                 <h3>B: Diagnosis - Related to Event</h3>
                                 <div>
-                                    <textarea id="w3review" name="w3review" rows="9" cols="100">
-                                         
-                                    </textarea>
+                                    Lorem ipsum dolor sit amet consectetur adipisicing elit. Saepe ad iusto, incidunt laborum corrupti est architecto quibusdam suscipit voluptatibus quod aut earum officiis harum vel velit vero totam eligendi non.
                                 </div>
                             </div>
                         </td>
                     </table>
-                    <div>
+                    <!-- <div>
                         <button>Submit</button>
                         <button>Cancel</button>
-                    </div>
+                    </div> -->
                 </div>   
             </div>
             
-            <div id="c" class="tabContent">
+            <div id="c" class="tab-pane fade">
                 <table>
                     <td colspan="3"><h3>C: Particulars of Person Involved</h3></td>
                    
                     <tr>
                         <td> 
                             <h4>Affected Person</h4>
-                            <input type="checkbox" value="P">
+                            <input type="checkbox" value="P" disabled>
                             <label for="html">Patient</label>
-                            <input type="checkbox" value="P">
+                            <input type="checkbox" value="P" checked>
                             <label for="html">Visitor / Caregiver</label>
-                            <input type="checkbox" value="P">
+                            <input type="checkbox" value="P" disabled>
                             <label for="html">Staff</label>
                         </td>
                         <th rowspan="6"><br>
                           
                             <label for="css">Patient / Affected Person's Particulars</label>
                      
-                            <input type="text" id="fname" name="fname"><br><br>
+                            <br><br>
 
                             <label for="css">Name:</label>
                      
-                            <input type="text" id="fname" name="fname"><br><br>
+                            Patient3<br><br>
 
                             <label for="css">NRIC/FIN/Passport No:</label>
                      
-                            <input type="text" id="fname" name="fname"><br><br>
+                            G0535893K<br><br>
 
                             <label for="css">Postal Address:</label>
                      
-                            <input type="text" id="fname" name="fname"><br><br>
+                            546215<br><br>
                             
                             Sex:
-                            <input type="radio" id="css" name="fav_language" value="CSS">
+                            <input type="radio" id="css" name="fav_language" value="CSS" checked>
                             <label for="css">M</label>
-                            <input type="radio" id="css" name="fav_language" value="CSS">
+                            <input type="radio" id="css" name="fav_language" value="CSS" disabled>
                             <label for="css">F</label><br><br>
 
                             <label for="contact">Contact Number:</label>
-                            <input type="text" id="contact" name="contact"><br><br>
+                            NULL<br><br>
 
                             <label for="css">Ward</label>
                      
-                            <input type="text" id="fname" name="fname">
+                            2
 
                             <label for="css">Bed</label>
                      
-                            <input type="text" id="fname" name="fname">
+                            1
                          
                         </th>
                 
@@ -217,20 +240,20 @@
 
                     <tr>
                         <td>
-                            Witness:
+                            Witness: NULL
                         </td>
                     
                     </tr>
                     
                 </table>
                 
-                    <div>
-                        <button>Submit</button>
-                        <button>Cancel</button>
-                    </div>
+                <!-- <div>
+                    <button>Submit</button>
+                    <button>Cancel</button>
+                </div> -->
                
-                   
-            <div id="de" class="tabContent">
+            </div>       
+            <div id="de" class="tab-pane fade">
                 <div>
                     <table>
                         <td colspan="2"><h3>D: Location of Occurrence</h3></td>
@@ -285,7 +308,7 @@
             
                 </div>
             </div>
-            <div id="f" class="tabContent">
+            <div id="f" class="tab-pane fade">
                 <table>
                     <td colspan="3"><h3>F: Type of Occurrence</h3></td>
                     <tr>
@@ -417,157 +440,68 @@
                     
                     </tr>
                   </table>
-                  <div>
+                  <!-- <div>
                     <button>Save</button>
                     <button>Submit</button>
                     <button>Cancel</button>
-                </div>
+                </div> -->
             </div>
-
-            </div>
-
-            <div id="gh" class="tabContent">
+            <div id="g" class="tab-pane fade">
                 <table>
                     <td colspan="3"><h3>G: Description on Occurrence</h3> </td>
-                    <td><h3>H: Supervisor</h3></td>
-                    
-                   
-                
-                 
                 </table>
-                <div>
+                <!-- <div>
                     <button>Save</button>
                     <button>Submit</button>
                     <button>Cancel</button>
-                </div>
+                </div> -->
             </div>
-
-            <div id="ij" class="tabContent">
-                <table>
-                    <tr>
-                        <th><h3>J: Pharmacy's Comments (For Medication Related Hor</h3></th>
-                        <th><h3>I: Doctor's Medical Report/ Follow-Up Report</h3></th>
-                    </tr>
-                    
-                    <tr>
-                        <th rowspan="2"><br>
-                  
-
-                            <br>
-                            <label for="fname">Name or Stamp, Signature and MCR No:</label>
-                            <input type="text" id="fname" name="fname"><br><br>
-       
-                        </th>
-                    </tr>
-                    <tr>
-                        <td colspan="4">
-                            Direct Result of Error to Patient:<br>
-                            <input type="radio" id="css" name="fav_language" value="CSS">
-                            <label for="css">No Patient Harm Caused</label><br>
-                            <input type="radio" id="css" name="fav_language" value="CSS">
-                            <label for="css">Patient Monitoring or Observation Required</label><br>
-                            <input type="radio" id="css" name="fav_language" value="CSS">
-                            <label for="css">Medical Intenvention(s) required</label><br>
-                            <input type="radio" id="css" name="fav_language" value="CSS">
-                            <label for="css">Patient was transferred out</label><br>
-                            <input type="radio" id="css" name="fav_language" value="CSS">
-                            <label for="css">Near Death event/Death</label><br>
-                            Error Phase:
-                            <input type="radio" id="css" name="fav_language" value="CSS">
-                            <label for="css">Prescribing</label>
-                            <input type="radio" id="css" name="fav_language" value="CSS">
-                            <label for="css">Dispensing</label>
-                            <input type="radio" id="css" name="fav_language" value="CSS">
-                            <label for="css">Administering</label><br>
-                            Error Index:
-                            <input type="radio" id="css" name="fav_language" value="CSS">
-                            <label for="css">A</label>
-                            <input type="radio" id="css" name="fav_language" value="CSS">
-                            <label for="css">B</label>
-                            <input type="radio" id="css" name="fav_language" value="CSS">
-                            <label for="css">C</label>
-                            <input type="radio" id="css" name="fav_language" value="CSS">
-                            <label for="css">D</label>
-                            <input type="radio" id="css" name="fav_language" value="CSS">
-                            <label for="css">Others:</label><br>
-                        </td>
+            <div id="h" class="tab-pane fade">
+                  <tr>
+                            <td><textarea name="supervisor" id="supervisor" cols="100" rows="10"></textarea></td>
+                        </tr>
                         
-                        
-                    </tr>
-                    
-                    
-                    
-                   
+                    </table>
+                </form> <form action="">
+                    <table>
+                        <tr>
+                            <td><h3>H: Supervisor</h3></td>
+                        </tr>
+                     
                 
-                 
-                </table>
+                <!-- <div>
+                    <button>Save</button>
+                    <button>Submit</button>
+                    <button>Cancel</button>
+                </div> -->
+            </div>
+
+            <div id="i" class="tab-pane fade">
+                <tr>
+                          <td><textarea name="supervisor" id="supervisor" cols="100" rows="10"></textarea></td>
+                      </tr>
+                      
+                  </table>
+              </form> <form action="">
+                  <table>
+                      <tr>
+                          <td><h3>I: Supervisor</h3></td>
+                      </tr>
+                   
               
-
-     
-
-
-            </div>
-            <div id="klm" class="tabContent">
-                <table>
-                    <tr> 
-                        <th><h3>K: Head of Department Comments</h3></th>
-                        <th><h3>M: Director, Medical Service Comments</h3></th>
-                    </tr>
-                    <tr>
-                        <th rowspan="2"><br>
-                            <br>
-                            <label for="fname">Name or Stamp, Signature and MCR No:</label>
-                            <input type="text" id="fname" name="fname"><br><br>
-       
-                        </th>
-                    </tr>
-                    <tr>
-                        <td>
-                            <input type="radio" id="css" name="fav_language" value="CSS">
-                            <label for="css">Serious Reportable Event</label>
-                            <input type="radio" id="css" name="fav_language" value="CSS">
-                            <label for="css">Root Cause Analysis Required</label>
-                            <input type="radio" id="css" name="fav_language" value="CSS">
-                            <label for="css">Case-closed</label>
-                        </td>
-                    </tr>
-                    <tr>
-                        <td>
-                            <th><h3>L: Healthcare Performance Office Comments</h3></th>
-                            Fall Injury outcome:
-                            <input type="radio" id="css" name="fav_language" value="CSS">
-                            <label for="css">Minor</label>
-                            <input type="radio" id="css" name="fav_language" value="CSS">
-                            <label for="css">Moderate</label>
-                            <input type="radio" id="css" name="fav_language" value="CSS">
-                            <label for="css">Major</label>
-                        </td>
-                    </tr>
-                   
-               
-                   
-                </table>
-            </div>
+              <!-- <div>
+                  <button>Save</button>
+                  <button>Submit</button>
+                  <button>Cancel</button>
+              </div> -->
+          </div>
             <div>
                 <button>Save</button>
                 <button>Submit</button>
                 <button>Cancel</button>
             </div>
-        </form>
+        </div>
     </section>
-    <script>
-        show = function showTab(tab) {
-        var i;
-
-        for (i = 0; i < domTabs.length; i += 1) {
-            if (tabs[i] === tab) {
-                domTabs[i].style.display = "block";
-            } else {
-                domTabs[i].style.display = "none";
-            }
-        }
-        };
-    </script>
     <div class="footer">
         <h2>Footer</h2>
     </div>
