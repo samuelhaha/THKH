@@ -25,3 +25,5 @@ Route::get("users",[AccountController::class, 'fetchdata']);
 Route::put("update/{staff_id}", [AccountController::class, 'modify']);
 
 Route::delete("delete/{staff_id}",[AccountController::class,'remove']);
+
+Route::post("check", [AccountController::class, 'check']);
