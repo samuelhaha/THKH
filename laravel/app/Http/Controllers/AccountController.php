@@ -5,6 +5,8 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use App\Models\User;
+use Illuminate\Contracts\Session\Session;
+use Illuminate\Support\Facades\Validator;
 class AccountController extends Controller
 {
     //
@@ -37,47 +39,43 @@ class AccountController extends Controller
         }
         
     }
-    // public function check(Request $request)
-    // {  
-    //     $user = $request->username;
-    //     $pass  = $request->password;
- 
-    //     if (Auth::attempt($user,$pass))
-    //     {
-    //         return response()->json([ [1] ]); //success
-    //     }
-    //     else
-    //      {  
-    //         return response()->json([ [3] ]); //failure
-    //      }  
-    // }
-    public function login(Request $request)
+     public function check(Request $request)
+     {  
+         $validation = Validator::make($request->all(),[
+             'username'=>['required','string'],
+             'password'=>['required','string']
+         ]);
+
+         $credentials = $request->only('staff_id','password');
+    
+         if ($validation->fails()){
+             return response()->json(['code'=>400,'msg'=>$validation->errors()->first()]);
+         }
+         else{
+            if(Auth::attempt($credentials)){
+                $code = 200;
+                //return redirect()->intended('/login');
+                return redirect(route('/home'));
+            }
+             //return response()->json(['code'=>200, 'msg'=>"data passed"]);
+            //redirect
+             
+         }
+     }
+    public function login()
     {
-        return response()->json(['result'=>$request->username]);
-        //$credentials = $request->getCredentials();
-
+       return redirect()->away('http://localhost/THKH/html/views/login.html'); 
         
-        
-        // $request->validate([
-        //     'staff_id' => 'required',
-        //     'password' => 'required|string'
-        // ]);
-
-        // $credentials = request(['staff_id', 'password']);
-
-        // if(!Auth::attempt($credentials)){
-        //     return response()->json(['message' => 'Unauthorized. Please login.'],401);
-        // }
-
-
-
-
-        // $user = $request->user();
-        //return ["Result"=>"Data post"];
     }
 
-//     protected function authenticated(Request $request){
-//         return redirect()->intended();
-//     }
-// }
+    public function home(){
+        return redirect()->away('http://localhost/THKH/html/views/homepage.html');
+    }
+
+    public function logout(){
+        Session::flush();
+        Auth::logout();
+
+        return redirect('login');
+    }
 }

@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\AccountController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -13,6 +14,7 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
+//Route::get('/', [AccountController::class, 'index'])->name('home');
+Route::get('/fetch-data', [AccountController::class, 'fetchdata']);
+Route::get('/login', [AccountController::class, 'home']);
+Route::get('/home',[AccountController::class, 'login']);
