@@ -144,7 +144,9 @@
             <li><a data-toggle="tab" href="#f">F</a></li>
             <li><a data-toggle="tab" href="#g">G</a></li>
             <li><a data-toggle="tab" href="#h">H</a></li>
-            <li><a data-toggle="tab" href="#h">I</a></li>
+            <li><a data-toggle="tab" href="#i">I</a></li>
+           
+            
         </ul>
         <!-- <div id="tab">
             <button>A B</button>
@@ -269,25 +271,25 @@
                         <tr>
                           <td>
                             <div>
-                                <input type="radio" name="Location1" id="inWard" value="inWard">In the Ward<br>
-                                <input type="radio" name="Location1" id="outWard" value="outWard">Outside the Ward<br>
-                                <input type="radio" name="Location2" id="Pharmacy" value="Pharmacy">Pharmacy<br>
-                                <input type="radio" name="Location2" id="outHospital" value="outHospital">Outside the Hospital<br>
+                                <input type="radio" name="Location1" id="inWard" value="inWard" checked>In the Ward<br>
+                                <input type="radio" name="Location1" id="outWard" value="outWard" disabled>Outside the Ward<br>
+                                <input type="radio" name="Location2" id="Pharmacy" value="Pharmacy" disabled>Pharmacy<br>
+                                <input type="radio" name="Location2" id="outHospital" value="outHospital" disabled>Outside the Hospital<br>
                             
                             </div>
                           </td>
                           <td>
-                                <input type="radio" id="css" name="fav_language" value="CSS">
+                                <input type="radio" id="css" name="fav_language" value="CSS" checked>
                                 <label for="css">Beside</label><br>
-                                <input type="radio" id="css" name="fav_language" value="CSS">
+                                <input type="radio" id="css" name="fav_language" value="CSS" disabled>
                                 <label for="css">Cubicle</label><br>
-                                <input type="radio" id="css" name="fav_language" value="CSS">
+                                <input type="radio" id="css" name="fav_language" value="CSS" disabled>
                                 <label for="css">Corridor</label><br>
-                                <input type="radio" id="css" name="fav_language" value="CSS">
+                                <input type="radio" id="css" name="fav_language" value="CSS" disabled>
                                 <label for="css">Toilet</label><br>
-                                <input type="radio" id="css" name="fav_language" value="CSS">
+                                <input type="radio" id="css" name="fav_language" value="CSS" disabled>
                                 <label for="css">Therapy Gym</label><br>
-                                <input type="radio" id="css" name="fav_language" value="CSS">
+                                <input type="radio" id="css" name="fav_language" value="CSS"disabled>
                                 <label for="fname">Others(Specify):
                                 <input type="text" id="fname" name="fname">
                                 </label>
@@ -318,23 +320,23 @@
                     </tr>
                     <tr>
                         <td> 
-                            <input type="radio" id="html" name="fav_language" value="HTML">
+                            <input type="radio" id="html" name="fav_language" value="HTML" checked>
                             <label for="html">Fall (Non-Injury)</label>
-                            <input type="radio" id="css" name="fav_language" value="CSS">
+                            <input type="radio" id="css" name="fav_language" value="CSS" disabled>
                             <label for="css">Near Fall</label><br>
                         </td>
                         <th rowspan="6">Types of Error<br>
-                            <input type="radio" id="css" name="fav_language" value="CSS">
+                            <input type="radio" id="css" name="fav_language" value="CSS" checked>
                             <label for="css">Wrong Patient</label><br>
-                            <input type="radio" id="css" name="fav_language" value="CSS">
+                            <input type="radio" id="css" name="fav_language" value="CSS" disabled>
                             <label for="css">Wrong Drug</label><br>
-                            <input type="radio" id="css" name="fav_language" value="CSS">
+                            <input type="radio" id="css" name="fav_language" value="CSS" disabled>
                             <label for="css">Wrong Strength/Dose</label><br>
-                            <input type="radio" id="css" name="fav_language" value="CSS">
+                            <input type="radio" id="css" name="fav_language" value="CSS" disabled>
                             <label for="css">Wrong Time</label><br>
-                            <input type="radio" id="css" name="fav_language" value="CSS">
+                            <input type="radio" id="css" name="fav_language" value="CSS" disabled>
                             <label for="css">Wrong Route</label><br>
-                            <input type="radio" id="css" name="fav_language" value="CSS">
+                            <input type="radio" id="css" name="fav_language" value="CSS" disabled>
                             <label for="fname">Others(Specify):
                             <input type="text" id="fname" name="fname"><br><br>
                             </label><br><br><br><br>
@@ -344,9 +346,9 @@
                             <br><br>
 
                             Error reached patient:   
-                            <input type="radio" id="css" name="fav_language" value="CSS">
+                            <input type="radio" id="css" name="fav_language" value="CSS" checked>
                             <label for="css">Yes</label>
-                            <input type="radio" id="css" name="fav_language" value="CSS">
+                            <input type="radio" id="css" name="fav_language" value="CSS" disabled>
                             <label for="css">No</label><br>
                         </th>
                         <th rowspan="6">Types of Error<br>
@@ -448,7 +450,51 @@
             </div>
             <div id="g" class="tab-pane fade">
                 <table>
-                    <td colspan="3"><h3>G: Description on Occurrence</h3> </td>
+                   
+                    <table rowspan="3" colspan="3">
+                        <tr>
+                            <th><h3>G: Description on Occurrence</h3></th>
+                    
+                        </tr>
+                        
+                        <tr style="vertical-align:top">
+                            <th rowspan="2"><br>
+            
+                                <div>
+                                    <textarea id="diagnosis" name="diagnosis" rows="9" cols="100">
+                                         
+                                    </textarea>
+                                </div>
+                                <tr>
+                                    <td>
+        
+            
+                                    </td>
+                                </tr>
+            
+                                <tr>
+                                    <td>
+                                        
+                                        <br><br>
+                                        <label for="fname">Name in Full</label>
+                                        <input type="text" id="fname" name="fname"><br><br>
+                                        <label for="fname">Designation</label>
+                                        <input type="text" id="fname" name="fname"><br><br>
+                                        <label for="fname">Date and Time</label>
+                                        <input type="text" id="fname" name="fname"><br><br>
+            
+                                        
+                                        
+                                    </td>
+                                </tr>
+            
+                            
+                            </th>
+                        </tr>
+             
+                     
+                    </table>
+                  
                 </table>
                 <!-- <div>
                     <button>Save</button>
@@ -457,16 +503,38 @@
                 </div> -->
             </div>
             <div id="h" class="tab-pane fade">
-                  <tr>
-                            <td><textarea name="supervisor" id="supervisor" cols="100" rows="10"></textarea></td>
-                        </tr>
-                        
-                    </table>
-                </form> <form action="">
-                    <table>
+                <table>
+                   
+                    <table rowspan="3" colspan="3">
                         <tr>
-                            <td><h3>H: Supervisor</h3></td>
+                            <th><h3>H: Supervisor</h3></th>
+                    
                         </tr>
+               
+        
+                            <td>
+                                <br>
+                                <label for="fname">Contributing / Mitigating Factors:</label>
+                                <input type="text" id="fname" name="fname"><br><br>
+                                <label for="fname">Recommendations:</label>
+                                <input type="text" id="fname" name="fname"><br><br>
+                                <label for="fname">Name in Full</label>
+                                <input type="text" id="fname" name="fname"><br><br>
+    
+                                <form action="/action_page.php">
+                                    <label for="date">Date:</label>
+                                    <input type="date" id="date" name="date">
+                                  
+                                    <label for="Time" style="font-weight: bold;">Time</label>
+                                    <input type="time" id="time" name="time">
+                                </form>
+    
+    
+    
+                            </td>
+                      
+                    </table>
+              
                      
                 
                 <!-- <div>
@@ -475,25 +543,44 @@
                     <button>Cancel</button>
                 </div> -->
             </div>
+          
 
-            <div id="i" class="tab-pane fade">
-                <tr>
-                          <td><textarea name="supervisor" id="supervisor" cols="100" rows="10"></textarea></td>
-                      </tr>
-                      
-                  </table>
-              </form> <form action="">
-                  <table>
-                      <tr>
-                          <td><h3>I: Supervisor</h3></td>
-                      </tr>
-                   
+ 
+         
+       
               
               <!-- <div>
                   <button>Save</button>
                   <button>Submit</button>
                   <button>Cancel</button>
               </div> -->
+         
+          <div id="i" class="tab-pane fade">
+            <table>
+                <tr>
+                    <th><h3>I: Doctor's Medical Report/ Follow-Up Report</h3></th>
+                    
+                </tr>
+                
+                <tr style="vertical-align:top">
+                    <th rowspan="2"><br>
+    
+                        <label for="date">Date:</label>
+                        <input type="date" id="date" name="date">
+                        <label for="Time" style="font-weight: bold;">Time</label>
+                            <input type="time" id="time" name="time">
+    
+                        <br><br>
+                        <label for="fname">Name or Stamp, Signature and MCR No:</label>
+                        <input type="text" id="fname" name="fname"><br><br>
+    
+                    </th>
+                </tr>
+        
+         
+             
+            </table>
+          
           </div>
             <div>
                 <button>Save</button>
