@@ -120,21 +120,7 @@
     </div>
 
     
-      
-      <!-- <div class="tab-content">
-        <div id="home" class="tab-pane fade in active">
-          <h3>HOME</h3>
-          <p>Some content.</p>
-        </div>
-        <div id="menu1" class="tab-pane fade">
-          <h3>Menu 1</h3>
-          <p>Some content in menu 1.</p>
-        </div>
-        <div id="menu2" class="tab-pane fade">
-          <h3>Menu 2</h3>
-          <p>Some content in menu 2.</p>
-        </div>
-      </div> -->
+   
   
     <section>
         <ul class="nav nav-tabs">
@@ -145,19 +131,14 @@
             <li><a data-toggle="tab" href="#g">G</a></li>
             <li><a data-toggle="tab" href="#h">H</a></li>
             <li><a data-toggle="tab" href="#i">I</a></li>
+            <li><a data-toggle="tab" href="#j">J</a></li>
+            <li><a data-toggle="tab" href="#l">L</a></li>
+            <li><a data-toggle="tab" href="#m">M</a></li>
            
             
         </ul>
-        <!-- <div id="tab">
-            <button>A B</button>
-            <button>C</button>
-            <button>D E</button>
-            <button>F</button>
-            <button>G H</button>
-            <button>I J</button>
-            <button>K L M</button>
-        </div>
-         -->
+      
+       
         <div class="tab-content">
             <div id="ab" class="tab-pane fade in active">
                 <div id="a">
@@ -179,10 +160,7 @@
                             </div>
                         </td>
                     </table>
-                    <!-- <div>
-                        <button>Submit</button>
-                        <button>Cancel</button>
-                    </div> -->
+                    
                 </div>   
             </div>
             
@@ -249,10 +227,6 @@
                     
                 </table>
                 
-                <!-- <div>
-                    <button>Submit</button>
-                    <button>Cancel</button>
-                </div> -->
                
             </div>       
             <div id="de" class="tab-pane fade">
@@ -279,6 +253,7 @@
                             </div>
                           </td>
                           <td>
+						  <div>
                                 <input type="radio" id="css" name="Beside" value="CSS" checked>
                                 <label for="css">Beside</label><br>
                                 <input type="radio" id="css" name="Cubicle" value="CSS" disabled>
@@ -294,28 +269,28 @@
                                 <input type="text" id="fname" name="fname">
                                 </label>
                           </td>
-                          <td>
-                            <div>
-                              <input type="time" id="dtime" name="dtime"><br><br><br><br><br><br><br><br>
-                            </td>
-                            </div>
-                            <td>
-                            <div>
-                              <input type="time" id="stime" name="stime"><br><br><br><br><br><br><br><br>
-                            </td>
-                            </div>
-                            <td>
-                            <div>
-                              <input type="time" id="ptime" name="ptime"><br><br><br><br><br><br><br><br>
-                            </td>
-                            </div>
-                            <td>
-                            <div>
-                              <input type="time" id="rdtime" name="rdtime"><br><br><br><br><br><br><br><br>
-                            </td>
-                            </div>
-                        
-                        <tr>
+                        </div>
+						<td>
+						<div>
+						  <input type="time" id="dtime" name="dtime"><br><br><br><br><br><br><br><br>
+						</td>
+                        </div>
+						<td>
+						<div>
+						  <input type="time" id="stime" name="stime"><br><br><br><br><br><br><br><br>
+						</td>
+                        </div>
+						<td>
+						<div>
+						  <input type="time" id="ptime" name="ptime"><br><br><br><br><br><br><br><br>
+						</td>
+                        </div>
+						<td>
+						<div>
+						  <input type="time" id="rdtime" name="rdtime"><br><br><br><br><br><br><br><br>
+						</td>
+                        </div>
+					    <tr>
                           <td>Laughing Bacchus Winecellars</td>
                           <td>Yoshi Tannamuri</td>
                           <td>Canada</td>
@@ -325,7 +300,7 @@
                           <td>Giovanni Rovelli</td>
                           <td>Italy</td>
                         </tr>
-                      </table>                      
+                       </table>        
             
                 </div>
             </div>
@@ -339,8 +314,8 @@
                     </tr>
                     <tr>
                         <td> 
-                            <input type="radio" id="css" name="Fall" value="CSS" checked>
-                            <label for="css">Fall (Non-Injury)</label>
+                            <input type="radio" id="html" name="Fall" value="HTML" checked>
+                            <label for="html">Fall (Non-Injury)</label>
                             <input type="radio" id="css" name="Near" value="CSS" disabled>
                             <label for="css">Near Fall</label><br>
                         </td>
@@ -357,11 +332,12 @@
                             <label for="css">Wrong Route</label><br>
                             <input type="radio" id="css" name="Others" value="CSS" disabled>
                             <label for="fname">Others(Specify):
-                            <input type="text" id="fname" name="fname">
+                            <input type="text" id="fname" name="fname"><br><br>
                             </label><br><br><br><br>
 
                             <label for="fname">Drug Involved:
-                            Yes
+                            <!-- <input type="text" id="fname" name="fname"> -->
+                            test
                             <br><br>
 
                             Error reached patient:   
@@ -383,11 +359,12 @@
                             <label for="css">Assaults</label><br>
                             <input type="radio" id="css" name="Needle-stick" value="CSS" disabled>
                             <label for="css">Needle-stick Injury</label><br>
-                            <input type="radio" id="css" name="Others" value="CSS" disabled>
+                            <input type="radio" id="css" name="Other" value="CSS" disabled>
                             <label for="css">Other Incident</label><br><br><br><br><br><br>
 
                             <label for="fname">Details(Specify):</label>
-                            serious<br><br>
+                            <!-- <input type="text" id="fname" name="fname"><br><br> -->
+                            test
 
                            
                         </th>
@@ -434,9 +411,9 @@
                             <label for="html">Abrasion</label>
 
                             History of Falls:
-                            <input type="radio" id="html" name="Yes" value="HTML" checked>
+                            <input type="radio" id="html" name="fav_language" value="HTML">
                             <label for="html">Yes</label>
-                            <input type="radio" id="html" name="No" value="HTML" disabled>
+                            <input type="radio" id="html" name="fav_language" value="HTML">
                             <label for="html">No</label>
 
                           
@@ -482,25 +459,25 @@
                    
                       <td>
                         <div>
-                            <input type="radio" name="Location1" id="inWard" value="inWard">In the Ward<br>
-                            <input type="radio" name="Location1" id="outWard" value="outWard">Outside the Ward<br>
-                            <input type="radio" name="Location2" id="Pharmacy" value="Pharmacy">Pharmacy<br>
-                            <input type="radio" name="Location2" id="outHospital" value="outHospital">Outside the Hospital<br>
+                            <input type="radio" name="Location1" id="inWard" value="inWard" checked>In the Ward<br>
+                            <input type="radio" name="Location1" id="outWard" value="outWard" disabled>Outside the Ward<br>
+                            <input type="radio" name="Location2" id="Pharmacy" value="Pharmacy" disabled>Pharmacy<br>
+                            <input type="radio" name="Location2" id="outHospital" value="outHospital" disabled>Outside the Hospital<br>
                         
                         </div>
                       </td>
                       <td>
-                            <input type="radio" id="css" name="Beside" value="CSS">
+                            <input type="radio" id="css" name="Beside" value="CSS" checked>
                             <label for="css">Beside</label><br>
-                            <input type="radio" id="css" name="Cubicle" value="CSS">
+                            <input type="radio" id="css" name="Cubicle" value="CSS" disabled>
                             <label for="css">Cubicle</label><br>
-                            <input type="radio" id="css" name="Corridor" value="CSS">
+                            <input type="radio" id="css" name="Corridor" value="CSS" disabled>
                             <label for="css">Corridor</label><br>
-                            <input type="radio" id="css" name="Toilet" value="CSS">
+                            <input type="radio" id="css" name="Toilet" value="CSS" disabled>
                             <label for="css">Toilet</label><br>
-                            <input type="radio" id="css" name="Therapy" value="CSS">
+                            <input type="radio" id="css" name="Therapy" value="CSS" disabled>
                             <label for="css">Therapy Gym</label><br>
-                            <input type="radio" id="css" name="Others" value="CSS">
+                            <input type="radio" id="css" name="Others" value="CSS" disabled>
                             <label for="fname">Others(Specify):
                             <input type="text" id="fname" name="fname">
                             </label>
@@ -510,10 +487,9 @@
                   
                                     <label for="Time" style="font-weight: bold">Doctor:</label>
 									<br>
-                                    4 December 
-                                    <!-- <input type="time" id="dtime" name="dtime">
+                                    <input type="time" id="dtime" name="dtime">
                     
-                                    <input type="time" id="dtime" name="dtime"> -->
+                                    <input type="time" id="dtime" name="dtime">
                           
                       </td>
                     
@@ -553,12 +529,15 @@
                                     <td>
                                         
                                         <br><br>
-                                        <label for="fname">Name in Full:</label>
-                                        ZhiMin<br><br>
-                                        <label for="fname">Designation:</label>
-                                        test<br><br>
+                                        <label for="fname">Name in Full</label>
+                                        <!-- <input type="text" id="fname" name="fname"><br><br> -->
+                                        zhimin
+                                        <label for="fname">Designation</label>
+                                        <!-- <input type="text" id="fname" name="fname"><br><br> -->
+                                        test
                                         <label for="fname">Date and Time</label>
-                                        4 December 3.51pm<br><br>
+                                        <!-- <input type="text" id="fname" name="fname"><br><br> -->
+                                        4 December 4.06pm 
             
                                         
                                         
@@ -592,20 +571,23 @@
                             <td>
                                 <br>
                                 <label for="fname">Contributing / Mitigating Factors:</label>
-                                Factors<br><br>
+                                <!-- <input type="text" id="fname" name="fname"><br><br> -->
+                                test
                                 <label for="fname">Recommendations:</label>
-                                Testing<br><br>
+                                <!-- <input type="text" id="fname" name="fname"><br><br> -->
+                                test
                                 <label for="fname">Name in Full</label>
-                                ZhiMin<br><br>
+                                <!-- <input type="text" id="fname" name="fname"><br><br> -->
+                                ZhiMIn
     
                                 <form action="/action_page.php">
                                     <label for="date">Date:</label>
-                                    4 December
-                                    <!-- <input type="date" id="date" name="date"> -->
+                                    <input type="date" id="date" name="date">
+                                    4 December 
                                   
                                     <label for="Time" style="font-weight: bold;">Time</label>
-                                    <!-- <input type="time" id="time" name="time"> -->
-                                    3.52pm
+                                    <input type="time" id="time" name="time">
+                                    4.05pm
                                 </form>
     
     
@@ -645,16 +627,16 @@
                     <th rowspan="2"><br>
     
                         <label for="date">Date:</label>
-                        4 December 
                         <!-- <input type="date" id="date" name="date"> -->
+                        4 December 
                         <label for="Time" style="font-weight: bold;">Time</label>
                             <!-- <input type="time" id="time" name="time"> -->
-                            3.52pm
+                            4.05pm
     
                         <br><br>
                         <label for="fname">Name or Stamp, Signature and MCR No:</label>
                         <!-- <input type="text" id="fname" name="fname"><br><br> -->
-                        ZhiMin 3727382
+                        zhimin 474737
     
                     </th>
                 </tr>
@@ -662,8 +644,133 @@
          
              
             </table>
+            </div>
+
+            <div id="j" class="tab-pane fade">
+            <table>
+            <tr>
+           
+                <th><h3>J: Pharmacy's Comments (For Medication Related Hor</h3></th>
+            </tr>
+         
+            <tr>
+                <td colspan="4">
+                    Direct Result of Error to Patient:<br>
+                    <input type="radio" id="css" name="No" value="CSS" checked>
+                    <label for="css">No Patient Harm Caused</label><br>
+                    <input type="radio" id="css" name="Patient" value="CSS" disabled>
+                    <label for="css">Patient Monitoring or Observation Required</label><br>
+                    <input type="radio" id="css" name="Medical" value="CSS" disabled>
+                    <label for="css">Medical Intenvention(s) required</label><br>
+                    <input type="radio" id="css" name="Patient" value="CSS" disabled>
+                    <label for="css">Patient was transferred out</label><br>
+                    <input type="radio" id="css" name="Near" value="CSS" disabled>
+                    <label for="css">Near Death event/Death</label><br>
+                    Error Phase:
+                    <input type="radio" id="css" name="Prescribing" value="CSS" checked>
+                    <label for="css">Prescribing</label>
+                    <input type="radio" id="css" name="Dispensing" value="CSS" disabled>
+                    <label for="css">Dispensing</label>
+                    <input type="radio" id="css" name="Administering" value="CSS" disabled>
+                    <label for="css">Administering</label><br>
+                    
+                    <table>
+                        <td colspan="3"><h3>Error Index:</h3> </td>
+                    </table>
+                    <input type="radio" id="css" name="A" value="CSS" checked>
+                    <label for="css">A</label>
+                    <input type="radio" id="css" name="B" value="CSS" disabled>
+                    <label for="css">B</label>
+                    <input type="radio" id="css" name="C" value="CSS" disabled>
+                    <label for="css">C</label>
+                    <input type="radio" id="css" name="D" value="CSS" disabled>
+                    <label for="css">D</label>
+                    <input type="radio" id="css" name="Others" value="CSS" disabled>
+                    <label for="css">Others:</label><br>
+                </td>
+                
+                
+            </tr>
+         
+        </table>
           
           </div>
+
+          <div id="l" class="tab-pane fade">
+            <tr>
+           
+                <th><h3>L: Healthcare Performance Office Comments</h3></th>
+            </tr>
+            <table>
+           
+            <div>
+                Comments:
+                <textarea id="diagnosis" name="diagnosis" rows="9" cols="80">
+                     test
+                </textarea>
+            </div>
+            <br>
+            Fall Injury outcome:
+            <input type="radio" id="Minor" name="Minor" value="Minor" checked>
+            <label for="Minor">Minor</label>
+            <input type="radio" id="Moderate" name="Moderate" value="Moderate" disabled>
+            <label for="Moderate">Moderate</label>
+            <input type="radio" id="Moderate" name="Major" value="Major" disabled>
+            <label for="Major">Major</label>
+        </th>
+    
+    </td>
+</tr>
+
+
+</table>
+</div>
+
+<div id="m" class="tab-pane fade">
+    <tr>
+   
+        <th><h3>M: Director, Medical Service Comments</h3></th>
+    </tr>
+    <table>
+        <tr>
+            <th rowspan="2"><br>
+                <br>
+                <div>
+                    Comments:
+                    <textarea id="diagnosis" name="diagnosis" rows="9" cols="80">
+                         
+                    </textarea>
+                </div>
+                <br><br><br>
+                <label for="fname">Name or Stamp, Signature and MCR No:</label>
+                <!-- <input type="text" id="fname" name="fname"><br><br> -->
+                Zhimin 84773
+
+                
+            </th>
+            
+            
+        </tr>
+
+        <tr>
+            <td>
+                <div>
+                    Comments:
+                    <textarea id="diagnosis" name="diagnosis" rows="9" cols="80">
+                         
+                    </textarea>
+                </div>
+                <br><br>
+                <input type="radio" id="css" name="Serious" value="CSS" checked>
+                <label for="css">Serious Reportable Event</label>
+                <input type="radio" id="css" name="Root" value="CSS" disabled>
+                <label for="css">Root Cause Analysis Required</label>
+                <input type="radio" id="css" name="Case-closed" value="CSS" disabled>
+                <label for="css">Case-closed</label>
+            </td>
+        </tr>
+    </table>
+
             <div>
                 <button>Save</button>
                 <button>Submit</button>
