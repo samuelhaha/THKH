@@ -1,3 +1,4 @@
+//possible bug of adding the same data into the object
 var saveToSession = function () {
     var form = document.querySelector('form');
     console.log(form);
@@ -14,3 +15,7 @@ var saveToSession = function () {
     }
     
 };
+
+$(function() {
+    
+});
