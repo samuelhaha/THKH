@@ -115,8 +115,21 @@ body {
 .footer {
   padding: 20px;
   text-align: center;
-  background: #ddd;
+  background:darkgrey;
+  letter-spacing: 1px;
+  font-weight: bold
 }
+
+/* Footer */
+.footer2 {
+  padding: 20px;
+  text-align: center;
+  background:grey;
+  font-size: 20px;
+  letter-spacing: 2px;
+  
+}
+
 
 /* Responsive layout - when the screen is less than 700px wide, make the two columns stack on top of each other instead of next to each other */
 @media screen and (max-width: 700px) {
@@ -136,7 +149,7 @@ body {
 /* After Media - Samuel */
 
 Body {
-      font-family: Calibri, Helvetica, sans-serif;
+      font-family: Arial, Helvetica, sans-serif;
       background-color: white;
     }
     button { 
@@ -172,6 +185,27 @@ Body {
             padding: 25px; 
             background-color: lightblue;
         } 
+      #AboutUs {
+        text-align: center;
+      
+      }
+      .description {
+        text-align: center;
+        font-family: Arial, Helvetica, sans-serif;
+      }
+
+      .aboutus {
+        background-color:lightblue;
+        font-family: Arial, Helvetica, sans-serif;
+      }
+
+      #myInput {
+        height: 30px;
+        width: 200px;
+        top: 355px;
+        left: 575px;
+      }
+      
 
 
 </style>
@@ -180,7 +214,8 @@ Body {
 
   <div class="page-header">
 
-  <img src="world.png">
+  <img src="logo.jpg" width="1500" height="1600">
+ 
   <h1><span>Banner/Header
    
     </span>
@@ -188,26 +223,27 @@ Body {
   <!-- search bar right align -->
   
   
-        <!-- <div class="search">
-                
-             
-                  <input type="text"
-                      placeholder=" Search Bar"
-                      name="search">
-                 
-             
-          </div> -->
       
     </div> <!--page header end-->
+    <div class="navbar">
+      <a href="#">Create</a>
+      <a href="AB.html">
+        View Reports
+      </a>
+      <a href="#" class="right">Logout</a> 
+      <a href="#" class="right">Help</a>
+    </div>
+
+    <img src="hospitals.jpg" width="1300px" height="400px">
 
 
-<div class="navbar">
-  <a href="#">Create</a>
-  <a href="AB.html">
-    View Reports
-  </a>
-  <a href="#" class="right">Logout</a> 
-  <a href="#" class="right">Help</a>
+<div class="aboutus">
+  <h1 id="AboutUs">About Us</h1>
+    <section class="description">
+      <p class="w3-justify">Ang Mo Kio – Thye Hua Kwan Hospital (AMK – THKH) is a 360-bedded community hospital that offers <br>
+        rehabilitative and sub-acute care. It offers customised care plan for every patient, <br>
+        to help them regain independence and mobility, so as to integrate back into the community.</p>
+    </section>
 </div>
 
 <div class="row">
@@ -241,8 +277,14 @@ Body {
   </div>
 </div>
 
+
+<div class="footer2">
+  <h5>Visiting Hours: 12pm to 8pm, Mon to Sun (including Public Holidays)</h5>
+</div>
+
+
 <div class="footer">
-  <h2>Footer</h2>
+  <h5>© 2021 Ang Mo Kio - Thye Hua Kwan Hospital. All rights reserved.</h5>
 </div>
 
 </body>

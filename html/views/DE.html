@@ -153,27 +153,27 @@
             <tr>
               <td>
                 <div>
-                    <input type="radio" name="Location1" id="inWard" value="inWard">In the Ward<br>
-                    <input type="radio" name="Location1" id="outWard" value="outWard">Outside the Ward<br>
-                    <input type="radio" name="Location2" id="Pharmacy" value="Pharmacy">Pharmacy<br>
-                    <input type="radio" name="Location2" id="outHospital" value="outHospital">Outside the Hospital<br>
+                    <input type="radio" name="Location" id="inWard" value="inWard"><label for="inWard">In the Ward</label><br>
+                    <input type="radio" name="Location" id="outWard" value="outWard"><label for="outWard">Outside the Ward</label><br>
+                    <input type="radio" name="Location" id="pharmacy" value="pharmacy"><label for="pharmacy">Pharmacy</label><br>
+                    <input type="radio" name="Location" id="outHospital" value="outHospital"><label for="outHospital">Outside the Hospital</label><br>
                 
                 </div>
               </td>
               <td>
-                    <input type="radio" id="css" name="fav_language" value="CSS">
-                    <label for="css">Beside</label><br>
-                    <input type="radio" id="css" name="fav_language" value="CSS">
-                    <label for="css">Cubicle</label><br>
-                    <input type="radio" id="css" name="fav_language" value="CSS">
-                    <label for="css">Corridor</label><br>
-                    <input type="radio" id="css" name="fav_language" value="CSS">
-                    <label for="css">Toilet</label><br>
-                    <input type="radio" id="css" name="fav_language" value="CSS">
-                    <label for="css">Therapy Gym</label><br>
-                    <input type="radio" id="css" name="fav_language" value="CSS">
-                    <label for="fname">Others(Specify):
-                    <input type="text" id="fname" name="fname">
+                    <input type="radio" id="beside" name="site" value="beside">
+                    <label for="beside">Beside</label><br>
+                    <input type="radio" id="cubicle" name="site" value="cubicle">
+                    <label for="cubicle">Cubicle</label><br>
+                    <input type="radio" id="corridor" name="site" value="corridor">
+                    <label for="corridor">Corridor</label><br>
+                    <input type="radio" id="toilet" name="site" value="toilet">
+                    <label for="toilet">Toilet</label><br>
+                    <input type="radio" id="therapyGym" name="site" value="therapyGym">
+                    <label for="therapyGym">Therapy Gym</label><br>
+                    <input type="radio" id="SiteOthers" name="site" value="SiteOthers">
+                    <label for="SiteOthers">Others(Specify):
+                    <input type="text" id="siteOthersSpecify" name="SiteOthers">
                     </label>
               </td>
               <td>
@@ -182,8 +182,8 @@
                     <div class="row">
                     
                         <div class="column middle">
-                            <label for="Time" style="font-weight: bold">Doctor:</label>
-                            <input type="time" id="dtime" name="dtime">
+                            <label for="doctorTime" style="font-weight: bold">Doctor:</label>
+                            <input type="time" id="doctorTime" name="doctorTime">
                            
                         </div>
                 
@@ -199,8 +199,8 @@
                     <div class="row">
                     
                         <div class="column middle">
-                            <label for="Time" style="font-weight: bold">Supervisor:</label>
-                            <input type="time" id="stime" name="stime">
+                            <label for="supervisiorTime" style="font-weight: bold">Supervisor:</label>
+                            <input type="time" id="supervisiorTime" name="supervisiorTime">
                            
                         </div>
                 
@@ -216,8 +216,8 @@
                     <div class="row">
                     
                         <div class="column middle">
-                            <label for="Time" style="font-weight: bold">Police:</label>
-                            <input type="time" id="ptime" name="ptime">
+                            <label for="policeTime" style="font-weight: bold">Police:</label>
+                            <input type="time" id="policeTime" name="policeTime">
                            
                         </div>
                 
@@ -233,8 +233,8 @@
                     <div class="row">
                     
                         <div class="column middle">
-                            <label for="Time" style="font-weight: bold">Relative:</label>
-                            <input type="time" id="dtime" name="dtime">
+                            <label for="relativeTime" style="font-weight: bold">Relative:</label>
+                            <input type="time" id="relativeTime" name="relativeTime">
                            
                         </div>
                 
@@ -257,18 +257,18 @@
                     
                     <div class="column middle">
                    
-                        <label for="dname">Doctor's Name:</label>
-                            <input type="text" id="dname" size="50" name="fname" ><br>
+                        <label for="doctorName">Doctor's Name:</label>
+                            <input type="text" id="doctorName" size="50" name="doctorName" ><br>
                     </div>
             
                     <div class="column right">
-                        <label for="Time" style="font-weight: bold">Relative:</label>
-                        <input type="time" id="rtime" name="rtime">
+                        <label for="relativeTime" style="font-weight: bold">Relative:</label>
+                        <input type="time" id="relativeTime" name="relativeTime">
                         <br><br><br>
-                        <label for="rname">Relative's Name:</label>
-                        <input type="text" id="rname"  size="45" name="fname" ><br>
-                        <label for="rship">Relationship:</label>
-                        <input type="text" id="rship"  size="45" name="rship" >		
+                        <label for="relativeName">Relative's Name:</label>
+                        <input type="text" id="relativeName"  size="45" name="relativeName" ><br>
+                        <label for="relativeRship">Relationship:</label>
+                        <input type="text" id="relativeRship"  size="45" name="relativeRship" >		
                     </div>
                     </div>
                 </div>
