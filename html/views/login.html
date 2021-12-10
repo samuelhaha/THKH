@@ -1,10 +1,50 @@
 <!DOCTYPE html>
-<html lang="en">
-<head>
-<title>Page Title</title>
+<html>
+<title>W3.CSS Template</title>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
 <style>
+body {font-family: "Times New Roman", Georgia, Serif;}
+h1, h2, h3, h4, h5, h6 {
+  font-family: "Playfair Display";
+  letter-spacing: 5px;
+}
+
+/* Responsive layout - when the screen is less than 400px wide, make the navigation links stack on top of each other instead of next to each other */
+@media screen and (max-width: 400px) {
+  .navbar a {
+    float: none;
+    width: 100%;
+  }
+}
+
+/* Right-aligned link */
+.navbar a.right {
+  float: right;
+}
+
+/* Change color on hover */
+.navbar a:hover {
+  background-color: #ddd;
+  color: black;
+}
+
+/* Style the top navigation bar */
+.navbar {
+  overflow: hidden;
+  background-color: #333;
+}
+
+/* Style the navigation bar links */
+.navbar a {
+  float: left;
+  display: block;
+  color: white;
+  text-align: center;
+  padding: 14px 20px;
+  text-decoration: none;
+}
 
 .page-header {
   background-color: #eeeeee;
@@ -33,168 +73,26 @@ font-size: 15px;
   box-sizing: border-box;
 }
 
-/* Style the body */
-body {
-  font-family: Arial, Helvetica, sans-serif;
-  margin: 0;
-}
-
-/* Header/logo Title */
-.header {
-  padding: 80px;
-  text-align: center;
-  background: #1abc9c;
-  color: white;
-}
-
-/* Increase the font size of the heading */
-.header h1 {
-  font-size: 40px;
-}
-
-/* Style the top navigation bar */
-.navbar {
-  overflow: hidden;
-  background-color: #333;
-}
-
-/* Style the navigation bar links */
-.navbar a {
-  float: left;
-  display: block;
-  color: white;
-  text-align: center;
-  padding: 14px 20px;
-  text-decoration: none;
-}
-
-/* Right-aligned link */
-.navbar a.right {
-  float: right;
-}
-
-/* Change color on hover */
-.navbar a:hover {
-  background-color: #ddd;
-  color: black;
-}
-
-/* Column container */
-.row {  
-  display: -ms-flexbox; /* IE10 */
-  display: flex;
-  -ms-flex-wrap: wrap; /* IE10 */
-  flex-wrap: wrap;
-}
-
-/* Create two unequal columns that sits next to each other */
-/* Sidebar/left column */
-.side {
-  -ms-flex: 30%; /* IE10 */
-  flex: 30%;
-  background-color: #f1f1f1;
-  padding: 20px;
-}
-
-/* Main column */
-.main {   
-  -ms-flex: 70%; /* IE10 */
-  flex: 70%;
-  background-color: white;
-  padding: 20px;
-}
-
-/* Fake image, just for this example */
-.fakeimg {
-  background-color: #aaa;
-  width: 100%;
-  padding: 20px;
-}
-
-/* Footer */
-.footer {
-  padding: 20px;
-  text-align: center;
-  background: #ddd;
-}
-
-/* Responsive layout - when the screen is less than 700px wide, make the two columns stack on top of each other instead of next to each other */
-@media screen and (max-width: 700px) {
-  .row {   
-    flex-direction: column;
-  }
-}
-
-/* Responsive layout - when the screen is less than 400px wide, make the navigation links stack on top of each other instead of next to each other */
-@media screen and (max-width: 400px) {
-  .navbar a {
-    float: none;
-    width: 100%;
-  }
-}
-
-/* After Media - Samuel */
-
-Body {
-      font-family: Calibri, Helvetica, sans-serif;
-      background-color: white;
-    }
-    button { 
-           background-color: #4CAF50; 
-           width: 100%;
-            color: orange; 
-            padding: 15px; 
-            margin: 10px 0px; 
-            border: none; 
-            cursor: pointer; 
-             } 
-     form { 
-            border: 3px solid #131212; 
-        } 
-     input[type=text], input[type=password] { 
-            width: 100%; 
-            margin: 8px 0;
-            padding: 12px 20px; 
-            display: inline-block; 
-            
-            box-sizing: border-box; 
-        }
-     button:hover { 
-            opacity: 0.7; 
-        } 
-      .cancelbtn { 
-            width: auto; 
-            padding: 10px 18px;
-            margin: 10px 5px;
-        } 
-        
-     .container { 
-            padding: 25px; 
-            background-color: lightblue;
-        } 
-
-        table {
-  font-family: arial, sans-serif;
-  border-collapse: collapse;
-  width: 100%;
-}
-
-td, th {
-  border: 1px solid #dddddd;
-  text-align: left;
-  padding: 8px;
-}
-
-tr:nth-child(even) {
-  background-color: #dddddd;
-}
-
 
 </style>
-</head>
 <body>
 
-  <div class="page-header">
+<!-- 
+<div class="w3-top">
+  <div class="w3-bar w3-white w3-padding w3-card" style="letter-spacing:4px;">
+     Right-sided navbar links. Hide them on small screens
+    <div class="navbar">
+      <a href="#">Create</a>
+      <a href="AB.html">
+        View Reports
+      </a>
+      <a href="#" class="right">Logout</a> 
+      <a href="#" class="right">Help</a>
+    </div>
+  </div>
+</div>-->
+
+<div class="page-header">
 
   <img src="world.png">
   <h1><span>Banner/Header
@@ -214,7 +112,7 @@ tr:nth-child(even) {
              
           </div> -->
       
-    </div> <!--page header end-->
+  </div> <!--page header end-->
 
 
 <div class="navbar">
@@ -226,49 +124,81 @@ tr:nth-child(even) {
   <a href="#" class="right">Help</a>
 </div>
 
-<h2>Information</h2>
+<header class="w3-display-container w3-content w3-wide" style="max-width:1600px;min-width:500px" id="home">
+  <img class="w3-image" src="hospitals.jpg" alt="Hamburger Catering" width="1600" height="800">
+  <div class="w3-display-bottomleft w3-padding-large w3-opacity">
+    <h1 class="w3-xxlarge">THKH</h1>
+  </div>
+</header>
 
-<table>
-  <tr>
-    <th>Date</th>
-    <th>Type</th>
-    <th>Details</th>
-  </tr>
-  <tr>
-    <td>5 May 2021</td>
-    <td>Type</td>
-    <td>Details</td>
-  </tr>
-  <tr>
-    <td>5 May 2021</td>
-    <td>Type</td>
-    <td>Details</td>
-  </tr>
-  <tr>
-    <td>5 May 2021</td>
-    <td>Type</td>
-    <td>Details</td>
-  </tr>
-  <tr>
-    <td>5 May 2021</td>
-    <td>Type</td>
-    <td>Details</td>
-  </tr>
-  <tr>
-    <td>5 May 2021</td>
-    <td>Type</td>
-    <td>Details</td>
-  </tr>
-  <tr>
-    <td>5 May 2021</td>
-    <td>Type</td>
-    <td>Details</td>
-  </tr>
-</table>
+<!-- Page content -->
+<div class="w3-content" style="max-width:1100px">
 
-<div class="footer">
-  <h5>© 2021 Ang Mo Kio - Thye Hua Kwan Hospital. All rights reserved.</h5>
+  <!-- About Section -->
+  <div class="w3-row w3-padding-64" id="about">
+    <div class="w3-col m6 w3-padding-large w3-hide-small">
+     <img src="team.jpg" class="w3-round w3-image w3-opacity-min" alt="Table Setting" width="600" height="750">
+    </div>
+
+    <div class="w3-col m6 w3-padding-large">
+      <h1 class="w3-center">About Catering</h1><br>
+      <h5 class="w3-center">Tradition since 1889</h5>
+      <p class="w3-large">The Catering was founded in blabla by Mr. Smith in lorem ipsum dolor sit amet, consectetur adipiscing elit consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute iruredolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.We only use <span class="w3-tag w3-light-grey">seasonal</span> ingredients.</p>
+      <p class="w3-large w3-text-grey w3-hide-medium">Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum consectetur adipiscing elit, sed do eiusmod temporincididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
+    </div>
+  </div>
+  
+  <hr>
+  
+  <!-- Menu Section -->
+  <div class="w3-row w3-padding-64" id="menu">
+    <div class="w3-col l6 w3-padding-large">
+      <h1 class="w3-center">Our Menu</h1><br>
+      <h4>Bread Basket</h4>
+      <p class="w3-text-grey">Assortment of fresh baked fruit breads and muffins 5.50</p><br>
+    
+      <h4>Honey Almond Granola with Fruits</h4>
+      <p class="w3-text-grey">Natural cereal of honey toasted oats, raisins, almonds and dates 7.00</p><br>
+    
+      <h4>Belgian Waffle</h4>
+      <p class="w3-text-grey">Vanilla flavored batter with malted flour 7.50</p><br>
+    
+      <h4>Scrambled eggs</h4>
+      <p class="w3-text-grey">Scrambled eggs, roasted red pepper and garlic, with green onions 7.50</p><br>
+    
+      <h4>Blueberry Pancakes</h4>
+      <p class="w3-text-grey">With syrup, butter and lots of berries 8.50</p>    
+    </div>
+    
+    <div class="w3-col l6 w3-padding-large">
+      <img src="help.jpg" class="w3-round w3-image w3-opacity-min" alt="Menu" style="width:100%">
+    </div>
+  </div>
+
+  <hr>
+
+  <!-- Feedback Section -->
+  <div class="w3-container w3-padding-64" id="Feedback">
+    <h1>Feedback</h1><br>
+    <p>Visiting Hours: 12pm to 8pm, Mon to Sun (including Public Holidays)</p>
+    <p class="w3-text-blue-grey w3-large"><b>Singapore 530211</b></p>
+    <p>We welcome your feedback and enquiries. We aim to contact you within three working days. Alternatively, feel free to contact us at +65 6453 8033 if you have any queries or would like to visit our Hospital.</p>
+    <form action="/action_page.php" target="_blank">
+      <p><input class="w3-input w3-padding-16" type="text" placeholder="Name" required name="Name"></p>
+      <p><input class="w3-input w3-padding-16" type="number" placeholder="How many people" required name="People"></p>
+      <p><input class="w3-input w3-padding-16" type="datetime-local" placeholder="Date and time" required name="date" value="2020-11-16T20:00"></p>
+      <p><input class="w3-input w3-padding-16" type="text" placeholder="Message \ Special requirements" required name="Message"></p>
+      <p><button class="w3-button w3-light-grey w3-section" type="submit">SEND MESSAGE</button></p>
+    </form>
+  </div>
+  
+<!-- End page content -->
 </div>
+
+<!-- Footer -->
+<footer class="w3-center w3-light-grey w3-padding-32">
+  <h6>© 2021 Ang Mo Kio - Thye Hua Kwan Hospital. All rights reserved.</h6>
+</footer>
 
 </body>
 </html>
