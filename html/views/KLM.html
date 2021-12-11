@@ -147,12 +147,12 @@
                     <br>
                     <div>
                         Comments:
-                        <textarea id="diagnosis" name="diagnosis" rows="9" cols="80">
+                        <textarea id="KComments" name="KComments" rows="9" cols="80">
                              
                         </textarea>
                     </div>
                     <br><br><br>
-                    <label for="fname">Name or Stamp, Signature and MCR No:</label>
+                    <label for="nameStampK">Name or Stamp, Signature and MCR No:</label>
                     <input type="text" id="fname" name="fname"><br><br>
 
                     
@@ -165,17 +165,16 @@
                 <td>
                     <div>
                         Comments:
-                        <textarea id="diagnosis" name="diagnosis" rows="9" cols="80">
-                             
+                        <textarea id="diagnosis" name="diagnosis" rows="9" cols="80">  
                         </textarea>
                     </div>
                     <br><br>
-                    <input type="radio" id="css" name="fav_language" value="CSS">
-                    <label for="css">Serious Reportable Event</label>
-                    <input type="radio" id="css" name="fav_language" value="CSS">
-                    <label for="css">Root Cause Analysis Required</label>
-                    <input type="radio" id="css" name="fav_language" value="CSS">
-                    <label for="css">Case-closed</label>
+                    <input type="radio" id="seriousReportableEvent" name="MRadio" value="Serious Reportable Event">
+                    <label for="seriousReportableEvent">Serious Reportable Event</label>
+                    <input type="radio" id="rootCauseAnalysisRequired" name="MRadio" value="Root Cause Analysis Required">
+                    <label for="rootCauseAnalysisRequired">Root Cause Analysis Required</label>
+                    <input type="radio" id="caseClosed" name="MRadio" value="Case-closed">
+                    <label for="caseClosed">Case-closed</label>
                 </td>
             </tr>
             <tr>
@@ -184,17 +183,16 @@
                         <h3>L: Healthcare Performance Office Comments</h3>
                         <div>
                             Comments:
-                            <textarea id="diagnosis" name="diagnosis" rows="9" cols="80">
-                                 
+                            <textarea id="LComments" name="LComments" rows="9" cols="80">
                             </textarea>
                         </div>
                         <br>
                         Fall Injury outcome:
-                        <input type="radio" id="Minor" name="Minor" value="Minor">
+                        <input type="radio" id="Minor" name="fallInjuryOutcome" value="Minor">
                         <label for="Minor">Minor</label>
-                        <input type="radio" id="Moderate" name="Moderate" value="Moderate">
+                        <input type="radio" id="Moderate" name="fallInjuryOutcome" value="Moderate">
                         <label for="Moderate">Moderate</label>
-                        <input type="radio" id="Moderate" name="Major" value="Major">
+                        <input type="radio" id="Moderate" name="fallInjuryOutcome" value="Major">
                         <label for="Major">Major</label>
                     </th>
                 
