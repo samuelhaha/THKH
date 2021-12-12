@@ -51,51 +51,7 @@ class AccountController extends Controller
                 //return code 401 - unauthorized, msg = 'Wrong credentials entered'
                 return response()->json(['code'=>401, 'msg'=>"Wrong credentials entered."]);
             }
-            // else{
-            //     $role = User::select('select role from users');
-            //     // foreach($role as $r){
-            //         $userrole = User::select('select role from users where staff_id = $user');
-            //         if($userrole = 'rps'){ //reporting staff
-            //             return 
-            //         //}
-            //         else if($userrole = 'sup'){ //supervisor
-            //             //return supervisor();
-                        
-            //         }
-            //         else if($userrole = 'doc'){//doctor
-            //             return ;
-            //         }
-            //         else if($userrole = 'pha'){//pharmacy
-            //             return ;
-            //         }
-            //         else if($userrole = 'hod'){//hod
-            //             return ;
-            //         }
-            //         else if($userrole = 'hpo'){//hpo
-            //             return ;
-            //         }
-            //         else if($userrole = 'dms'){//dms
-            //             return ;
-            //         }
-            //     //}
-            //     //$request->session()->put('staff_id',$user);
-            //     //response()->json(['code'=>200]);
-            //     http_response_code(200);
-            //     //return home();
-            // }
-
-            // if(Auth::attempt($credentials)){
-            //     $request->session()->regenerate();
-            //     //return redirect()->intended('THKH/laravel/home');
-            //     return response()->json(['msg'=>'Login successful']);
-            // }
-            // else{
-            //     return response()->json(['msg'=>"User credentials are not correct"]);
-            // }
-             //return response()->json(['code'=>200, 'msg'=>"data passed"]);
-            //redirect
-             
-         //}
+            
      }
     public function check(Request $request){
         $input = $request->only('staff_id', 'password');
@@ -115,11 +71,11 @@ class AccountController extends Controller
             'user' => $query
         ]);
     }
-    // public function login()
-    // {
-    //    return redirect()->away('http://localhost/THKH/html/views/login.html'); 
+    public function login()
+    {
+       return redirect()->away('http://localhost/THKH/html/views/login.html'); 
         
-    // }
+    }
 
     public function home(){
         return redirect()->away('http://localhost/THKH/html/views/index.html');
@@ -129,12 +85,24 @@ class AccountController extends Controller
         return redirect()->away('http://localhost/THKH/html/views/SupervisorReport.html');
     }
 
-    public function logout(){
-        session()->flush();
-
-        // Session::flush();
-        // Auth::logout();
-
-        return redirect('login');
+    public function logout(Request $request)
+    {
+        $this->validate($request, [
+            'token' => 'required'
+        ]);
+  
+        try {
+            JWTAuth::invalidate($request->token);
+  
+            return response()->json([
+                'success' => true,
+                'message' => 'User logged out successfully'
+            ]);
+        } catch (JWTException $exception) {
+            return response()->json([
+                'success' => false,
+                'message' => 'Sorry, the user cannot be logged out'
+            ]);
+        }
     }
 }
