@@ -1,31 +1,28 @@
 
-  $(document).ready(function(){
-   $("#login_form").submit(function(e){
-     e.preventDefault();
-     let url = $(this).attr('action');
-     $.ajaxSetup({
-            headers: {
-                'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
-            }
-        });
+$(document).ready(function () {
+  $("#login_form").submit(function (e) {
+    e.preventDefault();
+    var staffid = document.getElementById("staff_id").value;
+    var password = document.getElementById("password").value;
     $.ajax({
       method: "POST",
-      url: url,
+      url: "/THKH/laravel/api/check",
       data: {
-        '_token': $("#token").val(),
-        username: $("#username").val(),
-        password: $("#password").val(),
+        staff_id: staffid,
+        password: password,
 
       },
-      success: function(response){
-        console.log(response.code);
-        if(response.code == 400){
-          let error = response.msg;
-          $("#msg").append(error);
-        }else if(response.code == 200){
-          window.location.href = "/home";
+      success: function (response) {
+        //console.log(response.user);
+        if(response.user == undefined){
+          //$("#msg").append("Wrong Credentials entered!");
+          alert("Wrong credentials entered! Please check your staff id and password");
         }
-      }
+        else{
+          window.location.href = 'login.html';
+        }
+      },
+      
     })
-   })
-    });
+  })
+});
