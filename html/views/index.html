@@ -2,7 +2,9 @@
 <html>
 <head>
 <title>HomePage</title>
+<script src="https://code.jquery.com/jquery-3.6.0.js" integrity="sha256-H+K7U5CnXl1h5ywQfKtSj8PCmoN9aaq30gDh27Xc0jk=" crossorigin="anonymous"></script>
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+<script src="../js/login/login.js"></script>
 <style>
 
 .page-header {
@@ -124,14 +126,15 @@ font-size: 15px;
 <table width="100%" border="0">
 <tr valign="top">
 <td bgcolor="#eeeeee" width="10%">
-<form action="" method="">
+<form id="login_form" method="post">
+  <div id="msg"></div>
 	<br>
-    <label for="uname"><b>Username</b></label>
-    <input type="text" placeholder="Enter Username" name="uname" required>
+    <label for="staff_id"><b>Staff Id:</b></label>
+    <input type="text" placeholder="Enter Staff Id" name="staff_id" id="staff_id" required>
 	<br>
 	<br>
-    <label for="psw"><b>Password</b></label>
-    <input type="password" placeholder="Enter Password" name="psw" required>
+    <label for="password"><b>Password</b></label>
+    <input type="password" placeholder="Enter Password" name="password" id="password" required>
     <br>
 	<br>
     <button type="submit" style="border-radius: 6px">Login</button>
