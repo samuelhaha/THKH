@@ -17,20 +17,19 @@
 }
 .page-header img {
   float: left;
-  width: 50px;
+  width: 150px;
   height: 50px;
   margin:0px 0px
   
 }
 
 .page-header h1 {
-font-size: 15px;
+/* font-size: 15px; */
   position: relative;
   color : black;
   text-align: center;
   
 }
-<!--style for header button-->
 
 .button {
  border: none;
@@ -83,6 +82,14 @@ font-size: 15px;
  font-size: 20px;
  padding: 20px;
 }
+.footer{
+  background-color:#eeeeee;
+  text-align: center;
+}
+content img{
+  width: 1200px;
+  height: 500px;
+}
 
 </style>
 </head>
@@ -90,8 +97,8 @@ font-size: 15px;
 
 <div class="page-header"  >
 
-<img src="world.png">
-<h1><span>Banner/Header
+<img src="logo.jpg">
+<h1><span>Incident Report 
  <div class="btn">
      <button class="btn1"><i class="fa fa-home"></i></button>
 	 <button class="btn1"><i class="fa fa-bars"></i></button>
@@ -117,23 +124,24 @@ font-size: 15px;
   
   
  <!--nav comment--> 
- <ul class="nav">
+ <!-- <ul class="nav">
   <li>Navigation Bar</li>
  
-</ul>
+</ul> -->
 
 <!--nav-->
 <table width="100%" border="0">
 <tr valign="top">
-<td bgcolor="#eeeeee" width="10%">
+<td bgcolor="#eeeeee" width="60%" height="500px">
 <form id="login_form" method="post">
   <div id="msg"></div>
+  <h2>Login</h2> 
 	<br>
     <label for="staff_id"><b>Staff Id:</b></label>
     <input type="text" placeholder="Enter Staff Id" name="staff_id" id="staff_id" required>
 	<br>
 	<br>
-    <label for="password"><b>Password</b></label>
+    <label for="password"><b>Password:</b></label>
     <input type="password" placeholder="Enter Password" name="password" id="password" required>
     <br>
 	<br>
@@ -142,20 +150,25 @@ font-size: 15px;
 </form>
 
 </td>
-<td bgcolor="#eeeeee" height="300" width="60%">
+<td bgcolor="#eeeeee" height="500px" width="60%">
 <content>
-  <h2>Content</h2> 
+  <!-- <h2>Content</h2>  -->
+  <img src="thkh.jpg" alt="img">
 </content>
 </td>
 </tr>
 </table>
-
+<!-- 
 <footer>
 <h1 style="background-color:#eeeeee;">
 Footer</h1>
 <h2 style="background-color:#eeeeee;">
 Footer Copyrights
-</h2></footer>
+</h2></footer> -->
+
+<div class="footer">
+  <h4>&copy; 2021 Ang Mo Kio - Thye Hua Kwan Hospital. All rights reserved.</h2>
+</div>
 
 </body>
 </html>
