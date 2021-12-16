@@ -3,6 +3,10 @@
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\AccountController;
+use App\Http\Controllers\RoleController;
+use App\Http\Middleware\JwtMiddleware;
+use SebastianBergmann\Environment\Console;
+
 /*
 |--------------------------------------------------------------------------
 | API Routes
@@ -27,3 +31,12 @@ Route::put("update/{staff_id}", [AccountController::class, 'modify']);
 Route::delete("delete/{staff_id}",[AccountController::class,'remove']);
 
 Route::post("check", [AccountController::class, 'check']);
+
+Route::post("/logout", [AccountController::class, 'logout']);
+
+Route::group(['middleware' => ['jwt.verify']], function() {
+    Route::post("/staff", [RoleController::class, 'staff']);
+    Route::post("/supervisor", [RoleController::class, 'supervisor']);
+    Route::post("/doctor", [RoleController::class, 'doctor']);
+});
+
