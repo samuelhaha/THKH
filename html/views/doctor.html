@@ -271,61 +271,100 @@
                         <tr>
                           <td>
                             <div>
-                                <input type="radio" name="Location1" id="inWard" value="inWard" checked>In the Ward<br>
-                                <input type="radio" name="Location1" id="outWard" value="outWard" disabled>Outside the Ward<br>
-                                <input type="radio" name="Location2" id="Pharmacy" value="Pharmacy" disabled>Pharmacy<br>
-                                <input type="radio" name="Location2" id="outHospital" value="outHospital" disabled>Outside the Hospital<br>
+                                <input type="radio" name="Location" id="inWard" value="inWard" checked><label for="inWard" >In the Ward</label><br>
+                                <input type="radio" name="Location" id="outWard" value="outWard" disabled><label for="outWard">Outside the Ward</label><br>
+                                <input type="radio" name="Location" id="pharmacy" value="pharmacy" disabled><label for="pharmacy">Pharmacy</label><br>
+                                <input type="radio" name="Location" id="outHospital" value="outHospital" disabled><label for="outHospital">Outside the Hospital</label><br>
                             
                             </div>
                           </td>
                           <td>
-                                <input type="radio" id="css" name="Beside" value="CSS" checked>
-                                <label for="css">Beside</label><br>
-                                <input type="radio" id="css" name="Cubicle" value="CSS" disabled>
-                                <label for="css">Cubicle</label><br>
-                                <input type="radio" id="css" name="Corridor" value="CSS" disabled>
-                                <label for="css">Corridor</label><br>
-                                <input type="radio" id="css" name="Toilet" value="CSS" disabled>
-                                <label for="css">Toilet</label><br>
-                                <input type="radio" id="css" name="Therapy" value="CSS" disabled>
-                                <label for="css">Therapy Gym</label><br>
-                                <input type="radio" id="css" name="Others" value="CSS"disabled>
-                                <label for="fname">Others(Specify):
-                                <input type="text" id="fname" name="fname">
+                                <input type="radio" id="beside" name="site" value="beside" checked>
+                                <label for="beside">Beside</label><br>
+                                <input type="radio" id="cubicle" name="site" value="cubicle" disabled>
+                                <label for="cubicle">Cubicle</label><br>
+                                <input type="radio" id="corridor" name="site" value="corridor" disabled>
+                                <label for="corridor">Corridor</label><br>
+                                <input type="radio" id="toilet" name="site" value="toilet" disabled>
+                                <label for="toilet">Toilet</label><br>
+                                <input type="radio" id="therapyGym" name="site" value="therapyGym" disabled>
+                                <label for="therapyGym">Therapy Gym</label><br>
+                                <input type="radio" id="SiteOthers" name="site" value="SiteOthers" disabled>
+                                <label for="SiteOthers">Others(Specify):
+                                <input type="text" id="siteOthersSpecify" name="SiteOthers" disabled>
                                 </label>
                           </td>
                           <td>
-                            <div>
-                              <input type="time" id="dtime" name="dtime"><br><br><br><br><br><br><br><br>
-                            </td>
+                            
+                            <div id="box3">
+                                <div class="row">
+                                
+                                    <div class="column middle">
+                                        <label for="doctorTime" style="font-weight: bold">Doctor:</label>
+                                        <input type="time" id="doctorTime" name="doctorTime">
+                                       
+                                    </div>
+                            
+                                  
+                                </div>
+                                
+            
                             </div>
-                            <td>
-                            <div>
-                              <input type="time" id="stime" name="stime"><br><br><br><br><br><br><br><br>
-                            </td>
+                          </td>
+                          <td>
+                            
+                            <div id="box3">
+                                <div class="row">
+                                
+                                    <div class="column middle">
+                                        <label for="supervisiorTime" style="font-weight: bold">Supervisor:</label>
+                                        <input type="time" id="supervisiorTime" name="supervisiorTime">
+                                       
+                                    </div>
+                            
+                                  
+                                </div>
+                                
+            
                             </div>
-                            <td>
-                            <div>
-                              <input type="time" id="ptime" name="ptime"><br><br><br><br><br><br><br><br>
-                            </td>
+                          </td>
+                          <td>
+                            
+                            <div id="box3">
+                                <div class="row">
+                                
+                                    <div class="column middle">
+                                        <label for="policeTime" style="font-weight: bold">Police:</label>
+                                        <input type="time" id="policeTime" name="policeTime">
+                                       
+                                    </div>
+                            
+                                  
+                                </div>
+                                
+            
                             </div>
-                            <td>
-                            <div>
-                              <input type="time" id="rdtime" name="rdtime"><br><br><br><br><br><br><br><br>
-                            </td>
+                          </td>
+                          <td>
+                            
+                            <div id="box3">
+                                <div class="row">
+                                
+                                    <div class="column middle">
+                                        <label for="relativeTime" style="font-weight: bold">Relative:</label>
+                                        <input type="time" id="relativeTime" name="relativeTime">
+                                       
+                                    </div>
+                            
+                                  
+                                </div>
+                                
+            
                             </div>
+                          </td>
                         
-                        <tr>
-                          <td>Laughing Bacchus Winecellars</td>
-                          <td>Yoshi Tannamuri</td>
-                          <td>Canada</td>
-                        </tr>
-                        <tr>
-                          <td>Magazzini Alimentari Riuniti</td>
-                          <td>Giovanni Rovelli</td>
-                          <td>Italy</td>
-                        </tr>
-                      </table>                      
+                      
+                      </table>                                            
             
                 </div>
             </div>
@@ -339,65 +378,63 @@
                     </tr>
                     <tr>
                         <td> 
-                            <input type="radio" id="css" name="Fall" value="CSS" checked>
-                            <label for="css">Fall (Non-Injury)</label>
-                            <input type="radio" id="css" name="Near" value="CSS" disabled>
-                            <label for="css">Near Fall</label><br>
+                            <input type="radio" id="fallNonInjury" name="fallRelated" value="fallNonInjury" checked>
+                            <label for="fallNonInjury">Fall (Non-Injury)</label>
+                            <input type="radio" id="nearFall" name="fallRelated" value="nearFall" disabled>
+                            <label for="nearFall">Near Fall</label><br>
                         </td>
                         <th rowspan="6">Types of Error<br>
-                            <input type="radio" id="css" name="Wrong" value="CSS" checked>
-                            <label for="css">Wrong Patient</label><br>
-                            <input type="radio" id="css" name="Drug" value="CSS" disabled>
-                            <label for="css">Wrong Drug</label><br>
-                            <input type="radio" id="css" name="Strength" value="CSS" disabled>
-                            <label for="css">Wrong Strength/Dose</label><br>
-                            <input type="radio" id="css" name="Time" value="CSS" disabled>
-                            <label for="css">Wrong Time</label><br>
-                            <input type="radio" id="css" name="Route" value="CSS" disabled>
-                            <label for="css">Wrong Route</label><br>
-                            <input type="radio" id="css" name="Others" value="CSS" disabled>
-                            <label for="fname">Others(Specify):
-                            <input type="text" id="fname" name="fname">
-                            </label><br><br><br><br>
-
-                            <label for="fname">Drug Involved:
-                            Yes
-                            <br><br>
-
-                            Error reached patient:   
-                            <input type="radio" id="css" name="Yes" value="CSS" checked>
-                            <label for="css">Yes</label>
-                            <input type="radio" id="css" name="No" value="CSS" disabled>
-                            <label for="css">No</label><br>
+                            <input type="radio" id="wrongPatient" name="MR_typeOfError" value="wrongPatient" checked>
+                            <label for="wrongPatient">Wrong Patient</label><br>
+                            <input type="radio" id="wrongDrug" name="MR_typeOfError" value="wrongDrug" disabled>
+                            <label for="wrongDrug">Wrong Drug</label><br>
+                            <input type="radio" id="wrongStengthOrDose" name="MR_typeOfError" value="wrongStengthOrDose" disabled>
+                            <label for="wrongStengthOrDose">Wrong Strength/Dose</label><br>
+                            <input type="radio" id="wrongTime" name="MR_typeOfError" value="wrongTime" disabled>
+                            <label for="wrongTime">Wrong Time</label><br>
+                            <input type="radio" id="wrongRoute" name="MR_typeOfError" value="wrongRoute" disabled>
+                            <label for="wrongRoute">Wrong Route</label><br>
+                            <input type="radio" id="ToEOthers" name="MR_typeOfError" value="ToEOthers" disabled>
+                            <label for="ToEOthers">Others(Specify):</label>
+                            <input type="text" id="ToEOthersSpecify" name="ToEOthersSpecify"><br><br>
+                            <br><br><br><br>
+            
+                            <label for="drugInvolved">Drug Involved:</label>
+                            <input type="text" id="drugInvolved" name="drugInvolved">
+                            <br><br>Error reached patient:
+                            <input type="radio" id="errorReachPatientYes" name="errorReachPatient" value="Yes">
+                            <label for="Yes">Yes</label>
+                            <input type="radio" id="errorReachPatientNo" name="errorReachPatient" value="No">
+                            <label for="No">No</label><br>
                         </th>
                         <th rowspan="6">Types of Error<br>
-                            <input type="radio" id="html" name="Injury" value="CSS" checked>
-                            <label for="html">Injury unrelated to fall</label><br>
-                            <input type="radio" id="css" name="Treatment" value="CSS" disabled>
-                            <label for="css">Treatment Related</label><br>
-                            <input type="radio" id="css" name="Diagnostic" value="CSS" disabled>
-                            <label for="css">Diagnostic related</label><br>
-                            <input type="radio" id="css" name="Abuse" value="CSS" disabled>
-                            <label for="css">Abuse</label><br>
-                            <input type="radio" id="css" name="Assaults" value="CSS" disabled>
-                            <label for="css">Assaults</label><br>
-                            <input type="radio" id="css" name="Needle-stick" value="CSS" disabled>
-                            <label for="css">Needle-stick Injury</label><br>
-                            <input type="radio" id="css" name="Others" value="CSS" disabled>
-                            <label for="css">Other Incident</label><br><br><br><br><br><br>
-
-                            <label for="fname">Details(Specify):</label>
-                            serious<br><br>
-
+                            <input type="radio" id="InjuryUnrelatedToFall" name="OI_typeOfError" value="InjuryUnrelatedToFall" checked>
+                            <label for="InjuryUnrelatedToFall">Injury unrelated to fall</label><br>
+                            <input type="radio" id="treatment" name="OI_typeOfError" value="treatment" disabled>
+                            <label for="treatment">Treatment Related</label><br>
+                            <input type="radio" id="diagnostic" name="OI_typeOfError" value="diagnostic" disabled>
+                            <label for="diagnostic">Diagnostic related</label><br>
+                            <input type="radio" id="abuse" name="OI_typeOfError" value="abuse" disabled>
+                            <label for="abuse">Abuse</label><br>
+                            <input type="radio" id="assaults" name="OI_typeOfError" value="assaults" disabled>
+                            <label for="assaults">Assaults</label><br>
+                            <input type="radio" id="needle-stick" name="OI_typeOfError" value="needle-stick" disabled>
+                            <label for="needle-stick">Needle-stick Injury</label><br>
+                            <input type="radio" id="otherIncident" name="OI_typeOfError" value="otherIncident" disabled>
+                            <label for="otherIncident">Other Incident</label><br><br><br><br><br><br>
+            
+                            <label for="details">Details(Specify):</label>
+                            <input type="text" id="details" name="details"><br><br>
+            
                            
                         </th>
                     </tr>
                     <tr>
                         <td>
-                            <input type="radio" id="html" name="Fall" value="HTML" checked>
-                            <label for="html">Fall (Injury)</label>
-                            <input type="radio" id="css" name="Near" value="CSS" disabled>
-                            <label for="css">Near Fall (Injury)</label><br>
+                            <input type="radio" id="fallInjury" name="fallRelated" value="fallInjury" checked>
+                            <label for="fallInjury">Fall (Injury)</label>
+                            <input type="radio" id="nearFallInjury" name="fallRelated" value="nearFallInjury" disabled>
+                        <label for="nearFallInjury">Near Fall (Injury)</label><br>
                         </td>
                        
                     </tr>
@@ -407,56 +444,57 @@
                     </tr> 
                     <tr>
                         <td>
-                            <input type="radio" id="html" name="Fracture" value="HTML" checked>
-                            <label for="html">Fracture</label>
-                            <input type="radio" id="css" name="Laceration" value="CSS" disabled>
-                            <label for="css">Laceration</label><br>
-                            <input type="radio" id="html" name="Abrasion" value="HTML" disabled>
-                            <label for="html">Abrasion</label>
-                            <input type="radio" id="css" name="Hematoma" value="CSS" disabled>
-                            <label for="css">Hematoma</label><br>
-                            <input type="radio" class="right" name="Head" value="HTML" disabled>
-                            <label for="html">Head Injury</label>
-                            <input type="radio" class="right" name="Others" value="CSS" disabled>
-                            <label for="css">Others:</label><br>
-                            <input type="radio" class="right" name="Bruise" value="HTML" disabled>
-                            <label for="html">Bruise/Swelling</label>
+                            <input type="radio" id="fracture" name="typeOfInjury" value="fracture" checked>
+                            <label for="fracture">Fracture</label>
+                            <input type="radio" id="laceration" name="typeOfInjury" value="laceration" disabled>
+                            <label for="laceration">Laceration</label><br>
+                            <input type="radio" id="abrasion" name="typeOfInjury" value="abrasion" disabled>
+                            <label for="abrasion">Abrasion</label>
+                            <input type="radio" id="hematoma" name="typeOfInjury" value="hematoma" disabled>
+                            <label for="hematoma">Hematoma</label><br>
+                            <input type="radio" id="headInjury" name="typeOfInjury" value="headInjury" disabled>
+                            <label for="headInjury">Head Injury</label>
+                            <input type="radio" id="bruiseSwelling" name="typeOfInjury" value="bruiseSwelling" disabled>
+                            <label for="bruiseSwelling">Bruise / Swelling</label><br>
+                            <input type="radio" id="injuryOthers" name="typeOfInjury" value="injuryOthers" disabled>
+                            <label for="injuryOthers">Others:</label>
+                            
                         </td>
                       
                     </tr>
                     <tr>
                         <td>Fall Risk Assessment:<br>
-                            <input type="radio" id="html" name="Fracture" value="HTML" checked>
-                            <label for="html">Fracture</label>
-                            <input type="radio" id="css" name="Laceration" value="CSS" disabled>
-                            <label for="css">Laceration</label>
-                            <input type="radio" id="html" name="Abrasion" value="HTML" disabled>
-                            <label for="html">Abrasion</label>
-
+                            <input type="radio" id="fallRiskAssessmentLow" name="fallRiskAssessment" value="Low" checked>
+                            <label for="fallRiskAssessmentLow">Low</label>
+                            <input type="radio" id="fallRiskAssessmentMod" name="fallRiskAssessment" value="Moderate" disabled>
+                            <label for="fallRiskAssessmentMod">Moderate</label>
+                            <input type="radio" id="fallRiskAssessmentHigh" name="fallRiskAssessment" value="High" disabled>
+                            <label for="fallRiskAssessmentHigh">High</label>
+            
                             History of Falls:
-                            <input type="radio" id="html" name="Yes" value="HTML" checked>
-                            <label for="html">Yes</label>
-                            <input type="radio" id="html" name="No" value="HTML" disabled>
-                            <label for="html">No</label>
-
+                            <input type="radio" id="historyOfFallsYes" name="historyOfFalls" value="Yes">
+                            <label for="historyOfFallsYes">Yes</label>
+                            <input type="radio" id="historyOfFallsNo" name="historyOfFalls" value="No">
+                            <label for="historyOfFallsNo">No</label>
+            
                           
                         </td>
                      
-
+            
                         
                      
                     </tr>
                     <tr>
                         <td>Assisted/Unassisted fall:<br>
-                            <input type="radio" id="html" name="Assisted" value="HTML" checked>
-                            <label for="html">Assisted</label>
-                            <input type="radio" id="css" name="Unassisted" value="CSS" disabled>
-                            <label for="css">Unassisted</label>
-
+                            <input type="radio" id="assistedFall" name="assistedFall" value="Assisted" checked>
+                            <label for="assistedFall">Assisted</label>
+                            <input type="radio" id="unassistedFall" name="assistedFall" value="Unassisted" disabled>
+                            <label for="unassistedFall">Unassisted</label>
+            
                            
-                            <label for="fname"> AMT:</label>
-                            6/10<br><br>
-
+                            <label for="AMT"> AMT:</label>
+                            <input type="text" id="AMT" name="AMT">/10<br><br>
+            
                         </td>
                     
                     </tr>
@@ -479,48 +517,105 @@
                         <th>Police</th>
                         <th>Relative</th>
                     </tr>
-                   
+                    <tr>
                       <td>
                         <div>
-                            <input type="radio" name="Location1" id="inWard" value="inWard">In the Ward<br>
-                            <input type="radio" name="Location1" id="outWard" value="outWard">Outside the Ward<br>
-                            <input type="radio" name="Location2" id="Pharmacy" value="Pharmacy">Pharmacy<br>
-                            <input type="radio" name="Location2" id="outHospital" value="outHospital">Outside the Hospital<br>
+                            <input type="radio" name="Location" id="inWard" value="inWard"><label for="inWard">In the Ward</label><br>
+                            <input type="radio" name="Location" id="outWard" value="outWard"><label for="outWard">Outside the Ward</label><br>
+                            <input type="radio" name="Location" id="pharmacy" value="pharmacy"><label for="pharmacy">Pharmacy</label><br>
+                            <input type="radio" name="Location" id="outHospital" value="outHospital"><label for="outHospital">Outside the Hospital</label><br>
                         
                         </div>
                       </td>
                       <td>
-                            <input type="radio" id="css" name="Beside" value="CSS">
-                            <label for="css">Beside</label><br>
-                            <input type="radio" id="css" name="Cubicle" value="CSS">
-                            <label for="css">Cubicle</label><br>
-                            <input type="radio" id="css" name="Corridor" value="CSS">
-                            <label for="css">Corridor</label><br>
-                            <input type="radio" id="css" name="Toilet" value="CSS">
-                            <label for="css">Toilet</label><br>
-                            <input type="radio" id="css" name="Therapy" value="CSS">
-                            <label for="css">Therapy Gym</label><br>
-                            <input type="radio" id="css" name="Others" value="CSS">
-                            <label for="fname">Others(Specify):
-                            <input type="text" id="fname" name="fname">
+                            <input type="radio" id="beside" name="site" value="beside">
+                            <label for="beside">Beside</label><br>
+                            <input type="radio" id="cubicle" name="site" value="cubicle">
+                            <label for="cubicle">Cubicle</label><br>
+                            <input type="radio" id="corridor" name="site" value="corridor">
+                            <label for="corridor">Corridor</label><br>
+                            <input type="radio" id="toilet" name="site" value="toilet">
+                            <label for="toilet">Toilet</label><br>
+                            <input type="radio" id="therapyGym" name="site" value="therapyGym">
+                            <label for="therapyGym">Therapy Gym</label><br>
+                            <input type="radio" id="SiteOthers" name="site" value="SiteOthers">
+                            <label for="SiteOthers">Others(Specify):
+                            <input type="text" id="siteOthersSpecify" name="SiteOthers">
                             </label>
                       </td>
-                     
                       <td>
-                  
-                                    <label for="Time" style="font-weight: bold">Doctor:</label>
-									<br>
-                                    <input type="time" id="dtime" name="dtime">
-                                    Test
-                    
-                                    <input type="time" id="dtime" name="dtime">
-                          
+                        
+                        <div id="box3">
+                            <div class="row">
+                            
+                                <div class="column middle">
+                                    <label for="doctorTime" style="font-weight: bold">Doctor:</label>
+                                    <input type="time" id="doctorTime" name="doctorTime">
+                                   
+                                </div>
+                        
+                              
+                            </div>
+                            
+        
+                        </div>
                       </td>
-                    
+                      <td>
+                        
+                        <div id="box3">
+                            <div class="row">
+                            
+                                <div class="column middle">
+                                    <label for="supervisiorTime" style="font-weight: bold">Supervisor:</label>
+                                    <input type="time" id="supervisiorTime" name="supervisiorTime">
+                                   
+                                </div>
+                        
+                              
+                            </div>
+                            
+        
+                        </div>
+                      </td>
+                      <td>
+                        
+                        <div id="box3">
+                            <div class="row">
+                            
+                                <div class="column middle">
+                                    <label for="policeTime" style="font-weight: bold">Police:</label>
+                                    <input type="time" id="policeTime" name="policeTime">
+                                   
+                                </div>
+                        
+                              
+                            </div>
+                            
+        
+                        </div>
+                      </td>
+                      <td>
+                        
+                        <div id="box3">
+                            <div class="row">
+                            
+                                <div class="column middle">
+                                    <label for="relativeTime" style="font-weight: bold">Relative:</label>
+                                    <input type="time" id="relativeTime" name="relativeTime">
+                                   
+                                </div>
+                        
+                              
+                            </div>
+                            
+        
+                        </div>
+                      </td>
                      
                       
                   
                   </table>              
+                          
                
 
 
