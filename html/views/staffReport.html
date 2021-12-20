@@ -69,6 +69,9 @@
         #Category {
             text-align: center;
         }
+        #box3{
+            text-align: center;
+        }
 
         /* Style the top navigation bar */
         .navbar {
@@ -113,7 +116,7 @@
     
     <div class="navbar">
 
-            <span><a href="login.html"><img src="logo.jpg" alt="logo"></a></span>
+            <span><a href="login.html"><img src="C:\xampp\THKH\THKH\THKH\html\images\logo.jpg" alt="logo"></a></span>
             <a href="#" class="right">Save</a>
             <a href="#" class="right">View Reports</a>
             <a href="#" class="right">Update</a>
@@ -282,8 +285,8 @@
                             </div>
                           </td>
                           <td>
-                                <input type="radio" id="css" name="fav_language" value="CSS" checked>
-                                <label for="css">Beside</label><br>
+                                <input type="radio" id="beside" name="beside" value="beside" checked>
+                                <label for="beside">Beside</label><br>
                                 <input type="radio" id="css" name="fav_language" value="CSS" disabled>
                                 <label for="css">Cubicle</label><br>
                                 <input type="radio" id="css" name="fav_language" value="CSS" disabled>
@@ -292,14 +295,84 @@
                                 <label for="css">Toilet</label><br>
                                 <input type="radio" id="css" name="fav_language" value="CSS" disabled>
                                 <label for="css">Therapy Gym</label><br>
-                                <input type="radio" id="css" name="fav_language" value="CSS"disabled>
+                                <input type="radio" id="css" name="fav_language" value="CSS" disabled>
                                 <label for="fname">Others(Specify):
                                 <input type="text" id="fname" name="fname">
                                 </label>
                           </td>
                           
-                        
-                        <tr>
+                <td>             
+                <div id="box3">
+                    <div class="row">
+                    
+                        <div class="column middle">
+                            <label for="doctorTime" style="font-weight: bold">  Doctor:</label>
+                            12:13
+                            <!-- <input type="time" id="doctorTime" name="doctorTime"> -->
+                           
+                        </div>
+                
+                      
+                    </div>
+                    
+
+                </div>
+              </td>
+              <td>
+                
+                <div id="box3">
+                    <div class="row">
+                    
+                        <div class="column middle">
+                            <label for="supervisiorTime" style="font-weight: bold">Supervisor:</label>
+                            15:45
+                            <!-- <input type="time" id="supervisiorTime" name="supervisiorTime"> -->
+                           
+                        </div>
+                
+                      
+                    </div>
+                    
+
+                </div>
+              </td>
+              <td>
+                
+                <div id="box3">
+                    <div class="row">
+                    
+                        <div class="column middle">
+                            <label for="policeTime" style="font-weight: bold">Police:</label>
+                            17:15
+                            <!-- <input type="time" id="policeTime" name="policeTime"> -->
+                           
+                        </div>
+                
+                      
+                    </div>
+                    
+
+                </div>
+              </td>
+              <td>
+                
+                <div id="box3">
+                    <div class="row">
+                    
+                        <div class="column middle">
+                            <label for="relativeTime" style="font-weight: bold">Relative:</label>
+                            19:30
+                            <!-- <input type="time" id="relativeTime" name="relativeTime"> -->
+                           
+                        </div>
+                
+                      
+                    </div>
+                    
+
+                </div>
+              </td>
+                        <!-- <tr>
                           <td>Laughing Bacchus Winecellars</td>
                           <td>Yoshi Tannamuri</td>
                           <td>Canada</td>
@@ -308,7 +381,7 @@
                           <td>Magazzini Alimentari Riuniti</td>
                           <td>Giovanni Rovelli</td>
                           <td>Italy</td>
-                        </tr>
+                        </tr> -->
                       </table>                      
             
                 </div>
@@ -323,13 +396,13 @@
                     </tr>
                     <tr>
                         <td> 
-                            <input type="radio" id="html" name="fav_language" value="HTML" checked>
+                            <input type="radio" id="html" name="fav_language" value="HTML" disabled> 
                             <label for="html">Fall (Non-Injury)</label>
-                            <input type="radio" id="css" name="fav_language" value="CSS" disabled>
-                            <label for="css">Near Fall</label><br>
+                            <input type="radio" id="nearfall" name="nearfall" value="nearfall" checked>
+                            <label for="nearfall">Near Fall</label><br>
                         </td>
                         <th rowspan="6">Types of Error<br>
-                            <input type="radio" id="css" name="fav_language" value="CSS" checked>
+                            <input type="radio" id="css" name="fav_language" value="CSS" disabled>
                             <label for="css">Wrong Patient</label><br>
                             <input type="radio" id="css" name="fav_language" value="CSS" disabled>
                             <label for="css">Wrong Drug</label><br>
@@ -349,25 +422,25 @@
                             <br><br>
 
                             Error reached patient:   
-                            <input type="radio" id="css" name="fav_language" value="CSS" checked>
+                            <input type="radio" id="css" name="fav_language" value="CSS" disabled>
                             <label for="css">Yes</label>
                             <input type="radio" id="css" name="fav_language" value="CSS" disabled>
                             <label for="css">No</label><br>
                         </th>
                         <th rowspan="6">Types of Error<br>
-                            <input type="radio" id="html" name="fav_language" value="CSS">
+                            <input type="radio" id="html" name="fav_language" value="CSS" disabled>
                             <label for="html">Injury unrelated to fall</label><br>
-                            <input type="radio" id="css" name="fav_language" value="CSS">
+                            <input type="radio" id="css" name="fav_language" value="CSS" disabled>
                             <label for="css">Treatment Related</label><br>
-                            <input type="radio" id="css" name="fav_language" value="CSS">
+                            <input type="radio" id="css" name="fav_language" value="CSS" disabled>
                             <label for="css">Diagnostic related</label><br>
-                            <input type="radio" id="css" name="fav_language" value="CSS">
+                            <input type="radio" id="css" name="fav_language" value="CSS" disabled>
                             <label for="css">Abuse</label><br>
-                            <input type="radio" id="css" name="fav_language" value="CSS">
+                            <input type="radio" id="css" name="fav_language" value="CSS" disabled>
                             <label for="css">Assaults</label><br>
-                            <input type="radio" id="css" name="fav_language" value="CSS">
+                            <input type="radio" id="css" name="fav_language" value="CSS" disabled>
                             <label for="css">Needle-stick Injury</label><br>
-                            <input type="radio" id="css" name="fav_language" value="CSS">
+                            <input type="radio" id="css" name="fav_language" value="CSS" disabled>
                             <label for="css">Other Incident</label><br><br><br><br><br><br>
 
                             <label for="fname">Details(Specify):</label>
@@ -378,9 +451,9 @@
                     </tr>
                     <tr>
                         <td>
-                            <input type="radio" id="html" name="fav_language" value="HTML">
+                            <input type="radio" id="html" name="fav_language" value="HTML" disabled>
                             <label for="html">Fall (Injury)</label>
-                            <input type="radio" id="css" name="fav_language" value="CSS">
+                            <input type="radio" id="css" name="fav_language" value="CSS" disabled>
                             <label for="css">Near Fall (Injury)</label><br>
                         </td>
                        
@@ -418,9 +491,9 @@
                             <label for="html">Abrasion</label>
 
                             History of Falls:
-                            <input type="radio" id="html" name="fav_language" value="HTML">
+                            <input type="checkbox" id="html" name="fav_language" value="HTML">
                             <label for="html">Yes</label>
-                            <input type="radio" id="html" name="fav_language" value="HTML">
+                            <input type="checkbox" id="html" name="fav_language" value="HTML" checked>
                             <label for="html">No</label>
 
                           
@@ -434,12 +507,14 @@
                         <td>Assisted/Unassisted fall:<br>
                             <input type="radio" id="html" name="fav_language" value="HTML">
                             <label for="html">Assisted</label>
-                            <input type="radio" id="css" name="fav_language" value="CSS">
+                            <input type="radio" id="css" name="fav_language" value="CSS" checked>
                             <label for="css">Unassisted</label>
 
                            
                             <label for="fname"> AMT:</label>
-                            <input type="text" id="fname" name="fname">/10<br><br>
+                            5/10
+                            <!-- <input type="text" id="fname" name="fname">/10 -->
+                            <br><br>
 
                         </td>
                     
@@ -465,7 +540,7 @@
             
                                 <div>
                                     <textarea id="diagnosis" name="diagnosis" rows="9" cols="100">
-                                         
+                                    Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.
                                     </textarea>
                                 </div>
                                 <tr>
@@ -479,12 +554,18 @@
                                     <td>
                                         
                                         <br><br>
-                                        <label for="fname">Name in Full</label>
-                                        <input type="text" id="fname" name="fname"><br><br>
+                                        <label for="fname">Name in Full:</label>
+                                        Reporting Staff
+                                        <!-- <input type="text" id="fname" name="fname"> -->
+                                        <br><br>
                                         <label for="fname">Designation</label>
-                                        <input type="text" id="fname" name="fname"><br><br>
+                                        Reporting Staff
+                                        <!-- <input type="text" id="fname" name="fname"> -->
+                                        <br><br>
                                         <label for="fname">Date and Time</label>
-                                        <input type="text" id="fname" name="fname"><br><br>
+                                        14/12/2021  10:00AM
+                                        <!-- <input type="text" id="fname" name="fname"> -->
+                                        <br><br>
             
                                         
                                         
