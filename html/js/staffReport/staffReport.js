@@ -63,8 +63,11 @@ $(document).ready(function() {
     var g_recommend;
     var g_description;
 
-    $("#submitBtn").onclick(function () {
+    $("#submitBtn").click(function(e) {
+        //console.log("submitted");
+        e.preventDefault();
         a_inccidentDate = document.getElementById("a_inccidentDate").value;
+        //console.log(a_inccidentDate);
         a_inccidentTime = document.getElementById("a_inccidentTime").value;
 
         b_diagnosis = document.getElementById("b_diagnosis").value;
@@ -180,7 +183,7 @@ $(document).ready(function() {
 
         $.ajax({
             method: "POST",
-            url: "",
+            url: "/THKH/laravel/api/staff-create",
             data: {
                 a_inccidentDate: a_inccidentDate,
                 a_inccidentTime: a_inccidentTime,
@@ -241,13 +244,13 @@ $(document).ready(function() {
                 g_description: g_description,
             },
             success: function (response) {
-                
+                console.log(response);
             }
-        })
+       })
     })
 
     //possible bug of adding the same data into the object
-    $("#saveBtn").onclick(function () {
+    $("#saveBtn").submit(function () {
         var form = document.querySelector('form');
         console.log(form);
         var formElem = new FormData(form);
