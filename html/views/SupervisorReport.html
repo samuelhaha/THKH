@@ -9,7 +9,23 @@
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
     <style>
-        /* Style the tab */
+                /* Style the tab */
+                table {
+        font-family: arial, sans-serif;
+        border-collapse: collapse;
+        width: 100%;
+        }
+
+        td, th {
+        border: 1px solid #dddddd;
+        text-align: left;
+        padding: 8px;
+        }
+
+        tr:nth-child(even) {
+        background-color: #dddddd;
+        }
+        
         #tab {
         overflow: hidden;
         border: 1px solid #ccc;
@@ -45,42 +61,17 @@
         border-top: none;
         }
 
-
-        table {
-            font-family: arial, sans-serif;
-            border-collapse: collapse;
-            width: 100%;
-        }
-
-        td, th {
-            border: 1px solid #dddddd;
-            text-align: left;
-            padding: 8px;
-        }
-
-        tr:nth-child(even) {
-            background-color: #dddddd;
-        }
-
-        #Injury {
-            text-align: center;
-        }
-
-        #Category {
-            text-align: center;
-        }
-
-        /* Style the top navigation bar */
+          /* Style the top navigation bar */
         .navbar {
         overflow: hidden;
-        background-color: #333;
+        background-color: lightblue;
         }
 
         /* Style the navigation bar links */
         .navbar a {
         float: left;
         display: block;
-        color: white;
+        color: black;
         text-align: center;
         padding: 14px 20px;
         text-decoration: none;
@@ -96,38 +87,39 @@
         background-color: #ddd;
         color: black;
         }
-
         /* Footer */
         .footer {
         padding: 20px;
         text-align: center;
-        background: #ddd;
+        background: lightblue;
         }
-
+        img {
+        float: left;
+        width: 150px;
+        height: 60px;
+        margin: 4px 0px 4px 8px;  
+        }
+        /* top right bottom left  */
     </style>
 </head>
 <body>
     
-    <!-- <div class="navbar">
-        <header>
-            <div id="logo">Logo</div>
-            <a href="#" class="save">Save</a>
-            <a href="#" class="viewreports">View Reports</a>
-            <a href="#" class="update">Update</a>
-            <a href="#" class="right">Create</a>
-        </header>
-      
-    </div> -->
+    
+    
+            <a href="login.html"><img src="../images/logo.jpg"></a>
+            <br><br><br><br>
 
     <div class="navbar">
-        <header>
-            <div id="logo">Logo</div>
-            <a href="#" class="right">Save</a>
-            <a href="#" class="right">View Reports</a>
-            <a href="#" class="right">Update</a>
-            <a href="#" class="right">Create</a>
-        </header>     
-    </div>
+    
+        <a href="AB.html">Create</a>
+        <a href="staffReport.html">
+          Update
+        </a>
+      
+        <a href="#" class="right">Save</a>
+        <a href="#" class="right">View Reports</a> 
+      </div>
+    
 
       <!-- <div class="tab-content">
         <div id="home" class="tab-pane fade in active">
