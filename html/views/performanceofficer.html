@@ -619,21 +619,20 @@
         
                             <td>
                                 <br>
-                                <label for="fname">Contributing / Mitigating Factors:</label>
-                                <input type="text" id="fname" name="fname"><br><br>
-                                <label for="fname">Recommendations:</label>
-                                <input type="text" id="fname" name="fname"><br><br>
-                                <label for="fname">Name in Full</label>
-                                <input type="text" id="fname" name="fname"><br><br>
+                                <form id="sup_form" method="post">
+                                <label for="factors">Contributing / Mitigating Factors:</label>
+                                <input type="text" id="factors" name="factors"><br><br>
+                                <label for="recommendations">Recommendations:</label>
+                                <input type="text" id="recommendations" name="recommendations"><br><br>
+                                <label for="name">Name in Full</label>
+                                <input type="text" id="name" name="name"><br><br>
     
-                                <form action="/action_page.php">
+
                                     <label for="date">Date:</label>
-                                    <!-- <input type="date" id="date" name="date"> -->
-                                    4 december 
+                                    <input type="date" id="date" name="date">
                                   
                                     <label for="Time" style="font-weight: bold;">Time</label>
-                                    <!-- <input type="time" id="time" name="time"> -->
-                                    4.09pm
+                                    <input type="time" id="time" name="time">
                                 </form>
     
     
@@ -641,8 +640,6 @@
                             </td>
                       
                     </table>
-              
-                     
                 
                 <!-- <div>
                     <button>Save</button>
@@ -752,7 +749,7 @@
             <div>
                 Comments:
                 <textarea id="diagnosis" name="diagnosis" rows="9" cols="80">
-                     test
+                     
                 </textarea>
             </div>
             <br>
