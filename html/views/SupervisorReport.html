@@ -367,8 +367,8 @@
                     </tr>
                     <tr>
                         <td> 
-                            <input type="radio" id="fall" name="fall" value="fall" checked>
-                            <label for="fall">Fall (Non-Injury)</label>
+                            <input type="radio" id="fallnoninjury" name="fallnoninjury" value="fallnoninjury" checked>
+                            <label for="fallnoninjury">Fall (Non-Injury)</label>
                             <input type="radio" id="near" name="near" value="near" disabled>
                             <label for="near">Near Fall</label><br>
                         </td>
@@ -385,7 +385,7 @@
                             <label for="wrongroute">Wrong Route</label><br>
                             <input type="radio" id="others" name="others" value="others" disabled>
                             <label for="others">Others(Specify):
-                            <input type="text" id="fname" name="fname"><br><br>
+                             <!-- <input type="text" id="fname" name="fname"><br><br> -->
                             </label><br><br><br><br>
 
                             <label for="fname">Drug Involved:
@@ -394,10 +394,10 @@
                             <br><br>
 
                             Error reached patient:   
-                            <input type="radio" id="yes" name="yes" value="yes" checked>
-                            <label for="yes">Yes</label>
-                            <input type="radio" id="no" name="no" value="no" disabled>
-                            <label for="no">No</label><br>
+                            <input type="radio" id="erroryes" name="erroryes" value="erroryes" checked>
+                            <label for="erroryes">Yes</label>
+                            <input type="radio" id="errorno" name="errorno" value="errorno" disabled>
+                            <label for="errorno">No</label><br>
                         </th>
                         <th rowspan="6">Types of Error<br>
                             <input type="radio" id="injury" name="injury" value="injury" checked>
@@ -424,8 +424,8 @@
                     </tr>
                     <tr>
                         <td>
-                            <input type="radio" id="fall" name="fall" value="fall" checked>
-                            <label for="fall">Fall (Injury)</label>
+                            <input type="radio" id="fall" name="fallinjury" value="fallinjury" checked>
+                            <label for="fallinjury">Fall (Injury)</label>
                             <input type="radio" id="near" name="near" value="near" disabled>
                             <label for="near">Near Fall (Injury)</label><br>
                         </td>
@@ -437,8 +437,8 @@
                     </tr> 
                     <tr>
                         <td>
-                            <input type="radio" id="fracture" name="fracture" value="fracture" checked>
-                            <label for="fracture">Fracture</label>
+                            <input type="radio" id="fractures" name="fractures" value="fractures" checked>
+                            <label for="fractures">Fracture</label>
                             <input type="radio" id="laceration" name="laceration" value="laceration" disabled>
                             <label for="laceration">Laceration</label><br>
                             <input type="radio" id="abrasion" name="abrasion" value="abrasion" disabled>
@@ -456,14 +456,14 @@
                     </tr>
                     <tr>
                         <td>Fall Risk Assessment:<br>
-                            <input type="radio" id="fracture" name="fracture" value="fracture" checked>
-                            <label for="fracture">Fracture</label>
-                            <input type="radio" id="laceration" name="laceration" value="laceration" disabled>
-                            <label for="laceration">Laceration</label>
-                            <input type="radio" id="abrasion" name="abrasion" value="abrasion" disabled>
-                            <label for="abrasion">Abrasion</label>
+                            <input type="radio" id="Low" name="Low" value="Low" checked>
+                            <label for="Low">Low</label>
+                            <input type="radio" id="Moderate" name="Moderate" value="Moderate" disabled>
+                            <label for="Moderate">Moderate</label>
+                            <input type="radio" id="High" name="High" value="High" disabled>
+                            <label for="High">High</label>
 
-                            History of Falls:
+                            &nbsp&nbsp&nbsp&nbsp History of Falls:
                             <input type="radio" id="yes" name="yes" value="yes" checked>
                             <label for="yes">Yes</label>
                             <input type="radio" id="no" name="no" value="no" disabled>
