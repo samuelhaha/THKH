@@ -160,6 +160,86 @@ class RoleController extends Controller
             }
     }
 
+    public function staffSave($id, Request $request)
+    {
+        $updateData = Hor::where('id', $id)->update([
+                // 'rs_id' => JWTAuth::user()->staff_id,
+                'a_inccidentDate' => $request->a_inccidentDate,
+                'a_inccidentTime' => $request->a_inccidentTime,
+                'b_diagnosis' => $request->b_diagnosis,
+                'c_affectedPerson' => $request->c_affectedPerson,
+                'c_affectedName' => $request->c_affectedName,
+                'c_affectedNrie' => $request->c_affectedNrie,
+                'c_affectedAddress' => $request->c_affectedAddress,
+                'c_affectedGender' => $request->c_affectedGender,
+                'c_affectedContact' => $request->c_affectedContact,
+                'c_affectedAge' => $request->c_affectedAge,
+                'c_affectedAdmitDate' => $request->c_affectedAdmitDate,
+                'c_affectedAdmitTime' => $request->c_affectedAdmitTime,
+                'c_affectedWing' => $request->c_affectedWing,
+                'c_affectedWard' => $request->c_affectedWard,
+                'c_affectedBed' => $request->c_affectedBed,
+                'c_witnessNrie' => $request->c_witnessNrie,
+                'c_witnessName' => $request->c_witnessName,
+                'c_witnessContact' => $request->c_witnessContact,
+                'd_locationOccur' => $request->d_locationOccur,
+                'd_occurSite' => $request->d_occurSite,
+                'd_occurWard' => $request->d_occurWard,
+                'd_occurWardWing' => $request->d_occurWardWing,
+                'd_occurBed' => $request->d_occurBed,
+                'd_site_other' => $request->d_site_other,
+                'e_notifyDoc' => $request->e_notifyDoc,
+                'e_timeDoc' => $request->e_timeDoc,
+                'e_nameDoc' => $request->e_nameDoc,
+                'e_notifySup'=> $request->e_notifySup,
+                'e_timeSup' => $request->e_timeSup,
+                'e_nameSup' => $request->e_nameSup,
+                'e_notifyPolice' => $request->e_notifyPolice,
+                'e_timePolice' => $request->e_timePolice,
+                'e_namePolice' => $request->e_namePolice,
+                'e_notifyRelative' => $request->e_notifyRelative,
+                'e_timeRelative' => $request->e_timeRelative,
+                'e_nameRelative' => $request->e_nameRelative,
+                'f_occurType' => $request->f_occurType,
+                'f_fall_nearFall' => $request->f_fall_nearFall,
+                'f_fall_injury' => $request->f_fall_injury,
+                'f_fall_injury_type' => $request->f_fall_injury_type,
+                'f_fall_injury_type_other' => $request->f_fall_injury_type_other,
+                'f_fall_assessmentAdm' => $request->f_fall_assessmentAdm,
+                'f_fall_assessmentOccur' => $request->f_fall_assessmentOccur,
+                'f_fall_history' => $request->f_fall_history,
+                'f_fall_assisted' => $request->f_fall_assisted,
+                'f_fall_amt' => $request->f_fall_amt,
+                'f_medi_error' => $request->f_medi_error,
+                'f_medi_error_other' => $request->f_medi_error_other,
+                'f_medi_drug' => $request->f_medi_drug,
+                'f_medi_reach' => $request->f_medi_reach,
+                'f_other_type' => $request->f_other_type,
+                'f_other_details' => $request->f_other_details,
+                'g_situation' => $request->g_situation,
+                'g_background' => $request->g_background,
+                'g_action' => $request->g_action,
+                'g_recommend' => $request->g_recommend,
+                'g_description' => $request->g_description
+        ]);
+        if($updateData){
+            return response()->json([
+                'code' => 200,
+                'success' => 'true',
+                'msg' => 'Record successfully updated',
+                'record' => $updateData
+            ]);
+        }
+        else{
+            return response()->json([
+                'code' => 400,
+                'success' => 'false',
+                'msg' => 'Record failed to update',
+                'record' => ''
+            ]);
+        }
+    }
+
     //supervisor
     // public function supervisor(Request $request)
     // {
