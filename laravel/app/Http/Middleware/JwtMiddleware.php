@@ -36,47 +36,47 @@ class JwtMiddleware extends BaseMiddleware
     // }
     public function handle($request, Closure $next)
     {
-        if($jwt = $request->cookie(key: 'jwt'))
-        {
-            $request->headers->set(key: 'Authorization', values: 'Bearer ' . $jwt);
-        }
+        // if($jwt = $request->cookie(key: 'jwt'))
+        // {
+        //     $request->headers->set(key: 'Authorization', values: 'Bearer ' . $jwt);
+        // }
 
-        $this->authenticate($request);
+        // $this->authenticate($request);
         // $newToken = null;
         // $this->auth->unsetToken();
         // $this->checkForToken($request);
-        // try {
-        //     $user = $this->auth->parseToken()->authenticate();
-        //     if (!$user) {
-        //         return response()->json([
-        //             'status_code' => 401,
-        //             'message'=>' the user information is not found ',
-        //             'time'=> time(),
-        //         ], 401);
-        //     }
-        // } catch (TokenExpiredException $e) {
-        //     try {
+        try {
+            $user = $this->auth->parseToken()->authenticate();
+            if (!$user) {
+                return response()->json([
+                    'status_code' => 401,
+                    'message'=>' the user information is not found ',
+                    'time'=> time(),
+                ], 401);
+            }
+        } catch (TokenExpiredException $e) {
+            try {
             
-        //         $newToken = $this->auth->refresh();
+                $newToken = $this->auth->refresh();
 
-        //         $request->headers->set('Authorization', 'Bearer ' . $newToken); 
-        //     } catch (JWTException $e) {
-        //         //Expired users
-        //         return response()->json([
-        //             'status_code' => 401,
-        //             'message' =>' account information expired, please login again ',
-        //             'error'=> $e->getMessage(),
-        //             'time'=> time(),
-        //         ], 401);
-        //     }
-        // } catch (JWTException $e) {
-        //     return response()->json([
-        //         'status_code' => 401,
-        //         'message' => 'login information has expired, please log in again. ',
-        //         'error'=> $e->getMessage(),
-        //         'time' => time(),
-        //     ], 401);
-        // }
+                $request->headers->set('Authorization', 'Bearer ' . $newToken); 
+            } catch (JWTException $e) {
+                //Expired users
+                return response()->json([
+                    'status_code' => 401,
+                    'message' =>' account information expired, please login again ',
+                    'error'=> $e->getMessage(),
+                    'time'=> time(),
+                ], 401);
+            }
+        } catch (JWTException $e) {
+            return response()->json([
+                'status_code' => 401,
+                'message' => 'login information has expired, please log in again. ',
+                'error'=> $e->getMessage(),
+                'time' => time(),
+            ], 401);
+        }
          $response = $next($request);
 
         // if ($newToken) {
