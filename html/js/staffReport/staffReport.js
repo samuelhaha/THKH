@@ -1,69 +1,196 @@
 $(document).ready(function() {
-    var a_inccidentDate;
-    var a_inccidentTime;
+    //console.log("submitted");
+    e.preventDefault();
+    a_inccidentDate = document.getElementById("a_inccidentDate").value;
+    //console.log(a_inccidentDate);
+    a_inccidentTime = document.getElementById("a_inccidentTime").value;
 
-    var b_diagnosis;
+    b_diagnosis = document.getElementById("b_diagnosis").value;
 
-    var c_affectedPerson;
-    var c_affectedName;
-    var c_affectedNrie;
-    var c_affectedAddress;
-    var c_affectedGender;
-    var c_affectedContact;
-    var c_affectedAge;
-    var c_affectedAdmitDate;
-    var c_affectedAdmitTime;
-    var c_affectedWing;
-    var c_affectedWard;
-    var c_affectedBed;
-    var c_witnessNrie;
-    var c_witnessName;
-    var c_witnessContact;
+    c_affectedPerson = document.querySelector('input[name="c_affectedPerson"]:checked').value;
+    c_affectedName = document.getElementById("c_affectedName").value;
+    c_affectedNrie = document.getElementById("c_affectedNric").value;
+    c_affectedAddress = document.getElementById("c_affectedAddress").value;
+    c_affectedGender = document.querySelector('input[name="c_affectedGender"]:checked').value;
+    c_affectedContact = document.getElementById("c_affectedContact").value;
+    c_affectedAge = document.getElementById("c_affectedAge").value;
+    c_affectedAdmitDate = document.getElementById("c_affectedAdmitDate").value;
+    c_affectedAdmitTime = document.getElementById("c_affectedAdmitTime").value;
+    c_affectedWing = document.getElementById("c_affectedWing").value;
+    c_affectedWard = document.getElementById("c_affectedWard").value;
+    c_affectedBed = document.getElementById("c_affectedBed").value;
+    c_witnessNrie = document.getElementById("c_witnessNrie").value;
+    c_witnessName = document.getElementById("c_witnessName").value;
+    c_witnessContact = document.getElementById("c_witnessContact").value;
 
-    var d_locationOccur;
-    var d_occurSite;
-    var d_occurWard;
-    var d_occurWardWing;
-    var d_occurBed;
-    var d_site_other;
+    d_locationOccur = document.querySelector('input[name="d_locationOccur"]:checked').value;
+    d_occurSite = document.querySelector('input[name="d_occurSite"]:checked').value;
+    d_occurWard = document.getElementById("d_occurWard").value;
+    d_occurWardWing = document.getElementById("d_occurWardWing").value;
+    d_occurBed = document.getElementById("d_occurBed").value;
+    d_site_other = document.getElementById("siteOthersSpecify").value;
 
-    var e_notifyDoc;
-    var e_timeDoc;
-    var e_nameDoc;
-    var e_notifySup;
-    var e_timeSup;
-    var e_nameSup;
-    var e_notifyPolice;
-    var e_timePolice;
-    var e_namePolice;
-    var e_notifyRelative;
-    var e_timeRelative;
-    var e_nameRelative;
+    e_notifyDoc = "";
+    e_timeDoc = "";
+    e_nameDoc = "";
+    e_notifySup = "";
+    e_timeSup = "";
+    e_nameSup = "";
+    e_notifyPolice = "";
+    e_timePolice = "";
+    e_namePolice = "";
+    e_notifyRelative = "";
+    e_timeRelative = "";
+    e_nameRelative = "";
+    if ($('input[name="e_notifyDoc"]:checked')) {
+        e_notifyDoc = document.getElementById("e_notifyDoc").value;
+        e_timeDoc = document.getElementById("doctorTime").value;
+        e_nameDoc = document.getElementById("doctorName").value;
+    } 
+    if ($('input[name="e_notifySup"]:checked')) {
+        e_notifySup = document.getElementById("e_notifySup").value;
+        e_timeSup = document.getElementById("supervisorTime").value;
+        e_nameSup = document.getElementById("supervisorName").value;
+    } 
+    if ($('input[name="e_notifyPolice"]:checked')) {
+        e_notifyPolice = document.getElementById("e_notifyPolice").value;
+        e_timePolice = document.getElementById("policeTime").value;
+        e_namePolice = document.getElementById("policeName").value;
+    }
+    if ($('input[name="e_notifyRelative"]:checked')) {
+        e_notifyRelative = document.getElementById("e_notifyRelative").value;
+        e_timeRelative = document.getElementById("relativeTime").value;
+        e_nameRelative = document.getElementById("relativeName").value;
+    } 
+    f_occurType = "";
+    f_fall_nearFall = "";
+    f_fall_injury = "";
+    f_fall_injury_type = "";
+    f_fall_injury_type_other = "";
+    f_fall_assessmentAdm = "";
+    f_fall_assessmentOccur = "";
+    f_fall_history = "";
+    f_fall_assisted = "";
+    f_fall_amt = "";
+    f_medi_error = "";
+    f_medi_error_other = "";
+    f_medi_drug = "";
+    f_medi_reach = "";
+    f_other_type = "";
+    f_other_details = "";
+    // if f_occurType = Fall related
+    if ($('#occurTypeFall').is(':checked')) {
+        if (document.getElementById('fallNonInjury').checked || document.getElementById('nearFall').checked) {
+            f_fall_nearFall = document.querySelector('input[name="fallRelated"]:checked').value;
+        } else {
+            f_fall_injury = document.querySelector('input[name="fallRelated"]:checked').value;
+        }
+        //f_fall_injury_type might not work, not sure if can get all the values from the checkbox
+        f_fall_injury_type = document.querySelectorAll('input[name="typeOfInjury"]:checked').value;
+        if (document.getElementById('injuryOthers').checked) {
+            f_fall_injury_type_other = document.getElementById('injuryOthersSpecify').value;
+        }
+        f_fall_assessmentAdm = document.querySelector('input[name="fallRiskAssessment"]:checked').value;
+        f_fall_assessmentOccur = document.querySelector('input[name="fallRiskAssessment"]:checked').value;
+        f_fall_history = document.querySelector('input[name="historyOfFalls"]:checked').value;
+        f_fall_assisted = document.querySelector('input[name="assistedFall"]:checked').value;
+        f_fall_amt = document.getElementById('AMT').value;
+    } 
+    // if f_occurType = Medi related
+    if ($('#occurTypeMed').is(':checked')) {
+        f_medi_error = document.querySelector('input[name="MR_typeOfError"]:checked').value;
+        if (document.getElementById('MROthers').checked) {
+            f_medi_error_other = document.getElementById('MROthersSpecify').value;
+        } 
+        f_medi_drug = document.getElementById('drugInvolved').value;
+        f_medi_reach = document.querySelector('input[name="errorReachPatient"]:checked').value;
+    } 
+    // if f_occurType = Others
+    if ($('#occurTypeOther').is(':checked')) {
+        f_other_type = document.querySelector('input[name="OI_typeOfError"]:checked').value;
+        f_other_details = document.getElementById('OI_details').value;
+    }
 
-    var f_occurType;
-    var f_fall_nearFall;
-    var f_fall_injury;
-    var f_fall_injury_type;
-    var f_fall_injury_type_other;
-    var f_fall_assessmentAdm;
-    var f_fall_assessmentOccur; //seems the same as assessmentAdm
-    var f_fall_history;
-    var f_fall_assisted;
-    var f_fall_amt;
-    var f_medi_error;
-    var f_medi_error_other;
-    var f_medi_drug;
-    var f_medi_reach;
-    var f_other_type;
-    var f_other_details;
-   
-    var g_situation;
-    var g_background;
-    var g_action;
-    var g_recommend;
-    var g_description;
+    g_situation = document.getElementById('g_situation').value;
+    g_background = document.getElementById('g_background').value;
+    g_action = document.getElementById('g_action').value;
+    g_recommend = document.getElementById('g_recommend').value;
+    g_description = document.getElementById('g_description').value;
 
-    $("#submitBtn").click(function(e) {
+        $.ajax({
+            method: "POST",
+            url: "/THKH/laravel/api/staff-create",
+            headers: {Authorization: 'Bearer ' + localStorage.getItem("jwt")},
+            data: {
+                a_inccidentDate: a_inccidentDate,
+                a_inccidentTime: a_inccidentTime,
+                b_diagnosis: b_diagnosis,
+                c_affectedPerson: c_affectedPerson,
+                c_affectedName: c_affectedName,
+                c_affectedNrie: c_affectedNrie,
+                c_affectedAddress: c_affectedAddress,
+                c_affectedGender: c_affectedGender,
+                c_affectedContact: c_affectedContact,
+                c_affectedAge: c_affectedAge,
+                c_affectedAdmitDate: c_affectedAdmitDate,
+                c_affectedAdmitTime: c_affectedAdmitTime,
+                c_affectedWing: c_affectedWing,
+                c_affectedWard: c_affectedWard,
+                c_affectedBed: c_affectedBed,
+                c_witnessNrie: c_witnessNrie,
+                c_witnessName: c_witnessName,
+                c_witnessContact: c_witnessContact,
+                d_locationOccur: d_locationOccur,
+                d_occurSite: d_occurSite,
+                d_occurWard: d_occurWard,
+                d_occurWardWing: d_occurWardWing,
+                d_occurBed: d_occurBed,
+                d_site_other: d_site_other,
+                e_notifySup: e_notifySup,
+                e_notifyDoc: e_notifyDoc,
+                e_notifyPolice: e_notifyPolice,
+                e_notifyRelative: e_notifyRelative,
+                e_timeDoc: e_timeDoc,
+                e_timeSup: e_timeSup,
+                e_timePolice: e_timePolice,
+                e_timeRelative: e_timeRelative,
+                e_nameSup: e_nameSup,
+                e_nameDoc: e_nameDoc,
+                e_namePolice: e_namePolice,
+                e_nameRelative: e_nameRelative,
+                f_occurType: f_occurType,
+                f_fall_nearFall: f_fall_nearFall,
+                f_fall_injury: f_fall_injury,
+                f_fall_injury_type: f_fall_injury_type,
+                f_fall_injury_type_other: f_fall_injury_type_other,
+                f_fall_assessmentAdm: f_fall_assessmentAdm,
+                f_fall_assessmentOccur: f_fall_assessmentOccur,
+                f_fall_history: f_fall_history,
+                f_fall_assisted: f_fall_assisted,
+                f_fall_amt: f_fall_amt,
+                f_medi_error: f_medi_error,
+                f_medi_error_other: f_medi_error_other,
+                f_medi_drug: f_medi_drug,
+                f_medi_reach: f_medi_reach,
+                f_other_type: f_other_type,
+                f_other_details: f_other_details,
+                g_situation: g_situation,
+                g_background: g_background,
+                g_action: g_action,
+                g_recommend: g_recommend,
+                g_description: g_description,
+            },
+            success: function (response) {
+                console.log(response);
+                //console.log("response");
+            }
+
+       })
+    
+
+    //possible bug of adding the same data into the object
+    //update record when user click save
+    $("#saveBtn").click(function (e) { 
         //console.log("submitted");
         e.preventDefault();
         a_inccidentDate = document.getElementById("a_inccidentDate").value;
@@ -78,21 +205,21 @@ $(document).ready(function() {
         c_affectedAddress = document.getElementById("c_affectedAddress").value;
         c_affectedGender = document.querySelector('input[name="c_affectedGender"]:checked').value;
         c_affectedContact = document.getElementById("c_affectedContact").value;
-        c_affectedAge = "";
-        c_affectedAdmitDate = "";
-        c_affectedAdmitTime = "";
-        c_affectedWing = "";
+        c_affectedAge = document.getElementById("c_affectedAge").value;
+        c_affectedAdmitDate = document.getElementById("c_affectedAdmitDate").value;
+        c_affectedAdmitTime = document.getElementById("c_affectedAdmitTime").value;
+        c_affectedWing = document.getElementById("c_affectedWing").value;
         c_affectedWard = document.getElementById("c_affectedWard").value;
         c_affectedBed = document.getElementById("c_affectedBed").value;
-        c_witnessNrie = "";
-        c_witnessName = "";
-        c_witnessContact = "";
+        c_witnessNrie = document.getElementById("c_witnessNrie").value;
+        c_witnessName = document.getElementById("c_witnessName").value;
+        c_witnessContact = document.getElementById("c_witnessContact").value;
 
         d_locationOccur = document.querySelector('input[name="d_locationOccur"]:checked').value;
         d_occurSite = document.querySelector('input[name="d_occurSite"]:checked').value;
-        d_occurWard = "";
-        d_occurWardWing = "";
-        d_occurBed = "";
+        d_occurWard = document.getElementById("d_occurWard").value;
+        d_occurWardWing = document.getElementById("d_occurWardWing").value;
+        d_occurBed = document.getElementById("d_occurBed").value;
         d_site_other = document.getElementById("siteOthersSpecify").value;
 
         e_notifyDoc = "";
@@ -107,25 +234,25 @@ $(document).ready(function() {
         e_notifyRelative = "";
         e_timeRelative = "";
         e_nameRelative = "";
-        if (document.getElementById("doctorTime").value != null) {
-            e_notifyDoc = "e_notifyDoc";
+        if ($('input[name="e_notifyDoc"]:checked')) {
+            e_notifyDoc = document.getElementById("e_notifyDoc").value;
             e_timeDoc = document.getElementById("doctorTime").value;
-            e_nameDoc = "";
+            e_nameDoc = document.getElementById("doctorName").value;
         } 
-        if (document.getElementById("supervisorTime").value != null) {
-            e_notifySup = "e_notifySup";
+        if ($('input[name="e_notifySup"]:checked')) {
+            e_notifySup = document.getElementById("e_notifySup").value;
             e_timeSup = document.getElementById("supervisorTime").value;
-            e_nameSup = "";
+            e_nameSup = document.getElementById("supervisorName").value;
         } 
-        if (document.getElementById("policeTime").value != null) {
-            e_notifyPolice = "e_notifyPolice";
+        if ($('input[name="e_notifyPolice"]:checked')) {
+            e_notifyPolice = document.getElementById("e_notifyPolice").value;
             e_timePolice = document.getElementById("policeTime").value;
-            e_namePolice = "";
+            e_namePolice = document.getElementById("policeName").value;
         }
-        if (document.getElementById("relativeTime").value != null) {
-            e_notifyRelative = "e_notifyRelative";
+        if ($('input[name="e_notifyRelative"]:checked')) {
+            e_notifyRelative = document.getElementById("e_notifyRelative").value;
             e_timeRelative = document.getElementById("relativeTime").value;
-            e_nameRelative = "";
+            e_nameRelative = document.getElementById("relativeName").value;
         } 
         f_occurType = "";
         f_fall_nearFall = "";
@@ -133,7 +260,7 @@ $(document).ready(function() {
         f_fall_injury_type = "";
         f_fall_injury_type_other = "";
         f_fall_assessmentAdm = "";
-        f_fall_assessmentOccur = null; //seems the same as assessmentAdm
+        f_fall_assessmentOccur = "";
         f_fall_history = "";
         f_fall_assisted = "";
         f_fall_amt = "";
@@ -144,7 +271,7 @@ $(document).ready(function() {
         f_other_type = "";
         f_other_details = "";
         // if f_occurType = Fall related
-        //if (condition) {
+        if ($('#occurTypeFall').is(':checked')) {
             if (document.getElementById('fallNonInjury').checked || document.getElementById('nearFall').checked) {
                 f_fall_nearFall = document.querySelector('input[name="fallRelated"]:checked').value;
             } else {
@@ -156,34 +283,36 @@ $(document).ready(function() {
                 f_fall_injury_type_other = document.getElementById('injuryOthersSpecify').value;
             }
             f_fall_assessmentAdm = document.querySelector('input[name="fallRiskAssessment"]:checked').value;
+            f_fall_assessmentOccur = document.querySelector('input[name="fallRiskAssessment"]:checked').value;
             f_fall_history = document.querySelector('input[name="historyOfFalls"]:checked').value;
             f_fall_assisted = document.querySelector('input[name="assistedFall"]:checked').value;
             f_fall_amt = document.getElementById('AMT').value;
-        //} 
+        } 
         // if f_occurType = Medi related
-        //if (condition) {
+        if ($('#occurTypeMed').is(':checked')) {
             f_medi_error = document.querySelector('input[name="MR_typeOfError"]:checked').value;
             if (document.getElementById('MROthers').checked) {
                 f_medi_error_other = document.getElementById('MROthersSpecify').value;
             } 
             f_medi_drug = document.getElementById('drugInvolved').value;
             f_medi_reach = document.querySelector('input[name="errorReachPatient"]:checked').value;
-        //} 
+        } 
         // if f_occurType = Others
-        //if (condition) {
+        if ($('#occurTypeOther').is(':checked')) {
             f_other_type = document.querySelector('input[name="OI_typeOfError"]:checked').value;
             f_other_details = document.getElementById('OI_details').value;
-        //}
+        }
 
-        g_situation = "";
-        g_background = "";
-        g_action = "";
-        g_recommend = "";
+        g_situation = document.getElementById('g_situation').value;
+        g_background = document.getElementById('g_background').value;
+        g_action = document.getElementById('g_action').value;
+        g_recommend = document.getElementById('g_recommend').value;
         g_description = document.getElementById('g_description').value;
 
         $.ajax({
             method: "POST",
-            url: "/THKH/laravel/api/staff-create",
+            url: "/THKH/laravel/api/staff-save",
+            headers: {Authorization: 'Bearer ' + localStorage.getItem("jwt")},
             data: {
                 a_inccidentDate: a_inccidentDate,
                 a_inccidentTime: a_inccidentTime,
@@ -246,26 +375,13 @@ $(document).ready(function() {
             success: function (response) {
                 console.log(response);
             }
-       })
-    })
 
-    //possible bug of adding the same data into the object
-    $("#saveBtn").submit(function () {
-        var form = document.querySelector('form');
-        console.log(form);
-        var formElem = new FormData(form);
-        console.log(formElem);
-
-        var formToJSON = JSON.stringify(Object.fromEntries(formElem));
-        if (sessionStorage.getItem("FormData" === null)) {
-            sessionStorage.setItem("FormData", formToJSON);
-        } else {
-            var currentFormData = JSON.parse(sessionStorage.getItem("FormData"));
-            var newFormToJSON = JSON.stringify(Object.assign(currentFormData, formElem));
-            sessionStorage.setItem("FormData", newFormToJSON);
-        }
-        
-    })
+        });
 
     
+    });
+
+    $("#cancelBtn").click(function () {
+        location.href = "login.html";
+    });
 });

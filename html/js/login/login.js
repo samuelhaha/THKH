@@ -19,6 +19,7 @@ $(document).ready(function () {
           alert("Wrong credentials entered! Please check your staff id and password");
         }
         else{
+          window.localStorage.setItem("jwt", response.token); //comment out if using cookie
           window.location.href = 'login.html';
         }
       },

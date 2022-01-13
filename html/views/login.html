@@ -4,8 +4,10 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
 <style>
-body {font-family: "Times New Roman", Georgia, Serif;}
+
+
 h1, h2, h3, h4, h5, h6 {
   font-family: "Playfair Display";
   letter-spacing: 1px;
@@ -163,6 +165,7 @@ img {vertical-align: middle;}
   padding: 20px;
   text-align: center;
   background: lightblue;
+
 }
 
 .footer2{
@@ -172,12 +175,21 @@ img {vertical-align: middle;}
 }
 
 #create{
-  padding-left: 130px;
+  margin-left: 110px;
 }
 
-#update{
-  padding-left: 130px;
+#logo{
+  margin-left: 110px;
 }
+
+#search{
+  margin-right: 110px;
+}
+
+#text2{
+  margin-left: 20px;
+}
+
 
 </style>
 <body>
@@ -186,7 +198,7 @@ img {vertical-align: middle;}
 
 <div class="page-header">
 
-  <a href="#"><img src="../images/logo.jpg"></a>
+  <a href="#"><img src="../images/logo.jpg" id="logo"></a>
   <!-- <h1><span>Banner/Header
    
     </span>
@@ -194,7 +206,7 @@ img {vertical-align: middle;}
   <!-- search bar right align -->
   
   
-        <div class="search">
+        <div class="search" id="search">
                 
              
                   <input type="text"
@@ -210,9 +222,8 @@ img {vertical-align: middle;}
 <div class="navbar">
     
   <a href="#" id="create">Create</a>
-  <a href="#" id="update">Update</a>
-  <a href="#" class="right">Save</a>
-  <a href="#" class="right">View Reports</a> 
+  <a href="#">Update</a>
+  <a href="#">View Reports</a> 
 </div>
 
 <br>
@@ -248,7 +259,7 @@ img {vertical-align: middle;}
     <div class="w3-col l6 w3-padding-large">
       <h1 class="w3-center">About THKH</h1><br>
       <h5 class="w3-center">Tradition since 2001</h5>
-      <p class="small">in lorem ipsum dolor sit amet, consectetur adipiscing elit consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute iruredolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.We only use <span class="w3-tag w3-light-grey"></p>
+      <p id="text2">in lorem ipsum dolor sit amet, consectetur adipiscing elit consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute iruredolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.We only use <span class="w3-tag w3-light-grey"></p>
     
 
     

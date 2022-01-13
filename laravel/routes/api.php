@@ -36,7 +36,10 @@ Route::post("/logout", [AccountController::class, 'logout']);
 
 Route::group(['middleware' => ['jwt.verify']], function() {
     Route::post("/staff-create", [RoleController::class, 'staffCreate']);
+    Route::post("/staff-save/{id}", [RoleController::class,'staffSave']);
     Route::post("/supervisor", [RoleController::class, 'supervisor']);
     Route::post("/doctor", [RoleController::class, 'doctor']);
 });
 
+// Route::post("/staff-create", [RoleController::class, 'staffCreate']);
+// Route::post("/staff-save/{id}", [RoleController::class,'staffSave']);

@@ -119,27 +119,13 @@
             <a href="#" class="right">Create</a>
         </header>  
     </div>
-
-      <!-- <div class="tab-content">
-        <div id="home" class="tab-pane fade in active">
-          <h3>HOME</h3>
-          <p>Some content.</p>
-        </div>
-        <div id="menu1" class="tab-pane fade">
-          <h3>Menu 1</h3>
-          <p>Some content in menu 1.</p>
-        </div>
-        <div id="menu2" class="tab-pane fade">
-          <h3>Menu 2</h3>
-          <p>Some content in menu 2.</p>
-        </div>
-      </div> -->
   
     <section>
         <ul class="nav nav-tabs">
             <li class="active"><a data-toggle="tab" href="#ab">A B</a></li>
             <li><a data-toggle="tab" href="#c">C</a></li>
-            <li><a data-toggle="tab" href="#de">D E</a></li>
+            <li><a data-toggle="tab" href="#d">D</a></li>
+            <li><a data-toggle="tab" href="#e">E</a></li>
             <li><a data-toggle="tab" href="#f">F</a></li>
             <li><a data-toggle="tab" href="#g">G</a></li>
         </ul>
@@ -161,7 +147,7 @@
                         <div id="b" class="tabContent">
                             <h3>B: Diagnosis - Related to Event</h3>
                             <div>
-                                <textarea id="b_diagnosis" name="diagnosis" rows="9" cols="100"></textarea>
+                                <textarea id="b_diagnosis" name="diagnosis" rows="9" cols="100" style="resize: none;"></textarea>
                             </div>
                         </div>
                     </td>
@@ -210,6 +196,17 @@
                             <label for="contact">Contact Number:</label>
                             <input type="text" id="c_affectedContact" name="contact"><br><br>
     
+                            <label for="c_affectedAge">Age:</label>
+                            <input type="number" name="c_affectedAge" id="c_affectedAge"><br><br>
+
+                            <label for="c_affectedAdmitDate">Admit Date:</label>
+                            <input type="date" name="c_affectedAdmitDate" id="c_affectedAdmitDate">
+                            <label for="c_affectedAdmitTime">Admit Time:</label>
+                            <input type="time" name="c_affectedAdmitTime" id="c_affectedAdmitTime"><br><br>
+
+                            <label for="c_affectedWing">Wing:</label>
+                            <input type="text" name="c_affectedWing" id="c_affectedWing"><br><br>
+
                             <label for="ward">Ward</label>
                      
                             <input type="number" id="c_affectedWard" name="ward">
@@ -225,32 +222,27 @@
     
                     <tr>
                         <td>
-                            <label for="witness">Witness:</label>
-                            <input type="text" name="witness" id="witness">
+                            <h4>Witness</h4>
+                            <label for="c_witnessNrie">NRIC:</label>
+                            <input type="text" name="c_witnessNrie" id="c_witnessNrie">
+                            <br>
+                            <label for="c_witnessName">Name:</label>
+                            <input type="text" name="c_witnessName" id="c_witnessName">
+                            <br>
+                            <label for="c_witnessContact">Contact Number:</label>
+                            <input type="text" name="c_witnessContact" id="c_witnessContact">
                         </td>
-                    
                     </tr>
-                    
                 </table>
-                
-                <!-- <div>
-                    <button>Submit</button>
-                    <button>Cancel</button>
-                </div> -->
-               
             </div>       
-            <div id="de" class="tab-pane fade">
+            <div id="d" class="tab-pane fade">
                 <div>
                     <table>
-                        <td colspan="2"><h3>D: Location of Occurrence</h3></td>
-                        <td colspan="4"><h3>E: Time of Notification</h3></td>
+                        <td><h3>D: Location of Occurrence</h3></td>
+                        
                         <tr>
                             <th id="Category">Location</th>
                             <th id="Category">Site</th>
-                            <th>Doctor</th>
-                            <th>Supervisor</th>
-                            <th>Police</th>
-                            <th>Relative</th>
                         </tr>
                         <tr>
                           <td>
@@ -278,88 +270,81 @@
                                 <input type="text" id="siteOthersSpecify" name="SiteOthers">
                                 </label>
                           </td>
-                          <td>
-                            
-                            <div id="box3">
-                                <div class="row">
-                                
-                                    <div class="column middle">
-                                        <label for="doctorTime" style="font-weight: bold">Doctor:</label>
-                                        <input type="time" id="doctorTime" name="doctorTime">
-                                       
-                                    </div>
-                            
-                                  
-                                </div>
-                                
-            
-                            </div>
-                          </td>
-                          <td>
-                            
-                            <div id="box3">
-                                <div class="row">
-                                
-                                    <div class="column middle">
-                                        <label for="supervisiorTime" style="font-weight: bold">Supervisor:</label>
-                                        <input type="time" id="supervisorTime" name="supervisorTime">
-                                       
-                                    </div>
-                            
-                                  
-                                </div>
-                                
-            
-                            </div>
-                          </td>
-                          <td>
-                            
-                            <div id="box3">
-                                <div class="row">
-                                
-                                    <div class="column middle">
-                                        <label for="policeTime" style="font-weight: bold">Police:</label>
-                                        <input type="time" id="policeTime" name="policeTime">
-                                       
-                                    </div>
-                            
-                                  
-                                </div>
-                                
-            
-                            </div>
-                          </td>
-                          <td>
-                            
-                            <div id="box3">
-                                <div class="row">
-                                
-                                    <div class="column middle">
-                                        <label for="relativeTime" style="font-weight: bold">Relative:</label>
-                                        <input type="time" id="relativeTime" name="relativeTime">
-                                       
-                                    </div>
-                            
-                                  
-                                </div>
-                                
-            
-                            </div>
-                          </td>
-                         
-                          
-                      
+                        </tr>
+                        <tr>
+                            <label for="d_occurWard">Ward:</label>
+                            <input type="text" name="d_occurWard" id="d_occurWard">
+                            <label for="d_occurWardWing">Ward Wing:</label>
+                            <input type="text" name="d_occurWardWing" id="d_occurWardWing">
+                            <label for="d_occurBed">Bed:</label>
+                            <input type="text" name="d_occurBed" id="d_occurBed">
+                        </tr>
                       </table>                      
             
+                </div>
+            </div>
+            <div id="e" class="tab-pane fade">
+                <div>
+                    <table>
+                        
+                        <td><h3>E: Time of Notification</h3></td>
+                        <tr>
+                            <th>
+                                <input type="checkbox" name="e_notifyDoc" id="e_notifyDoc" value="e_notifyDoc">
+                                <label for="e_notifyDoc" style="font-weight: bold">Doctor</label>
+                            </th>
+                            <th>
+                                <input type="checkbox" name="e_notifySup" id="e_notifySup" value="e_notifySup">
+                                <label for="e_notifySup" style="font-weight: bold">Supervisor</label>
+                            </th>
+                            <th>
+                                <input type="checkbox" name="e_notifyPolice" id="e_notifyPolice" value="e_notifyPolice">
+                                <label for="e_notifyPolice" style="font-weight: bold">Police</label>
+                            </th>
+                            <th>
+                                <input type="checkbox" name="e_notifyRelative" id="e_notifyRelative" value="e_notifyRelative">
+                                <label for="e_notifyRelative" style="font-weight: bold">Relative</label>
+                            </th>
+                        </tr>
+                        <tr>
+                            <td>
+                                <label for="doctorTime">Doctor Time:</label>
+                                <input type="time" id="doctorTime" name="doctorTime"><br>
+                                <label for="doctorName">Doctor Name:</label>
+                                <input type="text" name="doctorName" id="doctorName">
+                              
+                            </td>
+                            <td>
+                                <label for="supervisiorTime">Supervisor Time:</label>
+                                <input type="time" id="supervisorTime" name="supervisorTime"><br>
+                                <label for="supervisiorName">Supervisor Name:</label>
+                                <input type="text" id="supervisiorName" name="supervisiorName">
+                            </td>
+                            <td>
+                           
+                                <label for="policeTime">Police Time:</label>
+                                <input type="time" id="policeTime" name="policeTime"><br>
+                                <label for="policeName">Police Name:</label>
+                                <input type="text" id="policeName" name="policeName">
+                            
+                            </td>
+                            <td>
+                            
+                                <label for="relativeTime">Relative Time:</label>
+                                <input type="time" id="relativeTime" name="relativeTime"><br>
+                                <label for="relativeName">Relative Name:</label>
+                                <input type="text" id="relativeName" name="relativeName">
+                            </td>
+                      </table>
                 </div>
             </div>
             <div id="f" class="tab-pane fade">
                 <table>
                     <td colspan="3"><h3>F: Type of Occurrence</h3></td>
                     <tr>
-                      <th id="Category">Fall Related</th>
-                      <th id="Category">Medication Related</th>
-                      <th id="Category">Other Incidents</th>
+                      <th><input type="radio" name="occurType" id="occurTypeFall" value="fall"><label for="occurTypeFall"> Fall Related</label></th>
+                      <th><input type="radio" name="occurType" id="occurTypeMed" value="medication"><label for="occurTypeMed"> Medication Related</label></th>
+                      <th><input type="radio" name="occurType" id="occurTypeOther" value="otherx"><label for="occurTypeOther"> Other Incidents</label></th>
                     </tr>
                     <tr>
                         <td> 
@@ -449,26 +434,29 @@
                       
                     </tr>
                     <tr>
-                        <td>Fall Risk Assessment:<br>
+                        <td>
+                            Fall Risk Assessment Admit:
+                            <input type="radio" id="fallRiskAssAdmitLow" name="fallRiskAssAdmit" value="Low">
+                            <label for="fallRiskAssAdmitLow">Low</label>
+                            <input type="radio" id="fallRiskAssAdmitMod" name="fallRiskAssAdmit" value="Moderate">
+                            <label for="fallRiskAssAdmitMod">Moderate</label>
+                            <input type="radio" id="fallRiskAssAdmittHigh" name="fallRiskAssAdmit" value="High">
+                            <label for="fallRiskAssAdmittHigh">High</label><br>
+
+                            Fall Risk Assessment:
                             <input type="radio" id="fallRiskAssessmentLow" name="fallRiskAssessment" value="Low">
                             <label for="fallRiskAssessmentLow">Low</label>
                             <input type="radio" id="fallRiskAssessmentMod" name="fallRiskAssessment" value="Moderate">
                             <label for="fallRiskAssessmentMod">Moderate</label>
                             <input type="radio" id="fallRiskAssessmentHigh" name="fallRiskAssessment" value="High">
-                            <label for="fallRiskAssessmentHigh">High</label>
+                            <label for="fallRiskAssessmentHigh">High</label><br>
             
                             History of Falls:
                             <input type="radio" id="historyOfFallsYes" name="historyOfFalls" value="Yes">
                             <label for="historyOfFallsYes">Yes</label>
                             <input type="radio" id="historyOfFallsNo" name="historyOfFalls" value="No">
                             <label for="historyOfFallsNo">No</label>
-            
-                          
                         </td>
-                     
-            
-                        
-                     
                     </tr>
                     <tr>
                         <td>Assisted/Unassisted fall:<br>
@@ -484,12 +472,7 @@
                         </td>
                     
                     </tr>
-                  </table>
-                  <!-- <div>
-                    <button>Save</button>
-                    <button>Submit</button>
-                    <button>Cancel</button>
-                </div> -->
+                </table>
             </div>
             <div id="g" class="tab-pane fade">
                 <table>
@@ -501,30 +484,23 @@
                         </tr>
                         
                         <tr style="vertical-align:top">
-                            <th rowspan="2"><br>
-            
-                                <div>
-                                    <textarea id="g_description" name="g_description" rows="9" cols="100"></textarea>
-                                </div>
-                                <tr>
-                                </tr>
-                                <tr>
-                                    <td>
-                                        
-                                        <br><br>
-                                        <label for="fname">Name in Full:</label>
-                                        <input type="text" id="fname" name="fname"><br><br>
-                                        <br>
-                                        <label for="fname">Designation:</label>
-                                        <br>
-                                        <input type="text" id="fname" name="fname"><br><br>
-                                        <label for="fname">Date and Time:</label>
-                                        <br>
-                                        <input type="text" id="fname" name="fname"><br><br>
-                                    </td>
-                                </tr>
-            
+                            <th rowspan="2">
                             
+                                <br>
+                                <span>Situation</span><br>
+                                <textarea id="g_situation" name="g_situation" rows="9" cols="100" style="resize: none;"></textarea>
+                                <br>
+                                <span>Background</span><br>
+                                <textarea id="g_background" name="g_background" rows="9" cols="100" style="resize: none;"></textarea>
+                                <br>
+                                <span>Action</span><br>
+                                <textarea id="g_action" name="g_action" rows="9" cols="100" style="resize: none;"></textarea>
+                                <br>
+                                <span>Recommend</span><br>
+                                <textarea id="g_recommend" name="g_recommend" rows="9" cols="100" style="resize: none;"></textarea>
+                                <br>
+                                <span>Description</span><br>
+                                <textarea id="g_description" name="g_description" rows="9" cols="100" style="resize: none;"></textarea>
                             </th>
                         </tr>
              
@@ -532,11 +508,7 @@
                     </table>
                   
                 </table>
-                <!-- <div>
-                    <button>Save</button>
-                    <button>Submit</button>
-                    <button>Cancel</button>
-                </div> -->
+
             </div>
             <div>
                 <button id="saveBtn">Save</button>
