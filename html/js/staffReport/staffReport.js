@@ -121,7 +121,7 @@ $(document).ready(function() {
         $.ajax({
             method: "POST",
             url: "/THKH/laravel/api/staff-create",
-            headers: {Authorization: 'Bearer ' + localStorage.getItem("jwt")},
+            headers: {Authorization: 'Bearer ' + sessionStorage.getItem("jwt")},
             data: {
                 a_inccidentDate: a_inccidentDate,
                 a_inccidentTime: a_inccidentTime,
@@ -182,8 +182,9 @@ $(document).ready(function() {
                 g_description: g_description,
             },
             success: function (response) {
-                console.log(response);
-                //console.log("response");
+                //console.log(response);
+                alert("Report successfully created!");
+                window.location.href = 'reportspage2.html';
             }
         })
 
