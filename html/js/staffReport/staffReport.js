@@ -1,5 +1,6 @@
 $(document).ready(function() {
     //console.log("submitted");
+    $("#submitBtn").click(function(e) {
     e.preventDefault();
     a_inccidentDate = document.getElementById("a_inccidentDate").value;
     //console.log(a_inccidentDate);
@@ -184,6 +185,7 @@ $(document).ready(function() {
                 console.log(response);
                 //console.log("response");
             }
+        })
 
        })
     
