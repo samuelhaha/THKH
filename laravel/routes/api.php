@@ -34,6 +34,10 @@ Route::post("check", [AccountController::class, 'check']);
 
 Route::post("/logout", [AccountController::class, 'logout']);
 
+Route::get("search/{c_affectedName}",[RoleController::class, 'search']);
+//Route::get("search",[AccountController::class,'search']);
+
+
 Route::group(['middleware' => ['jwt.verify']], function() {
     Route::post("/staff-create", [RoleController::class, 'staffCreate']);
     Route::post("/staff-save/{id}", [RoleController::class,'staffSave']);
