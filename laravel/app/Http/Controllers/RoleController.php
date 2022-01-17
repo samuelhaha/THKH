@@ -240,6 +240,17 @@ class RoleController extends Controller
         }
     }
 
+    
+	function search($c_affectedName)
+    {
+       //return 123;
+       return Hor.php::where("c_affectedName","like","&".$c_affectedName."%")->get();
+    }
+
+    
+    //public function c_affectedName(Request $request, $c_affectedName)
+
+
     //supervisor
     // public function supervisor(Request $request)
     // {
