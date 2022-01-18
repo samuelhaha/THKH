@@ -241,10 +241,20 @@ class RoleController extends Controller
     }
 
     
-	function search($c_affectedName)
+	// function search($c_affectedName)
+    // {
+    //    //return 123;
+    //    //return Hor.php::where("c_affectedName","like","&".$c_affectedName."%")->get();
+    //    return Hor::where("c_affectedName","like","&".$c_affectedName."%")->get();
+    // }
+
+    public function search(Request $request)
     {
-       //return 123;
-       return Hor.php::where("c_affectedName","like","&".$c_affectedName."%")->get();
+        $data = Item::select("c_affectedName")
+                ->where("c_affectedName","LIKE","%{$request->name}%")
+                ->get();
+                
+        return response()->json($data);
     }
 
     
