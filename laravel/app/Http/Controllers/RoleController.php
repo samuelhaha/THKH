@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Models\User;
 use App\Models\Hor;
+use DateTime;
 use Illuminate\Support\Facades\DB;
 use JWTAuth;
 
@@ -262,29 +263,32 @@ class RoleController extends Controller
 
 
     //supervisor
-    // public function supervisor(Request $request)
-    // {
-    //     if (JWTAuth::user()->role != 'sup')
-    //     {
-    //     $input = $request->only('factors','recommendations','date','time');
-        
-    //     //$hor = Hor::insert('insert into hors (h_sp_factors,h_sp_recommend,h_sp_reportFile,sp_submit_datetime)')
-    //     return response()->json([
-    //         'success' => true,
-    //         'msg' => 'Data added successfully',
-    //         'data' => $input,
-    //         'token' => $request->token,
-    //         'user' => JWTAuth::user()
-    //     ]);
-    // }
-    // else{
-    //     return response(401)->json([
-    //         'success' => false,
-    //         'msg' => 'Unauthorized. You must be a supervisor to submit the form.'
-    //     ]);
-    // }
+    //add his part to the form
+    public function supervisorAdd($id, Request $request)
+    {
+        $input = $request->only('h_sp_factors','h_sp_recommend','h_sp_reportFile','date','time');
+        $file = $request->h_sp_reportFile;
+        $request->validate([
+            'h_sp_reportFile' => 'required|mimes:pdf,jpeg,jpg,png|max:2048',
+        ]);
+        $name = $file->hashName();
+        $addToRecord = Hor::where('id', $id)->update([
+            'h_sp_factors'=>$request->h_sp_factors,
+            'h_sp_recommend'=>$request->h_sp_recommend,
+            'h_sp_reportFile'=>$name,
+            'sp_submit_datetime'=>date("Y-n-d",time())
+        ]);
+        if($addToRecord){
+            return response()->json([
+                'success' => true,
+                'msg' => 'Supervisor record added successfully',
+                'data' => $addToRecord
+            ]);
+           
+        }
+       
     
-    // }
+    }
 
     // //doctor
     // public function doctor(Request $request)

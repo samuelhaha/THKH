@@ -132,19 +132,20 @@
         
         <div class="tab-content">
             <div id="ab" class="tab-pane fade in active">
-            <div id="a">
-                <form action="/action_page.php">
                 <table>
-                    <td style="vertical-align:top" colspan="2"><h3>A: Date & Time of Occurrence</h3>
+                    <td style="vertical-align:top" colspan="2">
+                        <div id="a">
+                        <h3>A: Date & Time of Occurrence</h3>
                             <label for="a_inccidentDate">Date:</label>
                             <input type="date" id="a_inccidentDate" name="date">
-                          
+                        
                             <label for="a_inccidentTime" style="font-weight: bold;">Time</label>
                             <input type="time" id="a_inccidentTime" name="time">
                             <br><br><br><br><br><br><br><br>
+                        </div>
                     </td>
                     <td>
-                        <div id="b" class="tabContent">
+                        <div id="b">
                             <h3>B: Diagnosis - Related to Event</h3>
                             <div>
                                 <textarea id="b_diagnosis" name="diagnosis" rows="9" cols="100" style="resize: none;"></textarea>
@@ -152,9 +153,8 @@
                         </div>
                     </td>
                 </table>
-            </form>
             </div>   
-            </div>
+            
             <div id="c" class="tab-pane fade">
                 <table>
                     <td colspan="3"><h3>C: Particulars of Person Involved</h3></td>
