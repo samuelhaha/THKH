@@ -161,6 +161,18 @@ class RoleController extends Controller
             }
     }
 
+    public function getReportbyId()
+    {
+        //staff
+        $id = JWTAuth::user()->staff_id;
+        //get report based on rs_id from hors table
+        $report = Hor::where('rs_id', $id)->get();
+        return response()->json([
+            'msg' => 'success',
+            'reports' => $report
+        ]);
+    }
+
     public function staffSave($id, Request $request)
     {
         $updateData = Hor::where('id', $id)->update([
@@ -241,13 +253,6 @@ class RoleController extends Controller
         }
     }
 
-    
-	// function search($c_affectedName)
-    // {
-    //    //return 123;
-    //    //return Hor.php::where("c_affectedName","like","&".$c_affectedName."%")->get();
-    //    return Hor::where("c_affectedName","like","&".$c_affectedName."%")->get();
-    // }
 
     public function search(Request $request)
     {
@@ -257,9 +262,6 @@ class RoleController extends Controller
                 
         return response()->json($data);
     }
-
-    
-    //public function c_affectedName(Request $request, $c_affectedName)
 
 
     //supervisor
@@ -277,7 +279,8 @@ class RoleController extends Controller
             'h_sp_factors'=>$request->h_sp_factors,
             'h_sp_recommend'=>$request->h_sp_recommend,
             'h_sp_reportFile'=>$file,
-            'sp_submit_datetime'=>date("Y-n-d H:i:s",strtotime($datetime))
+            'sp_submit_datetime'=>date("Y-n-d H:i:s",strtotime($datetime)),
+            'sp_id'=>JWTAuth::user()->staff_id
         ]);
         if($addToRecord){
             return response()->json([
@@ -291,16 +294,42 @@ class RoleController extends Controller
     
     }
 
-    // //doctor
-    // public function doctor(Request $request)
-    // {
-    //     $input = $request->only('report','reportfile','date','time');
+    //doctor
+    //add his part to the form
+    public function doctorAdd($id, Request $request)
+    {
+        //$input = $request->only('report','reportfile','date','time');
+        request()->validate([
+            'i_dt_reportFile' => 'mimes:pdf,jpg,jpeg,png|max:2048'
+        ]);
+        $datetime = $request->date . $request->time;
+        $addToRecord = Hor::where('id', $id)->update([
+            'i_dt_report'=>$request->i_dt_report,
+            'i_dt_reportFile'=>$request->i_dt_reportFile,
+            'dt_submit_datetime'=>date("Y-n-d H:i:s",strtotime($datetime)),
+            'dt_id'=>JWTAuth::user()->staff_id
+        ]);
         
-        
-    //     return response()->json([
-    //         'success' => true,
-    //         'msg' => 'Data added successfully',
-    //         'data' => $input
-    //     ]);
-    // }
+        return response()->json([
+            'success' => true,
+            'msg' => 'Doctor record added successfully',
+            'data' => $addToRecord
+        ]);
+    }
+
+    //pharmacy
+    //add his part to the form
+    public function pharmacyAdd($id, Request $request)
+    {   
+        $datetime = $request->date . $request->time;
+        $addToRecord = Hor::where('id', $id)->update([
+            'i_dt_report'=>$request->i_dt_report,
+            'i_dt_reportFile'=>$request->i_dt_reportFile,
+            'dt_submit_datetime'=>date("Y-n-d H:i:s",strtotime($datetime)),
+            'dt_id'=>JWTAuth::user()->staff_id
+        ]);
+
+    }
+
+    //
 }
