@@ -251,7 +251,7 @@ class RoleController extends Controller
 
     public function search(Request $request)
     {
-        $data = Item::select("c_affectedName")
+        $data = Hor::select("c_affectedName")
                 ->where("c_affectedName","LIKE","%{$request->name}%")
                 ->get();
                 
