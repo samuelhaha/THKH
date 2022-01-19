@@ -9,6 +9,9 @@ use Illuminate\Support\Facades\DB;
 //use Tymon\JWTAuth\Exceptions\JWTException;
 use JWTAuth;
 use Exception;
+use Tymon\JWTAuth\Facades\JWTAuth as FacadesJWTAuth;
+use Tymon\JWTAuth\JWTAuth as JWTAuthJWTAuth;
+
 class AccountController extends Controller
 {
     //
@@ -89,12 +92,13 @@ class AccountController extends Controller
 
     public function logout(Request $request)
     {
-        $this->validate($request, [
-            'token' => 'required'
-        ]);
+        // $token = $request->token;
+        // $this->validate($request, [
+        //     'token' => 'required'
+        // ]);
   
         try {
-            JWTAuth::invalidate($request->token);
+            JWTAuth::invalidate(JWTAuth::getToken());
   
             return response()->json([
                 'success' => true,
@@ -103,7 +107,7 @@ class AccountController extends Controller
         } catch (JWTException $exception) {
             return response()->json([
                 'success' => false,
-                'message' => 'Sorry, the user cannot be logged out'
+                'message' => 'Error: ' + $exception
             ]);
         }
     }

@@ -34,12 +34,18 @@ Route::post("check", [AccountController::class, 'check']);
 
 Route::post("/logout", [AccountController::class, 'logout']);
 
+Route::get("search",[RoleController::class, 'search']);
+//Route::get("search",[RoleController::class,'search']);
+
+
 Route::group(['middleware' => ['jwt.verify']], function() {
     Route::post("/staff-create", [RoleController::class, 'staffCreate']);
     Route::post("/staff-save/{id}", [RoleController::class,'staffSave']);
-    Route::post("/supervisor", [RoleController::class, 'supervisor']);
+    Route::post("/supervisor-add/{id}", [RoleController::class, 'supervisorAdd']);
+    //Route::post("/supervisor-add", [RoleController::class, 'supervisorAdd']);
     Route::post("/doctor", [RoleController::class, 'doctor']);
 });
 
 // Route::post("/staff-create", [RoleController::class, 'staffCreate']);
 // Route::post("/staff-save/{id}", [RoleController::class,'staffSave']);
+//Route::post("/supervisor-add/{id}", [RoleController::class, 'supervisorAdd']);
