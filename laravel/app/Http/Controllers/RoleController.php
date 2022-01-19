@@ -266,17 +266,18 @@ class RoleController extends Controller
     //add his part to the form
     public function supervisorAdd($id, Request $request)
     {
-        $input = $request->only('h_sp_factors','h_sp_recommend','h_sp_reportFile','date','time');
+        //$input = $request->only('h_sp_factors','h_sp_recommend','h_sp_reportFile','date','time');
         $file = $request->h_sp_reportFile;
-        $request->validate([
-            'h_sp_reportFile' => 'required|mimes:pdf,jpeg,jpg,png|max:2048',
-        ]);
-        $name = $file->hashName();
+        // $request->validate([
+        //     'h_sp_reportFile' => 'required|mimes:pdf,jpeg,jpg,png|max:2048',
+        // ]);
+        // $name = $file->hashName();
+        $datetime = $request->date . $request->time;
         $addToRecord = Hor::where('id', $id)->update([
             'h_sp_factors'=>$request->h_sp_factors,
             'h_sp_recommend'=>$request->h_sp_recommend,
-            'h_sp_reportFile'=>$name,
-            'sp_submit_datetime'=>date("Y-n-d",time())
+            'h_sp_reportFile'=>$file,
+            'sp_submit_datetime'=>date("Y-n-d H:i:s",strtotime($datetime))
         ]);
         if($addToRecord){
             return response()->json([
