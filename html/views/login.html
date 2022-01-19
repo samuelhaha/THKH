@@ -221,9 +221,9 @@ img {vertical-align: middle;}
 
 <div class="navbar">
     
-  <a href="#" id="create">Create</a>
-  <a href="#">Update</a>
-  <a href="#">View Reports</a> 
+  <button id="create" onclick="sendToCreate();">Create</button>
+  <a href="#" id="update">Update</a>
+  <a href="#" id="view">View Reports</a> 
 </div>
 
 <br>
@@ -288,7 +288,7 @@ img {vertical-align: middle;}
   <h6>© 2021 Ang Mo Kio - Thye Hua Kwan Hospital. All rights reserved.</h6>
 </div>
 
-<script>
+  <script>
     var slideIndex = 0;
     showSlides();
     
@@ -308,7 +308,17 @@ img {vertical-align: middle;}
       dots[slideIndex-1].className += " active";
       setTimeout(showSlides, 2000); // Change image every 2 seconds
     }
-    </script>
+
+    function sendToCreate() {
+      
+      role = sessionStorage.getItem("role");
+      window.location.href = role + '.html';
+      console.log(role + '.html');
+  
+    }
+  </script>
+
+  
 
 </body>
 </html>
