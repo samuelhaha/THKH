@@ -37,14 +37,19 @@ Route::post("/logout", [AccountController::class, 'logout']);
 Route::get("search",[RoleController::class, 'search']);
 //Route::get("search",[RoleController::class,'search']);
 
+<<<<<<< HEAD
 Route::get('display-data',[RoleController::class,'displaydata']);
+=======
+Route::get("report", [RoleController::class, 'getReportById']);
+
+>>>>>>> 2e67886bdc3b77629d7bf731aceb77f671d3a7b9
 
 Route::group(['middleware' => ['jwt.verify']], function() {
     Route::post("/staff-create", [RoleController::class, 'staffCreate']);
     Route::post("/staff-save/{id}", [RoleController::class,'staffSave']);
     Route::post("/supervisor-add/{id}", [RoleController::class, 'supervisorAdd']);
-    //Route::post("/supervisor-add", [RoleController::class, 'supervisorAdd']);
     Route::post("/doctor", [RoleController::class, 'doctor']);
+    Route::get("/getReports", [RoleController::class, 'getReportbyId']);
 });
 
 // Route::post("/staff-create", [RoleController::class, 'staffCreate']);
