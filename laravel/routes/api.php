@@ -37,16 +37,13 @@ Route::post("/logout", [AccountController::class, 'logout']);
 Route::get("search",[RoleController::class, 'search']);
 //Route::get("search",[RoleController::class,'search']);
 
-<<<<<<< HEAD
 Route::get("display-data",[RoleController::class,'displaydata']);
 
 Route::get("report", [RoleController::class, 'getReportById']);
 
 
-=======
 Route::get("report", [RoleController::class, 'getReportById']);
 
->>>>>>> parent of e232296 (Merge branch 'main')
 
 Route::group(['middleware' => ['jwt.verify']], function() {
     Route::post("/staff-create", [RoleController::class, 'staffCreate']);

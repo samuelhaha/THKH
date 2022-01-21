@@ -357,22 +357,15 @@ class RoleController extends Controller
             'dt_id'=>JWTAuth::user()->staff_id
         ]);
         
-<<<<<<< HEAD
 
-    //     return response()->json([
-    //         'success' => true,
-    //         'msg' => 'Doctor record added successfully',
-    //         'data' => $addToRecord
-    //     ]);
-    // }
-=======
+
         return response()->json([
             'success' => true,
             'msg' => 'Doctor record added successfully',
             'data' => $addToRecord
         ]);
     }
->>>>>>> parent of e232296 (Merge branch 'main')
+
 
     //pharmacy
     //add his part to the form
@@ -394,7 +387,7 @@ class RoleController extends Controller
     }
 
     //
-<<<<<<< HEAD
+
 
         
     //     return response()->json([
@@ -403,6 +396,5 @@ class RoleController extends Controller
     //         'data' => $input
     //     ]);
     // }
-=======
->>>>>>> parent of e232296 (Merge branch 'main')
+
 }
