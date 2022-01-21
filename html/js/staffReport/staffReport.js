@@ -1,11 +1,4 @@
 $(document).ready(function() {
-    $.ajax({
-        method: "GET",
-        url: "/THKH/laravel/api/staff-update/",
-        headers: {Authorization: 'Bearer ' + sessionStorage.getItem("jwt")},
-    })
-
-
     //console.log("submitted");
     $("#submitBtn").click(function(e) {
     e.preventDefault();

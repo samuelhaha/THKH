@@ -8,7 +8,6 @@
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
-    <script src="../js/supervisorReport/supervisorReport.js"></script>
     <style>
                 /* Style the tab */
                 table {
@@ -562,13 +561,15 @@
         
                             <td>
                                 <br>
-                                <form id="sup_form" method="post" enctype="multipart/form-data">
-                                <label for="h_sp_factors">Contributing / Mitigating Factors:</label>
-                                <input type="text" id="h_sp_factors" name="h_sp_factors"><br><br>
-                                <label for="h_sp_recommend">Recommendations:</label>
-                                <input type="text" id="h_sp_recommend" name="h_sp_recommend"><br><br>
-                                <input type="file" id="h_sp_reportFile" name="h_sp_reportFile">
-                                <br><br>
+                                <form id="sup_form" method="post">
+                                <label for="factors">Contributing / Mitigating Factors:</label>
+                                <input type="text" id="factors" name="factors"><br><br>
+                                <label for="recommendations">Recommendations:</label>
+                                <input type="text" id="recommendations" name="recommendations"><br><br>
+                                <label for="name">Name in Full</label>
+                                <input type="text" id="name" name="name"><br><br>
+    
+
                                     <label for="date">Date:</label>
                                     <input type="date" id="date" name="date">
                                   

@@ -18,3 +18,6 @@ use Illuminate\Support\Facades\Route;
 Route::get('/fetch-data', [AccountController::class, 'fetchdata']);
 Route::get('/login', [AccountController::class, 'home']);
 Route::get('/home',[AccountController::class, 'login']);
+
+
+// Route::get('display-data','App\Http\Controllers\RoleController@displaydata');
