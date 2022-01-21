@@ -258,6 +258,13 @@ class RoleController extends Controller
         return response()->json($data);
     }
 
+    public function displaydata()
+    {
+        $data = Hor::paginate(2);
+        return response()->json($data);
+    }
+
+ 
     
     //public function c_affectedName(Request $request, $c_affectedName)
 

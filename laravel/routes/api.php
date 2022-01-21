@@ -37,6 +37,7 @@ Route::post("/logout", [AccountController::class, 'logout']);
 Route::get("search",[RoleController::class, 'search']);
 //Route::get("search",[RoleController::class,'search']);
 
+Route::get('display-data',[RoleController::class,'displaydata']);
 
 Route::group(['middleware' => ['jwt.verify']], function() {
     Route::post("/staff-create", [RoleController::class, 'staffCreate']);
