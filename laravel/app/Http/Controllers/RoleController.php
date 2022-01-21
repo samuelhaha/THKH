@@ -8,8 +8,7 @@ use App\Models\Hor;
 use DateTime;
 use Illuminate\Support\Facades\DB;
 use JWTAuth;
-
-
+use Tymon\JWTAuth\Facades\JWTAuth as FacadesJWTAuth;
 
 class RoleController extends Controller
 {
@@ -167,6 +166,7 @@ class RoleController extends Controller
         $id = JWTAuth::user()->staff_id;
         //get report based on rs_id from hors table
         $report = Hor::where('rs_id', $id)->get();
+        //$report = Hor::all();
         return response()->json([
             'msg' => 'success',
             'reports' => $report
@@ -175,6 +175,7 @@ class RoleController extends Controller
 
     public function staffSave($id, Request $request)
     {
+        if(JWTAuth::user()->role == 'rps'){
         $updateData = Hor::where('id', $id)->update([
                 // 'rs_id' => JWTAuth::user()->staff_id,
                 'a_inccidentDate' => $request->a_inccidentDate,
@@ -235,6 +236,52 @@ class RoleController extends Controller
                 'g_recommend' => $request->g_recommend,
                 'g_description' => $request->g_description
         ]);
+    }
+    else if(JWTAuth::user()->role == 'sup'){
+        $updateData = Hor::where('id', $id)->update([
+            'h_sp_factors' => $request->h_sp_factors,
+            'h_sp_recommend' => $request->h_sp_recommend,
+            'h_sp_reportFile' => $request->h_sp_reportFile,
+            'sp_submit_datetime' =>date("Y-n-d H:i:s"),
+        ]);
+    }
+    else if(JWTAuth::user()->role == 'doc'){
+        $updateData = Hor::where('id', $id)->update([
+            'i_dt_report' => $request->i_dt_report,
+            'i_dt_reportFile' => $request->i_dt_reportFile,
+            'dt_submit_datetime' => date("Y-n-d H:i:s")
+        ]);
+    }
+    else if(JWTAuth::user()->role == 'pha'){
+        $updateData = Hor::where('id', $id)->update([
+            'j_ph_comments' => $request->j_ph_comments,
+            'j_ph_result'=>$request->j_ph_result,
+            'j_ph_phase' => $request->j_ph_phase,
+            'j_ph_index' => $request->j_ph_index,
+            'j_ph_index_other' => $request->j_ph_index_other,
+            'ph_submit_datetime' => date("Y-n-d H:i:s")
+        ]);
+    }
+    else if(JWTAuth::user()->role == 'hod'){
+        $updateData = Hor::where('id', $id)->update([
+            'k_hod_comments' => $request->k_hod_comments,
+            'hod_submit_datetime' => date("Y-n-d H:i:s")
+        ]);
+    }
+    else if(JWTAuth::user()->role == 'hpo'){
+        $updateData = Hor::where('id', $id)->update([
+            'l_hpo_comments' => $request->l_hpo_comments,
+            'l_hpo_outcome' => $request->l_hpo_outcome,
+            'hpo_submit_datetime' => date("Y-n-d H:i:s") 
+        ]);
+    }
+    else if(JWTAuth::user()->role == 'dms'){
+        $updateData = Hor::where('id', $id)->update([
+            'm_dms_comments' => $request->m_dms_comments,
+            'm_dms_verdict' => $request->m_dms_verdict,
+            'dms_submit_datetime' => date("Y-n-d H:i:s")
+        ]);
+    }
         if($updateData){
             return response()->json([
                 'code' => 200,
@@ -323,12 +370,17 @@ class RoleController extends Controller
     {   
         $datetime = $request->date . $request->time;
         $addToRecord = Hor::where('id', $id)->update([
-            'i_dt_report'=>$request->i_dt_report,
-            'i_dt_reportFile'=>$request->i_dt_reportFile,
-            'dt_submit_datetime'=>date("Y-n-d H:i:s",strtotime($datetime)),
-            'dt_id'=>JWTAuth::user()->staff_id
+            'j_ph_result'=>$request->j_ph_result,
+            'j_ph_phase'=>$request->j_ph_phase,
+            'ph_submit_datetime'=>date("Y-n-d H:i:s",strtotime($datetime)),
+            'ph_id'=>JWTAuth::user()->staff_id
         ]);
 
+        return response()->json([
+            'success' => true,
+            'msg' => 'Pharmacy record added successfully',
+            'data' => $addToRecord
+        ]);
     }
 
     //
