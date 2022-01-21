@@ -300,13 +300,6 @@ class RoleController extends Controller
         }
     }
 
-    
-	// function search($c_affectedName)
-    // {
-    //    //return 123;
-    //    //return Hor.php::where("c_affectedName","like","&".$c_affectedName."%")->get();
-    //    return Hor::where("c_affectedName","like","&".$c_affectedName."%")->get();
-    // }
 
     public function search(Request $request)
     {
@@ -317,32 +310,24 @@ class RoleController extends Controller
         return response()->json($data);
     }
 
-    public function displaydata()
-    {
-        $data = Hor::paginate(2);
-        return response()->json($data);
-    }
-
- 
-    
-    //public function c_affectedName(Request $request, $c_affectedName)
-
 
     //supervisor
     //add his part to the form
     public function supervisorAdd($id, Request $request)
     {
-        $input = $request->only('h_sp_factors','h_sp_recommend','h_sp_reportFile','date','time');
+        //$input = $request->only('h_sp_factors','h_sp_recommend','h_sp_reportFile','date','time');
         $file = $request->h_sp_reportFile;
-        $request->validate([
-            'h_sp_reportFile' => 'required|mimes:pdf,jpeg,jpg,png|max:2048',
-        ]);
-        $name = $file->hashName();
+        // $request->validate([
+        //     'h_sp_reportFile' => 'required|mimes:pdf,jpeg,jpg,png|max:2048',
+        // ]);
+        // $name = $file->hashName();
+        $datetime = $request->date . $request->time;
         $addToRecord = Hor::where('id', $id)->update([
             'h_sp_factors'=>$request->h_sp_factors,
             'h_sp_recommend'=>$request->h_sp_recommend,
-            'h_sp_reportFile'=>$name,
-            'sp_submit_datetime'=>date("Y-n-d",time())
+            'h_sp_reportFile'=>$file,
+            'sp_submit_datetime'=>date("Y-n-d H:i:s",strtotime($datetime)),
+            'sp_id'=>JWTAuth::user()->staff_id
         ]);
         if($addToRecord){
             return response()->json([
@@ -356,11 +341,23 @@ class RoleController extends Controller
     
     }
 
-    // //doctor
-    // public function doctor(Request $request)
-    // {
-    //     $input = $request->only('report','reportfile','date','time');
+    //doctor
+    //add his part to the form
+    public function doctorAdd($id, Request $request)
+    {
+        //$input = $request->only('report','reportfile','date','time');
+        request()->validate([
+            'i_dt_reportFile' => 'mimes:pdf,jpg,jpeg,png|max:2048'
+        ]);
+        $datetime = $request->date . $request->time;
+        $addToRecord = Hor::where('id', $id)->update([
+            'i_dt_report'=>$request->i_dt_report,
+            'i_dt_reportFile'=>$request->i_dt_reportFile,
+            'dt_submit_datetime'=>date("Y-n-d H:i:s",strtotime($datetime)),
+            'dt_id'=>JWTAuth::user()->staff_id
+        ]);
         
+<<<<<<< HEAD
 
     //     return response()->json([
     //         'success' => true,
@@ -368,6 +365,14 @@ class RoleController extends Controller
     //         'data' => $addToRecord
     //     ]);
     // }
+=======
+        return response()->json([
+            'success' => true,
+            'msg' => 'Doctor record added successfully',
+            'data' => $addToRecord
+        ]);
+    }
+>>>>>>> parent of e232296 (Merge branch 'main')
 
     //pharmacy
     //add his part to the form
@@ -389,6 +394,7 @@ class RoleController extends Controller
     }
 
     //
+<<<<<<< HEAD
 
         
     //     return response()->json([
@@ -397,4 +403,6 @@ class RoleController extends Controller
     //         'data' => $input
     //     ]);
     // }
+=======
+>>>>>>> parent of e232296 (Merge branch 'main')
 }
