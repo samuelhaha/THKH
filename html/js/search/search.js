@@ -4,7 +4,13 @@ $(document).ready(function () {
     // $(".box-wrapper tr").filter(function(){
     //     $(this).toggle($(this).text().toLowerCase().indexOf(value) > -1)
     // });
+
+
     search = document.getElementById("search").value;
+    // $(#submit).on('click',function(){
+        
+    // });
+
 
     $.ajax({
         type:"GET",
