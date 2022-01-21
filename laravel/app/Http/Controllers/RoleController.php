@@ -160,7 +160,6 @@ class RoleController extends Controller
             }
     }
 
-<<<<<<< HEAD
     public function getReportbyId()
     {
         //staff
@@ -174,8 +173,6 @@ class RoleController extends Controller
         ]);
     }
 
-=======
->>>>>>> e0374baa17c6363f54a70319b1461bac65eb93e0
     public function staffSave($id, Request $request)
     {
         if(JWTAuth::user()->role == 'rps'){
@@ -364,13 +361,13 @@ class RoleController extends Controller
     // {
     //     $input = $request->only('report','reportfile','date','time');
         
-<<<<<<< HEAD
-        return response()->json([
-            'success' => true,
-            'msg' => 'Doctor record added successfully',
-            'data' => $addToRecord
-        ]);
-    }
+
+    //     return response()->json([
+    //         'success' => true,
+    //         'msg' => 'Doctor record added successfully',
+    //         'data' => $addToRecord
+    //     ]);
+    // }
 
     //pharmacy
     //add his part to the form
@@ -392,7 +389,7 @@ class RoleController extends Controller
     }
 
     //
-=======
+
         
     //     return response()->json([
     //         'success' => true,
@@ -400,5 +397,4 @@ class RoleController extends Controller
     //         'data' => $input
     //     ]);
     // }
->>>>>>> e0374baa17c6363f54a70319b1461bac65eb93e0
 }
