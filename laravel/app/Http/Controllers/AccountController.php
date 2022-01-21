@@ -68,11 +68,14 @@ class AccountController extends Controller
         }
         $staff_id = $request->staff_id;
         $query = User::where('staff_id',$staff_id)->first();
+        $role = User::where('staff_id',$staff_id)->value('role');
         // $cookie = cookie(name: 'jwt', value:$jwt_token, minutes: 60 * 24); //1 day
         return response()->json([
             'success' => true,
             'token' => $jwt_token, //comment out if using cookie
-            'user' => $query
+            'user' => $query,
+            'staff_id' => $staff_id,
+            'role' => $role
         // ])->withCookie($cookie);
         ]);
     }

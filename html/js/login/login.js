@@ -20,10 +20,14 @@ $(document).ready(function () {
         }
         else{
           window.sessionStorage.setItem("jwt", response.token); //comment out if using cookie
+          window.sessionStorage.setItem("staff_id", response.staff_id);
+          window.sessionStorage.setItem("role", response.role);
           window.location.href = 'login.html';
         }
       },
       
     })
-  })
+  });
+
+  
 });
