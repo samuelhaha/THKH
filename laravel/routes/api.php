@@ -32,20 +32,16 @@ Route::delete("delete/{staff_id}",[AccountController::class,'remove']);
 
 Route::post("check", [AccountController::class, 'check']);
 
-Route::post("/logout", [AccountController::class, 'logout']);
 
 Route::get("search",[RoleController::class, 'search']);
 //Route::get("search",[RoleController::class,'search']);
 
 Route::get("display-data",[RoleController::class,'displaydata']);
 
-Route::get("report", [RoleController::class, 'getReportById']);
-
-
-Route::get("report", [RoleController::class, 'getReportById']);
 
 
 Route::group(['middleware' => ['jwt.verify']], function() {
+    Route::post("/logout", [AccountController::class, 'logout']);
     Route::post("/staff-create", [RoleController::class, 'staffCreate']);
     Route::post("/staff-save/{id}", [RoleController::class,'staffSave']);
     Route::post("/supervisor-add/{id}", [RoleController::class, 'supervisorAdd']);
