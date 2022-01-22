@@ -115,8 +115,4 @@ class AccountController extends Controller
         }
     }
 
-    function search($c_affectedName)
-    {
-        return Device::where("c_affectedName","like","&".$c_affectedName."%")->get();
-    }
 }
