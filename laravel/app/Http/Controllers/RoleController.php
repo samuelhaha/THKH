@@ -310,6 +310,13 @@ class RoleController extends Controller
         return response()->json($data);
     }
 
+    public function displaydata()
+    {
+        $data = Hor::paginate(2);
+        return response('display', compact('data'));
+    }
+    
+
 
     //supervisor
     //add his part to the form

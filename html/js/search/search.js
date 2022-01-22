@@ -6,19 +6,19 @@ $(document).ready(function () {
     // });
 
 
-    // search = document.getElementById("search").value;
+    search = document.getElementById("search").value;
     // $(#submit).on('click',function(){
         
     // });
 
-    $('#search').keyup(function(event) { 
-        if (event.which === 13)
-        {
-            event.preventDefault();
-            document.querySelector('searchform').submit();
-            console.log(document.getElementById('search'));
-        }
-    });
+    // $('#search').keyup(function(event) { 
+    //     if (event.which === 13)
+    //     {
+    //         event.preventDefault();
+    //         document.querySelector('searchform').submit();
+    //         console.log(document.getElementById('search'));
+    //     }
+    // });
 
     // $(function() {
     //     $('searchform').on('keypress', function(e){
