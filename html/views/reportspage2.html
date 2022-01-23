@@ -4,6 +4,8 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+<script src="../js/search/search.js"></script>
 <style>
   body {
     font-family: "Times New Roman", Georgia, Serif;
@@ -237,22 +239,10 @@
     </span>
     </h1> -->
     <!-- search bar right align -->
-  <!-- search bar right align -->
-  
-  
-        <div class="search">
-                
-             
-                  <input type="text"
-                      placeholder=" Search Bar"
-                      name="search">
-                 
-             
-          </div> 
-      
-</div> <!--page header end-->
+    <!-- search bar right align -->
 
-    <form id="searchform">
+
+    <form method="get" id="searchform">
       <div class="search">
         <input type="text" placeholder=" Search Bar" name="search" id="search">
       </div>
@@ -260,6 +250,15 @@
 
   </div>
   <!--page header end-->
+
+  <!-- <form id="searchform">
+    <div class="search">
+      <input type="text" placeholder=" Search Bar" name="search" id="search">
+    </div>
+  </form>
+
+  </div> -->
+
 
 
   <div class="navbar">
@@ -281,8 +280,8 @@
 
   <!-- Page content -->
   <div class="w3-content" style="max-width:1100px">
-<!-- Page content -->
-<!-- <div class="w3-content" style="max-width:1100px"> -->
+    <!-- Page content -->
+    <!-- <div class="w3-content" style="max-width:1100px"> -->
 
     <!-- About Section -->
     <!-- <div class="w3-row w3-padding-64" id="about">
@@ -322,12 +321,13 @@
     <div class="box-wrapper" id="table">
       <table style="width:100%;">
         <tr style="height:50px; background-color:white">
-          <th style="width:15%">Date</th>
-          <th style="width:25%">Type</th>
-          <th></th>
+          <th style="width:15%">Affected Name</th>
+          <th style="width:25%">Date Created</th>
+          <th>Time Created</th>
+          <th>Status</th>
         </tr>
 
-        <tr style="height:30px">
+        <!-- <tr style="height:30px">
           <th style="width:15%">5/13</th>
           <th style="width:25%">sasasa</th>
           <th></th>
@@ -371,7 +371,7 @@
           <th style="width:15%">5/20</th>
           <th style="width:25%">sasa</th>
           <th></th>
-        </tr>
+        </tr> -->
 
       </table>
 
@@ -452,19 +452,19 @@
  
   
 <!-- End page content -->
-</div>
-<br>
-<div class="footer2">
-  <h6>Visiting hours: 12pm to 8pm, Mon to Sun (including Public Holidays)</h6>
-</div>
+  </div>
+  <br>
+  <div class="footer2">
+    <h6>Visiting hours: 12pm to 8pm, Mon to Sun (including Public Holidays)</h6>
+  </div>
 
 
-<!-- Footer -->
-<div class="footer">
-  <h6>© 2021 Ang Mo Kio - Thye Hua Kwan Hospital. All rights reserved.</h6>
-</div>
+  <!-- Footer -->
+  <div class="footer">
+    <h6>© 2021 Ang Mo Kio - Thye Hua Kwan Hospital. All rights reserved.</h6>
+  </div>
 
-<!-- <script>
+  <!-- <script>
     var slideIndex = 0;
     showSlides();
     
@@ -485,7 +485,7 @@
       setTimeout(showSlides, 2000); // Change image every 2 seconds
     }
     </script> -->
-   
+
 
 </body>
 
