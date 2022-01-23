@@ -303,11 +303,11 @@ class RoleController extends Controller
 
     public function search(Request $request)
     {
-        $data = Hor::select("c_affectedName")
-                ->where("c_affectedName","LIKE","%{$request->name}%")
-                ->get();
+        $data = Hor::where("c_affectedName","LIKE","%{$request->name}%")->get();
                 
-        return response()->json($data);
+        return response()->json([
+            'reports' => $data 
+        ]);
     }
 
     public function displaydata()
@@ -324,9 +324,9 @@ class RoleController extends Controller
     {
         //$input = $request->only('h_sp_factors','h_sp_recommend','h_sp_reportFile','date','time');
         $file = $request->h_sp_reportFile;
-        // $request->validate([
-        //     'h_sp_reportFile' => 'required|mimes:pdf,jpeg,jpg,png|max:2048',
-        // ]);
+        $request->validate([
+             'h_sp_reportFile' => 'mimes:pdf,jpeg,jpg,png|max:2048',
+        ]);
         // $name = $file->hashName();
         $datetime = $request->date . $request->time;
         $addToRecord = Hor::where('id', $id)->update([
