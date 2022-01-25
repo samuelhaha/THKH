@@ -38,6 +38,8 @@ Route::get("search",[RoleController::class, 'search']);
 
 Route::get("display-data",[RoleController::class,'displaydata']);
 
+Route::get("report/{horNum}", [RoleController::class, 'getReportByHorNum']);
+
 
 
 Route::group(['middleware' => ['jwt.verify']], function() {

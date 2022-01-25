@@ -12,101 +12,97 @@
 
     <style>
         /* Style the tab */
-        #tab {
-        overflow: hidden;
-        border: 1px solid #ccc;
-        background-color: #f1f1f1;
-        }
-
-        /* Style the buttons that are used to open the tab content */
-        #tab button {
-        background-color: inherit;
-        float: left;
-        border: none;
-        outline: none;
-        cursor: pointer;
-        padding: 14px 16px;
-        transition: 0.3s;
-        }
-
-        /* Change background color of buttons on hover */
-        #tab button:hover {
-        background-color: #ddd;
-        }
-
-        /* Create an active/current tablink class */
-        #tab button.active {
-        background-color: #ccc;
-        }
-
-        /* Style the tab content */
-        #tabContent {
-        display: none;
-        padding: 6px 12px;
-        border: 1px solid #ccc;
-        border-top: none;
-        }
-
-
         table {
-            font-family: arial, sans-serif;
-            border-collapse: collapse;
-            width: 100%;
-        }
+font-family: arial, sans-serif;
+border-collapse: collapse;
+width: 100%;
+}
 
-        td, th {
-            border: 1px solid #dddddd;
-            text-align: left;
-            padding: 8px;
-        }
+td, th {
+border: 1px solid #dddddd;
+text-align: left;
+padding: 8px;
+}
 
-        tr:nth-child(even) {
-            background-color: #dddddd;
-        }
+tr:nth-child(even) {
+background-color: #dddddd;
+}
 
-        #Injury {
-            text-align: center;
-        }
+#tab {
+overflow: hidden;
+border: 1px solid #ccc;
+background-color: #f1f1f1;
+}
 
-        #Category {
-            text-align: center;
-        }
+/* Style the buttons that are used to open the tab content */
+#tab button {
+background-color: inherit;
+float: left;
+border: none;
+outline: none;
+cursor: pointer;
+padding: 14px 16px;
+transition: 0.3s;
+}
 
-        /* Style the top navigation bar */
-        .navbar {
-        overflow: hidden;
-        background-color: #333;
-        }
+/* Change background color of buttons on hover */
+#tab button:hover {
+background-color: #ddd;
+}
 
-        /* Style the navigation bar links */
-        .navbar a {
-        float: left;
-        display: block;
-        color: white;
-        text-align: center;
-        padding: 14px 20px;
-        text-decoration: none;
-        }
+/* Create an active/current tablink class */
+#tab button.active {
+background-color: #ccc;
+}
 
-        /* Right-aligned link */
-        .navbar a.right {
-        float: right;
-        }
+/* Style the tab content */
+#tabContent {
+display: none;
+padding: 6px 12px;
+border: 1px solid #ccc;
+border-top: none;
+}
 
-        /* Change color on hover */
-        .navbar a:hover {
-        background-color: #ddd;
-        color: black;
-        }
+  /* Style the top navigation bar */
+.navbar {
+overflow: hidden;
+background-color: lightblue;
+}
 
-        /* Footer */
-        .footer {
-        padding: 20px;
-        text-align: center;
-        background: #ddd;
-        }
+/* Style the navigation bar links */
+.navbar a {
+float: left;
+display: block;
+color: black;
+text-align: center;
+padding: 14px 20px;
+text-decoration: none;
+}
 
-    </style>
+/* Right-aligned link */
+.navbar a.right {
+float: right;
+}
+
+/* Change color on hover */
+.navbar a:hover {
+background-color: #ddd;
+color: black;
+}
+/* Footer */
+.footer {
+padding: 20px;
+text-align: center;
+background: lightblue;
+}
+img {
+float: left;
+width: 150px;
+height: 60px;
+margin: 4px 0px 4px 8px;  
+}
+/* top right bottom left  */
+</style>
 </head>
 <body>
     
@@ -162,11 +158,11 @@
                     <tr>
                         <td style="vertical-align:top"> 
                             <h4>Affected Person</h4>
-                            <input type="radio" value="Patient" name="c_affectedPerson">
+                            <input type="radio" value="Patient" name="c_affectedPerson" id="c_affectedPerson_patient">
                             <label for="Patient">Patient</label>
-                            <input type="radio" value="VisitorCaregiver" name="c_affectedPerson">
+                            <input type="radio" value="VisitorCaregiver" name="c_affectedPerson"  id="c_affectedPerson_visitorCaregiver">
                             <label for="VisitorCaregiver">Visitor / Caregiver</label>
-                            <input type="radio" value="Staff" name="c_affectedPerson">
+                            <input type="radio" value="Staff" name="c_affectedPerson"  id="c_affectedPerson_staff">
                             <label for="Staff">Staff</label>
                         </td>
                         <th rowspan="6"><br>
@@ -188,9 +184,9 @@
                             <input type="text" id="c_affectedAddress" name="postal"><br><br>
                             
                             Sex:
-                            <input type="radio"  name="c_affectedGender" value="Male">
+                            <input type="radio"  name="c_affectedGender" value="Male" id="c_affectedGender_Male">
                             <label for="c_affectedGender">M</label>
-                            <input type="radio"  name="c_affectedGender" value="Female">
+                            <input type="radio"  name="c_affectedGender" value="Female" id="c_affectedGender_Female">
                             <label for="c_affectedGender">F</label><br><br>
     
                             <label for="contact">Contact Number:</label>
@@ -247,25 +243,25 @@
                         <tr>
                           <td>
                             <div>
-                                <input type="radio" name="d_locationOccur" id="inWard" value="inWard"><label for="inWard">In the Ward</label><br>
-                                <input type="radio" name="d_locationOccur" id="outWard" value="outWard"><label for="outWard">Outside the Ward</label><br>
+                                <input type="radio" name="d_locationOccur" id="inward" value="inward"><label for="inWard">In the Ward</label><br>
+                                <input type="radio" name="d_locationOccur" id="outward" value="outward"><label for="outWard">Outside the Ward</label><br>
                                 <input type="radio" name="d_locationOccur" id="pharmacy" value="pharmacy"><label for="pharmacy">Pharmacy</label><br>
-                                <input type="radio" name="d_locationOccur" id="outHospital" value="outHospital"><label for="outHospital">Outside the Hospital</label><br>
+                                <input type="radio" name="d_locationOccur" id="out_hospital" value="out_hospital"><label for="outHospital">Outside the Hospital</label><br>
                             
                             </div>
                           </td>
                           <td>
-                                <input type="radio" id="bedside" name="d_occurSite" value="bedside">
+                                <input type="radio" id="d_occurSite_Bed_Side" name="d_occurSite" value="bedside">
                                 <label for="bedside">Bed side</label><br>
-                                <input type="radio" id="cubicle" name="d_occurSite" value="cubicle">
+                                <input type="radio" id="d_occurSite_cubicle" name="d_occurSite" value="cubicle">
                                 <label for="cubicle">Cubicle</label><br>
-                                <input type="radio" id="corridor" name="d_occurSite" value="corridor">
+                                <input type="radio" id="d_occurSite_corridor" name="d_occurSite" value="corridor">
                                 <label for="corridor">Corridor</label><br>
-                                <input type="radio" id="toilet" name="d_occurSite" value="toilet">
+                                <input type="radio" id="d_occurSite_toilet" name="d_occurSite" value="toilet">
                                 <label for="toilet">Toilet</label><br>
-                                <input type="radio" id="therapyGym" name="d_occurSite" value="therapyGym">
+                                <input type="radio" id="d_occurSite_therapyGym" name="d_occurSite" value="therapyGym">
                                 <label for="therapyGym">Therapy Gym</label><br>
-                                <input type="radio" id="SiteOthers" name="d_occurSite" value="SiteOthers">
+                                <input type="radio" id="d_occurSite_others" name="d_occurSite" value="SiteOthers">
                                 <label for="SiteOthers">Others(Specify):
                                 <input type="text" id="siteOthersSpecify" name="SiteOthers">
                                 </label>
@@ -309,21 +305,21 @@
                         <tr>
                             <td>
                                 <label for="doctorTime">Doctor Time:</label>
-                                <input type="time" id="doctorTime" name="doctorTime"><br>
+                                <input type="datetime-local" id="doctorTime" name="doctorTime"><br>
                                 <label for="doctorName">Doctor Name:</label>
                                 <input type="text" name="doctorName" id="doctorName">
                               
                             </td>
                             <td>
                                 <label for="supervisorTime">Supervisor Time:</label>
-                                <input type="time" id="supervisorTime" name="supervisorTime"><br>
+                                <input type="datetime-local" id="supervisorTime" name="supervisorTime"><br>
                                 <label for="supervisorName">Supervisor Name:</label>
                                 <input type="text" id="supervisorName" name="supervisorName">
                             </td>
                             <td>
                            
                                 <label for="policeTime">Police Time:</label>
-                                <input type="time" id="policeTime" name="policeTime"><br>
+                                <input type="datetime-local" id="policeTime" name="policeTime"><br>
                                 <label for="policeName">Police Name:</label>
                                 <input type="text" id="policeName" name="policeName">
                             
@@ -331,7 +327,7 @@
                             <td>
                             
                                 <label for="relativeTime">Relative Time:</label>
-                                <input type="time" id="relativeTime" name="relativeTime"><br>
+                                <input type="datetime-local" id="relativeTime" name="relativeTime"><br>
                                 <label for="relativeName">Relative Name:</label>
                                 <input type="text" id="relativeName" name="relativeName">
                             </td>
@@ -344,28 +340,28 @@
                     <tr>
                       <th><input type="radio" name="occurType" id="occurTypeFall" value="fall"><label for="occurTypeFall"> Fall Related</label></th>
                       <th><input type="radio" name="occurType" id="occurTypeMed" value="medication"><label for="occurTypeMed"> Medication Related</label></th>
-                      <th><input type="radio" name="occurType" id="occurTypeOther" value="otherx"><label for="occurTypeOther"> Other Incidents</label></th>
+                      <th><input type="radio" name="occurType" id="occurTypeOther" value="other"><label for="occurTypeOther"> Other Incidents</label></th>
                     </tr>
                     <tr>
                         <td> 
-                            <input type="radio" id="fallNonInjury" name="fallRelated" value="fallNonInjury">
-                            <label for="fallNonInjury">Fall (Non-Injury)</label>
-                            <input type="radio" id="nearFall" name="fallRelated" value="nearFall">
-                            <label for="nearFall">Near Fall</label><br>
+                            <input type="radio" id="fall_non_injury" name="fallRelated" value="fall_non_injury">
+                            <label for="fall_non_injury">Fall (Non-Injury)</label>
+                            <input type="radio" id="near_fall" name="fallRelated" value="near_fall">
+                            <label for="near_fall">Near Fall</label><br>
                         </td>
                         <th rowspan="6">Types of Error<br>
-                            <input type="radio" id="wrongPatient" name="MR_typeOfError" value="wrongPatient">
+                            <input type="radio" id="wrong_patient" name="MR_typeOfError" value="wrong_patient">
                             <label for="wrongPatient">Wrong Patient</label><br>
-                            <input type="radio" id="wrongDrug" name="MR_typeOfError" value="wrongDrug">
-                            <label for="wrongDrug">Wrong Drug</label><br>
-                            <input type="radio" id="wrongStengthOrDose" name="MR_typeOfError" value="wrongStengthOrDose">
-                            <label for="wrongStengthOrDose">Wrong Strength/Dose</label><br>
-                            <input type="radio" id="wrongTime" name="MR_typeOfError" value="wrongTime">
-                            <label for="wrongTime">Wrong Time</label><br>
-                            <input type="radio" id="wrongRoute" name="MR_typeOfError" value="wrongRoute">
-                            <label for="wrongRoute">Wrong Route</label><br>
-                            <input type="radio" id="MROthers" name="MR_typeOfError" value="MROthers">
-                            <label for="MROthers">Others(Specify):</label>
+                            <input type="radio" id="wrong_drug" name="MR_typeOfError" value="wrong_drug">
+                            <label for="wrong_drug">Wrong Drug</label><br>
+                            <input type="radio" id="strength_dose" name="MR_typeOfError" value="strength_dose">
+                            <label for="strength_dose">Wrong Strength/Dose</label><br>
+                            <input type="radio" id="wrong_time" name="MR_typeOfError" value="wrong_time">
+                            <label for="wrong_time">Wrong Time</label><br>
+                            <input type="radio" id="wrong_route" name="MR_typeOfError" value="wrong_route">
+                            <label for="wrong_route">Wrong Route</label><br>
+                            <input type="radio" id="mr_others" name="MR_typeOfError" value="mr_others">
+                            <label for="mr_others">Others(Specify):</label>
                             <input type="text" id="MROthersSpecify" name="MROthersSpecify"><br><br>
                             <br><br><br><br>
             
@@ -401,10 +397,10 @@
                     </tr>
                     <tr>
                         <td>
-                            <input type="radio" id="fallInjury" name="fallRelated" value="fallInjury">
-                            <label for="fallInjury">Fall (Injury)</label>
-                            <input type="radio" id="nearFallInjury" name="fallRelated" value="nearFallInjury">
-                        <label for="nearFallInjury">Near Fall (Injury)</label><br>
+                            <input type="radio" id="fall_injury" name="fallRelated" value="fall_injury">
+                            <label for="fall_injury">Fall (Injury)</label>
+                            <input type="radio" id="near_fall_injury" name="fallRelated" value="near_fall_injury">
+                        <label for="near_fall_injury">Near Fall (Injury)</label><br>
                         </td>
                        
                     </tr>
@@ -414,20 +410,20 @@
                     </tr> 
                     <tr>
                         <td>
-                            <input type="checkbox" id="fracture" name="typeOfInjury" value="fracture">
-                            <label for="fracture">Fracture</label>
-                            <input type="checkbox" id="laceration" name="typeOfInjury" value="laceration">
-                            <label for="laceration">Laceration</label><br>
-                            <input type="checkbox" id="abrasion" name="typeOfInjury" value="abrasion">
-                            <label for="abrasion">Abrasion</label>
-                            <input type="checkbox" id="hematoma" name="typeOfInjury" value="hematoma">
-                            <label for="hematoma">Hematoma</label><br>
-                            <input type="checkbox" id="headInjury" name="typeOfInjury" value="headInjury">
-                            <label for="headInjury">Head Injury</label>
-                            <input type="checkbox" id="bruiseSwelling" name="typeOfInjury" value="bruiseSwelling">
-                            <label for="bruiseSwelling">Bruise / Swelling</label><br>
-                            <input type="checkbox" id="injuryOthers" name="typeOfInjury" value="injuryOthers">
-                            <label for="injuryOthers">Others:</label>
+                            <input type="checkbox" id="Fracture" name="typeOfInjury" value="Fracture">
+                            <label for="Fracture">Fracture</label>
+                            <input type="checkbox" id="Laceration" name="typeOfInjury" value="Laceration">
+                            <label for="Laceration">Laceration</label><br>
+                            <input type="checkbox" id="Abrasion" name="typeOfInjury" value="Abrasion">
+                            <label for="Abrasion">Abrasion</label>
+                            <input type="checkbox" id="Hematoma" name="typeOfInjury" value="Hematoma">
+                            <label for="Hematoma">Hematoma</label><br>
+                            <input type="checkbox" id="HeadInjury" name="typeOfInjury" value="HeadInjury">
+                            <label for="HeadInjury">Head Injury</label>
+                            <input type="checkbox" id="BruiseSwelling" name="typeOfInjury" value="BruiseSwelling">
+                            <label for="BruiseSwelling">Bruise / Swelling</label><br>
+                            <input type="checkbox" id="OtherInjury" name="typeOfInjury" value="OtherInjury">
+                            <label for="OtherInjury">Others:</label>
                             <input type="text" name="injuryOthersSpecify" id="injuryOthersSpecify">
                             
                         </td>
@@ -438,16 +434,16 @@
                             Fall Risk Assessment Admit:
                             <input type="radio" id="fallRiskAssAdmitLow" name="fallRiskAssAdmit" value="Low">
                             <label for="fallRiskAssAdmitLow">Low</label>
-                            <input type="radio" id="fallRiskAssAdmitMod" name="fallRiskAssAdmit" value="Moderate">
-                            <label for="fallRiskAssAdmitMod">Moderate</label>
-                            <input type="radio" id="fallRiskAssAdmittHigh" name="fallRiskAssAdmit" value="High">
-                            <label for="fallRiskAssAdmittHigh">High</label><br>
+                            <input type="radio" id="fallRiskAssAdmitModerate" name="fallRiskAssAdmit" value="Moderate">
+                            <label for="fallRiskAssAdmitModerate">Moderate</label>
+                            <input type="radio" id="fallRiskAssAdmitHigh" name="fallRiskAssAdmit" value="High">
+                            <label for="fallRiskAssAdmitHigh">High</label><br>
 
                             Fall Risk Assessment:
                             <input type="radio" id="fallRiskAssessmentLow" name="fallRiskAssessment" value="Low">
                             <label for="fallRiskAssessmentLow">Low</label>
-                            <input type="radio" id="fallRiskAssessmentMod" name="fallRiskAssessment" value="Moderate">
-                            <label for="fallRiskAssessmentMod">Moderate</label>
+                            <input type="radio" id="fallRiskAssessmentModerate" name="fallRiskAssessment" value="Moderate">
+                            <label for="fallRiskAssessmentModerate">Moderate</label>
                             <input type="radio" id="fallRiskAssessmentHigh" name="fallRiskAssessment" value="High">
                             <label for="fallRiskAssessmentHigh">High</label><br>
             

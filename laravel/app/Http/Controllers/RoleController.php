@@ -173,6 +173,15 @@ class RoleController extends Controller
         ]);
     }
 
+    public function getReportByHorNum($horNum)
+    {
+        $report = Hor::where('horNum', $horNum)->first();
+        return response()->json([
+            'msg' => 'success',
+            'report' => $report
+        ]);
+    }
+
     public function staffSave($id, Request $request)
     {
         if(JWTAuth::user()->role == 'rps'){
