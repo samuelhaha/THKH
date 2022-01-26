@@ -10,17 +10,17 @@ function SearchName(){
         
         
         // if(key == 13) {
-            $("#searchform").submit();
+            // $("#searchform").submit();
             var search = $("#search").val();
-            //console.log("search input is: " + search);
-           
+            // console.log("search input is: " + $("#search").val());
+
             
             $.ajax(
                 {
                 method:"GET",
                 url:"/THKH/laravel/api/search?name="+ search,
                 dataType:"json",
-                //headers:{Authorization: 'Bearer ' + sessionStorage.getItem("jwt")},
+                // headers:{Authorization: 'Bearer ' + sessionStorage.getItem("jwt")},
                 data: search,
                 success: function(response){
                     console.log(response.report);
@@ -34,7 +34,7 @@ function SearchName(){
                         </tr>`);
                         
                     });
-        
+
                 },
                 error: function(){
                     console.log("error, failed to pass through url");
