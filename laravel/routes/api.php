@@ -4,6 +4,7 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\AccountController;
 use App\Http\Controllers\RoleController;
+use App\Http\Controllers\horController;
 use App\Http\Middleware\JwtMiddleware;
 use SebastianBergmann\Environment\Console;
 
@@ -39,6 +40,8 @@ Route::get("search",[RoleController::class, 'search']);
 Route::get("display-data",[RoleController::class,'displaydata']);
 
 Route::get("report/{horNum}", [RoleController::class, 'getReportByHorNum']);
+
+Route::get('/showreports',[horController::class, 'showreports']);
 
 
 
