@@ -229,8 +229,6 @@
 
 <body>
 
-
-
   <div class="page-header">
 
     <a href="#"><img src="../images/logo.jpg"></a>
@@ -241,8 +239,7 @@
     <!-- search bar right align -->
     <!-- search bar right align -->
 
-
-    <form method="get" id="searchform">
+    <form method="get" id="searchform" onsubmit="return SearchName();"> 
       <div class="search">
         <input type="text" placeholder=" Search Bar" name="search" id="search">
       </div>
@@ -326,6 +323,11 @@
           <th>Time Created</th>
           <th>Status</th>
         </tr>
+       
+      </table>
+
+      
+        
 
         <!-- <tr style="height:30px">
           <th style="width:15%">5/13</th>
@@ -373,10 +375,7 @@
           <th></th>
         </tr> -->
 
-      </table>
-
-
-
+  
 
       <!-- End page content -->
     </div>
@@ -457,8 +456,6 @@
   <div class="footer2">
     <h6>Visiting hours: 12pm to 8pm, Mon to Sun (including Public Holidays)</h6>
   </div>
-
-
   <!-- Footer -->
   <div class="footer">
     <h6>© 2021 Ang Mo Kio - Thye Hua Kwan Hospital. All rights reserved.</h6>

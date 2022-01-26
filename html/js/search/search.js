@@ -1,45 +1,52 @@
-$(document).ready(function () {
-    $("#search").keyup(function(e){
-        var key = e.which;
-        if(key == 13) {
-            // $("#searchform").submit();
+// $(document).ready(function () {
+function SearchName(){
+
+    // $("#search").keyup(function(e){
+    // e.preventdefault;
+    // $('#search').on('keyup', function(){
+
+    // console.log("enter is pressed");
+    // var key = e.which;
+        
+        
+        // if(key == 13) {
+            $("#searchform").submit();
             var search = $("#search").val();
             //console.log("search input is: " + search);
-            console.log("enter is pressed");
-        
-        $.ajax({
-            type:"GET",
-            url:"/THKH/laravel/api/search",
-            dataType:"json",
-            //headers:{Authorization: 'Bearer ' + sessionStorage.getItem("jwt")},
-            data: {
-                name: search
-            },
-            success: function(response){
-                console.log(response.report);
-                $.each(response.reports, function(key,report){
-                    $("#table").append(`
-                       <tr style="height:30px">\
-                           <td>`+report.c_affectedName+`</td>\
-                           <td>`+report.a_inccidentDate+`</td>\
-                           <td>`+report.a_inccidentTime+`</td>\
-                           <td>`+report.status_rps+`</td>\
-                       </tr>`);
-                    
-                });
-    
-            },
-            error: function(){
-                console.log("error, failed to pass through url");
-            }
+           
             
-        });
-    }
+            $.ajax(
+                {
+                method:"GET",
+                url:"/THKH/laravel/api/search?name="+ search,
+                dataType:"json",
+                //headers:{Authorization: 'Bearer ' + sessionStorage.getItem("jwt")},
+                data: search,
+                success: function(response){
+                    console.log(response.report);
+                    $.each(response.reports, function(key,report){
+                        $("#table").append(`
+                        <tr style="height:30px">\
+                            <td>`+report.c_affectedName+`</td>\
+                            <td>`+report.a_inccidentDate+`</td>\
+                            <td>`+report.a_inccidentTime+`</td>\
+                            <td>`+report.status_rps+`</td>\
+                        </tr>`);
+                        
+                    });
+        
+                },
+                error: function(){
+                    console.log("error, failed to pass through url");
+                }
+                
+            });
+        }
     // }
     // else{
     //     console.log("please press enter");
     // }
-    })
+    // })
    
     // var value = $(this).val().toLowerCase();
     // $(".box-wrapper tr").filter(function(){
@@ -74,5 +81,5 @@ $(document).ready(function () {
 
     
    
-   
-});
+// }; 
+// });
