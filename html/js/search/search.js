@@ -11,19 +11,19 @@ function SearchName(){
         
         // if(key == 13) {
             // $("#searchform").submit();
-            var search = $("#search").val();
+            search = document.getElementById("search").value;
             // console.log("search input is: " + $("#search").val());
 
             
             $.ajax(
                 {
-                method:"GET",
-                url:"/THKH/laravel/api/search?name="+ search,
+                method:"get",
+                url:"/THKH/laravel/api/search",
                 dataType:"json",
                 // headers:{Authorization: 'Bearer ' + sessionStorage.getItem("jwt")},
-                data: search,
+                data: {name:search},
                 success: function(response){
-                    console.log(response.report);
+                    console.log(response.reports);
                     $.each(response.reports, function(key,report){
                         $("#table").append(`
                         <tr style="height:30px">\
@@ -41,6 +41,7 @@ function SearchName(){
                 }
                 
             });
+            return false;
         }
     // }
     // else{
