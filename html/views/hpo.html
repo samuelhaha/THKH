@@ -646,17 +646,19 @@
                     </tr>
                     <tr>
                         <td>
-                            <br>
-                            Comments:<br>
-                            <textarea id="l_hpo_comments" name="l_hpo_comments" rows="9" cols="100" style="resize: none;" ></textarea><br>
-                            <br>
-                            Fall Injury outcome:
-                            <input type="radio" id="l_hpo_outcome_minor" name="l_hpo_outcome" value="minor" >
-                            <label for="l_hpo_outcome_minor">Minor</label>
-                            <input type="radio" id="l_hpo_outcome_moderate" name="l_hpo_outcome" value="moderate" >
-                            <label for="l_hpo_outcome_moderate">Moderate</label>
-                            <input type="radio" id="l_hpo_outcome_major" name="l_hpo_outcome" value="major" >
-                            <label for="l_hpo_outcome_major">Major</label>
+                            <form id="hpo_form" method="post" enctype="multipart/form-data">
+                                <br>
+                                Comments:<br>
+                                <textarea id="l_hpo_comments" name="l_hpo_comments" rows="9" cols="100" style="resize: none;" ></textarea><br>
+                                <br>
+                                Fall Injury outcome:
+                                <input type="radio" id="l_hpo_outcome_minor" name="l_hpo_outcome" value="minor" >
+                                <label for="l_hpo_outcome_minor">Minor</label>
+                                <input type="radio" id="l_hpo_outcome_moderate" name="l_hpo_outcome" value="moderate" >
+                                <label for="l_hpo_outcome_moderate">Moderate</label>
+                                <input type="radio" id="l_hpo_outcome_major" name="l_hpo_outcome" value="major" >
+                                <label for="l_hpo_outcome_major">Major</label>
+                            </form>
                         </td>
                     </tr>
 

@@ -577,40 +577,42 @@
             
                 <tr>
                     <td colspan="4">
-                        <label for="j_ph_comments">Comments:</label><br>
-                        <textarea id="j_ph_comments" name="j_ph_comments" rows="9" cols="100" style="resize: none;"></textarea><br>
-                        Direct Result of Error to Patient:<br>
-                        <input type="radio" id="j_ph_result_no_harm" name="j_ph_result" value="no_harm">
-                        <label for="j_ph_result_no_harm">No Patient Harm Caused</label><br>
-                        <input type="radio" id="j_ph_result_monitoring" name="j_ph_result" value="monitoring">
-                        <label for="j_ph_result_monitoring">Patient Monitoring or Observation Required</label><br>
-                        <input type="radio" id="j_ph_result_intervention" name="j_ph_result" value="intervention">
-                        <label for="j_ph_result_intervention">Medical Intervention(s) required</label><br>
-                        <input type="radio" id="j_ph_result_transferred" name="j_ph_result" value="transferred">
-                        <label for="j_ph_result_transferred">Patient was transferred out</label><br>
-                        <input type="radio" id="j_ph_result_near_death" name="j_ph_result" value="near_death">
-                        <label for="j_ph_result_near_death">Near Death event/Death</label><br>
-                        Error Phase:
-                        <input type="radio" id="j_ph_phase_prescribing" name="j_ph_phase" value="prescribing">
-                        <label for="j_ph_phase_prescribing">Prescribing</label>
-                        <input type="radio" id="j_ph_phase_dispensing" name="j_ph_phase" value="dispensing">
-                        <label for="j_ph_phase_dispensing">Dispensing</label>
-                        <input type="radio" id="j_ph_phase_administering" name="j_ph_phase" value="administering">
-                        <label for="j_ph_phase_administering">Administering</label><br>
-                        
-                        <h3>Error Index:</h3>
-                        <input type="radio" id="j_ph_index_A" name="j_ph_index" value="A">
-                        <label for="j_ph_index_A">A</label>
-                        <input type="radio" id="j_ph_index_B" name="j_ph_index" value="B">
-                        <label for="j_ph_index_B">B</label>
-                        <input type="radio" id="j_ph_index_C" name="j_ph_index" value="C">
-                        <label for="j_ph_index_C">C</label>
-                        <input type="radio" id="j_ph_index_D" name="j_ph_index" value="D">
-                        <label for="j_ph_index_D">D</label>
-                        <input type="radio" id="j_ph_index_Other" name="j_ph_index" value="Others">
-                        <label for="j_ph_index_Other">Others:</label>
-                        <input type="text" id="j_ph_index_otherSpec">
-                        <br>
+                        <form id="pha_form" method="post" enctype="multipart/form-data">
+                            <label for="j_ph_comments">Comments:</label><br>
+                            <textarea id="j_ph_comments" name="j_ph_comments" rows="9" cols="100" style="resize: none;"></textarea><br>
+                            Direct Result of Error to Patient:<br>
+                            <input type="radio" id="j_ph_result_no_harm" name="j_ph_result" value="no_harm">
+                            <label for="j_ph_result_no_harm">No Patient Harm Caused</label><br>
+                            <input type="radio" id="j_ph_result_monitoring" name="j_ph_result" value="monitoring">
+                            <label for="j_ph_result_monitoring">Patient Monitoring or Observation Required</label><br>
+                            <input type="radio" id="j_ph_result_intervention" name="j_ph_result" value="intervention">
+                            <label for="j_ph_result_intervention">Medical Intervention(s) required</label><br>
+                            <input type="radio" id="j_ph_result_transferred" name="j_ph_result" value="transferred">
+                            <label for="j_ph_result_transferred">Patient was transferred out</label><br>
+                            <input type="radio" id="j_ph_result_near_death" name="j_ph_result" value="near_death">
+                            <label for="j_ph_result_near_death">Near Death event/Death</label><br>
+                            Error Phase:
+                            <input type="radio" id="j_ph_phase_prescribing" name="j_ph_phase" value="prescribing">
+                            <label for="j_ph_phase_prescribing">Prescribing</label>
+                            <input type="radio" id="j_ph_phase_dispensing" name="j_ph_phase" value="dispensing">
+                            <label for="j_ph_phase_dispensing">Dispensing</label>
+                            <input type="radio" id="j_ph_phase_administering" name="j_ph_phase" value="administering">
+                            <label for="j_ph_phase_administering">Administering</label><br>
+                            
+                            <h3>Error Index:</h3>
+                            <input type="radio" id="j_ph_index_A" name="j_ph_index" value="A">
+                            <label for="j_ph_index_A">A</label>
+                            <input type="radio" id="j_ph_index_B" name="j_ph_index" value="B">
+                            <label for="j_ph_index_B">B</label>
+                            <input type="radio" id="j_ph_index_C" name="j_ph_index" value="C">
+                            <label for="j_ph_index_C">C</label>
+                            <input type="radio" id="j_ph_index_D" name="j_ph_index" value="D">
+                            <label for="j_ph_index_D">D</label>
+                            <input type="radio" id="j_ph_index_Other" name="j_ph_index" value="Others">
+                            <label for="j_ph_index_Other">Others:</label>
+                            <input type="text" id="j_ph_index_otherSpec">
+                            <br>
+                        </form>
                     </td>
                     
                     

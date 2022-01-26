@@ -578,10 +578,12 @@
                     
                     <tr style="vertical-align:top">
                         <th rowspan="2"><br>
-                            <span>Report</span><br>
-                            <textarea id="i_dt_report" name="i_dt_report" rows="9" cols="100" style="resize: none;" ></textarea><br>
-                            <label for="i_dt_reportFile">Upload Report File</label>
-                            <input type="file" id="i_dt_reportFile" name="i_dt_reportFile">
+                            <form id="doc_form" method="post" enctype="multipart/form-data">
+                                <span>Report</span><br>
+                                <textarea id="i_dt_report" name="i_dt_report" rows="9" cols="100" style="resize: none;" ></textarea><br>
+                                <label for="i_dt_reportFile">Upload Report File</label>
+                                <input type="file" id="i_dt_reportFile" name="i_dt_reportFile">
+                            </form>
                         </th>
                     </tr>
             
