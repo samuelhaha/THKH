@@ -15,7 +15,10 @@ $(document).ready(function(){
                     $("#reportpage").append(` 
                     <tr>
                     <td>${reportpage.id}</td>
-                    <td>${reportpage.horNum} abc</td>
+                    <td>${reportpage.horNum}</td>
+                    <td>${reportpage.a_inccidentDate}</td>
+                    <td>${reportpage.a_inccidentTime}</td>
+                    <td>${reportpage.b_diagnosis}</td>
                     </tr>
                     `);
                 })
