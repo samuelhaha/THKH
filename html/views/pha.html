@@ -123,7 +123,8 @@
         <ul class="nav nav-tabs">
             <li class="active"><a data-toggle="tab" href="#ab">A B</a></li>
             <li><a data-toggle="tab" href="#c">C</a></li>
-            <li><a data-toggle="tab" href="#de">D E</a></li>
+            <li><a data-toggle="tab" href="#d">D</a></li>
+            <li><a data-toggle="tab" href="#e">E</a></li>
             <li><a data-toggle="tab" href="#f">F</a></li>
             <li><a data-toggle="tab" href="#g">G</a></li>
             <li><a data-toggle="tab" href="#h">H</a></li>
@@ -136,279 +137,279 @@
        
         <div class="tab-content">
             <div id="ab" class="tab-pane fade in active">
-                <div id="a">
-                    <table>
-                        <td colspan="2"><h3>A: Date & Time of Occurrence</h3>
-                            <label for="birthday">Date:</label>
-                            2021-05-25
-                            
-                            <label for="Time" style="font-weight: bold;">Time</label>
-                            07:35:41
-                            
-                        </td>
-                        <td>
-                            <div id="b">
-                                <h3>B: Diagnosis - Related to Event</h3>
-                                <div>
-                                    Lorem ipsum dolor sit amet consectetur adipisicing elit. Saepe ad iusto, incidunt laborum corrupti est architecto quibusdam suscipit voluptatibus quod aut earum officiis harum vel velit vero totam eligendi non.
-                                </div>
+                <table>
+                    <td style="vertical-align:top" colspan="2">
+                        <div id="a">
+                        <h3>A: Date & Time of Occurrence</h3>
+                            <label for="a_inccidentDate">Date:</label>
+                            <input type="date" id="a_inccidentDate" name="date" disabled>
+                        
+                            <label for="a_inccidentTime" style="font-weight: bold;">Time:</label>
+                            <input type="time" id="a_inccidentTime" name="time" disabled>
+                            <br><br><br><br><br><br><br><br>
+                        </div>
+                    </td>
+                    <td>
+                        <div id="b">
+                            <h3>B: Diagnosis - Related to Event</h3>
+                            <div>
+                                <textarea id="b_diagnosis" name="diagnosis" rows="9" cols="100" style="resize: none;" disabled></textarea>
                             </div>
-                        </td>
-                    </table>
-                    
-                </div>   
-            </div>
+                        </div>
+                    </td>
+                </table>
+            </div>   
             
             <div id="c" class="tab-pane fade">
                 <table>
                     <td colspan="3"><h3>C: Particulars of Person Involved</h3></td>
                    
                     <tr>
-                        <td> 
+                        <td style="vertical-align:top"> 
                             <h4>Affected Person</h4>
-                            <input type="checkbox" value="P" disabled>
-                            <label for="html">Patient</label>
-                            <input type="checkbox" value="P" checked>
-                            <label for="html">Visitor / Caregiver</label>
-                            <input type="checkbox" value="P" disabled>
-                            <label for="html">Staff</label>
+                            <input type="radio" value="Patient" name="c_affectedPerson" id="c_affectedPerson_patient" disabled>
+                            <label for="c_affectedPerson_patient">Patient</label>
+                            <input type="radio" value="VisitorCaregiver" name="c_affectedPerson"  id="c_affectedPerson_visitorCaregiver" disabled>
+                            <label for="c_affectedPerson_visitorCaregiver">Visitor / Caregiver</label>
+                            <input type="radio" value="Staff" name="c_affectedPerson"  id="c_affectedPerson_staff" disabled>
+                            <label for="c_affectedPerson_staff">Staff</label>
                         </td>
                         <th rowspan="6"><br>
                           
-                            <label for="css">Patient / Affected Person's Particulars</label>
+                            <h4>Patient / Affected Person's Particulars</h4>
                      
                             <br><br>
-
-                            <label for="css">Name:</label>
+    
+                            <label for="affectedName">Name:</label>
                      
-                            Patient3<br><br>
-
-                            <label for="css">NRIC/FIN/Passport No:</label>
+                            <input type="text" id="c_affectedName" name="affectedName" disabled><br><br>
+    
+                            <label for="affectedNric">NRIC/FIN/Passport No:</label>
                      
-                            G0535893K<br><br>
-
-                            <label for="css">Postal Address:</label>
+                            <input type="text" id="c_affectedNric" name="affectedNric" disabled><br><br>
+    
+                            <label for="postal">Postal Address:</label>
                      
-                            546215<br><br>
+                            <input type="text" id="c_affectedAddress" name="postal" disabled><br><br>
                             
                             Sex:
-                            <input type="radio" id="css" name="M" value="CSS" checked>
-                            <label for="css">M</label>
-                            <input type="radio" id="css" name="f" value="CSS" disabled>
-                            <label for="css">F</label><br><br>
+                            <input type="radio"  name="c_affectedGender" value="Male" id="c_affectedGender_Male" disabled>
+                            <label for="c_affectedGender">M</label>
+                            <input type="radio"  name="c_affectedGender" value="Female" id="c_affectedGender_Female" disabled>
+                            <label for="c_affectedGender">F</label><br><br>
+    
+                            <label for="c_affectedContact">Contact Number:</label>
+                            <input type="text" id="c_affectedContact" name="contact" disabled><br><br>
+    
+                            <label for="c_affectedAge">Age:</label>
+                            <input type="number" name="c_affectedAge" id="c_affectedAge" disabled><br><br>
 
-                            <label for="contact">Contact Number:</label>
-                            NULL<br><br>
+                            <label for="c_affectedAdmitDate">Admit Date:</label>
+                            <input type="date" name="c_affectedAdmitDate" id="c_affectedAdmitDate" disabled>
+                            <label for="c_affectedAdmitTime">Admit Time:</label>
+                            <input type="time" name="c_affectedAdmitTime" id="c_affectedAdmitTime" disabled><br><br>
 
-                            <label for="css">Ward</label>
+                            <label for="c_affectedWing">Wing:</label>
+                            <input type="text" name="c_affectedWing" id="c_affectedWing" disabled><br><br>
+
+                            <label for="ward">Ward</label>
                      
-                            2
-
-                            <label for="css">Bed</label>
+                            <input type="number" id="c_affectedWard" name="ward" disabled>
+    
+                            <label for="bed">Bed</label>
                      
-                            1
+                            <input type="number" id="c_affectedBed" name="bed" disabled>
                          
                         </th>
                 
                            
                     </tr>
-
+    
                     <tr>
                         <td>
-                            Witness: NULL
+                            <h4>Witness</h4>
+                            <label for="c_witnessNrie">NRIC:</label>
+                            <input type="text" name="c_witnessNrie" id="c_witnessNrie" disabled>
+                            <br>
+                            <label for="c_witnessName">Name:</label>
+                            <input type="text" name="c_witnessName" id="c_witnessName" disabled>
+                            <br>
+                            <label for="c_witnessContact">Contact Number:</label>
+                            <input type="text" name="c_witnessContact" id="c_witnessContact" disabled>
                         </td>
-                    
                     </tr>
-                    
                 </table>
-                
-               
             </div>       
-            <div id="de" class="tab-pane fade">
+            <div id="d" class="tab-pane fade">
                 <div>
                     <table>
-                        <td colspan="2"><h3>D: Location of Occurrence</h3></td>
-                        <td colspan="4"><h3>E: Time of Notification</h3></td>
+                        <td><h3>D: Location of Occurrence</h3></td>
+                        
                         <tr>
-                            <th id="Location">Location</th>
-                            <th id="Site">Site</th>
-                            <th>Doctor</th>
-                            <th>Supervisor</th>
-                            <th>Police</th>
-                            <th>Relative</th>
+                            <th id="Category">Location</th>
+                            <th id="Category">Site</th>
                         </tr>
                         <tr>
                           <td>
                             <div>
-                                <input type="radio" name="inWard" id="inWard" value="inWard" checked>In the Ward<br>
-                                <input type="radio" name="outWard" id="outWard" value="outWard" disabled>Outside the Ward<br>
-                                <input type="radio" name="pharmacy" id="pharmacy" value="Pharmacy" disabled>Pharmacy<br>
-                                <input type="radio" name="outHospital" id="outHospital" value="outHospital" disabled>Outside the Hospital<br>
+                                <input type="radio" name="d_locationOccur" id="inward" value="inward" disabled><label for="inWard">In the Ward</label><br>
+                                <input type="radio" name="d_locationOccur" id="outward" value="outward" disabled><label for="outWard">Outside the Ward</label><br>
+                                <input type="radio" name="d_locationOccur" id="pharmacy" value="pharmacy" disabled><label for="pharmacy">Pharmacy</label><br>
+                                <input type="radio" name="d_locationOccur" id="out_hospital" value="out_hospital" disabled><label for="outHospital">Outside the Hospital</label><br>
                             
                             </div>
                           </td>
                           <td>
-                                <input type="radio" id="beside" name="beside" value="beside" checked>
-                                <label for="beside">Beside</label><br>
-                                <input type="radio" id="cubicle" name="cubicle" value="cubicle" disabled>
+                                <input type="radio" id="d_occurSite_Bed_Side" name="d_occurSite" value="bedside" disabled>
+                                <label for="bedside">Bed side</label><br>
+                                <input type="radio" id="d_occurSite_cubicle" name="d_occurSite" value="cubicle" disabled>
                                 <label for="cubicle">Cubicle</label><br>
-                                <input type="radio" id="corridor" name="corridor" value="corridor" disabled>
+                                <input type="radio" id="d_occurSite_corridor" name="d_occurSite" value="corridor" disabled>
                                 <label for="corridor">Corridor</label><br>
-                                <input type="radio" id="toilet" name="toilet" value="toilet" disabled>
+                                <input type="radio" id="d_occurSite_toilet" name="d_occurSite" value="toilet" disabled>
                                 <label for="toilet">Toilet</label><br>
-                                <input type="radio" id="therapygym" name="therapygym" value="therapygym" disabled>
-                                <label for="therapygym">Therapy Gym</label><br>
-                                <input type="radio" id="others" name="others" value="others" disabled>
-                                <label for="others">Others(Specify):
-                                <!--<input type="text" id="text" name="text">-->
+                                <input type="radio" id="d_occurSite_therapyGym" name="d_occurSite" value="therapyGym" disabled>
+                                <label for="therapyGym">Therapy Gym</label><br>
+                                <input type="radio" id="d_occurSite_others" name="d_occurSite" value="SiteOthers" disabled>
+                                <label for="SiteOthers">Others(Specify):
+                                <input type="text" id="siteOthersSpecify" name="SiteOthers" disabled>
                                 </label>
                           </td>
-                          <td>
-                
-                            <div id="box3">
-                                <div class="row">
-                                
-                                    <div class="column middle">
-                                        &nbsp&nbsp&nbsp&nbsp <label for="Time" style="font-weight: bold">Doctor:</label>
-                                        07:35:41
-                                       
-                                    </div>
-                            
-                                  
-                                </div>
-                                
+                        </tr>
+                        <tr>
+                            <label for="d_occurWard">Ward:</label>
+                            <input type="text" name="d_occurWard" id="d_occurWard" disabled>
+                            <label for="d_occurWardWing">Ward Wing:</label>
+                            <input type="text" name="d_occurWardWing" id="d_occurWardWing" disabled>
+                            <label for="d_occurBed">Bed:</label>
+                            <input type="text" name="d_occurBed" id="d_occurBed" disabled>
+                        </tr>
+                      </table>                      
             
-                            </div>
-                          </td>
-                          <td>
-                
-                            <div id="box3">
-                                <div class="row">
-                                
-                                    <div class="column middle">
-                                        &nbsp&nbsp&nbsp&nbsp<label for="Time" style="font-weight: bold">Supervisor:</label>
-                                        07:35:41
-                                       
-                                    </div>
-                            
-                                  
-                                </div>
-                                
-            
-                            </div>
-                          </td>
-                          <td>
-                
-                            <div id="box3">
-                                <div class="row">
-                                
-                                    <div class="column middle">
-                                        &nbsp&nbsp&nbsp&nbsp<label for="Time" style="font-weight: bold">Police:</label>
-                                        07:35:41
-                                       
-                                    </div>
-                            
-                                  
-                                </div>
-                                
-            
-                            </div>
-                          </td>
-                          <td>
-                            
-                            <div id="box3">
-                                <div class="row">
-                                
-                                    <div class="column middle">
-                                        &nbsp&nbsp&nbsp&nbsp<label for="Time" style="font-weight: bold">Relative:</label>
-                                        07:35:41
-                                       
-                                    </div>
-                            
-                                  
-                                </div>
-                                
-            
-                            </div>
-                          </td>
-                          
+                </div>
+            </div>
+            <div id="e" class="tab-pane fade">
+                <div>
+                    <table>
                         
-                       
-                      </table>    
-            
+                        <td><h3>E: Time of Notification</h3></td>
+                        <tr>
+                            <th>
+                                <input type="checkbox" name="e_notifyDoc" id="e_notifyDoc" value="e_notifyDoc" disabled>
+                                <label for="e_notifyDoc" style="font-weight: bold">Doctor</label>
+                            </th>
+                            <th>
+                                <input type="checkbox" name="e_notifySup" id="e_notifySup" value="e_notifySup" disabled>
+                                <label for="e_notifySup" style="font-weight: bold">Supervisor</label>
+                            </th>
+                            <th>
+                                <input type="checkbox" name="e_notifyPolice" id="e_notifyPolice" value="e_notifyPolice" disabled>
+                                <label for="e_notifyPolice" style="font-weight: bold">Police</label>
+                            </th>
+                            <th>
+                                <input type="checkbox" name="e_notifyRelative" id="e_notifyRelative" value="e_notifyRelative" disabled>
+                                <label for="e_notifyRelative" style="font-weight: bold">Relative</label>
+                            </th>
+                        </tr>
+                        <tr>
+                            <td>
+                                <label for="doctorTime">Doctor Time:</label>
+                                <input type="datetime-local" id="doctorTime" name="doctorTime" disabled><br>
+                                <label for="doctorName">Doctor Name:</label>
+                                <input type="text" name="doctorName" id="doctorName" disabled>
+                              
+                            </td>
+                            <td>
+                                <label for="supervisorTime">Supervisor Time:</label>
+                                <input type="datetime-local" id="supervisorTime" name="supervisorTime" disabled><br>
+                                <label for="supervisorName">Supervisor Name:</label>
+                                <input type="text" id="supervisorName" name="supervisorName" disabled>
+                            </td>
+                            <td>
+                           
+                                <label for="policeTime">Police Time:</label>
+                                <input type="datetime-local" id="policeTime" name="policeTime" disabled><br>
+                                <label for="policeName">Police Name:</label>
+                                <input type="text" id="policeName" name="policeName" disabled>
+                            
+                            </td>
+                            <td>
+                            
+                                <label for="relativeTime">Relative Time:</label>
+                                <input type="datetime-local" id="relativeTime" name="relativeTime" disabled><br>
+                                <label for="relativeName">Relative Name:</label>
+                                <input type="text" id="relativeName" name="relativeName" disabled>
+                            </td>
+                      </table>
                 </div>
             </div>
             <div id="f" class="tab-pane fade">
                 <table>
                     <td colspan="3"><h3>F: Type of Occurrence</h3></td>
                     <tr>
-                      <th id="Category">Fall Related</th>
-                      <th id="Category">Medication Related</th>
-                      <th id="Category">Other Incidents</th>
+                      <th><input type="radio" name="occurType" id="occurTypeFall" value="fall" disabled><label for="occurTypeFall"> Fall Related</label></th>
+                      <th><input type="radio" name="occurType" id="occurTypeMed" value="medication" disabled><label for="occurTypeMed"> Medication Related</label></th>
+                      <th><input type="radio" name="occurType" id="occurTypeOther" value="other" disabled><label for="occurTypeOther"> Other Incidents</label></th>
                     </tr>
                     <tr>
                         <td> 
-                            <input type="radio" id="fallnoninjury" name="fallnoninjury" value="fallnoninjury" checked>
-                            <label for="fallnoninjury">Fall (Non-Injury)</label>
-                            <input type="radio" id="near" name="near" value="near" disabled>
-                            <label for="near">Near Fall</label><br>
+                            <input type="radio" id="fall_non_injury" name="fallRelated" value="fall_non_injury" disabled>
+                            <label for="fall_non_injury">Fall (Non-Injury)</label>
+                            <input type="radio" id="near_fall" name="fallRelated" value="near_fall" disabled>
+                            <label for="near_fall">Near Fall</label><br>
                         </td>
                         <th rowspan="6">Types of Error<br>
-                            <input type="radio" id="wrong" name="wrong" value="wrong" checked>
-                            <label for="wrong">Wrong Patient</label><br>
-                            <input type="radio" id="drug" name="drug" value="drug" disabled>
-                            <label for="drug">Wrong Drug</label><br>
-                            <input type="radio" id="strength" name="strength" value="strength" disabled>
-                            <label for="strength">Wrong Strength/Dose</label><br>
-                            <input type="radio" id="wrongtime" name="wrongtime" value="wrongtime" disabled>
-                            <label for="wrongtime">Wrong Time</label><br>
-                            <input type="radio" id="wrongroute" name="wrongroute" value="wrongroute" disabled>
-                            <label for="wrongroute">Wrong Route</label><br>
-                            <input type="radio" id="others" name="others" value="others" disabled>
-                            <label for="others">Others(Specify):
-                             <!-- <input type="text" id="fname" name="fname"><br><br> -->
-                            </label><br><br><br><br>
-
-                            <label for="fname">Drug Involved:
-                            <!-- <input type="text" id="fname" name="fname"> -->
-                            test
-                            <br><br>
-
-                            Error reached patient:   
-                            <input type="radio" id="erroryes" name="erroryes" value="erroryes" checked>
-                            <label for="erroryes">Yes</label>
-                            <input type="radio" id="errorno" name="errorno" value="errorno" disabled>
-                            <label for="errorno">No</label><br>
+                            <input type="radio" id="wrong_patient" name="MR_typeOfError" value="wrong_patient" disabled>
+                            <label for="wrongPatient">Wrong Patient</label><br>
+                            <input type="radio" id="wrong_drug" name="MR_typeOfError" value="wrong_drug" disabled>
+                            <label for="wrong_drug">Wrong Drug</label><br>
+                            <input type="radio" id="strength_dose" name="MR_typeOfError" value="strength_dose" disabled>
+                            <label for="strength_dose">Wrong Strength/Dose</label><br>
+                            <input type="radio" id="wrong_time" name="MR_typeOfError" value="wrong_time" disabled>
+                            <label for="wrong_time">Wrong Time</label><br>
+                            <input type="radio" id="wrong_route" name="MR_typeOfError" value="wrong_route" disabled>
+                            <label for="wrong_route">Wrong Route</label><br>
+                            <input type="radio" id="mr_others" name="MR_typeOfError" value="mr_others" disabled>
+                            <label for="mr_others">Others(Specify):</label>
+                            <input type="text" id="MROthersSpecify" name="MROthersSpecify" disabled><br><br>
+                            <br><br><br><br>
+            
+                            <label for="drugInvolved">Drug Involved:</label>
+                            <input type="text" id="drugInvolved" name="drugInvolved" disabled>
+                            <br><br>Error reached patient:
+                            <input type="radio" id="errorReachPatientYes" name="errorReachPatient" value="Yes" disabled>
+                            <label for="Yes">Yes</label>
+                            <input type="radio" id="errorReachPatientNo" name="errorReachPatient" value="No" disabled>
+                            <label for="No">No</label><br>
                         </th>
                         <th rowspan="6">Types of Error<br>
-                            <input type="radio" id="injury" name="injury" value="injury" checked>
-                            <label for="injury">Injury unrelated to fall</label><br>
-                            <input type="radio" id="treatment" name="treatment" value="treatment" disabled>
+                            <input type="radio" id="InjuryUnrelatedToFall" name="OI_typeOfError" value="InjuryUnrelatedToFall" disabled>
+                            <label for="InjuryUnrelatedToFall">Injury unrelated to fall</label><br>
+                            <input type="radio" id="treatment" name="OI_typeOfError" value="treatment" disabled>
                             <label for="treatment">Treatment Related</label><br>
-                            <input type="radio" id="diagnostic" name="diagnostic" value="diagnostic" disabled>
+                            <input type="radio" id="diagnostic" name="OI_typeOfError" value="diagnostic" disabled>
                             <label for="diagnostic">Diagnostic related</label><br>
-                            <input type="radio" id="abuse" name="abuse" value="abuse" disabled>
+                            <input type="radio" id="abuse" name="OI_typeOfError" value="abuse" disabled>
                             <label for="abuse">Abuse</label><br>
-                            <input type="radio" id="assaults" name="assaults" value="assaults" disabled>
+                            <input type="radio" id="assaults" name="OI_typeOfError" value="assaults" disabled>
                             <label for="assaults">Assaults</label><br>
-                            <input type="radio" id="needle-stick" name="needle-stick" value="needle-stick" disabled>
+                            <input type="radio" id="needle-stick" name="OI_typeOfError" value="needle-stick" disabled>
                             <label for="needle-stick">Needle-stick Injury</label><br>
-                            <input type="radio" id="other" name="other" value="other" disabled>
-                            <label for="other">Other Incident</label><br><br><br><br><br><br>
-
-                            <label for="fname">Details(Specify):</label>
-                            <!-- <input type="text" id="fname" name="fname"><br><br> -->
-                            test
-
+                            <input type="radio" id="otherIncident" name="OI_typeOfError" value="otherIncident" disabled>
+                            <label for="otherIncident">Other Incident</label><br><br><br><br><br><br>
+            
+                            <label for="details">Details(Specify):</label>
+                            <input type="text" id="OI_details" name="details" disabled><br><br>
+            
                            
                         </th>
                     </tr>
                     <tr>
                         <td>
-                            <input type="radio" id="fall" name="fallinjury" value="fallinjury" checked>
-                            <label for="fallinjury">Fall (Injury)</label>
-                            <input type="radio" id="near" name="near" value="near" disabled>
-                            <label for="near">Near Fall (Injury)</label><br>
+                            <input type="radio" id="fall_injury" name="fallRelated" value="fall_injury" disabled>
+                            <label for="fall_injury">Fall (Injury)</label>
+                            <input type="radio" id="near_fall_injury" name="fallRelated" value="near_fall_injury" disabled>
+                        <label for="near_fall_injury">Near Fall (Injury)</label><br>
                         </td>
                        
                     </tr>
@@ -418,122 +419,65 @@
                     </tr> 
                     <tr>
                         <td>
-                            <input type="radio" id="fractures" name="fractures" value="fractures" checked>
-                            <label for="fractures">Fracture</label>
-                            <input type="radio" id="laceration" name="laceration" value="laceration" disabled>
-                            <label for="laceration">Laceration</label><br>
-                            <input type="radio" id="abrasion" name="abrasion" value="abrasion" disabled>
-                            <label for="abrasion">Abrasion</label>
-                            <input type="radio" id="hematoma" name="hematoma" value="hematoma" disabled>
-                            <label for="hematoma">Hematoma</label><br>
-                            <input type="radio" class="right" name="head" value="head" disabled>
-                            <label for="head">Head Injury</label>
-                            <input type="radio" class="right" name="others" value="others" disabled>
-                            <label for="others">Others:</label><br>
-                            <input type="radio" class="right" name="bruise" value="bruise" disabled>
-                            <label for="bruise">Bruise/Swelling</label>
+                            <input type="checkbox" id="Fracture" name="typeOfInjury" value="Fracture" disabled>
+                            <label for="Fracture">Fracture</label>
+                            <input type="checkbox" id="Laceration" name="typeOfInjury" value="Laceration" disabled>
+                            <label for="Laceration">Laceration</label><br>
+                            <input type="checkbox" id="Abrasion" name="typeOfInjury" value="Abrasion" disabled>
+                            <label for="Abrasion">Abrasion</label>
+                            <input type="checkbox" id="Hematoma" name="typeOfInjury" value="Hematoma" disabled>
+                            <label for="Hematoma">Hematoma</label><br>
+                            <input type="checkbox" id="HeadInjury" name="typeOfInjury" value="HeadInjury" disabled>
+                            <label for="HeadInjury">Head Injury</label>
+                            <input type="checkbox" id="BruiseSwelling" name="typeOfInjury" value="BruiseSwelling" disabled>
+                            <label for="BruiseSwelling">Bruise / Swelling</label><br>
+                            <input type="checkbox" id="OtherInjury" name="typeOfInjury" value="OtherInjury" disabled>
+                            <label for="OtherInjury">Others:</label>
+                            <input type="text" name="injuryOthersSpecify" id="injuryOthersSpecify" disabled>
+                            
                         </td>
                       
                     </tr>
                     <tr>
-                        <td>Fall Risk Assessment:<br>
-                            <input type="radio" id="Low" name="Low" value="Low" checked>
-                            <label for="Low">Low</label>
-                            <input type="radio" id="Moderate" name="Moderate" value="Moderate" disabled>
-                            <label for="Moderate">Moderate</label>
-                            <input type="radio" id="High" name="High" value="High" disabled>
-                            <label for="High">High</label>
+                        <td>
+                            Fall Risk Assessment Admit:
+                            <input type="radio" id="fallRiskAssAdmitLow" name="fallRiskAssAdmit" value="Low" disabled>
+                            <label for="fallRiskAssAdmitLow">Low</label>
+                            <input type="radio" id="fallRiskAssAdmitModerate" name="fallRiskAssAdmit" value="Moderate" disabled>
+                            <label for="fallRiskAssAdmitModerate">Moderate</label>
+                            <input type="radio" id="fallRiskAssAdmitHigh" name="fallRiskAssAdmit" value="High" disabled>
+                            <label for="fallRiskAssAdmitHigh">High</label><br>
 
-                            &nbsp&nbsp&nbsp&nbsp History of Falls:
-                            <input type="radio" id="yes" name="yes" value="yes" checked>
-                            <label for="yes">Yes</label>
-                            <input type="radio" id="no" name="no" value="no" disabled>
-                            <label for="no">No</label>
-
-                          
+                            Fall Risk Assessment:
+                            <input type="radio" id="fallRiskAssessmentLow" name="fallRiskAssessment" value="Low" disabled>
+                            <label for="fallRiskAssessmentLow">Low</label>
+                            <input type="radio" id="fallRiskAssessmentModerate" name="fallRiskAssessment" value="Moderate" disabled>
+                            <label for="fallRiskAssessmentModerate">Moderate</label>
+                            <input type="radio" id="fallRiskAssessmentHigh" name="fallRiskAssessment" value="High" disabled>
+                            <label for="fallRiskAssessmentHigh">High</label><br>
+            
+                            History of Falls:
+                            <input type="radio" id="historyOfFallsYes" name="historyOfFalls" value="Yes" disabled>
+                            <label for="historyOfFallsYes">Yes</label>
+                            <input type="radio" id="historyOfFallsNo" name="historyOfFalls" value="No" disabled>
+                            <label for="historyOfFallsNo">No</label>
                         </td>
-                     
-
-                        
-                     
                     </tr>
                     <tr>
                         <td>Assisted/Unassisted fall:<br>
-                            <input type="radio" id="assisted" name="assisted" value="assisted" checked>
-                            <label for="assisted">Assisted</label>
-                            <input type="radio" id="unassisted" name="unassisted" value="unassisted" disabled>
-                            <label for="unassisted">Unassisted</label>
-
+                            <input type="radio" id="assistedFall" name="assistedFall" value="Assisted" disabled>
+                            <label for="assistedFall">Assisted</label>
+                            <input type="radio" id="unassistedFall" name="assistedFall" value="Unassisted" disabled>
+                            <label for="unassistedFall">Unassisted</label>
+            
                            
-                            <label for="fname"> AMT:</label>
-                            6/10<br><br>
-
+                            <label for="AMT"> AMT:</label>
+                            <input type="text" id="AMT" name="AMT" disabled>/10<br><br>
+            
                         </td>
                     
                     </tr>
-                  </table>
-                  <!-- <div>
-                    <button>Save</button>
-                    <button>Submit</button>
-                    <button>Cancel</button>
-                </div> -->
-            </div>
-            <div id="de" class="tab-pane fade">
-                <table>
-                    <td colspan="2"><h3>D: Location of Occurrence</h3></td>
-                    <td colspan="4"><h3>E: Time of Notification</h3></td>
-                    <tr>
-                        <th id="Category">Location</th>
-                        <th id="Category">Site</th>
-                        <th>Doctor</th>
-                        <th>Supervisor</th>
-                        <th>Police</th>
-                        <th>Relative</th>
-                    </tr>
-                   
-                      <td>
-                        <div>
-                            <input type="radio" name="Location1" id="inWard" value="inWard" checked>In the Ward<br>
-                            <input type="radio" name="Location1" id="outWard" value="outWard" disabled>Outside the Ward<br>
-                            <input type="radio" name="Location2" id="Pharmacy" value="Pharmacy" disabled>Pharmacy<br>
-                            <input type="radio" name="Location2" id="outHospital" value="outHospital" disabled>Outside the Hospital<br>
-                        
-                        </div>
-                      </td>
-                      <td>
-                            <input type="radio" id="css" name="Beside" value="CSS" checked>
-                            <label for="css">Beside</label><br>
-                            <input type="radio" id="css" name="Cubicle" value="CSS" disabled>
-                            <label for="css">Cubicle</label><br>
-                            <input type="radio" id="css" name="Corridor" value="CSS" disabled>
-                            <label for="css">Corridor</label><br>
-                            <input type="radio" id="css" name="Toilet" value="CSS" disabled>
-                            <label for="css">Toilet</label><br>
-                            <input type="radio" id="css" name="Therapy" value="CSS" disabled>
-                            <label for="css">Therapy Gym</label><br>
-                            <input type="radio" id="css" name="Others" value="CSS" disabled>
-                            <label for="fname">Others(Specify):
-                            <input type="text" id="fname" name="fname">
-                            </label>
-                      </td>
-                     
-                      <td>
-                  
-                                    <label for="Time" style="font-weight: bold">Doctor:</label>
-									<br>
-                                    <input type="time" id="dtime" name="dtime">
-                    
-                                    <input type="time" id="dtime" name="dtime">
-                          
-                      </td>
-                    
-                     
-                      
-                  
-                  </table>              
-               
-
-
+                </table>
             </div>
             <div id="g" class="tab-pane fade">
                 <table>
@@ -545,49 +489,31 @@
                         </tr>
                         
                         <tr style="vertical-align:top">
-                            <th rowspan="2"><br>
-            
-                                <div>
-                                    <!--<textarea id="diagnosis" name="diagnosis" rows="9" cols="100">test</textarea>-->
-                                    test
-                                </div>
-                                <tr>
-                                 
-                                </tr>
-            
-                                <tr>
-                                    <td>
-                                        
-                                        <br><br>
-                                        <label for="fname">Name in Full:</label>
-                                        <!-- <input type="text" id="fname" name="fname"><br><br> -->
-                                        ZhiMin<br>
-                                        <label for="fname">Designation:</label>
-                                        Test<br>
-                                        <!-- <input type="text" id="fname" name="fname"><br><br> -->
-                                        <label for="fname">Date and Time:</label>
-                                        4 December 4.01pm<br>
-                                        <!-- <input type="text" id="fname" name="fname"><br><br> -->
-            
-                                        
-                                        
-                                    </td>
-                                </tr>
-            
+                            <th rowspan="2">
                             
+                                <br>
+                                <span>Situation</span><br>
+                                <textarea id="g_situation" name="g_situation" rows="9" cols="100" style="resize: none;" disabled></textarea>
+                                <br>
+                                <span>Background</span><br>
+                                <textarea id="g_background" name="g_background" rows="9" cols="100" style="resize: none;" disabled></textarea>
+                                <br>
+                                <span>Action</span><br>
+                                <textarea id="g_action" name="g_action" rows="9" cols="100" style="resize: none;" disabled></textarea>
+                                <br>
+                                <span>Recommend</span><br>
+                                <textarea id="g_recommend" name="g_recommend" rows="9" cols="100" style="resize: none;" disabled></textarea>
+                                <br>
+                                <span>Description</span><br>
+                                <textarea id="g_description" name="g_description" rows="9" cols="100" style="resize: none;" disabled></textarea>
                             </th>
                         </tr>
              
                      
                     </table>
                   
-                  
                 </table>
-                <!-- <div>
-                    <button>Save</button>
-                    <button>Submit</button>
-                    <button>Cancel</button>
-                </div> -->
+
             </div>
             <div id="h" class="tab-pane fade">
                 <table>
@@ -601,24 +527,17 @@
         
                             <td>
                                 <br>
-                                <label for="fname">Contributing / Mitigating Factors:</label>
-                                Test<br>
-                                <!-- <input type="text" id="fname" name="fname"><br><br> -->
-                                <label for="fname">Recommendations:</label>
-                                Test<br>
-                                <!-- <input type="text" id="fname" name="fname"><br><br> -->
-                                <label for="fname">Name in Full</label>
-                                ZhiMin<br>
-                                <!-- <input type="text" id="fname" name="fname"><br><br> -->
-    
-                                <form action="/action_page.php">
-                                    <label for="date">Date:</label>
-                                    <!-- <input type="date" id="date" name="date"> -->
-                                  4 December
-                                    <label for="Time" style="font-weight: bold;">Time</label>
-                                    <!-- <input type="time" id="time" name="time"> -->
-                                    4.03pm
-                                </form>
+                                <label for="h_sp_factors">Contributing / Mitigating Factors:</label>
+                                <input type="text" id="h_sp_factors" name="h_sp_factors" disabled><br><br>
+                                <label for="h_sp_recommend">Recommendations:</label>
+                                <input type="text" id="h_sp_recommend" name="h_sp_recommend" disabled><br><br>
+                                <!-- <input type="file" id="h_sp_reportFile" name="h_sp_reportFile"> -->
+                                <br><br>
+                                <!-- <label for="date">Date:</label>
+                                <input type="date" id="date" name="date" disabled>
+                                
+                                <label for="Time" style="font-weight: bold;" disabled>Time</label>
+                                <input type="time" id="time" name="time"> -->
     
     
     
@@ -626,106 +545,80 @@
                       
                     </table>
               
-                     
-                
-                <!-- <div>
-                    <button>Save</button>
-                    <button>Submit</button>
-                    <button>Cancel</button>
-                </div> -->
             </div>
-          
-
- 
          
-       
-              
-              <!-- <div>
-                  <button>Save</button>
-                  <button>Submit</button>
-                  <button>Cancel</button>
-              </div> -->
-         
-          <div id="i" class="tab-pane fade">
-            <table>
-                <tr>
-                    <th><h3>I: Doctor's Medical Report/ Follow-Up Report</h3></th>
+            <div id="i" class="tab-pane fade">
+                <table>
+                    <tr>
+                        <th><h3>I: Doctor's Medical Report/ Follow-Up Report</h3></th>
+                        
+                    </tr>
                     
-                </tr>
+                    <tr style="vertical-align:top">
+                        <th rowspan="2"><br>
+                            
+                            <span>Report</span><br>
+                            <textarea id="i_dt_report" name="i_dt_report" rows="9" cols="100" style="resize: none;" disabled></textarea>
+                            <!-- <input type="file" id="i_dt_reportFile" name="i_dt_reportFile"> -->
+                        </th>
+                    </tr>
+            
+            
                 
-                <tr style="vertical-align:top">
-                    <th rowspan="2"><br>
-    
-                        <label for="date">Date:</label>
-                        4 December 
-                        <!-- <input type="date" id="date" name="date"> -->
-                        <label for="Time" style="font-weight: bold;">Time</label>
-                            <!-- <input type="time" id="time" name="time"> -->
-                            4.04pm
-    
-                        <br><br>
-                        <label for="fname">Name or Stamp, Signature and MCR No:</label>
-                        <!-- <input type="text" id="fname" name="fname"><br><br> -->
-                        ZhiMin 37483 
-    
-                    </th>
-                </tr>
-        
-         
-             
-            </table>
+                </table>
             </div>
 
             <div id="j" class="tab-pane fade">
-            <table>
-            <tr>
-           
-                <th><h3>J: Pharmacy's Comments (For Medication Related Hor</h3></th>
-            </tr>
-         
-            <tr>
-                <td colspan="4">
-                    Direct Result of Error to Patient:<br>
-                    <input type="radio" id="css" name="No" value="CSS" >
-                    <label for="css">No Patient Harm Caused</label><br>
-                    <input type="radio" id="css" name="Patient" value="CSS" >
-                    <label for="css">Patient Monitoring or Observation Required</label><br>
-                    <input type="radio" id="css" name="Medical" value="CSS" >
-                    <label for="css">Medical Intenvention(s) required</label><br>
-                    <input type="radio" id="css" name="Patient" value="CSS" >
-                    <label for="css">Patient was transferred out</label><br>
-                    <input type="radio" id="css" name="Near" value="CSS" >
-                    <label for="css">Near Death event/Death</label><br>
-                    Error Phase:
-                    <input type="radio" id="css" name="Prescribing" value="CSS" >
-                    <label for="css">Prescribing</label>
-                    <input type="radio" id="css" name="Dispensing" value="CSS" >
-                    <label for="css">Dispensing</label>
-                    <input type="radio" id="css" name="Administering" value="CSS" >
-                    <label for="css">Administering</label><br>
+                <table>
+                <tr>
+            
+                    <th><h3>J: Pharmacy's Comments (For Medication Related Hor)</h3></th>
+                </tr>
+            
+                <tr>
+                    <td colspan="4">
+                        <label for="j_ph_comments">Comments:</label><br>
+                        <textarea id="j_ph_comments" name="j_ph_comments" rows="9" cols="100" style="resize: none;"></textarea><br>
+                        Direct Result of Error to Patient:<br>
+                        <input type="radio" id="j_ph_result_no_harm" name="j_ph_result" value="no_harm">
+                        <label for="j_ph_result_no_harm">No Patient Harm Caused</label><br>
+                        <input type="radio" id="j_ph_result_monitoring" name="j_ph_result" value="monitoring">
+                        <label for="j_ph_result_monitoring">Patient Monitoring or Observation Required</label><br>
+                        <input type="radio" id="j_ph_result_intervention" name="j_ph_result" value="intervention">
+                        <label for="j_ph_result_intervention">Medical Intervention(s) required</label><br>
+                        <input type="radio" id="j_ph_result_transferred" name="j_ph_result" value="transferred">
+                        <label for="j_ph_result_transferred">Patient was transferred out</label><br>
+                        <input type="radio" id="j_ph_result_near_death" name="j_ph_result" value="near_death">
+                        <label for="j_ph_result_near_death">Near Death event/Death</label><br>
+                        Error Phase:
+                        <input type="radio" id="j_ph_phase_prescribing" name="j_ph_phase" value="prescribing">
+                        <label for="j_ph_phase_prescribing">Prescribing</label>
+                        <input type="radio" id="j_ph_phase_dispensing" name="j_ph_phase" value="dispensing">
+                        <label for="j_ph_phase_dispensing">Dispensing</label>
+                        <input type="radio" id="j_ph_phase_administering" name="j_ph_phase" value="administering">
+                        <label for="j_ph_phase_administering">Administering</label><br>
+                        
+                        <h3>Error Index:</h3>
+                        <input type="radio" id="j_ph_index_A" name="j_ph_index" value="A">
+                        <label for="j_ph_index_A">A</label>
+                        <input type="radio" id="j_ph_index_B" name="j_ph_index" value="B">
+                        <label for="j_ph_index_B">B</label>
+                        <input type="radio" id="j_ph_index_C" name="j_ph_index" value="C">
+                        <label for="j_ph_index_C">C</label>
+                        <input type="radio" id="j_ph_index_D" name="j_ph_index" value="D">
+                        <label for="j_ph_index_D">D</label>
+                        <input type="radio" id="j_ph_index_Other" name="j_ph_index" value="Others">
+                        <label for="j_ph_index_Other">Others:</label>
+                        <input type="text" id="j_ph_index_otherSpec">
+                        <br>
+                    </td>
                     
-                    <table>
-                        <td colspan="3"><h3>Error Index:</h3> </td>
-                    </table>
-                    <input type="radio" id="css" name="A" value="CSS" >
-                    <label for="css">A</label>
-                    <input type="radio" id="css" name="B" value="CSS" >
-                    <label for="css">B</label>
-                    <input type="radio" id="css" name="C" value="CSS" >
-                    <label for="css">C</label>
-                    <input type="radio" id="css" name="D" value="CSS" >
-                    <label for="css">D</label>
-                    <input type="radio" id="css" name="E" value="CSS" >
-                    <label for="css">Others:</label><br>
-                    <!-- //add until i -->
-                </td>
+                    
+                    </tr>
                 
-                
-            </tr>
-         
-        </table>
+                </table>
           
-          </div>
+            </div>
           
 
             <div>
