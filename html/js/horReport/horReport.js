@@ -2,7 +2,7 @@ $(document).ready(function(){
     // showreport();
     $.ajax({
             method: "GET",
-            url: "/THKH/laravel/api/showreports",
+            url: "/THKH2/laravel/api/showreports",
             // headers: {Authorization: 'Bearer ' + sessionStorage.getItem("jwt")},
         }).done(
             function(data){ 
@@ -13,12 +13,13 @@ $(document).ready(function(){
                     <tr>
                     <td>${reportpage.id}</td>
                     <td>${reportpage.horNum}</td>
-<<<<<<< HEAD
                     <td>${reportpage.a_inccidentDate}</td>
                     <td>${reportpage.a_inccidentTime}</td>
                     <td>${reportpage.b_diagnosis}</td>
-=======
->>>>>>> f2879cb61792f308a781fb76b89e7503e39e5def
+                    <td>${reportpage.c_affectedNrie}</td>
+                    <td>${reportpage.c_affectedContact}</td>
+                    <td>${reportpage.c_affectedAdmitTime}</td>
+                    <td>${reportpage.c_affectedAdmitDate}</td>
                     </tr>
                     `);
                 })
