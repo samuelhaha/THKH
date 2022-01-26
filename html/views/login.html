@@ -245,7 +245,7 @@
 
     <button id="create" onclick="sendToCreate();">Create</button>
     <a href="#" id="update">Update</a>
-    <button id="view" onclick="sendToCreate();">View Reports</button>
+    <button id="view" onclick="sendToView();">View Reports</button>
     <a href="right" id="Logout">Log Out</a>
   </div>
 
@@ -343,6 +343,14 @@
       role = sessionStorage.getItem("role");
       window.location.href = role + '.html';
       console.log(role + '.html');
+
+    }
+
+    function sendToView() {
+
+      // role = sessionStorage.getItem("role");
+      window.location.href = 'reportspage2.html';
+      // console.log(role + '.html');
 
     }
   </script>

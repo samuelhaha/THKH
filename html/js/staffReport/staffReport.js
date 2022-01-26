@@ -1,5 +1,5 @@
 $(document).ready(function() {
-    horId = "DHOR13";
+    // horId = "DHOR13";
 
     $.ajax({
         method: "GET",
@@ -264,10 +264,16 @@ $(document).ready(function() {
     currentTime = currentDate.getHours() + ":" + currentDate.getMinutes() + ":" + currentDate.getSeconds();
     rs_submit_datetime = isoDate + " " + currentTime;
     rs_id = sessionStorage.getItem('staff_id');
-    status_rps = "";
+    status_sup = "";
+    sp_id = "";
+    status_doc = "";
+    dt_id = ""
+    status_pha = "";
+    ph_id = "";
     route_date_rps = "";
     completion_status = "Open";
     created_at = isoDate + " " + currentTime;
+
 
         $.ajax({
             method: "POST",
@@ -342,7 +348,6 @@ $(document).ready(function() {
        })
     
 
-    //possible bug of adding the same data into the object
     //update record when user click save
     $("#saveBtn").click(function (e) { 
         //console.log("submitted");
@@ -362,6 +367,7 @@ $(document).ready(function() {
         c_affectedAge = document.getElementById("c_affectedAge").value;
         c_affectedAdmitDate = document.getElementById("c_affectedAdmitDate").value;
         c_affectedAdmitTime = document.getElementById("c_affectedAdmitTime").value;
+        c_affectedAdmitDateTime = c_affectedAdmitDate + " " + c_affectedAdmitTime;
         c_affectedWing = document.getElementById("c_affectedWing").value;
         c_affectedWard = document.getElementById("c_affectedWard").value;
         c_affectedBed = document.getElementById("c_affectedBed").value;
@@ -432,7 +438,16 @@ $(document).ready(function() {
                 f_fall_injury = document.querySelector('input[name="fallRelated"]:checked').value;
             }
             //f_fall_injury_type might not work, not sure if can get all the values from the checkbox
-            f_fall_injury_type = document.querySelectorAll('input[name="typeOfInjury"]:checked').value;
+            injuryOldArray = Array.from(document.querySelectorAll('input[name="typeOfInjury"]:checked'));
+            injuryString = '';
+            injuryArray.forEach((val, key, injuryArray)=>{
+                if (Object.is(injuryArray.length - 1, key)) {
+                    injuryString += val.value;
+                } else {
+                    injuryString += val.value + ', ';
+                }
+            });
+            f_fall_injury_type = injuryString;
             if (document.getElementById('injuryOthers').checked) {
                 f_fall_injury_type_other = document.getElementById('injuryOthersSpecify').value;
             }
@@ -462,6 +477,11 @@ $(document).ready(function() {
         g_action = document.getElementById('g_action').value;
         g_recommend = document.getElementById('g_recommend').value;
         g_description = document.getElementById('g_description').value;
+        currentDate = new Date();
+        isoDate = currentDate.toISOString().substring(0,10);
+        currentTime = currentDate.getHours() + ":" + currentDate.getMinutes() + ":" + currentDate.getSeconds();
+        save_date_rps = isoDate + " " + currentTime;
+        updated_at = isoDate + " " + currentTime;
 
         $.ajax({
             method: "POST",
@@ -525,6 +545,8 @@ $(document).ready(function() {
                 g_action: g_action,
                 g_recommend: g_recommend,
                 g_description: g_description,
+                save_date_rps: save_date_rps,
+                updated_at: updated_at,
             },
             success: function (response) {
                 console.log(response);
