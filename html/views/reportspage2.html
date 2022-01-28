@@ -6,6 +6,7 @@
 <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
 <script src="../js/search/search.js"></script>
+<script src="../js/reportspage/reportspage.js"></script>
 <style>
   body {
     font-family: "Times New Roman", Georgia, Serif;
@@ -220,6 +221,10 @@
 
   }
 
+  #msg{
+    color: red;
+  }
+
   table,
   th,
   td {
@@ -236,12 +241,7 @@
   <div class="page-header">
 
     <a href="#"><img src="../images/logo.jpg"></a>
-    <!-- <h1><span>Banner/Header
-   
-    </span>
-    </h1> -->
-    <!-- search bar right align -->
-    <!-- search bar right align -->
+
 
     <form method="get" id="searchform" onsubmit="return SearchName();"> 
       <div class="search">
@@ -251,17 +251,7 @@
     </form>
 
   </div>
-  <!--page header end-->
-
-  <!-- <form id="searchform">
-    <div class="search">
-      <input type="text" placeholder=" Search Bar" name="search" id="search">
-    </div>
-  </form>
-
-  </div> -->
-
-
+ 
 
   <div class="navbar">
 
@@ -274,70 +264,22 @@
   <br>
   <div class="w3-content" style="max-width:1100px">
 
-
+    <div id="msg"></div>
     <div class="box-wrapper" id="table">
       <table style="width:100%;">
+        <thead>
         <tr style="height:50px; background-color:white">
           <th style="width:15%">Affected Name</th>
           <th style="width:25%">Date Created</th>
           <th>Time Created</th>
           <th>Status</th>
         </tr>
+        <tbody></tbody>
+        </thead>
+
        
       </table>
 
-      
-        
-
-        <!-- <tr style="height:30px">
-          <th style="width:15%">5/13</th>
-          <th style="width:25%">sasasa</th>
-          <th></th>
-        </tr>
-        <tr style="height:30px">
-          <th style="width:15%">5/14</th>
-          <th style="width:25%">sasa</th>
-          <th></th>
-        </tr>
-        <tr style="height:30px">
-          <th style="width:15%">5/15</th>
-          <th style="width:25%">sasa</th>
-          <th></th>
-        </tr>
-        <tr style="height:30px">
-          <th style="width:15%">5/21</th>
-          <th style="width:25%">sa</th>
-          <th></th>
-        </tr>
-        <tr style="height:30px">
-          <th style="width:15%">5/16</th>
-          <th style="width:25%">sasa</th>
-          <th></th>
-        </tr>
-        <tr style="height:30px">
-          <th style="width:15%">5/17</th>
-          <th style="width:25%">sasa</th>
-          <th></th>
-        </tr>
-        <tr style="height:30px">
-          <th style="width:15%">5/18</th>
-          <th style="width:25%"></th>
-          <th></th>
-        </tr>
-        <tr style="height:30px">
-          <th style="width:15%">5/19</th>
-          <th style="width:25%">sasa</th>
-          <th></th>
-        </tr>
-        <tr style="height:30px">
-          <th style="width:15%">5/20</th>
-          <th style="width:25%">sasa</th>
-          <th></th>
-        </tr> -->
-
-  
-
-      <!-- End page content -->
     </div>
     <br>
     <div class="footer2">
@@ -345,103 +287,14 @@
     </div>
 
 
-    <!-- Footer -->
     <div class="footer">
       <h6>© 2021 Ang Mo Kio - Thye Hua Kwan Hospital. All rights reserved.</h6>
     </div>
 
-    <!-- <script>
-  <div class="box-wrapper">
-    <table style="width:100%;">
-     <tr style="height:50px; background-color:white">
-       <th style="width:15%">Date</th>
-       <th style="width:25%">Type</th>
-       <th></th>
-     </tr>
-    
-      <tr style="height:30px">
-       <th style="width:15%"></th>
-       <th style="width:25%"></th>
-       <th></th>
-     </tr>
-     <tr style="height:30px">
-       <th style="width:15%"></th>
-       <th style="width:25%"></th>
-       <th></th>
-       </tr>
-        <tr style="height:30px">
-       <th style="width:15%"></th>
-       <th style="width:25%"></th>
-       <th></th>
-       </tr>
-        <tr style="height:30px">
-       <th style="width:15%"></th>
-       <th style="width:25%"></th>
-       <th></th>
-       </tr>
-        <tr style="height:30px">
-       <th style="width:15%"></th>
-       <th style="width:25%"></th>
-       <th></th>
-     </tr>
-     <tr style="height:30px">
-      <th style="width:15%"></th>
-      <th style="width:25%"></th>
-      <th></th>
-    </tr>
-    <tr style="height:30px">
-      <th style="width:15%"></th>
-      <th style="width:25%"></th>
-      <th></th>
-    </tr>
-    <tr style="height:30px">
-      <th style="width:15%"></th>
-      <th style="width:25%"></th>
-      <th></th>
-    </tr>
-    <tr style="height:30px">
-      <th style="width:15%"></th>
-      <th style="width:25%"></th>
-      <th></th>
-    </tr>
-    
-   </table>
     
        
  
   
-<!-- End page content -->
-  </div>
-  <br>
-  <div class="footer2">
-    <h6>Visiting hours: 12pm to 8pm, Mon to Sun (including Public Holidays)</h6>
-  </div>
-  <!-- Footer -->
-  <div class="footer">
-    <h6>© 2021 Ang Mo Kio - Thye Hua Kwan Hospital. All rights reserved.</h6>
-  </div>
-
-  <!-- <script>
-    var slideIndex = 0;
-    showSlides();
-    
-    function showSlides() {
-      var i;
-      var slides = document.getElementsByClassName("mySlides");
-      var dots = document.getElementsByClassName("dot");
-      for (i = 0; i < slides.length; i++) {
-        slides[i].style.display = "none";  
-      }
-      slideIndex++;
-      if (slideIndex > slides.length) {slideIndex = 1}    
-      for (i = 0; i < dots.length; i++) {
-        dots[i].className = dots[i].className.replace(" active", "");
-      }
-      slides[slideIndex-1].style.display = "block";  
-      dots[slideIndex-1].className += " active";
-      setTimeout(showSlides, 2000); // Change image every 2 seconds
-    }
-    </script> -->
 
 
 </body>
