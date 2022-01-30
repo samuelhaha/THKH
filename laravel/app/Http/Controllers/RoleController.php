@@ -8,19 +8,23 @@ use App\Models\Hor;
 use DateTime;
 use Illuminate\Support\Facades\DB;
 use JWTAuth;
+use Validator;
 use Tymon\JWTAuth\Facades\JWTAuth as FacadesJWTAuth;
+use Illuminate\Support\Carbon as Carbon;
+use Tymon\JWTAuth\JWTAuth as JWTAuthJWTAuth;
 
 class RoleController extends Controller
 {
     // protected $user;
- 
+
     // public function __construct()
     // {
     //     $this->user = JWTAuth::parseToken()->authenticate();
     // }
 
     //staff - create report
-    public function staffCreate(Request $request){
+    public function staffCreate(Request $request)
+    {
         $input = $request->only(
             'a_inccidentDate',
             'a_inccidentTime',
@@ -110,7 +114,7 @@ class RoleController extends Controller
                 'e_notifyDoc' => $request->e_notifyDoc,
                 'e_timeDoc' => $request->e_timeDoc,
                 'e_nameDoc' => $request->e_nameDoc,
-                'e_notifySup'=> $request->e_notifySup,
+                'e_notifySup' => $request->e_notifySup,
                 'e_timeSup' => $request->e_timeSup,
                 'e_nameSup' => $request->e_nameSup,
                 'e_notifyPolice' => $request->e_notifyPolice,
@@ -141,31 +145,35 @@ class RoleController extends Controller
                 'g_recommend' => $request->g_recommend,
                 'g_description' => $request->g_description
             ]
-            );
-            if($result){
-                return response()->json([
-                    'code' => 200,
-                    'success' => 'true',
-                    'msg' => 'Record successfully created',
-                    'record' => $input
-                ]);
-            }
-            else{
-                return response()->json([
-                    'code' => 400,
-                    'success' => 'false',
-                    'msg' => 'Record failed to create',
-                    'record' => ''
-                ]);
-            }
+        );
+        if ($result) {
+            return response()->json([
+                'code' => 200,
+                'success' => 'true',
+                'msg' => 'Record successfully created',
+                'record' => $input
+            ]);
+        } else {
+            return response()->json([
+                'code' => 400,
+                'success' => 'false',
+                'msg' => 'Record failed to create',
+                'record' => ''
+            ]);
+        }
     }
 
     public function getReportbyId()
     {
         //staff
         $id = JWTAuth::user()->staff_id;
+        $role = JWTAuth::user()->role;
         //get report based on rs_id from hors table
-        $report = Hor::where('rs_id', $id)->get();
+        if ($role == 'rps') {
+            $report = Hor::where('rs_id', $id)->get();
+        } else {
+            $report = Hor::where('status_' . $role, '<>', null)->get();
+        }
         //$report = Hor::all();
         return response()->json([
             'msg' => 'success',
@@ -184,8 +192,10 @@ class RoleController extends Controller
 
     public function staffSave($id, Request $request)
     {
-        if(JWTAuth::user()->role == 'rps'){
-        $updateData = Hor::where('id', $id)->update([
+        $date = Carbon::now();
+        $date->toDateTimeString();
+        if (JWTAuth::user()->role == 'rps') {
+            $updateData = Hor::where('id', $id)->update([
                 // 'rs_id' => JWTAuth::user()->staff_id,
                 'a_inccidentDate' => $request->a_inccidentDate,
                 'a_inccidentTime' => $request->a_inccidentTime,
@@ -214,7 +224,7 @@ class RoleController extends Controller
                 'e_notifyDoc' => $request->e_notifyDoc,
                 'e_timeDoc' => $request->e_timeDoc,
                 'e_nameDoc' => $request->e_nameDoc,
-                'e_notifySup'=> $request->e_notifySup,
+                'e_notifySup' => $request->e_notifySup,
                 'e_timeSup' => $request->e_timeSup,
                 'e_nameSup' => $request->e_nameSup,
                 'e_notifyPolice' => $request->e_notifyPolice,
@@ -243,63 +253,64 @@ class RoleController extends Controller
                 'g_background' => $request->g_background,
                 'g_action' => $request->g_action,
                 'g_recommend' => $request->g_recommend,
-                'g_description' => $request->g_description
-        ]);
-    }
-    else if(JWTAuth::user()->role == 'sup'){
-        $updateData = Hor::where('id', $id)->update([
-            'h_sp_factors' => $request->h_sp_factors,
-            'h_sp_recommend' => $request->h_sp_recommend,
-            'h_sp_reportFile' => $request->h_sp_reportFile,
-            'sp_submit_datetime' =>date("Y-n-d H:i:s"),
-        ]);
-    }
-    else if(JWTAuth::user()->role == 'doc'){
-        $updateData = Hor::where('id', $id)->update([
-            'i_dt_report' => $request->i_dt_report,
-            'i_dt_reportFile' => $request->i_dt_reportFile,
-            'dt_submit_datetime' => date("Y-n-d H:i:s")
-        ]);
-    }
-    else if(JWTAuth::user()->role == 'pha'){
-        $updateData = Hor::where('id', $id)->update([
-            'j_ph_comments' => $request->j_ph_comments,
-            'j_ph_result'=>$request->j_ph_result,
-            'j_ph_phase' => $request->j_ph_phase,
-            'j_ph_index' => $request->j_ph_index,
-            'j_ph_index_other' => $request->j_ph_index_other,
-            'ph_submit_datetime' => date("Y-n-d H:i:s")
-        ]);
-    }
-    else if(JWTAuth::user()->role == 'hod'){
-        $updateData = Hor::where('id', $id)->update([
-            'k_hod_comments' => $request->k_hod_comments,
-            'hod_submit_datetime' => date("Y-n-d H:i:s")
-        ]);
-    }
-    else if(JWTAuth::user()->role == 'hpo'){
-        $updateData = Hor::where('id', $id)->update([
-            'l_hpo_comments' => $request->l_hpo_comments,
-            'l_hpo_outcome' => $request->l_hpo_outcome,
-            'hpo_submit_datetime' => date("Y-n-d H:i:s") 
-        ]);
-    }
-    else if(JWTAuth::user()->role == 'dms'){
-        $updateData = Hor::where('id', $id)->update([
-            'm_dms_comments' => $request->m_dms_comments,
-            'm_dms_verdict' => $request->m_dms_verdict,
-            'dms_submit_datetime' => date("Y-n-d H:i:s")
-        ]);
-    }
-        if($updateData){
+                'g_description' => $request->g_description,
+                'save_date_rps' => $date,
+                'status_rps' => 'saved',
+            ]);
+        } else if (JWTAuth::user()->role == 'sup') {
+            $updateData = Hor::where('id', $id)->update([
+                'h_sp_factors' => $request->h_sp_factors,
+                'h_sp_recommend' => $request->h_sp_recommend,
+                'h_sp_reportFile' => $request->h_sp_reportFile,
+                'save_date_sup' => $date,
+                'status_sup' => 'saved',
+            ]);
+        } else if (JWTAuth::user()->role == 'doc') {
+            $updateData = Hor::where('id', $id)->update([
+                'i_dt_report' => $request->i_dt_report,
+                'i_dt_reportFile' => $request->i_dt_reportFile,
+                'save_date_doc' => $date,
+                'status_doc' => 'saved',
+            ]);
+        } else if (JWTAuth::user()->role == 'pha') {
+            $updateData = Hor::where('id', $id)->update([
+                'j_ph_comments' => $request->j_ph_comments,
+                'j_ph_result' => $request->j_ph_result,
+                'j_ph_phase' => $request->j_ph_phase,
+                'j_ph_index' => $request->j_ph_index,
+                'j_ph_index_other' => $request->j_ph_index_other,
+                'save_date_pha' => $date,
+                'status_pha' => 'saved',
+            ]);
+        } else if (JWTAuth::user()->role == 'hod') {
+            $updateData = Hor::where('id', $id)->update([
+                'k_hod_comments' => $request->k_hod_comments,
+                'save_date_hod' => $date,
+                'status_hod' => 'saved',
+            ]);
+        } else if (JWTAuth::user()->role == 'hpo') {
+            $updateData = Hor::where('id', $id)->update([
+                'l_hpo_comments' => $request->l_hpo_comments,
+                'l_hpo_outcome' => $request->l_hpo_outcome,
+                'save_date_hpo' => $date,
+                'status_hpo' => 'saved',
+            ]);
+        } else if (JWTAuth::user()->role == 'dms') {
+            $updateData = Hor::where('id', $id)->update([
+                'm_dms_comments' => $request->m_dms_comments,
+                'm_dms_verdict' => $request->m_dms_verdict,
+                'save_date_dms' => $date,
+                'status_dms' => 'saved',
+            ]);
+        }
+        if ($updateData) {
             return response()->json([
                 'code' => 200,
                 'success' => 'true',
                 'msg' => 'Record successfully updated',
                 'record' => $updateData
             ]);
-        }
-        else{
+        } else {
             return response()->json([
                 'code' => 400,
                 'success' => 'false',
@@ -312,105 +323,201 @@ class RoleController extends Controller
 
     public function search(Request $request)
     {
-        $data = Hor::where("c_affectedName","LIKE","%{$request->name}%")->get();
-                
+        $data = Hor::where("c_affectedName", "LIKE", "%{$request->name}%")->get();
+
         return response()->json([
-            'reports' => $data 
+            'reports' => $data
         ]);
     }
-
-    public function displaydata()
-    {
-        $data = Hor::paginate(2);
-        return response('display', compact('data'));
-    }
-    
 
 
     //supervisor
     //add his part to the form
     public function supervisorAdd($id, Request $request)
     {
-        //$input = $request->only('h_sp_factors','h_sp_recommend','h_sp_reportFile','date','time');
-        $file = $request->h_sp_reportFile;
-        $request->validate([
-             'h_sp_reportFile' => 'mimes:pdf,jpeg,jpg,png|max:2048',
-        ]);
-        // $name = $file->hashName();
-        $datetime = $request->date . $request->time;
-        $addToRecord = Hor::where('id', $id)->update([
-            'h_sp_factors'=>$request->h_sp_factors,
-            'h_sp_recommend'=>$request->h_sp_recommend,
-            'h_sp_reportFile'=>$file,
-            'sp_submit_datetime'=>date("Y-n-d H:i:s",strtotime($datetime)),
-            'sp_id'=>JWTAuth::user()->staff_id
-        ]);
-        if($addToRecord){
-            return response()->json([
-                'success' => true,
-                'msg' => 'Supervisor record added successfully',
-                'data' => $addToRecord
+        if (JWTAuth::user()->role == 'sup') {
+            $date = Carbon::now();
+            $date->toDateTimeString();
+            //$input = $request->only('h_sp_factors','h_sp_recommend','h_sp_reportFile','date','time');
+            $validator = Validator::make($request->all(), [
+                'h_sp_reportFile' => 'mimes:pdf,jpeg,jpg,png|max:2048'
             ]);
-           
+            // $request->validate([
+            //     'h_sp_reportFile' => 'mimes:pdf,jpeg,jpg,png|max:2048',
+            // ]);
+            if ($validator->passes()) {
+                $input['h_sp_reportFile'] = time() . '_' . $request->file('h_sp_reportFile')->getClientOriginalName();
+                $path = $request->h_sp_reportFile->move(public_path('files'), $input['h_sp_reportFile']);
+                //$datetime = $request->date . $request->time;
+                $addToRecord = Hor::where('id', $id)->update([
+                    'h_sp_factors' => $request->h_sp_factors,
+                    'h_sp_recommend' => $request->h_sp_recommend,
+                    'h_sp_reportFile' => $input['h_sp_reportFile'],
+                    'sp_submit_datetime' => $date,
+                    'sp_id' => JWTAuth::user()->staff_id,
+                    'status_sup' => 'submitted',
+                ]);
+                if ($addToRecord) {
+                    return response()->json([
+                        'success' => true,
+                        'msg' => 'Supervisor record added successfully',
+                        'data' => $addToRecord,
+                    ]);
+                }
+            }
+        } else {
+            return response()->json([
+                'success' => false,
+                'msg' => 'You are not authorized to perform this action',
+            ], 401);
         }
-       
-    
     }
 
     //doctor
     //add his part to the form
     public function doctorAdd($id, Request $request)
     {
-        //$input = $request->only('report','reportfile','date','time');
-        request()->validate([
-            'i_dt_reportFile' => 'mimes:pdf,jpg,jpeg,png|max:2048'
-        ]);
-        $datetime = $request->date . $request->time;
-        $addToRecord = Hor::where('id', $id)->update([
-            'i_dt_report'=>$request->i_dt_report,
-            'i_dt_reportFile'=>$request->i_dt_reportFile,
-            'dt_submit_datetime'=>date("Y-n-d H:i:s",strtotime($datetime)),
-            'dt_id'=>JWTAuth::user()->staff_id
-        ]);
-        
+        if (JWTAuth::user()->role == 'doc') {
+            $date = Carbon::now();
+            $date->toDateTimeString();
+            //$input = $request->only('report','reportfile','date','time');
+            $validator = Validator::make($request->all(), [
+                'i_dt_reportFile' => 'mimes:pdf,jpeg,jpg,png|max:2048'
+            ]);
+            // request()->validate([
+            //     'i_dt_reportFile' => 'mimes:pdf,jpg,jpeg,png|max:2048'
+            // ]);
+            //$datetime = $request->date . $request->time;
+            if ($validator->passes()) {
+                $input['i_dt_reportFile'] = time() . '_' . $request->file('i_dt_reportFile')->getClientOriginalName();
+                $path = $request->i_dt_reportFile->move(public_path('files'), $input['i_dt_reportFile']);
+
+                $addToRecord = Hor::where('id', $id)->update([
+                    'i_dt_report' => $request->i_dt_report,
+                    'i_dt_reportFile' => $request->i_dt_reportFile,
+                    'dt_submit_datetime' => $date,
+                    'dt_id' => JWTAuth::user()->staff_id,
+                    'status_doc' => 'submitted',
+
+                ]);
 
 
-        return response()->json([
-            'success' => true,
-            'msg' => 'Doctor record added successfully',
-            'data' => $addToRecord
-        ]);
+
+                return response()->json([
+                    'success' => true,
+                    'msg' => 'Doctor record added successfully',
+                    'data' => $addToRecord
+                ]);
+            }
+        } else {
+            return response()->json([
+                'success' => false,
+                'msg' => 'You are performing an unauthorized action',
+            ], 401);
+        }
     }
 
 
     //pharmacy
     //add his part to the form
     public function pharmacyAdd($id, Request $request)
-    {   
-        $datetime = $request->date . $request->time;
-        $addToRecord = Hor::where('id', $id)->update([
-            'j_ph_result'=>$request->j_ph_result,
-            'j_ph_phase'=>$request->j_ph_phase,
-            'ph_submit_datetime'=>date("Y-n-d H:i:s",strtotime($datetime)),
-            'ph_id'=>JWTAuth::user()->staff_id
-        ]);
+    {
+        $date = Carbon::now();
+        $date->toDateTimeString();
+        if (JWTAuth::user()->role == 'pha') {
+            //$datetime = $request->date . $request->time;
+            $addToRecord = Hor::where('id', $id)->update([
+                'j_ph_result' => $request->j_ph_result,
+                'j_ph_phase' => $request->j_ph_phase,
+                'ph_submit_datetime' => $date,
+                'ph_id' => JWTAuth::user()->staff_id
+            ]);
 
-        return response()->json([
-            'success' => true,
-            'msg' => 'Pharmacy record added successfully',
-            'data' => $addToRecord
-        ]);
+            return response()->json([
+                'success' => true,
+                'msg' => 'Pharmacy record added successfully',
+                'data' => $addToRecord
+            ]);
+        } else {
+            return response()->json([
+                'success' => false,
+                'msg' => 'Sorry, you are unauthorized to perform the action',
+            ], 401);
+        }
     }
 
-    //
+    public function hodAdd($id, Request $request)
+    {
+        if (JWTAuth::user()->role == 'hod') {
+            $date = Carbon::now();
+            $date->toDateTimeString();
+            $result = Hor::where('id', $id)->update([
+                'k_hod_comments' => $request->k_hod_comments,
+                'hod_submit_datetime' => $date,
+                'hod_id' => JWTAuth::user()->staff_id
+            ]);
+
+            return response()->json([
+                'success' => true,
+                'msg' => 'HOD record added successfully',
+                'data' => $result
+            ]);
+        } else {
+            return response()->json([
+                'success' => false,
+                'msg' => 'Sorry, you are unauthorized to perform the action',
+            ], 401);
+        }
+    }
 
 
-        
-    //     return response()->json([
-    //         'success' => true,
-    //         'msg' => 'Data added successfully',
-    //         'data' => $input
-    //     ]);
-    // }
+    public function hpoAdd($id, Request $request)
+    {
+        if (JWTAuth::user()->role == 'hpo') {
+            $date = Carbon::now();
+            $date->toDateTimeString();
+            $result = Hor::where('id', $id)->update([
+                'l_hpo_comments' => $request->l_hpo_comments,
+                'l_hpo_outcome' => $date,
+                'hpo_submit_datetime' => $date,
+                'hpo_id' => JWTAuth::user()->staff_id
+            ]);
 
+            return response()->json([
+                'success' => true,
+                'msg' => 'HPO record added successfully',
+                'data' => $result
+            ]);
+        } else {
+            return response()->json([
+                'success' => false,
+                'msg' => 'Sorry, you are unauthorized to perform the action',
+            ], 401);
+        }
+    }
+
+    public function dmsAdd($id, Request $request)
+    {
+        if (JWTAuth::user()->role == 'dms') {
+            $date = Carbon::now();
+            $date->toDateTimeString();
+            $result = Hor::where('id', $id)->update([
+                'm_dms_comments' => $request->m_dms_comments,
+                'm_dms_verdict' => $request->m_dms_verdict,
+                'dms_submit_datetime' => $date,
+                'dms_id' => JWTAuth::user()->staff_id
+            ]);
+
+            return response()->json([
+                'success' => true,
+                'msg' => 'DMS record added successfully',
+                'data' => $result
+            ]);
+        } else {
+            return response()->json([
+                'success' => false,
+                'msg' => 'Sorry, you are unauthorized to perform the action',
+            ], 401);
+        }
+    }
 }
