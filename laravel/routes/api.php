@@ -52,6 +52,7 @@ Route::group(['middleware' => ['jwt.verify']], function() {
     Route::post("/supervisor-add/{id}", [RoleController::class, 'supervisorAdd']);
     Route::post("/doctor", [RoleController::class, 'doctor']);
     Route::get("/getReports", [RoleController::class, 'getReportbyId']);
+    Route::post("/returnReport/{id}",[horController::class, 'returnReport']);
 });
 
 // Route::post("/staff-create", [RoleController::class, 'staffCreate']);
