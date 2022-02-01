@@ -24,6 +24,34 @@ class horController extends Controller
         ]);
     }
 
+    public function getReports()
+    {
+        $id = JWTAuth::user()->staff_id;
+        $role = JWTAuth::user()->role;
+        //get report based on rs_id from hors table
+        if ($role == 'rps') {
+            $report = Hor::where('rs_id', $id)->get();
+        } else {
+            //need to look at this again
+            $report = Hor::where('status_' . $role, '<>', 'returned')->orWhereNotNull('status_' . $role)->get();
+        }
+        //$report = Hor::all();
+        return response()->json([
+            'msg' => 'success',
+            'reports' => $report
+        ]);
+    }
+
+    public function getReportByHorNum($horNum)
+    {
+        $report = Hor::where('horNum', $horNum)->first();
+        return response()->json([
+            'msg' => 'success',
+            'report' => $report
+        ]);
+    }
+
+    //need to look at this again
     public function returnReport($id,Request $request)
     {
         //if(JWTAuth::user()->role != 'rps'){
@@ -32,7 +60,9 @@ class horController extends Controller
         $date = Carbon::now();
         $date->toDateTimeString();
         $report = Hor::where('id',$id)->update([
-            'route_date_rps' => $date
+            'void_reason' => $reason, //using void_reason column for now //add new column to database?
+            'route_date_rps' => $date,
+            'status_rps' => 'returned'
         ]);
         return response()->json([
             'success'=>'true',
