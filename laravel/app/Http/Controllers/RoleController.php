@@ -163,32 +163,7 @@ class RoleController extends Controller
         }
     }
 
-    public function getReportbyId()
-    {
-        //staff
-        $id = JWTAuth::user()->staff_id;
-        $role = JWTAuth::user()->role;
-        //get report based on rs_id from hors table
-        if ($role == 'rps') {
-            $report = Hor::where('rs_id', $id)->get();
-        } else {
-            $report = Hor::where('status_' . $role, '<>', null)->get();
-        }
-        //$report = Hor::all();
-        return response()->json([
-            'msg' => 'success',
-            'reports' => $report
-        ]);
-    }
-
-    public function getReportByHorNum($horNum)
-    {
-        $report = Hor::where('horNum', $horNum)->first();
-        return response()->json([
-            'msg' => 'success',
-            'report' => $report
-        ]);
-    }
+    
 
     public function staffSave($id, Request $request)
     {
@@ -361,6 +336,7 @@ class RoleController extends Controller
                     return response()->json([
                         'success' => true,
                         'msg' => 'Supervisor record added successfully',
+                        'uploaded_image' => '<img src="/files/'.$input['h_sp_reportFile'],
                         'data' => $addToRecord,
                     ]);
                 }
@@ -406,6 +382,7 @@ class RoleController extends Controller
                 return response()->json([
                     'success' => true,
                     'msg' => 'Doctor record added successfully',
+                    'uploaded_image' => '<img src="/files/'.$input['i_dt_reportFile'],
                     'data' => $addToRecord
                 ]);
             }
