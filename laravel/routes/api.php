@@ -39,7 +39,7 @@ Route::get("search",[RoleController::class, 'search']);
 
 Route::get("display-data",[RoleController::class,'displaydata']);
 
-Route::get("report/{horNum}", [RoleController::class, 'getReportByHorNum']);
+Route::get("report/{horNum}", [horController::class, 'getReportByHorNum']);
 
 Route::get('/showreports',[horController::class, 'showreports']);
 
@@ -51,7 +51,7 @@ Route::group(['middleware' => ['jwt.verify']], function() {
     Route::post("/staff-save/{id}", [RoleController::class,'staffSave']);
     Route::post("/supervisor-add/{id}", [RoleController::class, 'supervisorAdd']);
     Route::post("/doctor", [RoleController::class, 'doctor']);
-    Route::get("/getReports", [RoleController::class, 'getReportbyId']);
+    Route::get("/getReports", [horController::class, 'getReports']);
     Route::post("/returnReport/{id}",[horController::class, 'returnReport']);
 });
 
