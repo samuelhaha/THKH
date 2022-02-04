@@ -333,12 +333,21 @@ class RoleController extends Controller
                     'sp_id' => JWTAuth::user()->staff_id,
                     'status_sup' => 'submitted',
                 ]);
+                $extension = $request->file('h_sp_reportFile')->getClientOriginalExtension();
+                if($extension = 'pdf'){
+                    $uploadedfile = '<iframe src="../images/uploaded/'.$input['h_sp_reportFile'].'" width="100%" height="500px"></iframe>';
+                }
+                else{
+                $uploadedfile = '<img src="../images/uploaded/'.$input['h_sp_reportFile'].'"/>';
+                }
                 if ($addToRecord) {
                     return response()->json([
                         'success' => true,
                         'msg' => 'Supervisor record added successfully',
-                        'uploaded_image' => '<img src="../images/uploaded/'.$input['h_sp_reportFile'].'"/>',
+                        // 'uploaded_image' => '<img src="../images/uploaded/'.$input['h_sp_reportFile'].'"/>',
+                        'uploaded_image' => $uploadedfile,
                         'data' => $addToRecord,
+                        'extension' => $extension
                     ]);
                 }
             }
