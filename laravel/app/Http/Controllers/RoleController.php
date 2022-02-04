@@ -322,7 +322,8 @@ class RoleController extends Controller
             // ]);
             if ($validator->passes()) {
                 $input['h_sp_reportFile'] = time() . '_' . $request->file('h_sp_reportFile')->getClientOriginalName();
-                $path = $request->h_sp_reportFile->move(public_path('files'), $input['h_sp_reportFile']);
+                // $path = $request->h_sp_reportFile->move(public_path('files'), $input['h_sp_reportFile']);
+                $path = $request->h_sp_reportFile->move('C:\xampp\htdocs\THKH\html\images\uploaded', $input['h_sp_reportFile']);
                 //$datetime = $request->date . $request->time;
                 $addToRecord = Hor::where('id', $id)->update([
                     'h_sp_factors' => $request->h_sp_factors,
@@ -336,7 +337,7 @@ class RoleController extends Controller
                     return response()->json([
                         'success' => true,
                         'msg' => 'Supervisor record added successfully',
-                        'uploaded_image' => '<img src="/files/'.$input['h_sp_reportFile'],
+                        'uploaded_image' => '<img src="../images/uploaded/'.$input['h_sp_reportFile'].'"/>',
                         'data' => $addToRecord,
                     ]);
                 }

@@ -20,9 +20,10 @@ $(document).ready(function() {
                        <td id="status">${report.status_role}</td>\
                        <td class="reason"></td>\
                        <td><select id="route" disabled><option value="supervisor">sup1</option></select></td>\
-                       <td><button type="button" id="edit">Edit Report</button></td>\
+                       <td><button onclick= "sendToUpdate('${report.id}');">Edit Report</button></td>\
                        <td class="returnbtn"><button class="return">Return report to staff</button></td>\
                    </tr>`);
+                   
                    //<td><button type="button" id="delete">Delete Report</button><td>\
             });
             //satff would not be able to see the "Return to Staff" button
@@ -62,9 +63,7 @@ $(document).ready(function() {
                //route for staff put in another tab??
                 $('#route').prop('disabled', true); 
            }
-           $("#edit").click(function(){
-            window.location.href = role + '.html';
-        });
+           
             // else{
             //     $('#route').prop('disabled', true);
             // }
@@ -79,3 +78,8 @@ $(document).ready(function() {
     
 
 });
+
+function sendToUpdate(id) {
+    role = sessionStorage.getItem("role");
+    window.location.href = role + '.html?id=' + id;
+};
