@@ -51,10 +51,11 @@ Route::group(['middleware' => ['jwt.verify']], function() {
     Route::post("/staff-create", [RoleController::class, 'staffCreate']);
     Route::post("/staff-save/{id}", [RoleController::class,'staffSave']);
     Route::post("/supervisor-add/{id}", [RoleController::class, 'supervisorAdd']);
-    Route::post("/doctor", [RoleController::class, 'doctor']);
+    Route::post("/doctor-add/{id}", [RoleController::class, 'doctorAdd']);
     Route::get("/getReports", [horController::class, 'getReports']);
     Route::post("/returnReport/{id}",[horController::class, 'returnReport']);
     Route::get('/showreports/user',[horController::class, 'showreportsbyuser']);
+    Route::delete("delete/{horNum}",[horController::class,'removeReport']);
 });
 
 // Route::post("/staff-create", [RoleController::class, 'staffCreate']);
