@@ -1,0 +1,198 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Staff Report</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+    <style>
+      
+        /* Style the tab */
+        table {
+        font-family: arial, sans-serif;
+        border-collapse: collapse;
+        width: 100%;
+        }
+
+        td, th {
+        border: 1px solid #dddddd;
+        text-align: left;
+        padding: 8px;
+        }
+
+        tr:nth-child(even) {
+        background-color: #dddddd;
+        }
+        
+        #tab {
+        overflow: hidden;
+        border: 1px solid #ccc;
+        background-color: #f1f1f1;
+        }
+
+        /* Style the buttons that are used to open the tab content */
+        #tab button {
+        background-color: inherit;
+        float: left;
+        border: none;
+        outline: none;
+        cursor: pointer;
+        padding: 14px 16px;
+        transition: 0.3s;
+        }
+
+        /* Change background color of buttons on hover */
+        #tab button:hover {
+        background-color: #ddd;
+        }
+
+        /* Create an active/current tablink class */
+        #tab button.active {
+        background-color: #ccc;
+        }
+
+        /* Style the tab content */
+        #tabContent {
+        display: none;
+        padding: 6px 12px;
+        border: 1px solid #ccc;
+        border-top: none;
+        }
+
+          /* Style the top navigation bar */
+        .navbar {
+        overflow: hidden;
+        background-color: lightblue;
+        }
+
+        
+         /* Style the navigation bar links */
+         .navbar button{
+        float: left;
+        display: block;
+        color: black;
+        text-align: center;
+        padding: 14px 20px;
+        background-color: Transparent;
+        border: none;
+        outline: none;
+        text-decoration: none;
+        }
+
+        /* Right-aligned link */
+        .navbar button.right {
+        float: right;
+        }
+
+        /* Change color on hover */
+        .navbar button:hover {
+        background-color: #ddd;
+        color: black;
+        }
+        
+        /* Footer */
+        .footer {
+        padding: 20px;
+        text-align: center;
+        background: lightblue;
+        }
+        img {
+        float: left;
+        width: 150px;
+        height: 60px;
+        margin: 4px 0px 4px 8px;  
+        }
+
+        .thkh{
+            width: 600px;
+            height: 400px;
+        }
+
+        #text1{
+            margin-left: 700px;
+        }
+
+      
+        
+       
+       
+    </style>
+</head>
+<body>
+    
+    <a href="login.html"><img src="../images/logo.jpg"></a>
+    <br><br><br><br>
+
+    <div class="navbar">
+
+        <button id="create" onclick="sendToCreate();">Create</button>
+        <button id="view" onclick="sendToMyView();">View My Reports</button>
+        <button id="view" onclick="sendToAllView();">View All Reports</button>
+        <button id="Logout" class="right">Log Out</button>
+    </div>
+    
+    
+      <!-- Page content -->
+      <div class="w3-content" style="max-width:1100px">
+    
+        <!-- About Section -->
+        <div class="about" id="about">
+          <div class="THKH1">
+            <img src="..\images\team.jpg" class="thkh" alt="THKH" width="500" height="400">
+          </div>
+
+          <br><br>
+          <br><br>
+          <br><br>
+
+          <div class="THKH2">
+            <h1 class="text1" id="text1">About THKH</h1><br><br>
+            <h4 class="text2" id="text1">Tradition since 2001</h5>
+            <p class="text3" id="text1">in lorem ipsum dolor sit amet, consectetur adipiscing elit consectetur adipiscing elit, sed do
+              eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation
+              ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute iruredolor in reprehenderit in voluptate
+              velit esse cillum dolore eu fugiat nulla pariatur.
+            </p>
+          </div>
+
+        </div>
+        <br>
+        <hr>
+
+         <!-- About Section -->
+         <div class="about" id="about">
+            <div class="THKH1">
+              <img src="..\images\hospitalstaff.png" class="thkh" alt="THKH" width="500" height="400">
+            </div>
+  
+            <br><br>
+            <br><br>
+            <br><br>
+  
+            <div class="THKH2">
+              <h1 class="text1" id="text1">About THKH</h1><br><br>
+              <h4 class="text2" id="text1">Tradition since 2001</h5>
+              <p class="text3" id="text1">in lorem ipsum dolor sit amet, consectetur adipiscing elit consectetur adipiscing elit, sed do
+                eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation
+                ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute iruredolor in reprehenderit in voluptate
+                velit esse cillum dolore eu fugiat nulla pariatur.
+              </p>
+            </div>
+  
+          </div>
+
+        <br><br>
+        <br>
+        
+    
+       
+      </div>
+
+    <div class="footer">
+        <h6>© 2021 Ang Mo Kio - Thye Hua Kwan Hospital. All rights reserved.</h6>
+    </div>
+</body>
+</html>
