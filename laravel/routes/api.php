@@ -45,6 +45,7 @@ Route::get('/showreports',[horController::class, 'showreports']);
 
 
 
+
 Route::group(['middleware' => ['jwt.verify']], function() {
     Route::post("/logout", [AccountController::class, 'logout']);
     Route::post("/staff-create", [RoleController::class, 'staffCreate']);
@@ -53,6 +54,7 @@ Route::group(['middleware' => ['jwt.verify']], function() {
     Route::post("/doctor", [RoleController::class, 'doctor']);
     Route::get("/getReports", [horController::class, 'getReports']);
     Route::post("/returnReport/{id}",[horController::class, 'returnReport']);
+    Route::get('/showreports/user',[horController::class, 'showreportsbyuser']);
 });
 
 // Route::post("/staff-create", [RoleController::class, 'staffCreate']);

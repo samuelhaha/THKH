@@ -104,19 +104,16 @@
 </head>
 <body>
     
-    
-    
-            <a href="login.html"><img src="../images/logo.jpg"></a>
-            <br><br><br><br>
+    <a href="login.html"><img src="../images/logo.jpg"></a>
+    <br><br><br><br>
 
-            <div class="navbar">
-    
-                <a href="#" id="create">Create</a>
-                <a href="#">Update</a>
-                <a href="#">View Reports</a> 
-              </div>
-    
-   
+    <div class="navbar">
+
+        <button id="create" onclick="sendToCreate();">Create</button>
+        <button id="view" onclick="sendToMyView();">View My Reports</button>
+        <button id="view" onclick="sendToAllView();">View All Reports</button>
+        <button id="Logout" class="right">Log Out</button>
+    </div>
   
     <section>
         <ul class="nav nav-tabs">

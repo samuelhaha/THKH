@@ -104,35 +104,16 @@
 </head>
 <body>
     
-    
-    
-            <a href="login.html"><img src="../images/logo.jpg"></a>
-            <br><br><br><br>
+    <a href="login.html"><img src="../images/logo.jpg"></a>
+    <br><br><br><br>
 
-            <div class="navbar">
-    
-                <a href="#" id="create">Create</a>
-                <a href="#">Update</a>
-                <a href="#">View Reports</a> 
-              </div>
-    
+    <div class="navbar">
 
-    
-      
-      <!-- <div class="tab-content">
-        <div id="home" class="tab-pane fade in active">
-          <h3>HOME</h3>
-          <p>Some content.</p>
-        </div>
-        <div id="menu1" class="tab-pane fade">
-          <h3>Menu 1</h3>
-          <p>Some content in menu 1.</p>
-        </div>
-        <div id="menu2" class="tab-pane fade">
-          <h3>Menu 2</h3>
-          <p>Some content in menu 2.</p>
-        </div>
-      </div> -->
+        <button id="create" onclick="sendToCreate();">Create</button>
+        <button id="view" onclick="sendToMyView();">View My Reports</button>
+        <button id="view" onclick="sendToAllView();">View All Reports</button>
+        <button id="Logout" class="right">Log Out</button>
+    </div>
   
     <section>
         <ul class="nav nav-tabs">
@@ -147,16 +128,6 @@
            
             
         </ul>
-        <!-- <div id="tab">
-            <button>A B</button>
-            <button>C</button>
-            <button>D E</button>
-            <button>F</button>
-            <button>G H</button>
-            <button>I J</button>
-            <button>K L M</button>
-        </div>
-         -->
         <div class="tab-content">
             <div id="ab" class="tab-pane fade in active">
                 <table>
