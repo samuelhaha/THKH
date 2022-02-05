@@ -29,19 +29,19 @@ class horController extends Controller
         $id = JWTAuth::user()->staff_id;
         $role = JWTAuth::user()->role;
         if ($role == 'rps') {
-            $Hors = Hor::where('rs_id', $id)->get();;       
+            $Hors = Hor::where('rs_id', $id)->get();      
         } else  if ($role == 'sup') {
-            $Hors = Hor::where('sp_id', $id)->get();;
+            $Hors = Hor::where('sp_id', $id)->get();
         } else if ($role == 'doc') {
-            $Hors = Hor::where('dt_id', $id)->get();; 
+            $Hors = Hor::where('dt_id', $id)->get();
         } else  if ($role =='pha') {
-            $Hors = Hor::where('ph_id', $id)->get();; 
+            $Hors = Hor::where('ph_id', $id)->get();
         } else if ($role == 'hod') {
-            $Hors = Hor::where('hod_id', $id)->get();; 
+            $Hors = Hor::where('hod_id', $id)->get(); 
         } else  if ($role == 'hpo') {
-            $Hors = Hor::where('hpo_id', $id)->get();; 
+            $Hors = Hor::where('hpo_id', $id)->get();
         } else  if ($role == 'dms') {
-            $Hors = Hor::where('dms_id', $id)->get();; 
+            $Hors = Hor::where('dms_id', $id)->get();
         }
         return response()->json([
             'Hors'=>$Hors,

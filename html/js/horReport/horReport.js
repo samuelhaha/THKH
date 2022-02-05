@@ -36,7 +36,7 @@ $(document).ready(function(){
                         <td>${reportpage.c_affectedAdmitDate}</td>
                         <td>${reportpage.completion_status}</td>
                         <td><button onclick= "sendToUpdate('${reportpage.horNum}');">Update</button></td>
-                        <td><button onclick= "sendToDelete('${reportpage.horNum}');">Void</button></td>
+                        <td><button onclick= "showForm('${reportpage.horNum}');">Void</button></td>
                     </tr>
                     `);
                 })
@@ -57,27 +57,27 @@ $(document).ready(function(){
                 // $("#reportpage").removeAttr('hidden');
                 $("#reportpage").append(` 
                     <tr style="height:50px; background-color:white">
-                        <th style="width:15%">HorNum</th>
-                        <th style="width:25%">Inccident Date</th>
-                        <th style="width:25%">Inccident Time</th>
-                        <th style="width:25%">Affected Nric</th>
-                        <th style="width:25%">Affected Name</th>
-                        <th style="width:25%">Admit Date</th>
-                        <th style="width:40%">Admit Time</th>
-                        <th style="width:30%">Status</th>
+                        <th>HorNum</th>
+                        <th>Inccident Date</th>
+                        <th>Inccident Time</th>
+                        <th>Affected Nric</th>
+                        <th>Affected Name</th>
+                        <th>Admit Date</th>
+                        <th>Admit Time</th>
+                        <th>Status</th>
                     </tr>
                     `);
                 $.each(data.Hors,function(key,reportpage){
                     $("#reportpage").append(` 
                     <tr>
-                    <td>${reportpage.horNum}</td>
-                    <td>${reportpage.a_inccidentDate}</td>
-                    <td>${reportpage.a_inccidentTime}</td>
-                    <td>${reportpage.c_affectedNrie}</td>
-                    <td>${reportpage.c_affectedName}</td>
-                    <td>${reportpage.c_affectedAdmitTime}</td>
-                    <td>${reportpage.c_affectedAdmitDate}</td>
-                    <td>${reportpage.status_rps}</td>
+                        <td>${reportpage.horNum}</td>
+                        <td>${reportpage.a_inccidentDate}</td>
+                        <td>${reportpage.a_inccidentTime}</td>
+                        <td>${reportpage.c_affectedNrie}</td>
+                        <td>${reportpage.c_affectedName}</td>
+                        <td>${reportpage.c_affectedAdmitTime}</td>
+                        <td>${reportpage.c_affectedAdmitDate}</td>
+                        <td>${reportpage.completion_status}</td>
                     </tr>
                     `);
                 })
@@ -90,6 +90,29 @@ $(document).ready(function(){
         );
     }
     
+    $("#voidBtn").click(function(e) {
+        e.preventDefault();
+        selectedHor = $("#voidBtn").val();
+        console.log(selectedHor);
+        console.log($("#voidReason").val())
+        // $.ajax(
+        //     {
+        //     method:"get",
+        //     url:"/THKH/laravel/api/delete/" + selectedHor,
+        //     dataType:"json",
+        //     // headers:{Authorization: 'Bearer ' + sessionStorage.getItem("jwt")},
+        //     data: {name:search},
+        //     success: function(response){
+                    
+        //         },
+    
+    
+        //     error: function(){
+                
+        //     }
+                
+        // });
+    });
 });
 
 function SearchName(){
@@ -155,6 +178,14 @@ function sendToUpdate(horNum) {
     window.location.href = role + '.html?horNum=' + horNum;
 };
 
-function sendToVoid(horNum) {
-    console.log(horNum);
-};
+function showForm(horNum) {
+    $("#popupForm").css({"display":"block"});
+    $("#overlay").css({"display":"block"});
+    $("#voidReason").val("");
+    $("#voidBtn").val(horNum);
+}
+
+function closeForm() {
+    $("#popupForm").css({"display":"none"});
+    $("#overlay").css({"display":"none"});
+}

@@ -43,7 +43,7 @@ Route::get("report/{horNum}", [horController::class, 'getReportByHorNum']);
 
 Route::get('/showreports',[horController::class, 'showreports']);
 
-
+Route::get("getnames",[RoleController::class,'getNamesByRole']);
 
 
 Route::group(['middleware' => ['jwt.verify']], function() {

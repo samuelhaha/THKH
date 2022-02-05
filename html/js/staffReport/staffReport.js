@@ -133,7 +133,7 @@ $(document).ready(function() {
                 console.log(err.responseText);
             }
         );
-    } 
+    }
     else {
         //console.log("submitted");
     $("#submitBtn").click(function(e) {
@@ -237,7 +237,7 @@ $(document).ready(function() {
             if (document.getElementById('injuryOthers').checked) {
                 f_fall_injury_type_other = document.getElementById('injuryOthersSpecify').value;
             }
-            f_fall_assessmentAdm = document.querySelector('input[name="fallRiskAssessment"]:checked').value;
+            f_fall_assessmentAdm = document.querySelector('input[name="fallRiskAssAdmit"]:checked').value;
             f_fall_assessmentOccur = document.querySelector('input[name="fallRiskAssessment"]:checked').value;
             f_fall_history = document.querySelector('input[name="historyOfFalls"]:checked').value;
             f_fall_assisted = document.querySelector('input[name="assistedFall"]:checked').value;
@@ -268,13 +268,19 @@ $(document).ready(function() {
         currentTime = currentDate.getHours() + ":" + currentDate.getMinutes() + ":" + currentDate.getSeconds();
         rs_submit_datetime = isoDate + " " + currentTime;
         rs_id = sessionStorage.getItem('staff_id');
-        status_sup = "";
-        sp_id = "";
-        status_doc = "";
-        dt_id = ""
-        status_pha = "";
-        ph_id = "";
-        route_date_rps = "";
+        status_sup = "pending";
+        sp_id = $("#selectedSupervisor").val();
+        status_doc = "pending";
+        dt_id = $("#selectedDoctor").val();
+        if ($('#occurTypeMed').is(':checked')) {
+            status_pha = "pending";
+            ph_id = $("#selectedPharmacy").val();
+        } else {
+            status_pha = "NA";
+            ph_id = '';
+        }
+        
+        // route_date_rps = "";
         completion_status = "Open";
         created_at = isoDate + " " + currentTime;
     
@@ -296,6 +302,7 @@ $(document).ready(function() {
                     c_affectedAge: c_affectedAge,
                     c_affectedAdmitDate: c_affectedAdmitDate,
                     c_affectedAdmitTime: c_affectedAdmitTime,
+                    c_affectedAdmitDateTime: c_affectedAdmitDateTime,
                     c_affectedWing: c_affectedWing,
                     c_affectedWard: c_affectedWard,
                     c_affectedBed: c_affectedBed,
@@ -341,6 +348,14 @@ $(document).ready(function() {
                     g_action: g_action,
                     g_recommend: g_recommend,
                     g_description: g_description,
+                    // rs_submit_datetime: rs_submit_datetime,
+                    // rs_id: rs_id,
+                    // status_sup: status_sup,
+                    // sp_id: sp_id,
+                    // status_doc: status_doc,
+                    // dt_id: dt_id,
+                    // completion_status: completion_status,
+                    // created_at: created_at
                 },
                 success: function (response) {
                     //console.log(response);
@@ -569,6 +584,60 @@ $(document).ready(function() {
 function showForm() {
     $("#popupForm").css({"display":"block"});
     $("#overlay").css({"display":"block"});
+    $('#innerFormContainer').empty();
+    $.ajax({
+        method: "GET",
+        url: "/THKH/laravel/api/getnames",
+        headers: {Authorization: 'Bearer ' + sessionStorage.getItem("jwt")},
+    })
+    .done(
+        function (data) {
+            $('#innerFormContainer').append(`
+                <h3>Assign to</h3>
+                <label for="selectedSupervisor">
+                    <b>Supervisor</b>
+                </label>
+                <select name="selectedSupervisor" class="dropdown" id="selectedSupervisor" required>
+                </select>
+                <label for="selectedDoctor">
+                    <b>Doctor</b>
+                </label>
+                <select name="selectedDoctor" class="dropdown" id="selectedDoctor" required>
+                </select>
+                `);
+            if ($('#occurTypeMed').is(':checked')) {
+                // $('.formContainer').empty();
+                $('#innerFormContainer').append(`
+                <label for="selectedPharmacy">
+                    <b>Pharmacy</b>
+                </label>
+                <select name="selectedPharmacy" class="dropdown" id="selectedPharmacy" required>
+                </select>
+                `);
+                
+                $.each(data.pha,function(key,person){
+                    $("#selectedPharmacy").append(` 
+                    <option value="${person.staff_id}">${person.name}</option>
+                    `);
+                })
+            }
+            $.each(data.sup,function(key,person){
+                $("#selectedSupervisor").append(` 
+                <option value="${person.staff_id}">${person.name}</option>
+                `);
+            })
+            $.each(data.doc,function(key,person){
+                $("#selectedDoctor").append(` 
+                <option value="${person.staff_id}">${person.name}</option>
+                `);
+            })
+        }
+    )
+    .fail(
+        function(err){
+            console.log(err.responseText);
+        }
+    )
 }
 
 function closeForm() {

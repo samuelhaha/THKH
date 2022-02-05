@@ -106,11 +106,6 @@ width: 150px;
 height: 60px;
 margin: 4px 0px 4px 8px;  
 }
-.loginPopup {
-position: relative;
-text-align: center;
-width: 100%;
-}
 .formPopup {
 display: none;
 position: fixed;
@@ -125,16 +120,14 @@ max-width: 300px;
 padding: 20px;
 background-color: #fff;
 }
-.formContainer input[type=text],
-.formContainer input[type=password] {
+.formContainer .dropdown {
 width: 100%;
 padding: 15px;
 margin: 5px 0 20px 0;
 border: none;
 background: #eee;
 }
-.formContainer input[type=text]:focus,
-.formContainer input[type=password]:focus {
+.formContainer .dropdown option {
 background-color: #ddd;
 outline: none;
 }
@@ -557,15 +550,8 @@ outline: none;
             <div class="submitPopup">
                 <div class="formPopup" id="popupForm">
                     <div class="formContainer">
-                        <h3>Select who to send to</h3>
-                        <label for="email">
-                            <b>Supervisor</b>
-                        </label>
-                        <input type="text" id="email" placeholder="Your Email" name="email" required>
-                        <label for="psw">
-                            <b>Doctor</b>
-                        </label>
-                        <input type="password" id="psw" placeholder="Your Password" name="psw" required>
+                        <div id="innerFormContainer">
+                        </div>
                         <button id="submitBtn">Submit</button>
                         <button onclick="closeForm()">Close</button>
                     </div>

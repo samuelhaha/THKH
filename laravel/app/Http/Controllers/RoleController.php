@@ -38,6 +38,7 @@ class RoleController extends Controller
             'c_affectedAge',
             'c_affectedAdmitDate',
             'c_affectedAdmitTime',
+            'c_affectedAdmitDateTime',
             'c_affectedWing',
             'c_affectedWard',
             'c_affectedBed',
@@ -82,7 +83,15 @@ class RoleController extends Controller
             'g_background',
             'g_action',
             'g_recommend',
-            'g_description'
+            'g_description',
+            'rs_submit_datetime',
+            'rs_id',
+            'status_sup',
+            'sp_id',
+            'status_doc',
+            'dt_id',
+            'completion_status',
+            'created_at'
         );
         $result = Hor::insert(
             [
@@ -99,6 +108,7 @@ class RoleController extends Controller
                 'c_affectedAge' => $request->c_affectedAge,
                 'c_affectedAdmitDate' => $request->c_affectedAdmitDate,
                 'c_affectedAdmitTime' => $request->c_affectedAdmitTime,
+                'c_affectedAdmitDateTime' => $request->c_affectedAdmitDateTime,
                 'c_affectedWing' => $request->c_affectedWing,
                 'c_affectedWard' => $request->c_affectedWard,
                 'c_affectedBed' => $request->c_affectedBed,
@@ -143,7 +153,15 @@ class RoleController extends Controller
                 'g_background' => $request->g_background,
                 'g_action' => $request->g_action,
                 'g_recommend' => $request->g_recommend,
-                'g_description' => $request->g_description
+                'g_description' => $request->g_description,
+                'rs_submit_datetime' => $request->rs_submit_datetime,
+                'rs_id' => $request->rs_id,
+                'status_sup' => $request->status_sup,
+                'sp_id' => $request->sp_id,
+                'status_doc' => $request->status_doc,
+                'dt_id' => $request->dt_id,
+                'completion_status' => $request->completion_status,
+                'created_at' => $request->created_at
             ]
         );
         if ($result) {
@@ -508,5 +526,26 @@ class RoleController extends Controller
                 'msg' => 'Sorry, you are unauthorized to perform the action',
             ], 401);
         }
+    }
+
+    public function getNamesByRole(Request $request)
+    {
+        $rps = User::where('role','rps')->get();
+        $sup = User::where('role','sup')->get();
+        $doc = User::where('role','doc')->get();
+        $pha = User::where('role','pha')->get();
+        $hod = User::where('role','hod')->get();
+        $hpo = User::where('role','hpo')->get();
+        $dms = User::where('role','dms')->get();
+
+        return response()->json([
+            'rps' => $rps,
+            'sup' => $sup,
+            'doc' => $doc,
+            'pha' => $pha,
+            'hod' => $hod,
+            'hpo' => $hpo,
+            'dms' => $dms
+        ]);
     }
 }
