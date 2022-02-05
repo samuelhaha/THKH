@@ -7,6 +7,194 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <script src="https://code.jquery.com/jquery-3.6.0.js" integrity="sha256-H+K7U5CnXl1h5ywQfKtSj8PCmoN9aaq30gDh27Xc0jk=" crossorigin="anonymous"></script>
   <script src="../js/login/login.js" defer></script>
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+  <style>
+    body {
+      font-family: "Times New Roman", Georgia, Serif;
+    }
+
+    h1,
+    h2,
+    h3,
+    h4,
+    h5,
+    h6 {
+      font-family: "Playfair Display";
+      letter-spacing: 1px;
+    }
+
+    /* Right-aligned link */
+    .navbar a.right {
+      float: right;
+      padding-right: 130px;
+    }
+
+    /* Change color on hover */
+    .navbar a:hover {
+      background-color: #ddd;
+      color: black;
+    }
+
+    /* Style the top navigation bar */
+    .navbar {
+      overflow: hidden;
+      background-color: lightblue;
+      padding: 20px;
+    }
+
+    /* Style the navigation bar links */
+    .navbar a {
+      float: left;
+      display: block;
+      color: black;
+      text-align: center;
+      padding: 14px 20px;
+      text-decoration: none;
+    }
+
+    .page-header {
+      color: white;
+      margin: 3px 1px;
+      padding: 20px;
+
+    }
+
+    .page-header img {
+      /* float: left; */
+      width: 160px;
+      height: 65px;
+      margin: 0px 0px
+    }
+
+    .page-header h1 {
+      font-size: 15px;
+      position: relative;
+      color: black;
+      text-align: center;
+    }
+
+
+
+    .search {
+      position: absolute;
+      top: 50px;
+      right: 20px;
+    }
+
+    .thkhmiddle {
+      text-align: middle;
+      font-size: 40px;
+    }
+
+
+    body {
+      font-family: Verdana, sans-serif;
+    }
+
+    img {
+      vertical-align: middle;
+    }
+
+    .thkh {
+      position: absolute;
+      right: 50%;
+    }
+
+    /* Footer */
+    .footer {
+      padding: 20px;
+      text-align: center;
+      background: lightblue;
+    }
+
+    #create {
+      padding-left: 360px;
+    }
+
+    #update {
+      padding-left: 130px;
+    }
+
+    #loginform {
+      background-color: lightblue;
+    }
+
+    .container {
+      padding: 20px;
+      width:300px;
+    }
+
+    
+  </style>
+</head>
+
+<body>
+
+
+
+  <div class="page-header">
+
+    <a href="#"><img src="../images/logo.jpg"></a>
+
+   
+
+  </div>
+
+  <div class="navbar">
+
+  </div>
+
+  <table>
+    <tr valign="top">
+      <td bgcolor="#eeeeee" width="60%" height="500px">
+
+        <div class="container">
+          <h1 id="Login">Login</h2>
+          <br>
+          <form id="login_form" method="post">
+            <div class="form-group">
+              <label for="staff_id">Staff Id:</label>
+              <input type="staff_id" class="form-control" id="staff_id" placeholder="Enter staff id" name="staff_id">
+            </div>
+            <br>
+            <div class="form-group">
+              <label for="password">Password:</label>
+              <input type="password" class="form-control" id="password" placeholder="Enter password" name="password">
+            </div>
+            <br>
+            <button type="submit" class="btn btn-default">Submit</button>
+          </form>
+        </div>
+
+      </td>
+      <td bgcolor="#eeeeee" height="500px" width="60%">
+        <content>
+          <img src="../images/thkh.jpg" alt="img" width="900px">
+        </content>
+      </td>
+    </tr>
+  </table>
+  <br>
+
+  <div class="footer">
+    <h6>© 2021 Ang Mo Kio - Thye Hua Kwan Hospital. All rights reserved.</h6>
+  </div>
+</body>
+
+</html> 
+
+
+<!-- <!DOCTYPE html>
+<html>
+
+<head>
+  <title>Home</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <script src="https://code.jquery.com/jquery-3.6.0.js" integrity="sha256-H+K7U5CnXl1h5ywQfKtSj8PCmoN9aaq30gDh27Xc0jk=" crossorigin="anonymous"></script>
+  <script src="../js/login/login.js" defer></script>
   <style>
     body {
       font-family: "Times New Roman", Georgia, Serif;
@@ -184,4 +372,4 @@
 
 </html> 
 
-
+ -->
