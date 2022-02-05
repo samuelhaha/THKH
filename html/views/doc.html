@@ -8,6 +8,7 @@
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+    <script src="../js/doctorReport/doctorReport.js"></script>
     <style>
                 /* Style the tab */
                 table {
@@ -101,6 +102,9 @@
         width: 150px;
         height: 60px;
         margin: 4px 0px 4px 8px;  
+        }
+        .msg{
+            color: green;
         }
         /* top right bottom left  */
     </style>
@@ -552,11 +556,16 @@
                     
                     <tr style="vertical-align:top">
                         <th rowspan="2"><br>
-                            <form id="doc_form" method="post" enctype="multipart/form-data">
+                            <form id="doc_form" enctype="multipart/form-data">
+                                <span class="msg"></span><br><br>
                                 <span>Report</span><br>
                                 <textarea id="i_dt_report" name="i_dt_report" rows="9" cols="100" style="resize: none;" ></textarea><br>
                                 <label for="i_dt_reportFile">Upload Report File</label>
                                 <input type="file" id="i_dt_reportFile" name="i_dt_reportFile">
+                                <br><br>
+                                <span class="uploaded_image">
+                                    <!-- <img src="../images/" alt=""> -->
+                                </span>
                             </form>
                         </th>
                     </tr>
@@ -568,9 +577,9 @@
           
           </div>
             <div>
-                <button>Save</button>
-                <button>Submit</button>
-                <button>Cancel</button>
+                <button id="saveBtn">Save</button>
+                <button id="submitBtn">Submit</button>
+                <button id="cancelBtn">Cancel</button>
             </div>
         </div>
     </section>

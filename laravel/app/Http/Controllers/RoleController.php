@@ -323,7 +323,8 @@ class RoleController extends Controller
             if ($validator->passes()) {
                 $input['h_sp_reportFile'] = time() . '_' . $request->file('h_sp_reportFile')->getClientOriginalName();
                 // $path = $request->h_sp_reportFile->move(public_path('files'), $input['h_sp_reportFile']);
-                $path = $request->h_sp_reportFile->move('C:\xampp\htdocs\THKH\html\images\uploaded', $input['h_sp_reportFile']);
+                // $path = $request->h_sp_reportFile->move('C:\xampp\htdocs\THKH\html\images\uploaded', $input['h_sp_reportFile']);
+                $path = $request->h_sp_reportFile->move(base_path('..\html\images\uploaded'), $input['h_sp_reportFile']);
                 //$datetime = $request->date . $request->time;
                 $addToRecord = Hor::where('id', $id)->update([
                     'h_sp_factors' => $request->h_sp_factors,
@@ -366,33 +367,34 @@ class RoleController extends Controller
         if (JWTAuth::user()->role == 'doc') {
             $date = Carbon::now();
             $date->toDateTimeString();
-            //$input = $request->only('report','reportfile','date','time');
             $validator = Validator::make($request->all(), [
                 'i_dt_reportFile' => 'mimes:pdf,jpeg,jpg,png|max:2048'
             ]);
-            // request()->validate([
-            //     'i_dt_reportFile' => 'mimes:pdf,jpg,jpeg,png|max:2048'
-            // ]);
-            //$datetime = $request->date . $request->time;
             if ($validator->passes()) {
                 $input['i_dt_reportFile'] = time() . '_' . $request->file('i_dt_reportFile')->getClientOriginalName();
-                $path = $request->i_dt_reportFile->move(public_path('files'), $input['i_dt_reportFile']);
+                $path = $request->i_dt_reportFile->move(base_path('..\html\images\uploaded'), $input['i_dt_reportFile']);
 
                 $addToRecord = Hor::where('id', $id)->update([
                     'i_dt_report' => $request->i_dt_report,
-                    'i_dt_reportFile' => $request->i_dt_reportFile,
+                    'i_dt_reportFile' => $input['i_dt_reportFile'],
                     'dt_submit_datetime' => $date,
                     'dt_id' => JWTAuth::user()->staff_id,
                     'status_doc' => 'submitted',
 
                 ]);
 
-
+                $extension = $request->file('i_dt_reportFile')->getClientOriginalExtension();
+                if($extension = 'pdf'){
+                    $uploadedfile = '<iframe src="../images/uploaded/'.$input['i_dt_reportFile'].'" width="100%" height="500px"></iframe>';
+                }
+                else{
+                $uploadedfile = '<img src="../images/uploaded/'.$input['i_dt_reportFile'].'"/>';
+                }
 
                 return response()->json([
                     'success' => true,
                     'msg' => 'Doctor record added successfully',
-                    'uploaded_image' => '<img src="/files/'.$input['i_dt_reportFile'],
+                    'uploaded_image' => $uploadedfile,
                     'data' => $addToRecord
                 ]);
             }

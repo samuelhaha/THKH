@@ -100,4 +100,22 @@ class horController extends Controller
     //     ],401);
     // }
     }
+
+    public function removeReport($horNum){
+        $report = Hor::where('horNum', $horNum)->first();
+        $result=$report->delete();
+        if($result){
+            return response()->json([
+                'success'=>'true',
+                'msg'=>'Report successfully deleted!',
+            ]);
+        }
+        else{
+            return response()->json([
+                'success'=>'false',
+                'msg'=>'Failed to delete report',
+            ]);
+        }
+        
+    }
 }
