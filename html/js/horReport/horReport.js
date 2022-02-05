@@ -11,6 +11,7 @@ $(document).ready(function(){
             function(data){
                 // $("#reportpage").removeAttr('hidden');
                 $("#reportpage").append(` 
+                    <thead>
                     <tr style="height:50px; background-color:white">
                         <th>HorNum</th>
                         <th>Inccident Date</th>
@@ -22,23 +23,45 @@ $(document).ready(function(){
                         <th>Status</th>
                         <th>Update</th>
                         <th>Void</th>
+                        <th>Delete</th>
                     </tr>
+                    </thead>
                     `);
                 $.each(data.Hors,function(key,reportpage){
-                    $("#reportpage").append(` 
-                    <tr>
-                        <td>${reportpage.horNum}</td>
-                        <td>${reportpage.a_inccidentDate}</td>
-                        <td>${reportpage.a_inccidentTime}</td>
-                        <td>${reportpage.c_affectedNrie}</td>
-                        <td>${reportpage.c_affectedName}</td>
-                        <td>${reportpage.c_affectedAdmitTime}</td>
-                        <td>${reportpage.c_affectedAdmitDate}</td>
-                        <td>${reportpage.completion_status}</td>
-                        <td><button onclick= "sendToUpdate('${reportpage.horNum}');">Update</button></td>
-                        <td><button onclick= "showForm('${reportpage.horNum}');">Void</button></td>
-                    </tr>
+                    if (reportpage.horNum.charAt(0) == 'D') {
+                        $("#reportpage").append(` 
+                        <tr style="height:50px; background-color:white">
+                            <td>${reportpage.horNum}</td>
+                            <td>${reportpage.a_inccidentDate}</td>
+                            <td>${reportpage.a_inccidentTime}</td>
+                            <td>${reportpage.c_affectedNrie}</td>
+                            <td>${reportpage.c_affectedName}</td>
+                            <td>${reportpage.c_affectedAdmitTime}</td>
+                            <td>${reportpage.c_affectedAdmitDate}</td>
+                            <td>${reportpage.completion_status}</td>
+                            <td><button onclick= "sendToUpdate('${reportpage.horNum}');">Update</button></td>
+                            <td><button onclick= "showForm('${reportpage.horNum}');">Void</button></td>
+                            <td><button>Delete</button></td>
+                        </tr>
                     `);
+                    } else {
+                        $("#reportpage").append(` 
+                        <tr style="height:50px; background-color:white">
+                            <td>${reportpage.horNum}</td>
+                            <td>${reportpage.a_inccidentDate}</td>
+                            <td>${reportpage.a_inccidentTime}</td>
+                            <td>${reportpage.c_affectedNrie}</td>
+                            <td>${reportpage.c_affectedName}</td>
+                            <td>${reportpage.c_affectedAdmitTime}</td>
+                            <td>${reportpage.c_affectedAdmitDate}</td>
+                            <td>${reportpage.completion_status}</td>
+                            <td><button onclick= "sendToUpdate('${reportpage.horNum}');">Update</button></td>
+                            <td><button onclick= "showForm('${reportpage.horNum}');">Void</button></td>
+                            <td></td>
+                        </tr>
+                    `);
+                    }
+                    
                 })
             }
         )
@@ -69,7 +92,7 @@ $(document).ready(function(){
                     `);
                 $.each(data.Hors,function(key,reportpage){
                     $("#reportpage").append(` 
-                    <tr>
+                    <tr style="height:50px; background-color:white">
                         <td>${reportpage.horNum}</td>
                         <td>${reportpage.a_inccidentDate}</td>
                         <td>${reportpage.a_inccidentTime}</td>
@@ -148,7 +171,7 @@ function SearchName(){
                 else{
                 $.each(response.reports, function(key,reportpage){
                     $("#reportpage").append(` 
-                    <tr>
+                    <tr style="height:50px; background-color:white">
                     <td>${reportpage.horNum}</td>
                     <td>${reportpage.a_inccidentDate}</td>
                     <td>${reportpage.a_inccidentTime}</td>

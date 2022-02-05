@@ -8,6 +8,8 @@
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+    <script src="../js/common.js"></script>
+    <script src="../js/horReport/horReport.js"></script>
     <style>
       
         /* Style the tab */
@@ -143,7 +145,41 @@
         }
 
 
-      
+        .formPopup {
+        display: none;
+        position: fixed;
+        left:50%;
+        top:50%;
+        transform:translate(-50%, -50%);
+        border: 3px solid #999999;
+        z-index: 9;
+        }
+        .formContainer {
+        max-width: 500px;
+        padding: 20px;
+        background-color: #fff;
+        }
+        .formContainer textarea {
+        width: 100%;
+        padding: 15px;
+        margin: 5px 0 20px 0;
+        border: none;
+        background: #eee;
+        }
+        .formContainer textarea:focus {
+        background-color: #ddd;
+        outline: none;
+        }
+        #overlay {
+          position:fixed;
+          left:0;
+          top:0;
+          width:100vw;
+          height:100vh;
+          display:none;
+          background-color:#000;
+          opacity:0.5;
+        }
         
        
        
@@ -172,25 +208,43 @@
     
     <div class="w3-content" style="max-width:1250px">
 
-        <div id="msg"></div>
-            <div class="box-wrapper" id="table">
-            <table style="width:100%;">
-                <thead>
-                <tr style="height:50px; background-color:white">
-                <th>ID</th>
-                <th style="width:15%">Affected Name</th>
-                <th style="width:25%">Date Created</th>
-                <th>Completion Status</th>
-                <th>Status</th>
-                </tr>
-                <tbody></tbody>
-                </thead>
+      <div id="msg"></div>
+        <!-- <div class="box-wrapper" id="table">
+        <table style="width:100%;">
+            <thead>
+            <tr style="height:50px; background-color:white">
+            <th>ID</th>
+            <th style="width:15%">Affected Name</th>
+            <th style="width:25%">Date Created</th>
+            <th>Completion Status</th>
+            <th>Status</th>
+            </tr>
+            <tbody></tbody>
+            </thead>
 
-            
-            </table>
+        
+        </table>
 
+        </div> -->
+        
+      <div class="box-wrapper">
+        <table id="reportpage" style="width:100%;" >
+        
+        </table>
+        
+      </div>
+      <div class="submitPopup">
+        <div class="formPopup" id="popupForm">
+            <div class="formContainer">
+              <h3>Reason to void</h3>
+              <textarea name="voidReason" id="voidReason" cols="75" rows="10" style="resize: none;"></textarea>
+              <button id="voidBtn">Void</button>
+              <button onclick="closeForm()">Close</button>
+            </div>
         </div>
-    </div>
+      </div>
+      <div id="overlay"></div>
+      </div>
     <br>
 
     <div class="footer">
