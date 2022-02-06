@@ -183,6 +183,44 @@ $(document).ready(function () {
     //       processData: false
     //     });
     //   }
-      });
     });
+});
+
+function showForm() {
+    $("#popupForm").css({"display":"block"});
+    $("#overlay").css({"display":"block"});
+    $('#innerFormContainer').empty();
+    $.ajax({
+        method: "GET",
+        url: "/THKH/laravel/api/getnames",
+        headers: {Authorization: 'Bearer ' + sessionStorage.getItem("jwt")},
+    })
+    .done(
+        function (data) {
+            $('#innerFormContainer').append(`
+                <h3>Assign to</h3>
+                <label for="selectedHpo">
+                    <b>Healthcare Performance Officer</b>
+                </label>
+                <select name="selectedHpo" class="dropdown" id="selectedHpo" required>
+                </select>
+                `);
+            $.each(data.hpo,function(key,person){
+                $("#selectedHpo").append(` 
+                <option value="${person.staff_id}">${person.name}</option>
+                `);
+            })
+        }
+    )
+    .fail(
+        function(err){
+            console.log(err.responseText);
+        }
+    )
+  }
+  
+function closeForm() {
+    $("#popupForm").css({"display":"none"});
+    $("#overlay").css({"display":"none"});
+}
     

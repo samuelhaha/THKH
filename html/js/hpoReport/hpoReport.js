@@ -183,6 +183,44 @@ $(document).ready(function () {
     //       processData: false
     //     });
     //   }
-      });
     });
+});
+
+function showForm() {
+    $("#popupForm").css({"display":"block"});
+    $("#overlay").css({"display":"block"});
+    $('#innerFormContainer').empty();
+    $.ajax({
+        method: "GET",
+        url: "/THKH/laravel/api/getnames",
+        headers: {Authorization: 'Bearer ' + sessionStorage.getItem("jwt")},
+    })
+    .done(
+        function (data) {
+            $('#innerFormContainer').append(`
+                <h3>Assign to</h3>
+                <label for="selectedDms">
+                    <b>Director</b>
+                </label>
+                <select name="selectedDms" class="dropdown" id="selectedDms" required>
+                </select>
+                `);
+            $.each(data.dms,function(key,person){
+                $("#selectedDms").append(` 
+                <option value="${person.staff_id}">${person.name}</option>
+                `);
+            })
+        }
+    )
+    .fail(
+        function(err){
+            console.log(err.responseText);
+        }
+    )
+  }
+  
+function closeForm() {
+    $("#popupForm").css({"display":"none"});
+    $("#overlay").css({"display":"none"});
+}
     

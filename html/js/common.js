@@ -45,4 +45,8 @@ $(document).ready(function () {
         
       })
     })
+
+    if (sessionStorage.getItem("role") != 'rps') {
+      $("#create").css({"display":"none"});
+    }
   });

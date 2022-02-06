@@ -9,8 +9,8 @@ $(document).ready(function(){
             headers: {Authorization: 'Bearer ' + sessionStorage.getItem("jwt")},
         }).done(
             function(data){
-                // $("#reportpage").removeAttr('hidden');
-                $("#reportpage").append(` 
+                if (sessionStorage.getItem('role') == 'rps') {
+                    $("#reportpage").append(` 
                     <thead>
                     <tr style="height:50px; background-color:white">
                         <th>HorNum</th>
@@ -27,42 +27,80 @@ $(document).ready(function(){
                     </tr>
                     </thead>
                     `);
-                $.each(data.Hors,function(key,reportpage){
-                    if (reportpage.horNum.charAt(0) == 'D') {
-                        $("#reportpage").append(` 
-                        <tr style="height:50px; background-color:white">
-                            <td>${reportpage.horNum}</td>
-                            <td>${reportpage.a_inccidentDate}</td>
-                            <td>${reportpage.a_inccidentTime}</td>
-                            <td>${reportpage.c_affectedNrie}</td>
-                            <td>${reportpage.c_affectedName}</td>
-                            <td>${reportpage.c_affectedAdmitTime}</td>
-                            <td>${reportpage.c_affectedAdmitDate}</td>
-                            <td>${reportpage.completion_status}</td>
-                            <td><button onclick= "sendToUpdate('${reportpage.horNum}');">Update</button></td>
-                            <td><button onclick= "showForm('${reportpage.horNum}');">Void</button></td>
-                            <td><button>Delete</button></td>
-                        </tr>
+                    $.each(data.Hors,function(key,reportpage){
+                        if (reportpage.horNum.charAt(0) == 'D') {
+                            $("#reportpage").append(` 
+                            <tr style="height:50px; background-color:white">
+                                <td>${reportpage.horNum}</td>
+                                <td>${reportpage.a_inccidentDate}</td>
+                                <td>${reportpage.a_inccidentTime}</td>
+                                <td>${reportpage.c_affectedNrie}</td>
+                                <td>${reportpage.c_affectedName}</td>
+                                <td>${reportpage.c_affectedAdmitTime}</td>
+                                <td>${reportpage.c_affectedAdmitDate}</td>
+                                <td>${reportpage.completion_status}</td>
+                                <td style="border: 1px solid #dddddd;"><button onclick= "sendToUpdate('${reportpage.horNum}');">Update</button></td>
+                                <td style="border: 1px solid #dddddd;"><button onclick= "showForm('${reportpage.horNum}');">Void</button></td>
+                                <td style="border: 1px solid #dddddd;"><button>Delete</button></td>
+                            </tr>
+                        `);
+                        } else {
+                            $("#reportpage").append(` 
+                            <tr style="height:50px; background-color:white">
+                                <td>${reportpage.horNum}</td>
+                                <td>${reportpage.a_inccidentDate}</td>
+                                <td>${reportpage.a_inccidentTime}</td>
+                                <td>${reportpage.c_affectedNrie}</td>
+                                <td>${reportpage.c_affectedName}</td>
+                                <td>${reportpage.c_affectedAdmitTime}</td>
+                                <td>${reportpage.c_affectedAdmitDate}</td>
+                                <td>${reportpage.completion_status}</td>
+                                <td style="border: 1px solid #dddddd;"><button onclick= "sendToUpdate('${reportpage.horNum}');">Update</button></td>
+                                <td style="border: 1px solid #dddddd;"><button onclick= "showForm('${reportpage.horNum}');">Void</button></td>
+                                <td></td>
+                            </tr>
+                        `);
+                        }
+                        
+                    })
+                } else {
+                    $("#reportpage").append(` 
+                    <thead>
+                    <tr style="height:50px; background-color:white">
+                        <th>HorNum</th>
+                        <th>Inccident Date</th>
+                        <th>Inccident Time</th>
+                        <th>Affected Nric</th>
+                        <th>Affected Name</th>
+                        <th>Admit Date</th>
+                        <th>Admit Time</th>
+                        <th>Status</th>
+                        <th>Update</th>
+                        <th>Void</th>
+                    </tr>
+                    </thead>
                     `);
-                    } else {
+                    $.each(data.Hors,function(key,reportpage){
+                        
                         $("#reportpage").append(` 
-                        <tr style="height:50px; background-color:white">
-                            <td>${reportpage.horNum}</td>
-                            <td>${reportpage.a_inccidentDate}</td>
-                            <td>${reportpage.a_inccidentTime}</td>
-                            <td>${reportpage.c_affectedNrie}</td>
-                            <td>${reportpage.c_affectedName}</td>
-                            <td>${reportpage.c_affectedAdmitTime}</td>
-                            <td>${reportpage.c_affectedAdmitDate}</td>
-                            <td>${reportpage.completion_status}</td>
-                            <td><button onclick= "sendToUpdate('${reportpage.horNum}');">Update</button></td>
-                            <td><button onclick= "showForm('${reportpage.horNum}');">Void</button></td>
-                            <td></td>
-                        </tr>
-                    `);
-                    }
-                    
-                })
+                            <tr style="height:50px; background-color:white;">
+                                <td>${reportpage.horNum}</td>
+                                <td>${reportpage.a_inccidentDate}</td>
+                                <td>${reportpage.a_inccidentTime}</td>
+                                <td>${reportpage.c_affectedNrie}</td>
+                                <td>${reportpage.c_affectedName}</td>
+                                <td>${reportpage.c_affectedAdmitTime}</td>
+                                <td>${reportpage.c_affectedAdmitDate}</td>
+                                <td>${reportpage.completion_status}</td>
+                                <td style="border: 1px solid #dddddd;"><button onclick= "sendToUpdate('${reportpage.horNum}');">Update</button></td>
+                                <td style="border: 1px solid #dddddd;"><button onclick= "showForm('${reportpage.horNum}');">Void</button></td>
+                            </tr>
+                        `);
+                        
+                        
+                    })
+                }
+                
             }
         )
         .fail(
@@ -205,7 +243,7 @@ function showForm(horNum) {
     $("#popupForm").css({"display":"block"});
     $("#overlay").css({"display":"block"});
     $("#voidReason").val("");
-    $("#voidBtn").val(horNum);
+    // $("#voidBtn").val(horNum);
 }
 
 function closeForm() {

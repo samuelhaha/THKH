@@ -20,14 +20,14 @@ width: 100%;
 }
 
 td, th {
-border: 1px solid #dddddd;
+border: 0px solid #dddddd;
 text-align: left;
 padding: 8px;
 }
 
-tr:nth-child(even) {
+/* tr:nth-child(even) {
 background-color: #dddddd;
-}
+} */
 
 #tab {
 overflow: hidden;
@@ -142,7 +142,11 @@ outline: none;
   background-color:#000;
   opacity:0.5;
 }
-
+section {
+    
+    margin: 0;
+    padding: 40px;
+}
 </style>
 </head>
 <body>
@@ -308,14 +312,14 @@ outline: none;
                                 <input type="text" id="siteOthersSpecify" name="SiteOthers">
                                 </label>
                           </td>
-                        </tr>
-                        <tr>
+                          <td>
                             <label for="d_occurWard">Ward:</label>
-                            <input type="text" name="d_occurWard" id="d_occurWard">
+                            <input type="text" name="d_occurWard" id="d_occurWard"><br>
                             <label for="d_occurWardWing">Ward Wing:</label>
-                            <input type="text" name="d_occurWardWing" id="d_occurWardWing">
+                            <input type="text" name="d_occurWardWing" id="d_occurWardWing"><br>
                             <label for="d_occurBed">Bed:</label>
                             <input type="text" name="d_occurBed" id="d_occurBed">
+                            </td>
                         </tr>
                       </table>                      
             

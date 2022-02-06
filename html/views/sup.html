@@ -18,14 +18,14 @@
         }
 
         td, th {
-        border: 1px solid #dddddd;
+        border: 0px solid #dddddd;
         text-align: left;
         padding: 8px;
         }
 
-        tr:nth-child(even) {
+        /* tr:nth-child(even) {
         background-color: #dddddd;
-        }
+        } */
         
         #tab {
         overflow: hidden;
@@ -106,6 +106,11 @@
         }
         .msg{
             color: green;
+        }
+        section {
+            
+            margin: 0;
+            padding: 40px;
         }
         /* top right bottom left  */
     </style>
@@ -275,15 +280,16 @@
                                 <input type="text" id="siteOthersSpecify" name="SiteOthers" disabled>
                                 </label>
                           </td>
-                        </tr>
-                        <tr>
+                          <td>
                             <label for="d_occurWard">Ward:</label>
-                            <input type="text" name="d_occurWard" id="d_occurWard" disabled>
+                            <input type="text" name="d_occurWard" id="d_occurWard" disabled><br>
                             <label for="d_occurWardWing">Ward Wing:</label>
-                            <input type="text" name="d_occurWardWing" id="d_occurWardWing" disabled>
+                            <input type="text" name="d_occurWardWing" id="d_occurWardWing" disabled><br>
                             <label for="d_occurBed">Bed:</label>
-                            <input type="text" name="d_occurBed" id="d_occurBed" disabled>
+                            <input type="text" name="d_occurBed" id="d_occurBed" disabled><br>
+                        </td>
                         </tr>
+                        
                       </table>                      
             
                 </div>
@@ -558,6 +564,7 @@
             <div>
                 <button id="saveBtn">Save</button>
                 <button id="submitBtn">Submit</button>
+                <button id="returnBtn">Return to Staff</button>
                 <button id="cancelBtn">Cancel</button>
             </div>
         </div>
