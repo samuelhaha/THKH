@@ -17,19 +17,40 @@
         font-family: arial, sans-serif;
         border-collapse: collapse;
         width: 100%;
-        margin-left: 20px;
+        margin: auto 125px;
         }
 
         td, th {
-        border: 1px solid #dddddd;
+        margin: 0;
+        border-bottom: 1px solid #dddddd;
         text-align: left;
         padding: 8px;
+        
+        }
+
+        th {
+          border-bottom: 2px solid #dddddd;
+          text-align: center;
+          padding: 0;
         }
 
         tr:nth-child(even) {
         background-color: #dddddd;
         }
+
+        table button {
+          border: 0px solid #dddddd;
+          background-color: white;
+          margin: 0;
+          padding: 10%;
+        }
         
+        table button:hover {
+          
+          background-color: #dddddd;
+          
+        }
+
         #tab {
         overflow: hidden;
         border: 1px solid #ccc;
@@ -209,23 +230,6 @@
     <div class="w3-content" style="max-width:1250px">
 
       <div id="msg"></div>
-        <!-- <div class="box-wrapper" id="table">
-        <table style="width:100%;">
-            <thead>
-            <tr style="height:50px; background-color:white">
-            <th>ID</th>
-            <th style="width:15%">Affected Name</th>
-            <th style="width:25%">Date Created</th>
-            <th>Completion Status</th>
-            <th>Status</th>
-            </tr>
-            <tbody></tbody>
-            </thead>
-
-        
-        </table>
-
-        </div> -->
         
       <div class="box-wrapper">
         <table id="reportpage" style="width:100%;" >
