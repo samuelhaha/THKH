@@ -44,7 +44,7 @@ Route::get("report/{horNum}", [horController::class, 'getReportByHorNum']);
 Route::get('/showreports',[horController::class, 'showreports']);
 
 Route::get("getnames",[RoleController::class,'getNamesByRole']);
-
+Route::post("/void/{horNum}",[RoleController::class, 'voidReport']);
 
 Route::group(['middleware' => ['jwt.verify']], function() {
     Route::post("/logout", [AccountController::class, 'logout']);

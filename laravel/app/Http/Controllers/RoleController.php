@@ -570,4 +570,33 @@ class RoleController extends Controller
             'dms' => $dms
         ]);
     }
+
+    public function voidReport($horNum, Request $request)
+    {
+        $date = Carbon::now();
+        $date->toDateTimeString();
+        
+        $updateData = Hor::where('horNum', $horNum)->update([
+            'completion_status' => 'Void',
+            'updated_at' => $date,
+            'void' => 'yes',
+            'void_reason' => $request->void_reason
+        ]);
+        
+        if ($updateData) {
+            return response()->json([
+                'code' => 200,
+                'success' => 'true',
+                'msg' => 'Record successfully voided',
+                'record' => $updateData
+            ]);
+        } else {
+            return response()->json([
+                'code' => 400,
+                'success' => 'false',
+                'msg' => 'Record failed to void',
+                'record' => ''
+            ]);
+        }
+    }
 }

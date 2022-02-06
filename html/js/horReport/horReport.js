@@ -29,6 +29,41 @@ $(document).ready(function(){
                     `);
                     $.each(data.Hors,function(key,reportpage){
                         if (reportpage.horNum.charAt(0) == 'D') {
+                            if (reportpage.completion_status == "Void") {
+                                $("#reportpage").append(` 
+                                <tr style="height:50px; background-color:white">
+                                    <td>${reportpage.horNum}</td>
+                                    <td>${reportpage.a_inccidentDate}</td>
+                                    <td>${reportpage.a_inccidentTime}</td>
+                                    <td>${reportpage.c_affectedNrie}</td>
+                                    <td>${reportpage.c_affectedName}</td>
+                                    <td>${reportpage.c_affectedAdmitTime}</td>
+                                    <td>${reportpage.c_affectedAdmitDate}</td>
+                                    <td>${reportpage.completion_status}</td>
+                                    <td style="border: 1px solid #dddddd;"><button onclick= "sendToUpdate('${reportpage.horNum}');">Update</button></td>
+                                    <td></td>
+                                    <td style="border: 1px solid #dddddd;"><button onclick= "deleteReport('${reportpage.horNum}');">Delete</button></td>
+                                </tr>
+                                `);
+                            } else {
+                                $("#reportpage").append(` 
+                                <tr style="height:50px; background-color:white">
+                                    <td>${reportpage.horNum}</td>
+                                    <td>${reportpage.a_inccidentDate}</td>
+                                    <td>${reportpage.a_inccidentTime}</td>
+                                    <td>${reportpage.c_affectedNrie}</td>
+                                    <td>${reportpage.c_affectedName}</td>
+                                    <td>${reportpage.c_affectedAdmitTime}</td>
+                                    <td>${reportpage.c_affectedAdmitDate}</td>
+                                    <td>${reportpage.completion_status}</td>
+                                    <td style="border: 1px solid #dddddd;"><button onclick= "sendToUpdate('${reportpage.horNum}');">Update</button></td>
+                                    <td style="border: 1px solid #dddddd;"><button onclick= "showForm('${reportpage.horNum}');">Void</button></td>
+                                    <td></td>
+                                </tr>
+                                `);
+                            }
+                            
+                        } else if (reportpage.completion_status == "Void") {
                             $("#reportpage").append(` 
                             <tr style="height:50px; background-color:white">
                                 <td>${reportpage.horNum}</td>
@@ -40,10 +75,10 @@ $(document).ready(function(){
                                 <td>${reportpage.c_affectedAdmitDate}</td>
                                 <td>${reportpage.completion_status}</td>
                                 <td style="border: 1px solid #dddddd;"><button onclick= "sendToUpdate('${reportpage.horNum}');">Update</button></td>
-                                <td style="border: 1px solid #dddddd;"><button onclick= "showForm('${reportpage.horNum}');">Void</button></td>
-                                <td style="border: 1px solid #dddddd;"><button>Delete</button></td>
+                                <td></td>
+                                <td></td>
                             </tr>
-                        `);
+                            `);
                         } else {
                             $("#reportpage").append(` 
                             <tr style="height:50px; background-color:white">
@@ -59,7 +94,7 @@ $(document).ready(function(){
                                 <td style="border: 1px solid #dddddd;"><button onclick= "showForm('${reportpage.horNum}');">Void</button></td>
                                 <td></td>
                             </tr>
-                        `);
+                            `);
                         }
                         
                     })
@@ -81,9 +116,25 @@ $(document).ready(function(){
                     </thead>
                     `);
                     $.each(data.Hors,function(key,reportpage){
-                        
-                        $("#reportpage").append(` 
-                            <tr style="height:50px; background-color:white;">
+                        if (reportpage.completion_status == "Void") {
+                            $("#reportpage").append(` 
+                            <tr style="height:50px; background-color:white">
+                                <td>${reportpage.horNum}</td>
+                                <td>${reportpage.a_inccidentDate}</td>
+                                <td>${reportpage.a_inccidentTime}</td>
+                                <td>${reportpage.c_affectedNrie}</td>
+                                <td>${reportpage.c_affectedName}</td>
+                                <td>${reportpage.c_affectedAdmitTime}</td>
+                                <td>${reportpage.c_affectedAdmitDate}</td>
+                                <td>${reportpage.completion_status}</td>
+                                <td style="border: 1px solid #dddddd;"><button onclick= "sendToUpdate('${reportpage.horNum}');">Update</button></td>
+                                <td></td>
+                                
+                            </tr>
+                            `);
+                        } else {
+                            $("#reportpage").append(` 
+                            <tr style="height:50px; background-color:white">
                                 <td>${reportpage.horNum}</td>
                                 <td>${reportpage.a_inccidentDate}</td>
                                 <td>${reportpage.a_inccidentTime}</td>
@@ -94,10 +145,10 @@ $(document).ready(function(){
                                 <td>${reportpage.completion_status}</td>
                                 <td style="border: 1px solid #dddddd;"><button onclick= "sendToUpdate('${reportpage.horNum}');">Update</button></td>
                                 <td style="border: 1px solid #dddddd;"><button onclick= "showForm('${reportpage.horNum}');">Void</button></td>
+                                
                             </tr>
-                        `);
-                        
-                        
+                            `);
+                        }
                     })
                 }
                 
@@ -155,24 +206,60 @@ $(document).ready(function(){
         e.preventDefault();
         selectedHor = $("#voidBtn").val();
         console.log(selectedHor);
-        console.log($("#voidReason").val())
-        // $.ajax(
-        //     {
-        //     method:"get",
-        //     url:"/THKH/laravel/api/delete/" + selectedHor,
-        //     dataType:"json",
-        //     // headers:{Authorization: 'Bearer ' + sessionStorage.getItem("jwt")},
-        //     data: {name:search},
-        //     success: function(response){
-                    
-        //         },
+        console.log($("#voidReason").val());
+        void_reason = $("#voidReason").val();
+        $.ajax(
+            {
+            method:"post",
+            url:"/THKH/laravel/api/void/" + selectedHor,
+            dataType:"json",
+            // headers:{Authorization: 'Bearer ' + sessionStorage.getItem("jwt")},
+            data: {void_reason:void_reason},
+            success: function(response){
+                alert(response.msg);
+                console.log("voided data");
+                console.log(response);
+                closeForm();
+                location.reload();
+                },
     
     
-        //     error: function(){
+            error: function(response){
+                alert(response.msg);
+                console.log("failed to void data");
+                console.log(response);
+            }
                 
-        //     }
+        });
+    });
+
+    $("#deleteBtn").click(function(e) {
+        e.preventDefault();
+        selectedHor = $("#deleteBtn").val();
+        console.log(selectedHor);
+        $.ajax(
+            {
+            method:"post",
+            url:"/THKH/laravel/api/delete/" + selectedHor,
+            dataType:"json",
+            // headers:{Authorization: 'Bearer ' + sessionStorage.getItem("jwt")},
+            data: {},
+            success: function(response){
+                alert(response.msg);
+                console.log("deleted data");
+                console.log(response);
+                closeForm();
+                location.reload();
+                },
+    
+    
+            error: function(response){
+                alert(response.msg);
+                console.log("failed to delete data");
+                console.log(response);
+            }
                 
-        // });
+        });
     });
 });
 
@@ -243,10 +330,17 @@ function showForm(horNum) {
     $("#popupForm").css({"display":"block"});
     $("#overlay").css({"display":"block"});
     $("#voidReason").val("");
-    // $("#voidBtn").val(horNum);
+    $("#voidBtn").val(horNum);
 }
 
 function closeForm() {
     $("#popupForm").css({"display":"none"});
+    $("#deleteForm").css({"display":"none"});
     $("#overlay").css({"display":"none"});
+}
+
+function deleteReport(horNum) {
+    $("#deleteForm").css({"display":"block"});
+    $("#overlay").css({"display":"block"});
+    $("#deleteBtn").val(horNum);
 }

@@ -194,5 +194,33 @@ $(document).ready(function () {
       });
     }
     });
+
+    $("#returnBtn").click(function (e) {
+        e.preventDefault();
+  
+        // if (getId.has('id')) {
+        //   id = getId.get('id');
+        //     $.ajax({
+        //     method: "POST",
+        //     url: "/THKH/laravel/api/returnReport/" + id,
+        //     headers: {Authorization: 'Bearer ' + sessionStorage.getItem("jwt")},
+        //     data: form_data,
+        //     dataType: 'json',
+        //     // data: {
+        //     //   h_sp_factors: h_sp_factors,
+        //     //   h_sp_recommend: h_sp_recommend,
+        //     //   h_sp_reportFile: h_sp_reportFile,
+        //     // },
+        //     success: function (response) {
+        //     console.log(response);
+        //     $(".msg").append(response.msg);
+        //     $(".uploaded_image").append(response.uploaded_image);
+        //     },
+        //     cache: false,
+        //     contentType: false,
+        //     processData: false
+        //     });
+        // }
+      });
   });
   
