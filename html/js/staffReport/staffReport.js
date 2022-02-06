@@ -377,12 +377,21 @@ $(document).ready(function () {
         a_inccidentTime = document.getElementById("a_inccidentTime").value;
 
         b_diagnosis = document.getElementById("b_diagnosis").value;
-
-        c_affectedPerson = document.querySelector('input[name="c_affectedPerson"]:checked').value;
+        if (document.querySelector('input[name="c_affectedPerson"]:checked')) {
+            c_affectedPerson = document.querySelector('input[name="c_affectedPerson"]:checked').value;
+        }
+        else
+        {
+            c_affectedPerson = null;
+        }
         c_affectedName = document.getElementById("c_affectedName").value;
         c_affectedNrie = document.getElementById("c_affectedNric").value;
         c_affectedAddress = document.getElementById("c_affectedAddress").value;
-        c_affectedGender = document.querySelector('input[name="c_affectedGender"]:checked').value;
+        if (document.querySelector('input[name="c_affectedGender"]:checked')) {
+            c_affectedGender = document.querySelector('input[name="c_affectedGender"]:checked').value;
+        } else {
+            c_affectedGender = null;
+        }
         c_affectedContact = document.getElementById("c_affectedContact").value;
         c_affectedAge = document.getElementById("c_affectedAge").value;
         c_affectedAdmitDate = document.getElementById("c_affectedAdmitDate").value;
@@ -395,8 +404,17 @@ $(document).ready(function () {
         c_witnessName = document.getElementById("c_witnessName").value;
         c_witnessContact = document.getElementById("c_witnessContact").value;
 
-        d_locationOccur = document.querySelector('input[name="d_locationOccur"]:checked').value;
-        d_occurSite = document.querySelector('input[name="d_occurSite"]:checked').value;
+        if (document.querySelector('input[name="d_locationOccur"]:checked')) {
+            d_locationOccur = document.querySelector('input[name="d_locationOccur"]:checked').value;
+        } else {
+            d_locationOccur = null;
+        }
+        if (document.querySelector('input[name="d_occurSite"]:checked')) {
+            d_occurSite = document.querySelector('input[name="d_occurSite"]:checked').value;
+        } else {
+            d_occurSite = null;
+        }
+        
         d_occurWard = document.getElementById("d_occurWard").value;
         d_occurWardWing = document.getElementById("d_occurWardWing").value;
         d_occurBed = document.getElementById("d_occurBed").value;
