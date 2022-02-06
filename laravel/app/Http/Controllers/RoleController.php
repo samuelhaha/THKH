@@ -85,7 +85,7 @@ class RoleController extends Controller
             'g_recommend',
             'g_description',
             'rs_submit_datetime',
-            'rs_id',
+            // 'rs_id',
             'status_sup',
             'sp_id',
             'status_doc',
@@ -155,15 +155,27 @@ class RoleController extends Controller
                 'g_recommend' => $request->g_recommend,
                 'g_description' => $request->g_description,
                 'rs_submit_datetime' => $request->rs_submit_datetime,
-                'rs_id' => $request->rs_id,
-                'status_sup' => $request->status_sup,
-                'sp_id' => $request->sp_id,
-                'status_doc' => $request->status_doc,
-                'dt_id' => $request->dt_id,
-                'completion_status' => $request->completion_status,
-                'created_at' => $request->created_at
+                // 'rs_id' => $request->rs_id,
+                // 'status_sup' => $request->status_sup,
+                // 'sp_id' => $request->sp_id,
+                // 'status_doc' => $request->status_doc,
+                // 'dt_id' => $request->dt_id,
+                // 'completion_status' => $request->completion_status,
+                // 'created_at' => $request->created_at
             ]
         );
+        if($request->has('horNum')){
+            $createdId = DB::getPdo()->lastInsertId();
+            $horNum = Hor::where('id', $createdId)->update([
+                'horNum' => $request->horNum.$createdId
+            ]);
+    }else{
+        $createdId = DB::getPdo()->lastInsertId();
+        $horNum = Hor::where('id', $createdId)->update([
+            'horNum' => 'HOR'.$createdId
+        ]);
+    }
+
         if ($result) {
             return response()->json([
                 'code' => 200,
@@ -183,12 +195,12 @@ class RoleController extends Controller
 
     
 
-    public function staffSave($id, Request $request)
+    public function staffSave($horNum, Request $request)
     {
         $date = Carbon::now();
         $date->toDateTimeString();
         if (JWTAuth::user()->role == 'rps') {
-            $updateData = Hor::where('id', $id)->update([
+            $updateData = Hor::where('horNum', $horNum)->update([
                 // 'rs_id' => JWTAuth::user()->staff_id,
                 'a_inccidentDate' => $request->a_inccidentDate,
                 'a_inccidentTime' => $request->a_inccidentTime,
@@ -251,7 +263,7 @@ class RoleController extends Controller
                 'status_rps' => 'saved',
             ]);
         } else if (JWTAuth::user()->role == 'sup') {
-            $updateData = Hor::where('id', $id)->update([
+            $updateData = Hor::where('horNum', $horNum)->update([
                 'h_sp_factors' => $request->h_sp_factors,
                 'h_sp_recommend' => $request->h_sp_recommend,
                 'h_sp_reportFile' => $request->h_sp_reportFile,
@@ -259,14 +271,14 @@ class RoleController extends Controller
                 'status_sup' => 'saved',
             ]);
         } else if (JWTAuth::user()->role == 'doc') {
-            $updateData = Hor::where('id', $id)->update([
+            $updateData = Hor::where('horNum', $horNum)->update([
                 'i_dt_report' => $request->i_dt_report,
                 'i_dt_reportFile' => $request->i_dt_reportFile,
                 'save_date_doc' => $date,
                 'status_doc' => 'saved',
             ]);
         } else if (JWTAuth::user()->role == 'pha') {
-            $updateData = Hor::where('id', $id)->update([
+            $updateData = Hor::where('horNum', $horNum)->update([
                 'j_ph_comments' => $request->j_ph_comments,
                 'j_ph_result' => $request->j_ph_result,
                 'j_ph_phase' => $request->j_ph_phase,
@@ -276,20 +288,20 @@ class RoleController extends Controller
                 'status_pha' => 'saved',
             ]);
         } else if (JWTAuth::user()->role == 'hod') {
-            $updateData = Hor::where('id', $id)->update([
+            $updateData = Hor::where('horNum', $horNum)->update([
                 'k_hod_comments' => $request->k_hod_comments,
                 'save_date_hod' => $date,
                 'status_hod' => 'saved',
             ]);
         } else if (JWTAuth::user()->role == 'hpo') {
-            $updateData = Hor::where('id', $id)->update([
+            $updateData = Hor::where('horNum', $horNum)->update([
                 'l_hpo_comments' => $request->l_hpo_comments,
                 'l_hpo_outcome' => $request->l_hpo_outcome,
                 'save_date_hpo' => $date,
                 'status_hpo' => 'saved',
             ]);
         } else if (JWTAuth::user()->role == 'dms') {
-            $updateData = Hor::where('id', $id)->update([
+            $updateData = Hor::where('horNum', $horNum)->update([
                 'm_dms_comments' => $request->m_dms_comments,
                 'm_dms_verdict' => $request->m_dms_verdict,
                 'save_date_dms' => $date,
