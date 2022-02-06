@@ -1,4 +1,3 @@
-
 $(document).ready(function () {
   let getId = new URLSearchParams(window.location.search);
 
@@ -21,14 +20,17 @@ $(document).ready(function () {
         dataType: 'json',
         success: function (response) {
          console.log(response);
-         $(".msg").append(response.msg);
+         if(response.success == 'true'){
+          $(".msg").append(response.msg).css('color','green');
+         }else{
+          $(".msg").append(response.msg).css('color','red');
+         }
          $(".uploaded_image").append(response.uploaded_image);
         },
         cache: false,
         contentType: false,
-        processData: false
+        processData: false,
       });
     }
     });
   });
-  

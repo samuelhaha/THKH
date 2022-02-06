@@ -369,6 +369,11 @@ class RoleController extends Controller
                         'extension' => $extension
                     ]);
                 }
+            }else{
+                return response()->json([
+                    'success' => false,
+                    'msg' => 'File can only be in pdf,jpg,jpeg or png format'
+                ]);
             }
         } else {
             return response()->json([
@@ -414,6 +419,11 @@ class RoleController extends Controller
                     'msg' => 'Doctor record added successfully',
                     'uploaded_image' => $uploadedfile,
                     'data' => $addToRecord
+                ]);
+            }else{
+                return response()->json([
+                    'success' => false,
+                    'msg' => 'File can only be in pdf,jpg,jpeg or png format'
                 ]);
             }
         } else {
