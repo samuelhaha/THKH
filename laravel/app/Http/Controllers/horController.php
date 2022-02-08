@@ -76,15 +76,16 @@ class horController extends Controller
     }
 
     //need to look at this again
-    public function returnReport($id,Request $request)
+    public function returnReport($horNum,Request $request)
     {
         //if(JWTAuth::user()->role != 'rps'){
         //$route_to = $request->route_to;
-        $reason = $request->reason;
+        $reason = $request->hor_formstatus_reason;
         $date = Carbon::now();
         $date->toDateTimeString();
-        $report = Hor::where('id',$id)->update([
-            'void_reason' => $reason, //using void_reason column for now //add new column to database?
+        $report = Hor::where('horNum',$horNum)->update([
+            'hor_formstatus_reason' => $reason, //using void_reason column for now //add new column to database?
+            'hor_formstatus' => 'return',
             'route_date_rps' => $date,
             'status_rps' => 'returned'
         ]);

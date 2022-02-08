@@ -9,96 +9,7 @@ $(document).ready(function(){
             headers: {Authorization: 'Bearer ' + sessionStorage.getItem("jwt")},
         }).done(
             function(data){
-                if (sessionStorage.getItem('role') == 'rps') {
-                    $("#reportpage").append(` 
-                    <thead>
-                    <tr style="height:50px; background-color:white">
-                        <th>HorNum</th>
-                        <th>Inccident Date</th>
-                        <th>Inccident Time</th>
-                        <th>Affected Nric</th>
-                        <th>Affected Name</th>
-                        <th>Admit Date</th>
-                        <th>Admit Time</th>
-                        <th>Status</th>
-                        <th>Update</th>
-                        <th>Void</th>
-                        <th>Delete</th>
-                    </tr>
-                    </thead>
-                    `);
-                    $.each(data.Hors,function(key,reportpage){
-                        if (reportpage.horNum.charAt(0) == 'D') {
-                            if (reportpage.completion_status == "Void") {
-                                $("#reportpage").append(` 
-                                <tr style="height:50px; background-color:white">
-                                    <td>${reportpage.horNum}</td>
-                                    <td>${reportpage.a_inccidentDate}</td>
-                                    <td>${reportpage.a_inccidentTime}</td>
-                                    <td>${reportpage.c_affectedNrie}</td>
-                                    <td>${reportpage.c_affectedName}</td>
-                                    <td>${reportpage.c_affectedAdmitTime}</td>
-                                    <td>${reportpage.c_affectedAdmitDate}</td>
-                                    <td>${reportpage.completion_status}</td>
-                                    <td style="border: 1px solid #dddddd;"><button onclick= "sendToUpdate('${reportpage.horNum}');">Update</button></td>
-                                    <td></td>
-                                    <td style="border: 1px solid #dddddd;"><button onclick= "deleteReport('${reportpage.horNum}');">Delete</button></td>
-                                </tr>
-                                `);
-                            } else {
-                                $("#reportpage").append(` 
-                                <tr style="height:50px; background-color:white">
-                                    <td>${reportpage.horNum}</td>
-                                    <td>${reportpage.a_inccidentDate}</td>
-                                    <td>${reportpage.a_inccidentTime}</td>
-                                    <td>${reportpage.c_affectedNrie}</td>
-                                    <td>${reportpage.c_affectedName}</td>
-                                    <td>${reportpage.c_affectedAdmitTime}</td>
-                                    <td>${reportpage.c_affectedAdmitDate}</td>
-                                    <td>${reportpage.completion_status}</td>
-                                    <td style="border: 1px solid #dddddd;"><button onclick= "sendToUpdate('${reportpage.horNum}');">Update</button></td>
-                                    <td style="border: 1px solid #dddddd;"><button onclick= "showForm('${reportpage.horNum}');">Void</button></td>
-                                    <td></td>
-                                </tr>
-                                `);
-                            }
-                            
-                        } else if (reportpage.completion_status == "Void") {
-                            $("#reportpage").append(` 
-                            <tr style="height:50px; background-color:white">
-                                <td>${reportpage.horNum}</td>
-                                <td>${reportpage.a_inccidentDate}</td>
-                                <td>${reportpage.a_inccidentTime}</td>
-                                <td>${reportpage.c_affectedNrie}</td>
-                                <td>${reportpage.c_affectedName}</td>
-                                <td>${reportpage.c_affectedAdmitTime}</td>
-                                <td>${reportpage.c_affectedAdmitDate}</td>
-                                <td>${reportpage.completion_status}</td>
-                                <td style="border: 1px solid #dddddd;"><button onclick= "sendToUpdate('${reportpage.horNum}');">Update</button></td>
-                                <td></td>
-                                <td></td>
-                            </tr>
-                            `);
-                        } else {
-                            $("#reportpage").append(` 
-                            <tr style="height:50px; background-color:white">
-                                <td>${reportpage.horNum}</td>
-                                <td>${reportpage.a_inccidentDate}</td>
-                                <td>${reportpage.a_inccidentTime}</td>
-                                <td>${reportpage.c_affectedNrie}</td>
-                                <td>${reportpage.c_affectedName}</td>
-                                <td>${reportpage.c_affectedAdmitTime}</td>
-                                <td>${reportpage.c_affectedAdmitDate}</td>
-                                <td>${reportpage.completion_status}</td>
-                                <td style="border: 1px solid #dddddd;"><button onclick= "sendToUpdate('${reportpage.horNum}');">Update</button></td>
-                                <td style="border: 1px solid #dddddd;"><button onclick= "showForm('${reportpage.horNum}');">Void</button></td>
-                                <td></td>
-                            </tr>
-                            `);
-                        }
-                        
-                    })
-                } else {
+                
                     $("#reportpage").append(` 
                     <thead>
                     <tr style="height:50px; background-color:white">
@@ -152,7 +63,7 @@ $(document).ready(function(){
                     })
                 }
                 
-            }
+            
         )
         .fail(
             function(err){
@@ -339,8 +250,3 @@ function closeForm() {
     $("#overlay").css({"display":"none"});
 }
 
-function deleteReport(horNum) {
-    $("#deleteForm").css({"display":"block"});
-    $("#overlay").css({"display":"block"});
-    $("#deleteBtn").val(horNum);
-}

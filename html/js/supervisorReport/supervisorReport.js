@@ -20,7 +20,7 @@ $(document).ready(function () {
 
                 document.getElementById("b_diagnosis").value = data.b_diagnosis;
 
-                if (data.c_affectedPerson) {
+                if (data.c_affectedPerson != null && data.c_affectedPerson != '') {
                     document.getElementById("c_affectedPerson_" + data.c_affectedPerson).checked = true;
                 }
                 document.getElementById("c_affectedName").value = data.c_affectedName;
@@ -175,11 +175,11 @@ $(document).ready(function () {
         // var date = document.getElementById("date").value;
         // var time = document.getElementById("time").value; 
 
-        if (getId.has('id')) {
-            id = getId.get('id');
+        if (gethorNum.has('horNum')) {
+            horNum = gethorNum.get('horNum');
             $.ajax({
                 method: "POST",
-                url: "/THKH/laravel/api/supervisor-add/" + id,
+                url: "/THKH/laravel/api/supervisor-add/" + horNum,
                 headers: { Authorization: 'Bearer ' + sessionStorage.getItem("jwt") },
                 data: form_data,
                 dataType: 'json',
@@ -200,31 +200,88 @@ $(document).ready(function () {
         }
     });
 
+    $("#saveBtn").click(function (e) {
+        e.preventDefault();
+        var h_sp_reportFile = $('#h_sp_reportFile').prop('files')[0];
+        var h_sp_factors = document.getElementById("h_sp_factors").value;
+        var h_sp_recommend = document.getElementById("h_sp_recommend").value;
+        var form_data = new FormData();
+        form_data.append('h_sp_factors', h_sp_factors);
+        form_data.append('h_sp_recommend', h_sp_recommend);
+        form_data.append('h_sp_reportFile', h_sp_reportFile);
+        //var h_sp_reportFile = $("input[name='h_sp_reportFile']").value;
+        // var date = document.getElementById("date").value;
+        // var time = document.getElementById("time").value; 
+
+        if (gethorNum.has('horNum')) {
+            horNum = gethorNum.get('horNum');
+            $.ajax({
+                method: "POST",
+                url: "/THKH/laravel/api/staff-save/" + horNum,
+                headers: { Authorization: 'Bearer ' + sessionStorage.getItem("jwt") },
+                data: form_data,
+                dataType: 'json',
+                // data: {
+                //   h_sp_factors: h_sp_factors,
+                //   h_sp_recommend: h_sp_recommend,
+                //   h_sp_reportFile: h_sp_reportFile,
+                // },
+                success: function (response) {
+                    console.log(response);
+                    $(".msg").append(response.msg);
+                    $(".uploaded_image").append(response.uploaded_image);
+                },
+                cache: false,
+                contentType: false,
+                processData: false
+            });
+        }
+    });
     $("#returnBtn").click(function (e) {
         e.preventDefault();
+        hor_formstatus_reason = $("#returnReason").val();
+        var form_data = new FormData();
+        form_data.append('hor_formstatus_reason',hor_formstatus_reason);
 
-        // if (getId.has('id')) {
-        //   id = getId.get('id');
-        //     $.ajax({
-        //     method: "POST",
-        //     url: "/THKH/laravel/api/returnReport/" + id,
-        //     headers: {Authorization: 'Bearer ' + sessionStorage.getItem("jwt")},
-        //     data: form_data,
-        //     dataType: 'json',
-        //     // data: {
-        //     //   h_sp_factors: h_sp_factors,
-        //     //   h_sp_recommend: h_sp_recommend,
-        //     //   h_sp_reportFile: h_sp_reportFile,
-        //     // },
-        //     success: function (response) {
-        //     console.log(response);
-        //     $(".msg").append(response.msg);
-        //     $(".uploaded_image").append(response.uploaded_image);
-        //     },
-        //     cache: false,
-        //     contentType: false,
-        //     processData: false
-        //     });
-        // }
+        if (gethorNum.has('horNum')) {
+            horNum = gethorNum.get('horNum');
+            $.ajax({
+                method: "POST",
+                url: "/THKH/laravel/api/returnReport/" + horNum,
+                headers: { Authorization: 'Bearer ' + sessionStorage.getItem("jwt") },
+                data: form_data,
+                dataType: 'json',
+                success: function (response) {
+                    console.log(response);
+                    if (response.success == 'true') {
+                        $(".msg").append(response.msg).css('color', 'green');
+                        closeForm();
+                        window.location.href = 'hor.html?user';
+                    } else {
+                        $(".msg").append(response.msg).css('color', 'red');
+                    }
+                    // $(".uploaded_image").append(response.uploaded_image);
+                },
+                cache: false,
+                contentType: false,
+                processData: false,
+            });
+        }
+    });
+    $("#cancelBtn").click(function () {
+        location.href = "login.html";
     });
 });
+
+function showReturnForm() {
+    $("#returnPopup").css({"display":"block"});
+    $("#overlay").css({"display":"block"});
+    $("#returnReason").val("");
+}
+
+  
+function closeForm() {
+    $("#popupForm").css({"display":"none"});
+    $("#returnPopup").css({"display":"none"});
+    $("#overlay").css({"display":"none"});
+}

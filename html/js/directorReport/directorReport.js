@@ -17,7 +17,7 @@ $(document).ready(function () {
 
                 document.getElementById("b_diagnosis").value = data.b_diagnosis;
 
-                if (data.c_affectedPerson) {
+                if (data.c_affectedPerson != null && data.c_affectedPerson != '') {
                     document.getElementById("c_affectedPerson_" + data.c_affectedPerson).checked = true;
                 }
                 document.getElementById("c_affectedName").value = data.c_affectedName;
@@ -149,8 +149,11 @@ $(document).ready(function () {
 
                 $("#l_hpo_comments").val(data.l_hpo_comments);
                 $("#l_hpo_outcome_" + data.l_hpo_outcome).prop('checked', true);
-            }
 
+                $("#m_dms_comments").val(data.m_dms_comments);
+                $("#m_dms_verdict_" + data.m_dms_verdict).prop('checked',true);
+            }
+    
         ).fail(
             function (err) {
                 console.log(err.responseText);
@@ -158,4 +161,114 @@ $(document).ready(function () {
         );
     }
 
-});
+
+    $("#submitBtn").click(function (e) {
+        e.preventDefault();
+        var m_dms_comments = $("#m_dms_comments").val();
+        var m_dms_verdict = document.querySelector('input[name="m_dms_verdict"]:checked').value;
+        var form_data = new FormData();
+        form_data.append('m_dms_comments',m_dms_comments);
+        form_data.append('m_dms_verdict',m_dms_verdict);
+
+        if (gethorNum.has('horNum')) {
+            horNum = gethorNum.get('horNum');
+            $.ajax({
+                method: "POST",
+                url: "/THKH/laravel/api/director-add/" + horNum,
+                headers: { Authorization: 'Bearer ' + sessionStorage.getItem("jwt") },
+                data: form_data,
+                dataType: 'json',
+                success: function (response) {
+                    console.log(response);
+                    if (response.success == 'true') {
+                        $(".msg").append(response.msg).css('color', 'green');
+                    } else {
+                        $(".msg").append(response.msg).css('color', 'red');
+                    }
+                    $(".uploaded_image").append(response.uploaded_image);
+                },
+                cache: false,
+                contentType: false,
+                processData: false,
+            });
+        }
+    });
+    $("#saveBtn").click(function (e) {
+        e.preventDefault();
+        var m_dms_comments = $("#m_dms_comments").val();
+        var m_dms_verdict = document.querySelector('input[name="m_dms_verdict"]:checked').value;
+        var form_data = new FormData();
+        form_data.append('m_dms_comments',m_dms_comments);
+        form_data.append('m_dms_verdict',m_dms_verdict);
+
+        if (gethorNum.has('horNum')) {
+            horNum = gethorNum.get('horNum');
+            $.ajax({
+                method: "POST",
+                url: "/THKH/laravel/api/staff-save/" + horNum,
+                headers: { Authorization: 'Bearer ' + sessionStorage.getItem("jwt") },
+                data: form_data,
+                dataType: 'json',
+                success: function (response) {
+                    console.log(response);
+                    if (response.success == 'true') {
+                        $(".msg").append(response.msg).css('color', 'green');
+                        closeForm();
+                        window.location.href = 'hor.html?user';
+                    } else {
+                        $(".msg").append(response.msg).css('color', 'red');
+                    }
+                    $(".uploaded_image").append(response.uploaded_image);
+                },
+                cache: false,
+                contentType: false,
+                processData: false,
+            });
+        }
+    });
+    $("#returnBtn").click(function (e) {
+        e.preventDefault();
+        hor_formstatus_reason = $("#returnReason").val();
+        var form_data = new FormData();
+        form_data.append('hor_formstatus_reason',hor_formstatus_reason);
+
+        if (gethorNum.has('horNum')) {
+            horNum = gethorNum.get('horNum');
+            $.ajax({
+                method: "POST",
+                url: "/THKH/laravel/api/returnReport/" + horNum,
+                headers: { Authorization: 'Bearer ' + sessionStorage.getItem("jwt") },
+                data: form_data,
+                dataType: 'json',
+                success: function (response) {
+                    console.log(response);
+                    if (response.success == 'true') {
+                        $(".msg").append(response.msg).css('color', 'green');
+                    } else {
+                        $(".msg").append(response.msg).css('color', 'red');
+                    }
+                    // $(".uploaded_image").append(response.uploaded_image);
+                },
+                cache: false,
+                contentType: false,
+                processData: false,
+            });
+        }
+    });
+    $("#cancelBtn").click(function () {
+        location.href = "login.html";
+    });
+
+  });
+  function showReturnForm() {
+    $("#returnPopup").css({"display":"block"});
+    $("#overlay").css({"display":"block"});
+    $("#returnReason").val("");
+}
+
+  
+function closeForm() {
+    $("#popupForm").css({"display":"none"});
+    $("#returnPopup").css({"display":"none"});
+    $("#overlay").css({"display":"none"});
+}

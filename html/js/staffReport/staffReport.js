@@ -16,7 +16,7 @@ $(document).ready(function () {
 
                 document.getElementById("b_diagnosis").value = data.b_diagnosis;
 
-                if (data.c_affectedPerson) {
+                if (data.c_affectedPerson != null && data.c_affectedPerson != '') {
                     document.getElementById("c_affectedPerson_" + data.c_affectedPerson).checked = true;
                 }
                 document.getElementById("c_affectedName").value = data.c_affectedName;
@@ -267,7 +267,7 @@ $(document).ready(function () {
             isoDate = currentDate.toISOString().substring(0, 10);
             currentTime = currentDate.getHours() + ":" + currentDate.getMinutes() + ":" + currentDate.getSeconds();
             rs_submit_datetime = isoDate + " " + currentTime;
-            rs_id = sessionStorage.getItem('staff_id');
+            // rs_id = sessionStorage.getItem('staff_id');
             status_sup = "pending";
             sp_id = $("#selectedSupervisor").val();
             status_doc = "pending";

@@ -9,6 +9,7 @@
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
     <script src="../js/supervisorReport/supervisorReport.js"></script>
+    <script src='../js/common.js'></script>
     <style>
                 /* Style the tab */
                 table {
@@ -112,6 +113,24 @@
             margin: 0;
             padding: 40px;
         }
+        .formContainer2 {
+        max-width: 500px;
+        padding: 20px;
+        background-color: #fff;
+        }
+
+        .formContainer2 textarea {
+        width: 100%;
+        padding: 15px;
+        margin: 5px 0 20px 0;
+        border: none;
+        background: #eee;
+        }
+        .formContainer2 textarea:focus {
+        background-color: #ddd;
+        outline: none;
+        }
+
         /* top right bottom left  */
     </style>
 </head>
@@ -553,7 +572,7 @@
                                 <span class="uploaded_image">
                                     <!-- <img src="../images/" alt=""> -->
                                 </span>
-    </form>
+                                </form>
                             </td>
                       
                     </table>
@@ -561,10 +580,21 @@
                      
             </div>
           
+            <div class="submitPopup">
+                <div class="formPopup" id="returnPopup">
+                    <div class="formContainer2">
+                        <h3>Reason to return</h3>
+                        <textarea name="returnReason" id="returnReason" cols="75" rows="10" style="resize: none;"></textarea>
+                        <button id="returnBtn">Return To Staff</button>
+                        <button onclick="closeForm()">Close</button>
+                    </div>
+                </div>
+            </div>
+            <div id="overlay"></div>
             <div>
                 <button id="saveBtn">Save</button>
                 <button id="submitBtn">Submit</button>
-                <button id="returnBtn">Return to Staff</button>
+                <button onclick="showReturnForm()">Return to Staff</button>
                 <button id="cancelBtn">Cancel</button>
             </div>
         </div>

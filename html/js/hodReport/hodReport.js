@@ -1,8 +1,6 @@
 
 $(document).ready(function () {
-    let getId = new URLSearchParams(window.location.search);
-
-    $(document).ready(function () {
+    
         let gethorNum = new URLSearchParams(window.location.search);
 
         if (gethorNum.has('horNum')) {
@@ -20,7 +18,7 @@ $(document).ready(function () {
 
                     document.getElementById("b_diagnosis").value = data.b_diagnosis;
 
-                    if (data.c_affectedPerson) {
+                    if (data.c_affectedPerson != null && data.c_affectedPerson != '') {
                         document.getElementById("c_affectedPerson_" + data.c_affectedPerson).checked = true;
                     }
                     document.getElementById("c_affectedName").value = data.c_affectedName;
@@ -148,7 +146,7 @@ $(document).ready(function () {
                         $("#j_ph_index_" + data.j_ph_index).prop('checked', true);
                     }
 
-                    // $("#k_hod_comments").val(data.k_hod_comments);
+                    $("#k_hod_comments").val(data.k_hod_comments);
 
                     // $("#l_hpo_comments").val(data.l_hpo_comments);
                     // $("#l_hpo_outcome_" + data.l_hpo_outcome).prop('checked',true);
@@ -161,71 +159,148 @@ $(document).ready(function () {
             );
         }
 
+    
+
+        $("#submitBtn").click(function (e) {
+            e.preventDefault();
+            var k_hod_comments = $("#k_hod_comments").val();
+            var hpo_id = $("#selectedHpo").val();
+            var form_data = new FormData();
+            form_data.append('k_hod_comments',k_hod_comments);
+            form_data.append('hpo_id',hpo_id);
+    
+            if (gethorNum.has('horNum')) {
+                horNum = gethorNum.get('horNum');
+                $.ajax({
+                    method: "POST",
+                    url: "/THKH/laravel/api/hod-add/" + horNum,
+                    headers: { Authorization: 'Bearer ' + sessionStorage.getItem("jwt") },
+                    data: form_data,
+                    dataType: 'json',
+                    success: function (response) {
+                        console.log(response);
+                        if (response.success == 'true') {
+                            $(".msg").append(response.msg).css('color', 'green');
+                        } else {
+                            $(".msg").append(response.msg).css('color', 'red');
+                        }
+                        // $(".uploaded_image").append(response.uploaded_image);
+                    },
+                    cache: false,
+                    contentType: false,
+                    processData: false,
+                });
+            }
+        });
+        $("#saveBtn").click(function (e) {
+            e.preventDefault();
+            var k_hod_comments = $("#k_hod_comments").val();
+            // var hpo_id = $("#selectedHpo").val();
+            var form_data = new FormData();
+            form_data.append('k_hod_comments',k_hod_comments);
+            // form_data.append('hpo_id',hpo_id);
+    
+            if (gethorNum.has('horNum')) {
+                horNum = gethorNum.get('horNum');
+                $.ajax({
+                    method: "POST",
+                    url: "/THKH/laravel/api/staff-save/" + horNum,
+                    headers: { Authorization: 'Bearer ' + sessionStorage.getItem("jwt") },
+                    data: form_data,
+                    dataType: 'json',
+                    success: function (response) {
+                        console.log(response);
+                        if (response.success == 'true') {
+                            $(".msg").append(response.msg).css('color', 'green');
+                        } else {
+                            $(".msg").append(response.msg).css('color', 'red');
+                        }
+                        // $(".uploaded_image").append(response.uploaded_image);
+                    },
+                    cache: false,
+                    contentType: false,
+                    processData: false,
+                });
+            }
+        });
+        $("#returnBtn").click(function (e) {
+            e.preventDefault();
+            hor_formstatus_reason = $("#returnReason").val();
+            var form_data = new FormData();
+            form_data.append('hor_formstatus_reason',hor_formstatus_reason);
+    
+            if (gethorNum.has('horNum')) {
+                horNum = gethorNum.get('horNum');
+                $.ajax({
+                    method: "POST",
+                    url: "/THKH/laravel/api/returnReport/" + horNum,
+                    headers: { Authorization: 'Bearer ' + sessionStorage.getItem("jwt") },
+                    data: form_data,
+                    dataType: 'json',
+                    success: function (response) {
+                        console.log(response);
+                        if (response.success == 'true') {
+                            $(".msg").append(response.msg).css('color', 'green');
+                            closeForm();
+                            window.location.href = 'hor.html?user';
+                        } else {
+                            $(".msg").append(response.msg).css('color', 'red');
+                        }
+                        // $(".uploaded_image").append(response.uploaded_image);
+                    },
+                    cache: false,
+                    contentType: false,
+                    processData: false,
+                });
+            }
+        });
+        $("#cancelBtn").click(function () {
+            location.href = "login.html";
+        });
     });
-
-    $("#submitBtn").click(function (e) {
-        //     e.preventDefault();
-        //     var i_dt_reportFile = $('#i_dt_reportFile').prop('files')[0];
-        //     var i_dt_report = document.getElementById("i_dt_report").value;
-        //     var form_data = new FormData();
-        //     form_data.append('i_dt_report',i_dt_report);
-        //     form_data.append('i_dt_reportFile',i_dt_reportFile);
-
-        //     if (getId.has('id')) {
-        //       id = getId.get('id');
-        //     $.ajax({
-        //       method: "POST",
-        //       url: "/THKH/laravel/api/doctor-add/" + id,
-        //       headers: {Authorization: 'Bearer ' + sessionStorage.getItem("jwt")},
-        //       data: form_data,
-        //       dataType: 'json',
-        //       success: function (response) {
-        //        console.log(response);
-        //        $(".msg").append(response.msg);
-        //        $(".uploaded_image").append(response.uploaded_image);
-        //       },
-        //       cache: false,
-        //       contentType: false,
-        //       processData: false
-        //     });
-        //   }
-    });
-});
-
-function showForm() {
-    $("#popupForm").css({ "display": "block" });
-    $("#overlay").css({ "display": "block" });
-    $('#innerFormContainer').empty();
-    $.ajax({
-        method: "GET",
-        url: "/THKH/laravel/api/getnames",
-        headers: { Authorization: 'Bearer ' + sessionStorage.getItem("jwt") },
-    })
+    
+    function showForm() {
+        $("#popupForm").css({"display":"block"});
+        $("#overlay").css({"display":"block"});
+        $('#innerFormContainer').empty();
+        $.ajax({
+            method: "GET",
+            url: "/THKH/laravel/api/getnames",
+            headers: {Authorization: 'Bearer ' + sessionStorage.getItem("jwt")},
+        })
         .done(
             function (data) {
                 $('#innerFormContainer').append(`
-                <h3>Assign to</h3>
-                <label for="selectedHpo">
-                    <b>Healthcare Performance Officer</b>
-                </label>
-                <select name="selectedHpo" class="dropdown" id="selectedHpo" required>
-                </select>
-                `);
-                $.each(data.hpo, function (key, person) {
+                    <h3>Assign to</h3>
+                    <label for="selectedHpo">
+                        <b>Healthcare Performance Officer</b>
+                    </label>
+                    <select name="selectedHpo" class="dropdown" id="selectedHpo" required>
+                    </select>
+                    `);
+                $.each(data.hpo,function(key,person){
                     $("#selectedHpo").append(` 
-                <option value="${person.staff_id}">${person.name}</option>
-                `);
+                    <option value="${person.staff_id}">${person.name}</option>
+                    `);
                 })
             }
         )
         .fail(
-            function (err) {
+            function(err){
                 console.log(err.responseText);
             }
         )
-}
-
-function closeForm() {
-    $("#popupForm").css({ "display": "none" });
-    $("#overlay").css({ "display": "none" });
-}
+      }
+      
+    function showReturnForm() {
+        $("#returnPopup").css({"display":"block"});
+        $("#overlay").css({"display":"block"});
+        $("#returnReason").val("");
+    }
+    
+      
+    function closeForm() {
+        $("#popupForm").css({"display":"none"});
+        $("#returnPopup").css({"display":"none"});
+        $("#overlay").css({"display":"none"});
+    }

@@ -341,7 +341,7 @@ class RoleController extends Controller
 
     //supervisor
     //add his part to the form
-    public function supervisorAdd($id, Request $request)
+    public function supervisorAdd($horNum, Request $request)
     {
         if (JWTAuth::user()->role == 'sup') {
             $date = Carbon::now();
@@ -359,13 +359,15 @@ class RoleController extends Controller
                 // $path = $request->h_sp_reportFile->move('C:\xampp\htdocs\THKH\html\images\uploaded', $input['h_sp_reportFile']);
                 $path = $request->h_sp_reportFile->move(base_path('..\html\images\uploaded'), $input['h_sp_reportFile']);
                 //$datetime = $request->date . $request->time;
-                $addToRecord = Hor::where('id', $id)->update([
+                $addToRecord = Hor::where('horNum', $horNum)->update([
                     'h_sp_factors' => $request->h_sp_factors,
                     'h_sp_recommend' => $request->h_sp_recommend,
                     'h_sp_reportFile' => $input['h_sp_reportFile'],
                     'sp_submit_datetime' => $date,
                     'sp_id' => JWTAuth::user()->staff_id,
                     'status_sup' => 'submitted',
+                    'updated_at' => $date,
+                    'route_date_sup' => $date
                 ]);
                 $extension = $request->file('h_sp_reportFile')->getClientOriginalExtension();
                 if ($extension = 'pdf') {
@@ -399,7 +401,7 @@ class RoleController extends Controller
 
     //doctor
     //add his part to the form
-    public function doctorAdd($id, Request $request)
+    public function doctorAdd($horNum, Request $request)
     {
         if (JWTAuth::user()->role == 'doc') {
             $date = Carbon::now();
@@ -411,13 +413,15 @@ class RoleController extends Controller
                 $input['i_dt_reportFile'] = time() . '_' . $request->file('i_dt_reportFile')->getClientOriginalName();
                 $path = $request->i_dt_reportFile->move(base_path('..\html\images\uploaded'), $input['i_dt_reportFile']);
 
-                $addToRecord = Hor::where('id', $id)->update([
+                $addToRecord = Hor::where('horNum', $horNum)->update([
                     'i_dt_report' => $request->i_dt_report,
                     'i_dt_reportFile' => $input['i_dt_reportFile'],
                     'dt_submit_datetime' => $date,
                     'dt_id' => JWTAuth::user()->staff_id,
                     'status_doc' => 'submitted',
-
+                    'hod_id' => $request->hod_id,
+                    'updated_at' => $date,
+                    'route_date_doc' => $date
                 ]);
 
                 $extension = $request->file('i_dt_reportFile')->getClientOriginalExtension();
@@ -433,7 +437,7 @@ class RoleController extends Controller
                     'uploaded_image' => $uploadedfile,
                     'data' => $addToRecord
                 ]);
-            } else {
+            }else{
                 return response()->json([
                     'success' => false,
                     'msg' => 'File can only be in pdf,jpg,jpeg or png format'
@@ -450,17 +454,20 @@ class RoleController extends Controller
 
     //pharmacy
     //add his part to the form
-    public function pharmacyAdd($id, Request $request)
+    public function pharmacyAdd($horNum, Request $request)
     {
         $date = Carbon::now();
         $date->toDateTimeString();
         if (JWTAuth::user()->role == 'pha') {
             //$datetime = $request->date . $request->time;
-            $addToRecord = Hor::where('id', $id)->update([
+            $addToRecord = Hor::where('horNum', $horNum)->update([
                 'j_ph_result' => $request->j_ph_result,
                 'j_ph_phase' => $request->j_ph_phase,
                 'ph_submit_datetime' => $date,
-                'ph_id' => JWTAuth::user()->staff_id
+                'ph_id' => JWTAuth::user()->staff_id,
+                'status_pha' => 'submitted',
+                'updated_at' => $date,
+                'route_date_pha' => $date
             ]);
 
             return response()->json([
@@ -476,15 +483,19 @@ class RoleController extends Controller
         }
     }
 
-    public function hodAdd($id, Request $request)
+    public function hodAdd($horNum, Request $request)
     {
         if (JWTAuth::user()->role == 'hod') {
             $date = Carbon::now();
             $date->toDateTimeString();
-            $result = Hor::where('id', $id)->update([
+            $result = Hor::where('horNum', $horNum)->update([
                 'k_hod_comments' => $request->k_hod_comments,
                 'hod_submit_datetime' => $date,
-                'hod_id' => JWTAuth::user()->staff_id
+                'hod_id' => JWTAuth::user()->staff_id,
+                'status_hod' => 'routed',
+                'hpo_id' => $request->hpo_id,
+                'updated_at' => $date,
+                'route_date_hod' => $date
             ]);
 
             return response()->json([
@@ -501,16 +512,20 @@ class RoleController extends Controller
     }
 
 
-    public function hpoAdd($id, Request $request)
+    public function hpoAdd($horNum, Request $request)
     {
         if (JWTAuth::user()->role == 'hpo') {
             $date = Carbon::now();
             $date->toDateTimeString();
-            $result = Hor::where('id', $id)->update([
+            $result = Hor::where('horNum', $horNum)->update([
                 'l_hpo_comments' => $request->l_hpo_comments,
-                'l_hpo_outcome' => $date,
+                'l_hpo_outcome' => $request->l_hpo_outcome,
                 'hpo_submit_datetime' => $date,
-                'hpo_id' => JWTAuth::user()->staff_id
+                'hpo_id' => JWTAuth::user()->staff_id,
+                'status_hpo' => 'routed',
+                'hpo_id' => $request->hpo_id,
+                'updated_at' => $date,
+                'route_date_hpo' => $date
             ]);
 
             return response()->json([
@@ -526,16 +541,20 @@ class RoleController extends Controller
         }
     }
 
-    public function dmsAdd($id, Request $request)
+    public function dmsAdd($horNum, Request $request)
     {
         if (JWTAuth::user()->role == 'dms') {
             $date = Carbon::now();
             $date->toDateTimeString();
-            $result = Hor::where('id', $id)->update([
+            $result = Hor::where('horNum', $horNum)->update([
                 'm_dms_comments' => $request->m_dms_comments,
                 'm_dms_verdict' => $request->m_dms_verdict,
                 'dms_submit_datetime' => $date,
-                'dms_id' => JWTAuth::user()->staff_id
+                'dms_id' => JWTAuth::user()->staff_id,
+                'status_dms' => 'submitted',
+                'updated_at' => $date,
+                'route_date_dms' => $date,
+                'completion_status' => 'Closed'
             ]);
 
             return response()->json([

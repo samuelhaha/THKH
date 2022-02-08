@@ -154,6 +154,23 @@
             background-color: #000;
             opacity: 0.5;
         }
+        .formContainer2 {
+        max-width: 500px;
+        padding: 20px;
+        background-color: #fff;
+        }
+
+        .formContainer2 textarea {
+        width: 100%;
+        padding: 15px;
+        margin: 5px 0 20px 0;
+        border: none;
+        background: #eee;
+        }
+        .formContainer2 textarea:focus {
+        background-color: #ddd;
+        outline: none;
+        }
 
         /* top right bottom left  */
     </style>
@@ -767,13 +784,22 @@
                     </div>
                 </div>
             </div>
+            <div class="submitPopup">
+                <div class="formPopup" id="returnPopup">
+                    <div class="formContainer2">
+                        <h3>Reason to return</h3>
+                        <textarea name="returnReason" id="returnReason" cols="75" rows="10" style="resize: none;"></textarea>
+                        <button id="returnBtn">Return To Staff</button>
+                        <button onclick="closeForm()">Close</button>
+                    </div>
+                </div>
+            </div>
             <div id="overlay"></div>
             <div>
                 <button id="saveBtn">Save</button>
                 <button onclick="showForm()">Submit</button>
-                <button id="returnBtn">Return to Staff</button>
+                <button onclick="showReturnForm()">Return to Staff</button>
                 <button id="cancelBtn">Cancel</button>
-            </div>
         </div>
     </section>
     <div class="footer">
