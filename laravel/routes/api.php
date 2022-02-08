@@ -23,39 +23,40 @@ Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
     return $request->user();
 });
 
-Route::post("login",[AccountController::class, 'login']);
+// Route::post("login",[AccountController::class, 'login']);
 
-Route::get("users",[AccountController::class, 'fetchdata']);
+// Route::get("users",[AccountController::class, 'fetchdata']);
 
-Route::put("update/{staff_id}", [AccountController::class, 'modify']);
+// Route::put("update/{staff_id}", [AccountController::class, 'modify']);
 
-Route::delete("delete/{staff_id}",[AccountController::class,'remove']);
+// Route::delete("delete/{staff_id}",[AccountController::class,'remove']);
 
-Route::post("check", [AccountController::class, 'check']);
+Route::post("check", [AccountController::class, 'check']); //login
 
 
-Route::get("search",[RoleController::class, 'search']);
-//Route::get("search",[RoleController::class,'search']);
+Route::get("search", [RoleController::class, 'search']);
 
-Route::get("display-data",[RoleController::class,'displaydata']);
+// Route::get("display-data", [RoleController::class, 'displaydata']);
 
-Route::get("report/{horNum}", [horController::class, 'getReportByHorNum']);
+// Route::get("report/{horNum}", [horController::class, 'getReportByHorNum']);
 
-Route::get('/showreports',[horController::class, 'showreports']);
+Route::get('/showreports', [horController::class, 'showreports']);
 
-Route::get("getnames",[RoleController::class,'getNamesByRole']);
-Route::post("/void/{horNum}",[RoleController::class, 'voidReport']);
+// Route::get("getnames", [RoleController::class, 'getNamesByRole']);
+Route::post("/void/{horNum}", [RoleController::class, 'voidReport']);
 
-Route::group(['middleware' => ['jwt.verify']], function() {
+Route::group(['middleware' => ['jwt.verify']], function () {
     Route::post("/logout", [AccountController::class, 'logout']);
     Route::post("/staff-create", [RoleController::class, 'staffCreate']);
-    Route::post("/staff-save/{id}", [RoleController::class,'staffSave']);
+    Route::post("/staff-save/{id}", [RoleController::class, 'staffSave']);
     Route::post("/supervisor-add/{id}", [RoleController::class, 'supervisorAdd']);
     Route::post("/doctor-add/{id}", [RoleController::class, 'doctorAdd']);
     Route::get("/getReports", [horController::class, 'getReports']);
-    Route::post("/returnReport/{id}",[horController::class, 'returnReport']);
-    Route::get('/showreports/user',[horController::class, 'showreportsbyuser']);
-    Route::delete("delete/{horNum}",[horController::class,'removeReport']);
+    Route::post("/returnReport/{id}", [horController::class, 'returnReport']);
+    Route::get('/showreports/user', [horController::class, 'showreportsbyuser']);
+    Route::delete("delete/{horNum}", [horController::class, 'removeReport']);
+    Route::get("report/{horNum}", [horController::class, 'getReportByHorNum']);
+    Route::get("getnames", [RoleController::class, 'getNamesByRole']);
 });
 
 // Route::post("/staff-create", [RoleController::class, 'staffCreate']);
