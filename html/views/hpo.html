@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -11,146 +12,156 @@
     <script src="../js/hpoReport/hpoReport.js"></script>
     <script src='../js/common.js'></script>
     <style>
-                /* Style the tab */
-                table {
-        font-family: arial, sans-serif;
-        border-collapse: collapse;
-        width: 100%;
+        /* Style the tab */
+        table {
+            font-family: arial, sans-serif;
+            border-collapse: collapse;
+            width: 100%;
         }
 
-        td, th {
-        border: 0px solid #dddddd;
-        text-align: left;
-        padding: 8px;
+        td,
+        th {
+            border: 0px solid #dddddd;
+            text-align: left;
+            padding: 8px;
         }
 
         /* tr:nth-child(even) {
         background-color: #dddddd;
         } */
-        
+
         #tab {
-        overflow: hidden;
-        border: 1px solid #ccc;
-        background-color: #f1f1f1;
+            overflow: hidden;
+            border: 1px solid #ccc;
+            background-color: #f1f1f1;
         }
 
         /* Style the buttons that are used to open the tab content */
         #tab button {
-        background-color: inherit;
-        float: left;
-        border: none;
-        outline: none;
-        cursor: pointer;
-        padding: 14px 16px;
-        transition: 0.3s;
+            background-color: inherit;
+            float: left;
+            border: none;
+            outline: none;
+            cursor: pointer;
+            padding: 14px 16px;
+            transition: 0.3s;
         }
 
         /* Change background color of buttons on hover */
         #tab button:hover {
-        background-color: #ddd;
+            background-color: #ddd;
         }
 
         /* Create an active/current tablink class */
         #tab button.active {
-        background-color: #ccc;
+            background-color: #ccc;
         }
 
         /* Style the tab content */
         #tabContent {
-        display: none;
-        padding: 6px 12px;
-        border: 1px solid #ccc;
-        border-top: none;
+            display: none;
+            padding: 6px 12px;
+            border: 1px solid #ccc;
+            border-top: none;
         }
 
-          /* Style the top navigation bar */
+        /* Style the top navigation bar */
         .navbar {
-        overflow: hidden;
-        background-color: lightblue;
+            overflow: hidden;
+            background-color: lightblue;
         }
 
-        
-         /* Style the navigation bar links */
-         .navbar button{
-        float: left;
-        display: block;
-        color: black;
-        text-align: center;
-        padding: 14px 20px;
-        background-color: Transparent;
-        border: none;
-        outline: none;
-        text-decoration: none;
+
+        /* Style the navigation bar links */
+        .navbar button {
+            float: left;
+            display: block;
+            color: black;
+            text-align: center;
+            padding: 14px 20px;
+            background-color: Transparent;
+            border: none;
+            outline: none;
+            text-decoration: none;
         }
 
         /* Right-aligned link */
         .navbar button.right {
-        float: right;
+            float: right;
         }
 
         /* Change color on hover */
         .navbar button:hover {
-        background-color: #ddd;
-        color: black;
+            background-color: #ddd;
+            color: black;
         }
-        
+
         /* Footer */
         .footer {
-        padding: 20px;
-        text-align: center;
-        background: lightblue;
+            padding: 20px;
+            text-align: center;
+            background: lightblue;
         }
+
         img {
-        float: left;
-        width: 150px;
-        height: 60px;
-        margin: 4px 0px 4px 8px;  
+            float: left;
+            width: 150px;
+            height: 60px;
+            margin: 4px 0px 4px 8px;
         }
+
         section {
-            
+
             margin: 0;
             padding: 40px;
         }
+
         .formPopup {
-        display: none;
-        position: fixed;
-        left:50%;
-        top:50%;
-        transform:translate(-50%, -50%);
-        border: 3px solid #999999;
-        z-index: 9;
+            display: none;
+            position: fixed;
+            left: 50%;
+            top: 50%;
+            transform: translate(-50%, -50%);
+            border: 3px solid #999999;
+            z-index: 9;
         }
+
         .formContainer {
-        max-width: 300px;
-        padding: 20px;
-        background-color: #fff;
+            max-width: 300px;
+            padding: 20px;
+            background-color: #fff;
         }
+
         .formContainer .dropdown {
-        width: 100%;
-        padding: 15px;
-        margin: 5px 0 20px 0;
-        border: none;
-        background: #eee;
+            width: 100%;
+            padding: 15px;
+            margin: 5px 0 20px 0;
+            border: none;
+            background: #eee;
         }
+
         .formContainer .dropdown option {
-        background-color: #ddd;
-        outline: none;
+            background-color: #ddd;
+            outline: none;
         }
+
         #overlay {
-        position:fixed;
-        left:0;
-        top:0;
-        width:100vw;
-        height:100vh;
-        display:none;
-        background-color:#000;
-        opacity:0.5;
+            position: fixed;
+            left: 0;
+            top: 0;
+            width: 100vw;
+            height: 100vh;
+            display: none;
+            background-color: #000;
+            opacity: 0.5;
         }
+
         /* top right bottom left  */
     </style>
 </head>
+
 <body>
-    
+
     <a href="login.html"><img src="../images/logo.jpg"></a>
     <br><br><br><br>
 
@@ -161,7 +172,7 @@
         <button id="view" onclick="sendToAllView();">View All Reports</button>
         <button id="Logout" class="right">Log Out</button>
     </div>
-  
+
     <section>
         <ul class="nav nav-tabs">
             <li class="active"><a data-toggle="tab" href="#ab">A B</a></li>
@@ -174,20 +185,20 @@
             <li><a data-toggle="tab" href="#i">I</a></li>
             <li><a data-toggle="tab" href="#j">J</a></li>
             <li><a data-toggle="tab" href="#l">L</a></li>
-           
-            
+
+
         </ul>
-      
-       
+
+
         <div class="tab-content">
             <div id="ab" class="tab-pane fade in active">
                 <table>
                     <td style="vertical-align:top" colspan="2">
                         <div id="a">
-                        <h3>A: Date & Time of Occurrence</h3>
+                            <h3>A: Date & Time of Occurrence</h3>
                             <label for="a_inccidentDate">Date:</label>
                             <input type="date" id="a_inccidentDate" name="date" disabled>
-                        
+
                             <label for="a_inccidentTime" style="font-weight: bold;">Time:</label>
                             <input type="time" id="a_inccidentTime" name="time" disabled>
                             <br><br><br><br><br><br><br><br>
@@ -197,54 +208,62 @@
                         <div id="b">
                             <h3>B: Diagnosis - Related to Event</h3>
                             <div>
-                                <textarea id="b_diagnosis" name="diagnosis" rows="9" cols="100" style="resize: none;" disabled></textarea>
+                                <textarea id="b_diagnosis" name="diagnosis" rows="9" cols="100" style="resize: none;"
+                                    disabled></textarea>
                             </div>
                         </div>
                     </td>
                 </table>
-            </div>   
-            
+            </div>
+
             <div id="c" class="tab-pane fade">
                 <table>
-                    <td colspan="3"><h3>C: Particulars of Person Involved</h3></td>
-                   
+                    <td colspan="3">
+                        <h3>C: Particulars of Person Involved</h3>
+                    </td>
+
                     <tr>
-                        <td style="vertical-align:top"> 
+                        <td style="vertical-align:top">
                             <h4>Affected Person</h4>
-                            <input type="radio" value="Patient" name="c_affectedPerson" id="c_affectedPerson_patient" disabled>
+                            <input type="radio" value="Patient" name="c_affectedPerson" id="c_affectedPerson_patient"
+                                disabled>
                             <label for="c_affectedPerson_patient">Patient</label>
-                            <input type="radio" value="VisitorCaregiver" name="c_affectedPerson"  id="c_affectedPerson_visitorCaregiver" disabled>
+                            <input type="radio" value="VisitorCaregiver" name="c_affectedPerson"
+                                id="c_affectedPerson_visitorCaregiver" disabled>
                             <label for="c_affectedPerson_visitorCaregiver">Visitor / Caregiver</label>
-                            <input type="radio" value="Staff" name="c_affectedPerson"  id="c_affectedPerson_staff" disabled>
+                            <input type="radio" value="Staff" name="c_affectedPerson" id="c_affectedPerson_staff"
+                                disabled>
                             <label for="c_affectedPerson_staff">Staff</label>
                         </td>
                         <th rowspan="6"><br>
-                          
+
                             <h4>Patient / Affected Person's Particulars</h4>
-                     
+
                             <br><br>
-    
+
                             <label for="affectedName">Name:</label>
-                     
+
                             <input type="text" id="c_affectedName" name="affectedName" disabled><br><br>
-    
+
                             <label for="affectedNric">NRIC/FIN/Passport No:</label>
-                     
+
                             <input type="text" id="c_affectedNric" name="affectedNric" disabled><br><br>
-    
+
                             <label for="postal">Postal Address:</label>
-                     
+
                             <input type="text" id="c_affectedAddress" name="postal" disabled><br><br>
-                            
+
                             Sex:
-                            <input type="radio"  name="c_affectedGender" value="Male" id="c_affectedGender_Male" disabled>
+                            <input type="radio" name="c_affectedGender" value="Male" id="c_affectedGender_Male"
+                                disabled>
                             <label for="c_affectedGender">M</label>
-                            <input type="radio"  name="c_affectedGender" value="Female" id="c_affectedGender_Female" disabled>
+                            <input type="radio" name="c_affectedGender" value="Female" id="c_affectedGender_Female"
+                                disabled>
                             <label for="c_affectedGender">F</label><br><br>
-    
+
                             <label for="c_affectedContact">Contact Number:</label>
                             <input type="text" id="c_affectedContact" name="contact" disabled><br><br>
-    
+
                             <label for="c_affectedAge">Age:</label>
                             <input type="number" name="c_affectedAge" id="c_affectedAge" disabled><br><br>
 
@@ -257,18 +276,18 @@
                             <input type="text" name="c_affectedWing" id="c_affectedWing" disabled><br><br>
 
                             <label for="ward">Ward</label>
-                     
+
                             <input type="number" id="c_affectedWard" name="ward" disabled>
-    
+
                             <label for="bed">Bed</label>
-                     
+
                             <input type="number" id="c_affectedBed" name="bed" disabled>
-                         
+
                         </th>
-                
-                           
+
+
                     </tr>
-    
+
                     <tr>
                         <td>
                             <h4>Witness</h4>
@@ -283,61 +302,74 @@
                         </td>
                     </tr>
                 </table>
-            </div>       
+            </div>
             <div id="d" class="tab-pane fade">
                 <div>
                     <table>
-                        <td><h3>D: Location of Occurrence</h3></td>
-                        
+                        <td>
+                            <h3>D: Location of Occurrence</h3>
+                        </td>
+
                         <tr>
                             <th id="Category">Location</th>
                             <th id="Category">Site</th>
                         </tr>
                         <tr>
-                          <td>
-                            <div>
-                                <input type="radio" name="d_locationOccur" id="inward" value="inward" disabled><label for="inWard">In the Ward</label><br>
-                                <input type="radio" name="d_locationOccur" id="outward" value="outward" disabled><label for="outWard">Outside the Ward</label><br>
-                                <input type="radio" name="d_locationOccur" id="pharmacy" value="pharmacy" disabled><label for="pharmacy">Pharmacy</label><br>
-                                <input type="radio" name="d_locationOccur" id="out_hospital" value="out_hospital" disabled><label for="outHospital">Outside the Hospital</label><br>
-                            
-                            </div>
-                          </td>
-                          <td>
-                                <input type="radio" id="d_occurSite_Bed_Side" name="d_occurSite" value="bedside" disabled>
+                            <td>
+                                <div>
+                                    <input type="radio" name="d_locationOccur" id="inward" value="inward"
+                                        disabled><label for="inWard">In the Ward</label><br>
+                                    <input type="radio" name="d_locationOccur" id="outward" value="outward"
+                                        disabled><label for="outWard">Outside the Ward</label><br>
+                                    <input type="radio" name="d_locationOccur" id="pharmacy" value="pharmacy"
+                                        disabled><label for="pharmacy">Pharmacy</label><br>
+                                    <input type="radio" name="d_locationOccur" id="out_hospital" value="out_hospital"
+                                        disabled><label for="outHospital">Outside the Hospital</label><br>
+
+                                </div>
+                            </td>
+                            <td>
+                                <input type="radio" id="d_occurSite_Bed_Side" name="d_occurSite" value="bedside"
+                                    disabled>
                                 <label for="bedside">Bed side</label><br>
-                                <input type="radio" id="d_occurSite_cubicle" name="d_occurSite" value="cubicle" disabled>
+                                <input type="radio" id="d_occurSite_cubicle" name="d_occurSite" value="cubicle"
+                                    disabled>
                                 <label for="cubicle">Cubicle</label><br>
-                                <input type="radio" id="d_occurSite_corridor" name="d_occurSite" value="corridor" disabled>
+                                <input type="radio" id="d_occurSite_corridor" name="d_occurSite" value="corridor"
+                                    disabled>
                                 <label for="corridor">Corridor</label><br>
                                 <input type="radio" id="d_occurSite_toilet" name="d_occurSite" value="toilet" disabled>
                                 <label for="toilet">Toilet</label><br>
-                                <input type="radio" id="d_occurSite_therapyGym" name="d_occurSite" value="therapyGym" disabled>
+                                <input type="radio" id="d_occurSite_therapyGym" name="d_occurSite" value="therapyGym"
+                                    disabled>
                                 <label for="therapyGym">Therapy Gym</label><br>
-                                <input type="radio" id="d_occurSite_others" name="d_occurSite" value="SiteOthers" disabled>
+                                <input type="radio" id="d_occurSite_others" name="d_occurSite" value="SiteOthers"
+                                    disabled>
                                 <label for="SiteOthers">Others(Specify):
-                                <input type="text" id="siteOthersSpecify" name="SiteOthers" disabled>
+                                    <input type="text" id="siteOthersSpecify" name="SiteOthers" disabled>
                                 </label>
-                          </td>
-                          <td>
-                            <label for="d_occurWard">Ward:</label>
-                            <input type="text" name="d_occurWard" id="d_occurWard" disabled><br>
-                            <label for="d_occurWardWing">Ward Wing:</label>
-                            <input type="text" name="d_occurWardWing" id="d_occurWardWing" disabled><br>
-                            <label for="d_occurBed">Bed:</label>
-                            <input type="text" name="d_occurBed" id="d_occurBed" disabled><br>
-                        </td>
+                            </td>
+                            <td>
+                                <label for="d_occurWard">Ward:</label>
+                                <input type="text" name="d_occurWard" id="d_occurWard" disabled><br>
+                                <label for="d_occurWardWing">Ward Wing:</label>
+                                <input type="text" name="d_occurWardWing" id="d_occurWardWing" disabled><br>
+                                <label for="d_occurBed">Bed:</label>
+                                <input type="text" name="d_occurBed" id="d_occurBed" disabled><br>
+                            </td>
                         </tr>
-                        
-                      </table>                      
-            
+
+                    </table>
+
                 </div>
             </div>
             <div id="e" class="tab-pane fade">
                 <div>
                     <table>
-                        
-                        <td><h3>E: Time of Notification</h3></td>
+
+                        <td>
+                            <h3>E: Time of Notification</h3>
+                        </td>
                         <tr>
                             <th>
                                 <input type="checkbox" name="e_notifyDoc" id="e_notifyDoc" value="e_notifyDoc" disabled>
@@ -348,11 +380,13 @@
                                 <label for="e_notifySup" style="font-weight: bold">Supervisor</label>
                             </th>
                             <th>
-                                <input type="checkbox" name="e_notifyPolice" id="e_notifyPolice" value="e_notifyPolice" disabled>
+                                <input type="checkbox" name="e_notifyPolice" id="e_notifyPolice" value="e_notifyPolice"
+                                    disabled>
                                 <label for="e_notifyPolice" style="font-weight: bold">Police</label>
                             </th>
                             <th>
-                                <input type="checkbox" name="e_notifyRelative" id="e_notifyRelative" value="e_notifyRelative" disabled>
+                                <input type="checkbox" name="e_notifyRelative" id="e_notifyRelative"
+                                    value="e_notifyRelative" disabled>
                                 <label for="e_notifyRelative" style="font-weight: bold">Relative</label>
                             </th>
                         </tr>
@@ -362,7 +396,7 @@
                                 <input type="datetime-local" id="doctorTime" name="doctorTime" disabled><br>
                                 <label for="doctorName">Doctor Name:</label>
                                 <input type="text" name="doctorName" id="doctorName" disabled>
-                              
+
                             </td>
                             <td>
                                 <label for="supervisorTime">Supervisor Time:</label>
@@ -371,34 +405,40 @@
                                 <input type="text" id="supervisorName" name="supervisorName" disabled>
                             </td>
                             <td>
-                           
+
                                 <label for="policeTime">Police Time:</label>
                                 <input type="datetime-local" id="policeTime" name="policeTime" disabled><br>
                                 <label for="policeName">Police Name:</label>
                                 <input type="text" id="policeName" name="policeName" disabled>
-                            
+
                             </td>
                             <td>
-                            
+
                                 <label for="relativeTime">Relative Time:</label>
                                 <input type="datetime-local" id="relativeTime" name="relativeTime" disabled><br>
                                 <label for="relativeName">Relative Name:</label>
                                 <input type="text" id="relativeName" name="relativeName" disabled>
                             </td>
-                      </table>
+                    </table>
                 </div>
             </div>
             <div id="f" class="tab-pane fade">
                 <table>
-                    <td colspan="3"><h3>F: Type of Occurrence</h3></td>
+                    <td colspan="3">
+                        <h3>F: Type of Occurrence</h3>
+                    </td>
                     <tr>
-                      <th><input type="radio" name="occurType" id="occurTypeFall" value="fall" disabled><label for="occurTypeFall"> Fall Related</label></th>
-                      <th><input type="radio" name="occurType" id="occurTypeMed" value="medication" disabled><label for="occurTypeMed"> Medication Related</label></th>
-                      <th><input type="radio" name="occurType" id="occurTypeOther" value="other" disabled><label for="occurTypeOther"> Other Incidents</label></th>
+                        <th><input type="radio" name="occurType" id="occurTypeFall" value="fall" disabled><label
+                                for="occurTypeFall"> Fall Related</label></th>
+                        <th><input type="radio" name="occurType" id="occurTypeMed" value="medication" disabled><label
+                                for="occurTypeMed"> Medication Related</label></th>
+                        <th><input type="radio" name="occurType" id="occurTypeOther" value="other" disabled><label
+                                for="occurTypeOther"> Other Incidents</label></th>
                     </tr>
                     <tr>
-                        <td> 
-                            <input type="radio" id="fall_non_injury" name="fallRelated" value="fall_non_injury" disabled>
+                        <td>
+                            <input type="radio" id="fall_non_injury" name="fallRelated" value="fall_non_injury"
+                                disabled>
                             <label for="fall_non_injury">Fall (Non-Injury)</label>
                             <input type="radio" id="near_fall" name="fallRelated" value="near_fall" disabled>
                             <label for="near_fall">Near Fall</label><br>
@@ -418,7 +458,7 @@
                             <label for="mr_others">Others(Specify):</label>
                             <input type="text" id="MROthersSpecify" name="MROthersSpecify" disabled><br><br>
                             <br><br><br><br>
-            
+
                             <label for="drugInvolved">Drug Involved:</label>
                             <input type="text" id="drugInvolved" name="drugInvolved" disabled>
                             <br><br>Error reached patient:
@@ -428,7 +468,8 @@
                             <label for="No">No</label><br>
                         </th>
                         <th rowspan="6">Types of Error<br>
-                            <input type="radio" id="InjuryUnrelatedToFall" name="OI_typeOfError" value="InjuryUnrelatedToFall" disabled>
+                            <input type="radio" id="InjuryUnrelatedToFall" name="OI_typeOfError"
+                                value="InjuryUnrelatedToFall" disabled>
                             <label for="InjuryUnrelatedToFall">Injury unrelated to fall</label><br>
                             <input type="radio" id="treatment" name="OI_typeOfError" value="treatment" disabled>
                             <label for="treatment">Treatment Related</label><br>
@@ -442,26 +483,27 @@
                             <label for="needle-stick">Needle-stick Injury</label><br>
                             <input type="radio" id="otherIncident" name="OI_typeOfError" value="otherIncident" disabled>
                             <label for="otherIncident">Other Incident</label><br><br><br><br><br><br>
-            
+
                             <label for="details">Details(Specify):</label>
                             <input type="text" id="OI_details" name="details" disabled><br><br>
-            
-                           
+
+
                         </th>
                     </tr>
                     <tr>
                         <td>
                             <input type="radio" id="fall_injury" name="fallRelated" value="fall_injury" disabled>
                             <label for="fall_injury">Fall (Injury)</label>
-                            <input type="radio" id="near_fall_injury" name="fallRelated" value="near_fall_injury" disabled>
-                        <label for="near_fall_injury">Near Fall (Injury)</label><br>
+                            <input type="radio" id="near_fall_injury" name="fallRelated" value="near_fall_injury"
+                                disabled>
+                            <label for="near_fall_injury">Near Fall (Injury)</label><br>
                         </td>
-                       
+
                     </tr>
                     <tr>
                         <td id="Injury">Injury</td>
-                     
-                    </tr> 
+
+                    </tr>
                     <tr>
                         <td>
                             <input type="checkbox" id="Fracture" name="typeOfInjury" value="Fracture" disabled>
@@ -474,33 +516,38 @@
                             <label for="Hematoma">Hematoma</label><br>
                             <input type="checkbox" id="HeadInjury" name="typeOfInjury" value="HeadInjury" disabled>
                             <label for="HeadInjury">Head Injury</label>
-                            <input type="checkbox" id="BruiseSwelling" name="typeOfInjury" value="BruiseSwelling" disabled>
+                            <input type="checkbox" id="BruiseSwelling" name="typeOfInjury" value="BruiseSwelling"
+                                disabled>
                             <label for="BruiseSwelling">Bruise / Swelling</label><br>
                             <input type="checkbox" id="OtherInjury" name="typeOfInjury" value="OtherInjury" disabled>
                             <label for="OtherInjury">Others:</label>
                             <input type="text" name="injuryOthersSpecify" id="injuryOthersSpecify" disabled>
-                            
+
                         </td>
-                      
+
                     </tr>
                     <tr>
                         <td>
                             Fall Risk Assessment Admit:
                             <input type="radio" id="fallRiskAssAdmitLow" name="fallRiskAssAdmit" value="Low" disabled>
                             <label for="fallRiskAssAdmitLow">Low</label>
-                            <input type="radio" id="fallRiskAssAdmitModerate" name="fallRiskAssAdmit" value="Moderate" disabled>
+                            <input type="radio" id="fallRiskAssAdmitModerate" name="fallRiskAssAdmit" value="Moderate"
+                                disabled>
                             <label for="fallRiskAssAdmitModerate">Moderate</label>
                             <input type="radio" id="fallRiskAssAdmitHigh" name="fallRiskAssAdmit" value="High" disabled>
                             <label for="fallRiskAssAdmitHigh">High</label><br>
 
                             Fall Risk Assessment:
-                            <input type="radio" id="fallRiskAssessmentLow" name="fallRiskAssessment" value="Low" disabled>
+                            <input type="radio" id="fallRiskAssessmentLow" name="fallRiskAssessment" value="Low"
+                                disabled>
                             <label for="fallRiskAssessmentLow">Low</label>
-                            <input type="radio" id="fallRiskAssessmentModerate" name="fallRiskAssessment" value="Moderate" disabled>
+                            <input type="radio" id="fallRiskAssessmentModerate" name="fallRiskAssessment"
+                                value="Moderate" disabled>
                             <label for="fallRiskAssessmentModerate">Moderate</label>
-                            <input type="radio" id="fallRiskAssessmentHigh" name="fallRiskAssessment" value="High" disabled>
+                            <input type="radio" id="fallRiskAssessmentHigh" name="fallRiskAssessment" value="High"
+                                disabled>
                             <label for="fallRiskAssessmentHigh">High</label><br>
-            
+
                             History of Falls:
                             <input type="radio" id="historyOfFallsYes" name="historyOfFalls" value="Yes" disabled>
                             <label for="historyOfFallsYes">Yes</label>
@@ -514,168 +561,198 @@
                             <label for="assistedFall">Assisted</label>
                             <input type="radio" id="unassistedFall" name="assistedFall" value="Unassisted" disabled>
                             <label for="unassistedFall">Unassisted</label>
-            
-                           
+
+
                             <label for="AMT"> AMT:</label>
                             <input type="text" id="AMT" name="AMT" disabled>/10<br><br>
-            
+
                         </td>
-                    
+
                     </tr>
                 </table>
             </div>
             <div id="g" class="tab-pane fade">
                 <table>
-                   
+
                     <table rowspan="3" colspan="3">
                         <tr>
-                            <th><h3>G: Description on Occurrence</h3></th>
-                    
+                            <th>
+                                <h3>G: Description on Occurrence</h3>
+                            </th>
+
                         </tr>
-                        
+
                         <tr style="vertical-align:top">
                             <th rowspan="2">
-                            
+
                                 <br>
                                 <span>Situation</span><br>
-                                <textarea id="g_situation" name="g_situation" rows="9" cols="100" style="resize: none;" disabled></textarea>
+                                <textarea id="g_situation" name="g_situation" rows="9" cols="100" style="resize: none;"
+                                    disabled></textarea>
                                 <br>
                                 <span>Background</span><br>
-                                <textarea id="g_background" name="g_background" rows="9" cols="100" style="resize: none;" disabled></textarea>
+                                <textarea id="g_background" name="g_background" rows="9" cols="100"
+                                    style="resize: none;" disabled></textarea>
                                 <br>
                                 <span>Action</span><br>
-                                <textarea id="g_action" name="g_action" rows="9" cols="100" style="resize: none;" disabled></textarea>
+                                <textarea id="g_action" name="g_action" rows="9" cols="100" style="resize: none;"
+                                    disabled></textarea>
                                 <br>
                                 <span>Recommend</span><br>
-                                <textarea id="g_recommend" name="g_recommend" rows="9" cols="100" style="resize: none;" disabled></textarea>
+                                <textarea id="g_recommend" name="g_recommend" rows="9" cols="100" style="resize: none;"
+                                    disabled></textarea>
                                 <br>
                                 <span>Description</span><br>
-                                <textarea id="g_description" name="g_description" rows="9" cols="100" style="resize: none;" disabled></textarea>
+                                <textarea id="g_description" name="g_description" rows="9" cols="100"
+                                    style="resize: none;" disabled></textarea>
                             </th>
                         </tr>
-             
-                     
+
+
                     </table>
-                  
+
                 </table>
 
             </div>
             <div id="h" class="tab-pane fade">
                 <table>
-                   
+
                     <table rowspan="3" colspan="3">
                         <tr>
-                            <th><h3>H: Supervisor</h3></th>
-                    
+                            <th>
+                                <h3>H: Supervisor</h3>
+                            </th>
+
                         </tr>
-               
-        
-                            <td>
-                                <br>
-                                <label for="h_sp_factors">Contributing / Mitigating Factors:</label>
-                                <input type="text" id="h_sp_factors" name="h_sp_factors" disabled><br><br>
-                                <label for="h_sp_recommend">Recommendations:</label>
-                                <input type="text" id="h_sp_recommend" name="h_sp_recommend" disabled><br><br>
-                                <!-- <input type="file" id="h_sp_reportFile" name="h_sp_reportFile"> -->
-                                <br><br>
-                                <!-- <label for="date">Date:</label>
+
+
+                        <td>
+                            <br>
+                            <label for="h_sp_factors">Contributing / Mitigating Factors:</label>
+                            <input type="text" id="h_sp_factors" name="h_sp_factors" disabled><br><br>
+                            <label for="h_sp_recommend">Recommendations:</label>
+                            <input type="text" id="h_sp_recommend" name="h_sp_recommend" disabled><br><br>
+                            <!-- <input type="file" id="h_sp_reportFile" name="h_sp_reportFile"> -->
+                            <br><br>
+                            <!-- <label for="date">Date:</label>
                                 <input type="date" id="date" name="date" disabled>
                                 
                                 <label for="Time" style="font-weight: bold;" disabled>Time</label>
                                 <input type="time" id="time" name="time"> -->
-    
-    
-    
-                            </td>
-                      
+
+                            <span class="uploaded_image">
+                                <!-- <img src="../images/" alt=""> -->
+                            </span>
+
+                        </td>
+
                     </table>
-              
+
             </div>
-         
+
             <div id="i" class="tab-pane fade">
                 <table>
                     <tr>
-                        <th><h3>I: Doctor's Medical Report/ Follow-Up Report</h3></th>
-                        
+                        <th>
+                            <h3>I: Doctor's Medical Report/ Follow-Up Report</h3>
+                        </th>
+
                     </tr>
-                    
+
                     <tr style="vertical-align:top">
                         <th rowspan="2"><br>
-                            
+
                             <span>Report</span><br>
-                            <textarea id="i_dt_report" name="i_dt_report" rows="9" cols="100" style="resize: none;" disabled></textarea>
+                            <textarea id="i_dt_report" name="i_dt_report" rows="9" cols="100" style="resize: none;"
+                                disabled></textarea>
                             <!-- <input type="file" id="i_dt_reportFile" name="i_dt_reportFile"> -->
+                            <span id="doc_uploaded_image">
+                                <!-- <img src="../images/" alt=""> -->
+                            </span>
                         </th>
                     </tr>
-            
-            
-                
+
+
+
                 </table>
             </div>
 
             <div id="j" class="tab-pane fade">
                 <table>
-                <tr>
-            
-                    <th><h3>J: Pharmacy's Comments (For Medication Related Hor)</h3></th>
-                </tr>
-            
-                <tr>
-                    <td colspan="4">
-                        <label for="j_ph_comments">Comments:</label><br>
-                        <textarea id="j_ph_comments" name="j_ph_comments" rows="9" cols="100" style="resize: none;" disabled></textarea><br>
-                        Direct Result of Error to Patient:<br>
-                        <input type="radio" id="j_ph_result_no_harm" name="j_ph_result" value="no_harm" disabled>
-                        <label for="j_ph_result_no_harm">No Patient Harm Caused</label><br>
-                        <input type="radio" id="j_ph_result_monitoring" name="j_ph_result" value="monitoring" disabled>
-                        <label for="j_ph_result_monitoring">Patient Monitoring or Observation Required</label><br>
-                        <input type="radio" id="j_ph_result_intervention" name="j_ph_result" value="intervention" disabled>
-                        <label for="j_ph_result_intervention">Medical Intervention(s) required</label><br>
-                        <input type="radio" id="j_ph_result_transferred" name="j_ph_result" value="transferred" disabled>
-                        <label for="j_ph_result_transferred">Patient was transferred out</label><br>
-                        <input type="radio" id="j_ph_result_near_death" name="j_ph_result" value="near_death" disabled>
-                        <label for="j_ph_result_near_death">Near Death event/Death</label><br>
-                        Error Phase:
-                        <input type="radio" id="j_ph_phase_prescribing" name="j_ph_phase" value="prescribing" disabled>
-                        <label for="j_ph_phase_prescribing">Prescribing</label>
-                        <input type="radio" id="j_ph_phase_dispensing" name="j_ph_phase" value="dispensing" disabled>
-                        <label for="j_ph_phase_dispensing">Dispensing</label>
-                        <input type="radio" id="j_ph_phase_administering" name="j_ph_phase" value="administering" disabled>
-                        <label for="j_ph_phase_administering">Administering</label><br>
-                        
-                        <h3>Error Index:</h3>
-                        <input type="radio" id="j_ph_index_A" name="j_ph_index" value="A" disabled>
-                        <label for="j_ph_index_A">A</label>
-                        <input type="radio" id="j_ph_index_B" name="j_ph_index" value="B" disabled>
-                        <label for="j_ph_index_B">B</label>
-                        <input type="radio" id="j_ph_index_C" name="j_ph_index" value="C" disabled>
-                        <label for="j_ph_index_C">C</label>
-                        <input type="radio" id="j_ph_index_D" name="j_ph_index" value="D" disabled>
-                        <label for="j_ph_index_D">D</label>
-                        <input type="radio" id="j_ph_index_Other" name="j_ph_index" value="Others" disabled>
-                        <label for="j_ph_index_Other">Others:</label>
-                        <input type="text" id="j_ph_index_otherSpec" disabled>
-                        <br>
-                    </td>
-                    
-                    
+                    <tr>
+
+                        <th>
+                            <h3>J: Pharmacy's Comments (For Medication Related Hor)</h3>
+                        </th>
                     </tr>
-                
+
+                    <tr>
+                        <td colspan="4">
+                            <label for="j_ph_comments">Comments:</label><br>
+                            <textarea id="j_ph_comments" name="j_ph_comments" rows="9" cols="100" style="resize: none;"
+                                disabled></textarea><br>
+                            Direct Result of Error to Patient:<br>
+                            <input type="radio" id="j_ph_result_no_harm" name="j_ph_result" value="no_harm" disabled>
+                            <label for="j_ph_result_no_harm">No Patient Harm Caused</label><br>
+                            <input type="radio" id="j_ph_result_monitoring" name="j_ph_result" value="monitoring"
+                                disabled>
+                            <label for="j_ph_result_monitoring">Patient Monitoring or Observation Required</label><br>
+                            <input type="radio" id="j_ph_result_intervention" name="j_ph_result" value="intervention"
+                                disabled>
+                            <label for="j_ph_result_intervention">Medical Intervention(s) required</label><br>
+                            <input type="radio" id="j_ph_result_transferred" name="j_ph_result" value="transferred"
+                                disabled>
+                            <label for="j_ph_result_transferred">Patient was transferred out</label><br>
+                            <input type="radio" id="j_ph_result_near_death" name="j_ph_result" value="near_death"
+                                disabled>
+                            <label for="j_ph_result_near_death">Near Death event/Death</label><br>
+                            Error Phase:
+                            <input type="radio" id="j_ph_phase_prescribing" name="j_ph_phase" value="prescribing"
+                                disabled>
+                            <label for="j_ph_phase_prescribing">Prescribing</label>
+                            <input type="radio" id="j_ph_phase_dispensing" name="j_ph_phase" value="dispensing"
+                                disabled>
+                            <label for="j_ph_phase_dispensing">Dispensing</label>
+                            <input type="radio" id="j_ph_phase_administering" name="j_ph_phase" value="administering"
+                                disabled>
+                            <label for="j_ph_phase_administering">Administering</label><br>
+
+                            <h3>Error Index:</h3>
+                            <input type="radio" id="j_ph_index_A" name="j_ph_index" value="A" disabled>
+                            <label for="j_ph_index_A">A</label>
+                            <input type="radio" id="j_ph_index_B" name="j_ph_index" value="B" disabled>
+                            <label for="j_ph_index_B">B</label>
+                            <input type="radio" id="j_ph_index_C" name="j_ph_index" value="C" disabled>
+                            <label for="j_ph_index_C">C</label>
+                            <input type="radio" id="j_ph_index_D" name="j_ph_index" value="D" disabled>
+                            <label for="j_ph_index_D">D</label>
+                            <input type="radio" id="j_ph_index_Other" name="j_ph_index" value="Others" disabled>
+                            <label for="j_ph_index_Other">Others:</label>
+                            <input type="text" id="j_ph_index_otherSpec" disabled>
+                            <br>
+                        </td>
+
+
+                    </tr>
+
                 </table>
-          
+
             </div>
 
             <div id="k" class="tab-pane fade">
-                
+
                 <table>
                     <tr>
-                        <th><h3>K: Head Of Department Comments</h3></th>
+                        <th>
+                            <h3>K: Head Of Department Comments</h3>
+                        </th>
                     </tr>
                     <tr>
                         <td>
-                        <br>
-                        Comments:<br>
-                        <textarea id="k_hod_comments" name="k_hod_comments" rows="9" cols="100" style="resize: none;" disabled></textarea><br>
+                            <br>
+                            Comments:<br>
+                            <textarea id="k_hod_comments" name="k_hod_comments" rows="9" cols="100"
+                                style="resize: none;" disabled></textarea><br>
                         </td>
                     </tr>
 
@@ -686,21 +763,24 @@
             <div id="l" class="tab-pane fade">
                 <table>
                     <tr>
-                        <th><h3>L: Healthcare Performance Office Comments</h3></th>
+                        <th>
+                            <h3>L: Healthcare Performance Office Comments</h3>
+                        </th>
                     </tr>
                     <tr>
                         <td>
                             <form id="hpo_form" method="post" enctype="multipart/form-data">
                                 <br>
                                 Comments:<br>
-                                <textarea id="l_hpo_comments" name="l_hpo_comments" rows="9" cols="100" style="resize: none;" ></textarea><br>
+                                <textarea id="l_hpo_comments" name="l_hpo_comments" rows="9" cols="100"
+                                    style="resize: none;"></textarea><br>
                                 <br>
                                 Fall Injury outcome:
-                                <input type="radio" id="l_hpo_outcome_minor" name="l_hpo_outcome" value="minor" >
+                                <input type="radio" id="l_hpo_outcome_minor" name="l_hpo_outcome" value="minor">
                                 <label for="l_hpo_outcome_minor">Minor</label>
-                                <input type="radio" id="l_hpo_outcome_moderate" name="l_hpo_outcome" value="moderate" >
+                                <input type="radio" id="l_hpo_outcome_moderate" name="l_hpo_outcome" value="moderate">
                                 <label for="l_hpo_outcome_moderate">Moderate</label>
-                                <input type="radio" id="l_hpo_outcome_major" name="l_hpo_outcome" value="major" >
+                                <input type="radio" id="l_hpo_outcome_major" name="l_hpo_outcome" value="major">
                                 <label for="l_hpo_outcome_major">Major</label>
                             </form>
                         </td>
@@ -732,4 +812,5 @@
         <h6>© 2021 Ang Mo Kio - Thye Hua Kwan Hospital. All rights reserved.</h6>
     </div>
 </body>
+
 </html>
