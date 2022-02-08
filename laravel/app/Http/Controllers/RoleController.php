@@ -95,7 +95,7 @@ class RoleController extends Controller
         );
         $result = Hor::insert(
             [
-                'rs_id' => JWTAuth::user()->staff_id,
+                // 'rs_id' => JWTAuth::user()->staff_id,
                 'a_inccidentDate' => $request->a_inccidentDate,
                 'a_inccidentTime' => $request->a_inccidentTime,
                 'b_diagnosis' => $request->b_diagnosis,
@@ -155,26 +155,28 @@ class RoleController extends Controller
                 'g_recommend' => $request->g_recommend,
                 'g_description' => $request->g_description,
                 'rs_submit_datetime' => $request->rs_submit_datetime,
-                // 'rs_id' => $request->rs_id,
-                // 'status_sup' => $request->status_sup,
-                // 'sp_id' => $request->sp_id,
-                // 'status_doc' => $request->status_doc,
-                // 'dt_id' => $request->dt_id,
-                // 'completion_status' => $request->completion_status,
-                // 'created_at' => $request->created_at
+                'rs_id' => $request->rs_id,
+                'status_sup' => $request->status_sup,
+                'sp_id' => $request->sp_id,
+                'status_doc' => $request->status_doc,
+                'dt_id' => $request->dt_id,
+                'status_pha' => $request->status_pha,
+                'ph_id' => $request->ph_id,
+                'completion_status' => $request->completion_status,
+                'created_at' => $request->created_at
             ]
         );
-        if($request->has('horNum')){
+        if ($request->has('horNum')) {
             $createdId = DB::getPdo()->lastInsertId();
             $horNum = Hor::where('id', $createdId)->update([
-                'horNum' => $request->horNum.$createdId
+                'horNum' => $request->horNum . $createdId
             ]);
-    }else{
-        $createdId = DB::getPdo()->lastInsertId();
-        $horNum = Hor::where('id', $createdId)->update([
-            'horNum' => 'HOR'.$createdId
-        ]);
-    }
+        } else {
+            $createdId = DB::getPdo()->lastInsertId();
+            $horNum = Hor::where('id', $createdId)->update([
+                'horNum' => 'HOR' . $createdId
+            ]);
+        }
 
         if ($result) {
             return response()->json([
@@ -193,7 +195,7 @@ class RoleController extends Controller
         }
     }
 
-    
+
 
     public function staffSave($horNum, Request $request)
     {
@@ -261,6 +263,7 @@ class RoleController extends Controller
                 'g_description' => $request->g_description,
                 'save_date_rps' => $date,
                 'status_rps' => 'saved',
+                'updated_at' => $request->updated_at
             ]);
         } else if (JWTAuth::user()->role == 'sup') {
             $updateData = Hor::where('horNum', $horNum)->update([
@@ -365,11 +368,10 @@ class RoleController extends Controller
                     'status_sup' => 'submitted',
                 ]);
                 $extension = $request->file('h_sp_reportFile')->getClientOriginalExtension();
-                if($extension = 'pdf'){
-                    $uploadedfile = '<iframe src="../images/uploaded/'.$input['h_sp_reportFile'].'" width="100%" height="500px"></iframe>';
-                }
-                else{
-                $uploadedfile = '<img src="../images/uploaded/'.$input['h_sp_reportFile'].'"/>';
+                if ($extension = 'pdf') {
+                    $uploadedfile = '<iframe src="../images/uploaded/' . $input['h_sp_reportFile'] . '" width="100%" height="500px"></iframe>';
+                } else {
+                    $uploadedfile = '<img src="../images/uploaded/' . $input['h_sp_reportFile'] . '"/>';
                 }
                 if ($addToRecord) {
                     return response()->json([
@@ -381,7 +383,7 @@ class RoleController extends Controller
                         'extension' => $extension
                     ]);
                 }
-            }else{
+            } else {
                 return response()->json([
                     'success' => false,
                     'msg' => 'File can only be in pdf,jpg,jpeg or png format'
@@ -419,11 +421,10 @@ class RoleController extends Controller
                 ]);
 
                 $extension = $request->file('i_dt_reportFile')->getClientOriginalExtension();
-                if($extension = 'pdf'){
-                    $uploadedfile = '<iframe src="../images/uploaded/'.$input['i_dt_reportFile'].'" width="100%" height="500px"></iframe>';
-                }
-                else{
-                $uploadedfile = '<img src="../images/uploaded/'.$input['i_dt_reportFile'].'"/>';
+                if ($extension = 'pdf') {
+                    $uploadedfile = '<iframe src="../images/uploaded/' . $input['i_dt_reportFile'] . '" width="100%" height="500px"></iframe>';
+                } else {
+                    $uploadedfile = '<img src="../images/uploaded/' . $input['i_dt_reportFile'] . '"/>';
                 }
 
                 return response()->json([
@@ -432,7 +433,7 @@ class RoleController extends Controller
                     'uploaded_image' => $uploadedfile,
                     'data' => $addToRecord
                 ]);
-            }else{
+            } else {
                 return response()->json([
                     'success' => false,
                     'msg' => 'File can only be in pdf,jpg,jpeg or png format'
@@ -552,13 +553,13 @@ class RoleController extends Controller
 
     public function getNamesByRole(Request $request)
     {
-        $rps = User::where('role','rps')->get();
-        $sup = User::where('role','sup')->get();
-        $doc = User::where('role','doc')->get();
-        $pha = User::where('role','pha')->get();
-        $hod = User::where('role','hod')->get();
-        $hpo = User::where('role','hpo')->get();
-        $dms = User::where('role','dms')->get();
+        $rps = User::where('role', 'rps')->get();
+        $sup = User::where('role', 'sup')->get();
+        $doc = User::where('role', 'doc')->get();
+        $pha = User::where('role', 'pha')->get();
+        $hod = User::where('role', 'hod')->get();
+        $hpo = User::where('role', 'hpo')->get();
+        $dms = User::where('role', 'dms')->get();
 
         return response()->json([
             'rps' => $rps,
@@ -575,14 +576,14 @@ class RoleController extends Controller
     {
         $date = Carbon::now();
         $date->toDateTimeString();
-        
+
         $updateData = Hor::where('horNum', $horNum)->update([
             'completion_status' => 'Void',
             'updated_at' => $date,
             'void' => 'yes',
             'void_reason' => $request->void_reason
         ]);
-        
+
         if ($updateData) {
             return response()->json([
                 'code' => 200,
