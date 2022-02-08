@@ -20,7 +20,7 @@ class horController extends Controller
     {
         $Hors = Hor::all();
         return response()->json([
-            'Hors'=>$Hors,
+            'Hors' => $Hors,
         ]);
     }
 
@@ -29,25 +29,59 @@ class horController extends Controller
         $id = JWTAuth::user()->staff_id;
         $role = JWTAuth::user()->role;
         if ($role == 'rps') {
-            $Hors = Hor::where('rs_id', $id)->get();      
+            $Hors = Hor::where('rs_id', $id)
+                ->where(function ($query) {
+                    $query->where('rs_submit_datetime', null);
+                    $query->orWhere('hor_formstatus', 'returned');
+                })->get();
+            // $Hors = Hor::where('rs_id', $id)->get();      
         } else  if ($role == 'sup') {
-            $Hors = Hor::where('sp_id', $id)->get();
+            $Hors = Hor::where('sp_id', $id)
+                ->where(function ($query) {
+                    $query->where('sp_submit_datetime', null);
+                    $query->orWhere('hor_formstatus', 'returned');
+                })->get();
+            //$Hors = Hor::where('sp_id', $id)->get();
         } else if ($role == 'doc') {
-            $Hors = Hor::where('dt_id', $id)->get();
-        } else  if ($role =='pha') {
-            $Hors = Hor::where('ph_id', $id)->get();
+            $Hors = Hor::where('dt_id', $id)
+                ->where(function ($query) {
+                    $query->where('dt_submit_datetime', null);
+                    $query->orWhere('hor_formstatus', 'returned');
+                })->get();
+            // $Hors = Hor::where('dt_id', $id)->get();
+        } else  if ($role == 'pha') {
+            $Hors = Hor::where('ph_id', $id)
+                ->where(function ($query) {
+                    $query->where('ph_submit_datetime', null);
+                    $query->orWhere('hor_formstatus', 'returned');
+                })->get();
+            // $Hors = Hor::where('ph_id', $id)->get();
         } else if ($role == 'hod') {
-            $Hors = Hor::where('hod_id', $id)->get(); 
+            $Hors = Hor::where('hod_id', $id)
+                ->where(function ($query) {
+                    $query->where('hod_submit_datetime', null);
+                    $query->orWhere('hor_formstatus', 'returned');
+                })->get();
+            // $Hors = Hor::where('hod_id', $id)->get();
         } else  if ($role == 'hpo') {
-            $Hors = Hor::where('hpo_id', $id)->get();
+            $Hors = Hor::where('hpo_id', $id)
+                ->where(function ($query) {
+                    $query->where('hpo_submit_datetime', null);
+                    $query->orWhere('hor_formstatus', 'returned');
+                })->get();
+            // $Hors = Hor::where('hpo_id', $id)->get();
         } else  if ($role == 'dms') {
-            $Hors = Hor::where('dms_id', $id)->get();
+            $Hors = Hor::where('dms_id', $id)
+                ->where(function ($query) {
+                    $query->where('dms_submit_datetime', null);
+                    $query->orWhere('hor_formstatus', 'returned');
+                })->get();
+            // $Hors = Hor::where('dms_id', $id)->get();
         }
         return response()->json([
-            'Hors'=>$Hors,
+            'Hors' => $Hors,
         ]);
     }
-
     public function getReports()
     {
         $id = JWTAuth::user()->staff_id;
@@ -76,47 +110,46 @@ class horController extends Controller
     }
 
     //need to look at this again
-    public function returnReport($horNum,Request $request)
+    public function returnReport($horNum, Request $request)
     {
         //if(JWTAuth::user()->role != 'rps'){
         //$route_to = $request->route_to;
         $reason = $request->hor_formstatus_reason;
         $date = Carbon::now();
         $date->toDateTimeString();
-        $report = Hor::where('horNum',$horNum)->update([
+        $report = Hor::where('horNum', $horNum)->update([
             'hor_formstatus_reason' => $reason, //using void_reason column for now //add new column to database?
             'hor_formstatus' => 'return',
             'route_date_rps' => $date,
             'status_rps' => 'returned'
         ]);
         return response()->json([
-            'success'=>'true',
-            'msg'=>'Returned report to staff',
-            'reason'=>$reason,
-            'report'=>$report
+            'success' => 'true',
+            'msg' => 'Returned report to staff',
+            'reason' => $reason,
+            'report' => $report
         ]);
-    // }else{
-    //     return response()->json([
-    //         'msg'=>'You are not authorized to perform this action.'
-    //     ],401);
-    // }
+        // }else{
+        //     return response()->json([
+        //         'msg'=>'You are not authorized to perform this action.'
+        //     ],401);
+        // }
     }
 
-    public function removeReport($horNum){
+    public function removeReport($horNum)
+    {
         $report = Hor::where('horNum', $horNum)->first();
-        $result=$report->delete();
-        if($result){
+        $result = $report->delete();
+        if ($result) {
             return response()->json([
-                'success'=>'true',
-                'msg'=>'Report successfully deleted!',
+                'success' => 'true',
+                'msg' => 'Report successfully deleted!',
+            ]);
+        } else {
+            return response()->json([
+                'success' => 'false',
+                'msg' => 'Failed to delete report',
             ]);
         }
-        else{
-            return response()->json([
-                'success'=>'false',
-                'msg'=>'Failed to delete report',
-            ]);
-        }
-        
     }
 }
