@@ -1,8 +1,8 @@
 
-$(document).ready(function () {
-  let getId = new URLSearchParams(window.location.search);
+// $(document).ready(function () {
+//   let getId = new URLSearchParams(window.location.search);
 
-  $(document).ready(function () {
+$(document).ready(function () {
     let gethorNum = new URLSearchParams(window.location.search);
 
     if (gethorNum.has('horNum')) {
@@ -10,25 +10,25 @@ $(document).ready(function () {
         $.ajax({
             method: "GET",
             url: "/THKH/laravel/api/report/" + horNum,
-            headers: {Authorization: 'Bearer ' + sessionStorage.getItem("jwt")},
+            headers: { Authorization: 'Bearer ' + sessionStorage.getItem("jwt") },
         }).done(
             function (data) {
                 data = data.report;
                 console.log(data);
                 document.getElementById("a_inccidentDate").value = data.a_inccidentDate;
                 document.getElementById("a_inccidentTime").value = data.a_inccidentTime;
-    
+
                 document.getElementById("b_diagnosis").value = data.b_diagnosis;
-    
-                if (data.c_affectedPerson ) {
-                    document.getElementById("c_affectedPerson_"+data.c_affectedPerson).checked = true;
+
+                if (data.c_affectedPerson) {
+                    document.getElementById("c_affectedPerson_" + data.c_affectedPerson).checked = true;
                 }
                 document.getElementById("c_affectedName").value = data.c_affectedName;
                 document.getElementById("c_affectedNric").value = data.c_affectedNrie;
                 document.getElementById("c_affectedAddress").value = data.c_affectedAddress;
                 if (data.c_affectedGender != null && data.c_affectedGender != '') {
-                    document.getElementById("c_affectedGender_"+data.c_affectedGender).checked = true;
-                }     
+                    document.getElementById("c_affectedGender_" + data.c_affectedGender).checked = true;
+                }
                 document.getElementById("c_affectedContact").value = data.c_affectedContact;
                 document.getElementById("c_affectedAge").value = data.c_affectedAge;
                 document.getElementById("c_affectedAdmitDate").value = data.c_affectedAdmitDate;
@@ -39,18 +39,18 @@ $(document).ready(function () {
                 document.getElementById("c_witnessNrie").value = data.c_witnessNrie;
                 document.getElementById("c_witnessName").value = data.c_witnessName;
                 document.getElementById("c_witnessContact").value = data.c_witnessContact;
-    
+
                 if (data.d_locationOccur != null && data.d_locationOccur != '') {
                     document.getElementById(data.d_locationOccur).checked = true;
                 }
                 if (data.d_occurSite != null && data.d_occurSite != '') {
-                    document.getElementById("d_occurSite_"+data.d_occurSite).checked = true;
+                    document.getElementById("d_occurSite_" + data.d_occurSite).checked = true;
                 }
                 document.getElementById("d_occurWard").value = data.d_occurWard;
                 document.getElementById("d_occurWardWing").value = data.d_occurWardWing;
                 document.getElementById("d_occurBed").value = data.d_occurBed;
                 document.getElementById("siteOthersSpecify").value = data.siteOthersSpecify;
-    
+
                 if (data.e_notifyDoc != '' && data.e_notifyDoc != null) {
                     document.getElementById("e_notifyDoc").checked = true;
                 }
@@ -63,19 +63,19 @@ $(document).ready(function () {
                 if (data.e_notifyRelative != '' && data.e_notifyRelative != null) {
                     document.getElementById("e_notifyRelative").checked = true;
                 }
-                docTime = new Date (data.e_timeDoc);
+                docTime = new Date(data.e_timeDoc);
                 document.getElementById("doctorTime").value = docTime.toISOString().split('Z')[0];
                 document.getElementById("doctorName").value = data.e_nameDoc;
-                supTime = new Date (data.e_timeDoc);
+                supTime = new Date(data.e_timeDoc);
                 document.getElementById("supervisorTime").value = supTime.toISOString().split('Z')[0];
                 document.getElementById("supervisorName").value = data.e_nameSup;
-                polTime = new Date (data.e_timeDoc);
+                polTime = new Date(data.e_timeDoc);
                 document.getElementById("policeTime").value = polTime.toISOString().split('Z')[0];
                 document.getElementById("policeName").value = data.e_namePolice;
-                relTime = new Date (data.e_timeDoc);
+                relTime = new Date(data.e_timeDoc);
                 document.getElementById("relativeTime").value = relTime.toISOString().split('Z')[0];
                 document.getElementById("relativeName").value = data.e_nameRelative;
-    
+
                 if (data.f_occurType == "fall") {
                     document.getElementById("occurTypeFall").checked = true;
                     if (data.f_fall_nearFall != '' && data.f_fall_nearFall != null) {
@@ -91,7 +91,7 @@ $(document).ready(function () {
                             document.getElementById("near_fall_injury").checked = true;
                         }
                     }
-                    
+
                     injuries = data.f_fall_injury_type.split(", ");
                     // console.log(data.f_fall_injury_type);
                     // console.log(injuries);
@@ -129,7 +129,12 @@ $(document).ready(function () {
                 document.getElementById("g_action").value = data.g_action;
                 document.getElementById("g_recommend").value = data.g_recommend;
                 document.getElementById("g_description").value = data.g_description;
-                
+
+                document.getElementById("h_sp_factors").value = data.h_sp_factors;
+                document.getElementById("h_sp_recommend").value = data.h_sp_recommend;
+                if (data.h_sp_reportFile != null) {
+                    $(".uploaded_image").append(`<img src= "../images/uploaded/${data.h_sp_reportFile}">`);
+                }
                 // $("#h_sp_factors").val(data.h_sp_factors);
                 // $("#h_sp_recommend").val(data.h_sp_recommend);
 
@@ -141,13 +146,13 @@ $(document).ready(function () {
                 //     $("#j_ph_phase_" + data.j_ph_phase).prop('checked',true);
                 //     $("#j_ph_index_" + data.j_ph_index).prop('checked',true);
                 // }
-                
+
                 // $("#k_hod_comments").val(data.k_hod_comments);
 
                 // $("#l_hpo_comments").val(data.l_hpo_comments);
                 // $("#l_hpo_outcome_" + data.l_hpo_outcome).prop('checked',true);
             }
-    
+
         ).fail(
             function (err) {
                 console.log(err.responseText);
@@ -155,49 +160,49 @@ $(document).ready(function () {
         );
     }
 
-  });
-    
-    $("#submitBtn").click(function (e) {
-      e.preventDefault();
-      var h_sp_reportFile = $('#h_sp_reportFile').prop('files')[0];
-      var h_sp_factors = document.getElementById("h_sp_factors").value;
-      var h_sp_recommend = document.getElementById("h_sp_recommend").value;
-      var form_data = new FormData();
-      form_data.append('h_sp_factors',h_sp_factors);
-      form_data.append('h_sp_recommend',h_sp_recommend);
-      form_data.append('h_sp_reportFile',h_sp_reportFile);
-      //var h_sp_reportFile = $("input[name='h_sp_reportFile']").value;
-      // var date = document.getElementById("date").value;
-      // var time = document.getElementById("time").value; 
+    //   });
 
-      if (getId.has('id')) {
-        id = getId.get('id');
-      $.ajax({
-        method: "POST",
-        url: "/THKH/laravel/api/supervisor-add/" + id,
-        headers: {Authorization: 'Bearer ' + sessionStorage.getItem("jwt")},
-        data: form_data,
-        dataType: 'json',
-        // data: {
-        //   h_sp_factors: h_sp_factors,
-        //   h_sp_recommend: h_sp_recommend,
-        //   h_sp_reportFile: h_sp_reportFile,
-        // },
-        success: function (response) {
-         console.log(response);
-         $(".msg").append(response.msg);
-         $(".uploaded_image").append(response.uploaded_image);
-        },
-        cache: false,
-        contentType: false,
-        processData: false
-      });
-    }
+    $("#submitBtn").click(function (e) {
+        e.preventDefault();
+        var h_sp_reportFile = $('#h_sp_reportFile').prop('files')[0];
+        var h_sp_factors = document.getElementById("h_sp_factors").value;
+        var h_sp_recommend = document.getElementById("h_sp_recommend").value;
+        var form_data = new FormData();
+        form_data.append('h_sp_factors', h_sp_factors);
+        form_data.append('h_sp_recommend', h_sp_recommend);
+        form_data.append('h_sp_reportFile', h_sp_reportFile);
+        //var h_sp_reportFile = $("input[name='h_sp_reportFile']").value;
+        // var date = document.getElementById("date").value;
+        // var time = document.getElementById("time").value; 
+
+        if (getId.has('id')) {
+            id = getId.get('id');
+            $.ajax({
+                method: "POST",
+                url: "/THKH/laravel/api/supervisor-add/" + id,
+                headers: { Authorization: 'Bearer ' + sessionStorage.getItem("jwt") },
+                data: form_data,
+                dataType: 'json',
+                // data: {
+                //   h_sp_factors: h_sp_factors,
+                //   h_sp_recommend: h_sp_recommend,
+                //   h_sp_reportFile: h_sp_reportFile,
+                // },
+                success: function (response) {
+                    console.log(response);
+                    $(".msg").append(response.msg);
+                    $(".uploaded_image").append(response.uploaded_image);
+                },
+                cache: false,
+                contentType: false,
+                processData: false
+            });
+        }
     });
 
     $("#returnBtn").click(function (e) {
         e.preventDefault();
-  
+
         // if (getId.has('id')) {
         //   id = getId.get('id');
         //     $.ajax({
@@ -221,6 +226,5 @@ $(document).ready(function () {
         //     processData: false
         //     });
         // }
-      });
-  });
-  
+    });
+});
