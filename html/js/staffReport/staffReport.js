@@ -144,11 +144,19 @@ $(document).ready(function () {
 
             b_diagnosis = document.getElementById("b_diagnosis").value;
 
-            c_affectedPerson = document.querySelector('input[name="c_affectedPerson"]:checked').value;
+            if (document.querySelector('input[name="c_affectedPerson"]:checked').value != null) {
+                c_affectedPerson = document.querySelector('input[name="c_affectedPerson"]:checked').value;
+            } else {
+                c_affectedPerson = null;
+            }
             c_affectedName = document.getElementById("c_affectedName").value;
             c_affectedNrie = document.getElementById("c_affectedNric").value;
             c_affectedAddress = document.getElementById("c_affectedAddress").value;
-            c_affectedGender = document.querySelector('input[name="c_affectedGender"]:checked').value;
+            if (document.querySelector('input[name="c_affectedGender"]:checked').value != null) {
+                c_affectedGender = document.querySelector('input[name="c_affectedGender"]:checked').value;
+            } else {
+                c_affectedGender = null;
+            }
             c_affectedContact = document.getElementById("c_affectedContact").value;
             c_affectedAge = document.getElementById("c_affectedAge").value;
             c_affectedAdmitDate = document.getElementById("c_affectedAdmitDate").value;
@@ -161,8 +169,17 @@ $(document).ready(function () {
             c_witnessName = document.getElementById("c_witnessName").value;
             c_witnessContact = document.getElementById("c_witnessContact").value;
 
-            d_locationOccur = document.querySelector('input[name="d_locationOccur"]:checked').value;
-            d_occurSite = document.querySelector('input[name="d_occurSite"]:checked').value;
+            if (document.querySelector('input[name="d_locationOccur"]:checked').value != null) {
+                d_locationOccur = document.querySelector('input[name="d_locationOccur"]:checked').value;
+            } else {
+                d_locationOccur = null;
+            }
+            if (document.querySelector('input[name="d_occurSite"]:checked').value != null) {
+                d_occurSite = document.querySelector('input[name="d_occurSite"]:checked').value;
+            } else {
+                d_occurSite = null;
+            }
+            
             d_occurWard = document.getElementById("d_occurWard").value;
             d_occurWardWing = document.getElementById("d_occurWardWing").value;
             d_occurBed = document.getElementById("d_occurBed").value;
@@ -221,7 +238,9 @@ $(document).ready(function () {
                 if (document.getElementById('fallNonInjury').checked || document.getElementById('nearFall').checked) {
                     f_fall_nearFall = document.querySelector('input[name="fallRelated"]:checked').value;
                 } else {
-                    f_fall_injury = document.querySelector('input[name="fallRelated"]:checked').value;
+                    if (document.querySelector('input[name="fallRelated"]:checked').value != null) {
+                        f_fall_injury = document.querySelector('input[name="fallRelated"]:checked').value;
+                    }
                 }
                 //f_fall_injury_type might not work, not sure if can get all the values from the checkbox
                 injuryOldArray = Array.from(document.querySelectorAll('input[name="typeOfInjury"]:checked'));
@@ -348,14 +367,14 @@ $(document).ready(function () {
                     g_action: g_action,
                     g_recommend: g_recommend,
                     g_description: g_description,
-                    // rs_submit_datetime: rs_submit_datetime,
-                    // rs_id: rs_id,
-                    // status_sup: status_sup,
-                    // sp_id: sp_id,
-                    // status_doc: status_doc,
-                    // dt_id: dt_id,
-                    // completion_status: completion_status,
-                    // created_at: created_at
+                    rs_submit_datetime: rs_submit_datetime,
+                    
+                    status_sup: status_sup,
+                    sp_id: sp_id,
+                    status_doc: status_doc,
+                    dt_id: dt_id,
+                    completion_status: completion_status,
+                    created_at: created_at
                 },
                 success: function (response) {
                     //console.log(response);
@@ -515,18 +534,29 @@ $(document).ready(function () {
         g_action = document.getElementById('g_action').value;
         g_recommend = document.getElementById('g_recommend').value;
         g_description = document.getElementById('g_description').value;
-        currentDate = new Date();
-        isoDate = currentDate.toISOString().substring(0, 10);
-        currentTime = currentDate.getHours() + ":" + currentDate.getMinutes() + ":" + currentDate.getSeconds();
-        save_date_rps = isoDate + " " + currentTime;
-        updated_at = isoDate + " " + currentTime;
+        
+        save_date_rps = null;
+        updated_at = null;
+        rs_submit_datetime = null;
+        status_sup = null;
+        sp_id = null;
+        status_doc = null;
+        dt_id = null;
+        
+        status_pha = null;
+        ph_id = null;
+        
+
+        // route_date_rps = "";
+        completion_status = null;
+        created_at = null;
         if (gethorNum.has('horNum')) {
             horNum = gethorNum.get('horNum');
 
             $.ajax({
                 method: "POST",
                 url: "/THKH/laravel/api/staff-save/" + horNum,
-                headers: { Authorization: 'Bearer ' + localStorage.getItem("jwt") },
+                headers: { Authorization: 'Bearer ' + sessionStorage.getItem("jwt") },
                 data: {
                     a_inccidentDate: a_inccidentDate,
                     a_inccidentTime: a_inccidentTime,
@@ -658,15 +688,14 @@ $(document).ready(function () {
                     g_action: g_action,
                     g_recommend: g_recommend,
                     g_description: g_description,
-                    horNum: "DHOR"
-                    // rs_submit_datetime: rs_submit_datetime,
-                    // rs_id: rs_id,
-                    // status_sup: status_sup,
-                    // sp_id: sp_id,
-                    // status_doc: status_doc,
-                    // dt_id: dt_id,
-                    // completion_status: completion_status,
-                    // created_at: created_at
+                    horNum: "DHOR",
+                    rs_submit_datetime: rs_submit_datetime,
+                    status_sup: status_sup,
+                    sp_id: sp_id,
+                    status_doc: status_doc,
+                    dt_id: dt_id,
+                    completion_status: completion_status,
+                    created_at: created_at
                 },
                 success: function (response) {
                     alert("Report saved");

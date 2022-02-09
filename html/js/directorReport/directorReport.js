@@ -174,7 +174,7 @@ $(document).ready(function () {
             horNum = gethorNum.get('horNum');
             $.ajax({
                 method: "POST",
-                url: "/THKH/laravel/api/director-add/" + horNum,
+                url: "/THKH/laravel/api/dms-add/" + horNum,
                 headers: { Authorization: 'Bearer ' + sessionStorage.getItem("jwt") },
                 data: form_data,
                 dataType: 'json',

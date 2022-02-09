@@ -155,7 +155,7 @@ class RoleController extends Controller
                 'g_recommend' => $request->g_recommend,
                 'g_description' => $request->g_description,
                 'rs_submit_datetime' => $request->rs_submit_datetime,
-                'rs_id' => $request->rs_id,
+                'rs_id' => JWTAuth::user()->staff_id,
                 'status_sup' => $request->status_sup,
                 'sp_id' => $request->sp_id,
                 'status_doc' => $request->status_doc,
@@ -523,7 +523,7 @@ class RoleController extends Controller
                 'hpo_submit_datetime' => $date,
                 'hpo_id' => JWTAuth::user()->staff_id,
                 'status_hpo' => 'routed',
-                'hpo_id' => $request->hpo_id,
+                'dms_id' => $request->dms_id,
                 'updated_at' => $date,
                 'route_date_hpo' => $date
             ]);
