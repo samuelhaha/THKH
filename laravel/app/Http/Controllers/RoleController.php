@@ -90,6 +90,8 @@ class RoleController extends Controller
             'sp_id',
             'status_doc',
             'dt_id',
+            'status_pha',
+            'ph_id',
             'completion_status',
             'created_at'
         );

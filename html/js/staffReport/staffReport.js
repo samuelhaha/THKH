@@ -373,6 +373,8 @@ $(document).ready(function () {
                     sp_id: sp_id,
                     status_doc: status_doc,
                     dt_id: dt_id,
+                    status_pha: status_pha,
+                    ph_id: ph_id,
                     completion_status: completion_status,
                     created_at: created_at
                 },
@@ -546,10 +548,12 @@ $(document).ready(function () {
         status_pha = null;
         ph_id = null;
         
-
+        currentDate = new Date();
+        isoDate = currentDate.toISOString().substring(0, 10);
+        currentTime = currentDate.getHours() + ":" + currentDate.getMinutes() + ":" + currentDate.getSeconds();
         // route_date_rps = "";
         completion_status = null;
-        created_at = null;
+        created_at = isoDate + " " + currentTime;
         if (gethorNum.has('horNum')) {
             horNum = gethorNum.get('horNum');
 
@@ -694,6 +698,8 @@ $(document).ready(function () {
                     sp_id: sp_id,
                     status_doc: status_doc,
                     dt_id: dt_id,
+                    status_pha: status_pha,
+                    ph_id: ph_id,
                     completion_status: completion_status,
                     created_at: created_at
                 },
